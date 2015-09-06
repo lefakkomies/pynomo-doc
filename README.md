@@ -1,7 +1,7 @@
 # pynomo-doc
 pynomo documentation source using Sphinx published in:
 
-## http://lefakkomies.github.io/pynomo-doc/index.html
+### http://lefakkomies.github.io/pynomo-doc/index.html
 
 **Under development**
 
