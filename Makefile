@@ -1,7 +1,8 @@
 gh-pages:
 	git checkout gh-pages
-	rm -rf doc
+	rm -rf *
 	git checkout master doc
+	touch .nojekyll
 	git reset HEAD
 	make -C doc html
 	mv -fv doc/build/html/* ./
