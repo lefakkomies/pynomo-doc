@@ -1,0 +1,112 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Installation}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}OSX Installation}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}Linux installation}{4}{section.1.2}
+\contentsline {section}{\numberline {1.3}Windows installation}{4}{section.1.3}
+\contentsline {section}{\numberline {1.4}Docker installation}{4}{section.1.4}
+\contentsline {chapter}{\numberline {2}Software documentation}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Basic blocks}{7}{section.2.1}
+\contentsline {section}{\numberline {2.2}Axes}{8}{section.2.2}
+\contentsline {section}{\numberline {2.3}Combination of blocks}{8}{section.2.3}
+\contentsline {section}{\numberline {2.4}Transformations}{8}{section.2.4}
+\contentsline {section}{\numberline {2.5}Manual}{8}{section.2.5}
+\contentsline {chapter}{\numberline {3}Axes}{9}{chapter.3}
+\contentsline {section}{\numberline {3.1}Common axis params}{9}{section.3.1}
+\contentsline {chapter}{\numberline {4}Main params}{13}{chapter.4}
+\contentsline {section}{\numberline {4.1}List of main params}{13}{section.4.1}
+\contentsline {chapter}{\numberline {5}Type reference}{15}{chapter.5}
+\contentsline {section}{\numberline {5.1}Type 1}{15}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Simple example}{15}{subsection.5.1.1}
+\contentsline {subsubsection}{Generated nomograph}{16}{subsubsection*.3}
+\contentsline {subsubsection}{Source code of simple example of type 1}{16}{subsubsection*.4}
+\contentsline {subsection}{\numberline {5.1.2}Parameters for type 1}{17}{subsection.5.1.2}
+\contentsline {subsubsection}{Axis parameters}{17}{subsubsection*.5}
+\contentsline {subsubsection}{Block parameters}{18}{subsubsection*.6}
+\contentsline {subsubsection}{General parameters}{18}{subsubsection*.7}
+\contentsline {section}{\numberline {5.2}Type 2}{18}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Simple example}{18}{subsection.5.2.1}
+\contentsline {subsubsection}{Generated nomograph}{19}{subsubsection*.8}
+\contentsline {subsubsection}{Source code of simple example of type 2}{19}{subsubsection*.9}
+\contentsline {subsection}{\numberline {5.2.2}Parameters for type 2}{20}{subsection.5.2.2}
+\contentsline {subsubsection}{Axis parameters}{20}{subsubsection*.10}
+\contentsline {subsubsection}{Block parameters}{21}{subsubsection*.11}
+\contentsline {subsubsection}{General parameters}{21}{subsubsection*.12}
+\contentsline {section}{\numberline {5.3}Type 3}{21}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Simple example}{21}{subsection.5.3.1}
+\contentsline {subsubsection}{Generated nomograph}{22}{subsubsection*.13}
+\contentsline {subsubsection}{Source code of simple example of type 2}{22}{subsubsection*.14}
+\contentsline {subsection}{\numberline {5.3.2}Parameters for type 3}{24}{subsection.5.3.2}
+\contentsline {subsubsection}{Axis parameters}{24}{subsubsection*.15}
+\contentsline {subsubsection}{Block parameters}{24}{subsubsection*.16}
+\contentsline {subsubsection}{General parameters}{24}{subsubsection*.17}
+\contentsline {section}{\numberline {5.4}Type 4}{24}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Simple example}{25}{subsection.5.4.1}
+\contentsline {subsubsection}{Generated nomograph}{25}{subsubsection*.18}
+\contentsline {subsubsection}{Source code of simple example of type 4}{25}{subsubsection*.19}
+\contentsline {subsection}{\numberline {5.4.2}Parameters for type 4}{27}{subsection.5.4.2}
+\contentsline {subsubsection}{Axis parameters}{27}{subsubsection*.20}
+\contentsline {subsubsection}{Block parameters}{27}{subsubsection*.21}
+\contentsline {subsubsection}{General parameters}{27}{subsubsection*.22}
+\contentsline {section}{\numberline {5.5}Type 5}{28}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Simple example}{28}{subsection.5.5.1}
+\contentsline {subsubsection}{Generated nomograph}{29}{subsubsection*.23}
+\contentsline {subsubsection}{Source code of simple example of type 5}{29}{subsubsection*.24}
+\contentsline {subsection}{\numberline {5.5.2}Parameters for type 5}{30}{subsection.5.5.2}
+\contentsline {subsubsection}{Axis parameters}{30}{subsubsection*.25}
+\contentsline {subsubsection}{Block parameters}{30}{subsubsection*.26}
+\contentsline {subsubsection}{General parameters}{34}{subsubsection*.27}
+\contentsline {section}{\numberline {5.6}Type 6}{34}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Simple example}{34}{subsection.5.6.1}
+\contentsline {subsubsection}{Generated nomograph}{35}{subsubsection*.28}
+\contentsline {subsubsection}{Source code of simple example of type6}{35}{subsubsection*.29}
+\contentsline {subsection}{\numberline {5.6.2}Parameters for type 6}{36}{subsection.5.6.2}
+\contentsline {subsubsection}{Axis parameters}{36}{subsubsection*.30}
+\contentsline {subsubsection}{Block parameters}{37}{subsubsection*.31}
+\contentsline {subsubsection}{General parameters}{37}{subsubsection*.32}
+\contentsline {section}{\numberline {5.7}Type 7}{37}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}Simple example}{37}{subsection.5.7.1}
+\contentsline {subsubsection}{Generated nomograph}{38}{subsubsection*.33}
+\contentsline {subsubsection}{Source code of simple example of type 2}{38}{subsubsection*.34}
+\contentsline {subsection}{\numberline {5.7.2}Parameters for type 7}{38}{subsection.5.7.2}
+\contentsline {subsubsection}{Axis parameters}{38}{subsubsection*.35}
+\contentsline {subsubsection}{Block parameters}{39}{subsubsection*.36}
+\contentsline {subsubsection}{General parameters}{39}{subsubsection*.37}
+\contentsline {section}{\numberline {5.8}Type 8}{39}{section.5.8}
+\contentsline {subsection}{\numberline {5.8.1}Simple example}{39}{subsection.5.8.1}
+\contentsline {subsubsection}{Generated nomograph}{40}{subsubsection*.38}
+\contentsline {subsubsection}{Source code of simple example of type 8}{40}{subsubsection*.39}
+\contentsline {subsection}{\numberline {5.8.2}Parameters for type 8}{41}{subsection.5.8.2}
+\contentsline {subsubsection}{Axis parameters}{41}{subsubsection*.40}
+\contentsline {subsubsection}{Block parameters}{41}{subsubsection*.41}
+\contentsline {subsubsection}{General parameters}{42}{subsubsection*.42}
+\contentsline {section}{\numberline {5.9}Type 9}{42}{section.5.9}
+\contentsline {subsection}{\numberline {5.9.1}Simple example}{42}{subsection.5.9.1}
+\contentsline {subsubsection}{Generated nomograph}{42}{subsubsection*.43}
+\contentsline {subsubsection}{Source code of simple example of type 9}{43}{subsubsection*.44}
+\contentsline {subsection}{\numberline {5.9.2}Parameters for type 9}{44}{subsection.5.9.2}
+\contentsline {subsubsection}{Axis parameters}{44}{subsubsection*.45}
+\contentsline {subsubsection}{Block parameters}{45}{subsubsection*.46}
+\contentsline {subsubsection}{General parameters}{45}{subsubsection*.47}
+\contentsline {section}{\numberline {5.10}Type 10}{45}{section.5.10}
+\contentsline {subsection}{\numberline {5.10.1}Simple example}{45}{subsection.5.10.1}
+\contentsline {subsubsection}{Generated nomograph}{46}{subsubsection*.48}
+\contentsline {subsubsection}{Source code of simple example of type 10}{46}{subsubsection*.49}
+\contentsline {subsection}{\numberline {5.10.2}Parameters for type 10}{47}{subsection.5.10.2}
+\contentsline {subsubsection}{Axis parameters}{47}{subsubsection*.50}
+\contentsline {subsubsection}{Block parameters}{48}{subsubsection*.51}
+\contentsline {subsubsection}{General parameters}{48}{subsubsection*.52}
+\contentsline {chapter}{\numberline {6}Examples}{49}{chapter.6}
+\contentsline {section}{\numberline {6.1}Example: Amortized loan calculator}{49}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Theory and background}{49}{subsection.6.1.1}
+\contentsline {subsubsection}{Right hand side of equation}{49}{subsubsection*.53}
+\contentsline {subsubsection}{Left hand side of equation}{50}{subsubsection*.54}
+\contentsline {subsubsection}{References}{51}{subsubsection*.55}
+\contentsline {subsection}{\numberline {6.1.2}Generated nomograph}{51}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Source code}{51}{subsection.6.1.3}
+\contentsline {section}{\numberline {6.2}Example Photography exposure}{53}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Theory and background}{53}{subsection.6.2.1}
+\contentsline {subsubsection}{Shadow lenght}{53}{subsubsection*.57}
+\contentsline {subsection}{\numberline {6.2.2}Construction of the nomograph}{54}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {6.2.3}Generated nomograph}{57}{subsection.6.2.3}
+\contentsline {subsection}{\numberline {6.2.4}Source code}{57}{subsection.6.2.4}
+\contentsline {chapter}{\numberline {7}Authors and license}{65}{chapter.7}
