@@ -180,7 +180,7 @@ pseudoxml:
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
 
 gh-pages:
-    cd ..
+	cd ..
 	git checkout gh-pages
 	rm -rf doc
 	git checkout master $(GH_PAGES_SOURCES)
