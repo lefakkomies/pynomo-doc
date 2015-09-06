@@ -1,5 +1,5 @@
 # pynomo-doc
-pynomo documentation source for Sphinx
+pynomo documentation source using Sphinx
 
 **Under development**
 
