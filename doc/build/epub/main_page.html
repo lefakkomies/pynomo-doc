@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Software documentation</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="types/type9.html" title="In general"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to leif_test’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">leif_test 0.99 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="software-documentation">
+<h1>Software documentation</h1>
+<p>Nomographs of PyNomo are
+constructed by writing a python script that defines the nomograph and
+calls class Nomographer to build the nomograph.</p>
+<p>Nomograph is constructed by defining axis parameters that are used to
+build a block. Many blocks are possibly aligned with each other and
+construct the nomograph.</p>
+<p>A simple example of pseudocode of typical PyNomo structure is the
+following:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span> <span class="c"># this loads the needed pynomo class</span>
+<span class="c"># define block 1</span>
+<span class="n">axis_params_1_for_block_1</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="n">axis_params_2_for_block_1</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="n">axis_params_3_for_block_1</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="n">block_1</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+
+<span class="c"># define block 2</span>
+<span class="n">axis_params_1_for_block_2</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="n">axis_params_2_for_block_2</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="n">axis_params_3_for_block_2</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="n">block_2</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+
+<span class="c"># define nomograph</span>
+<span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
+              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;filename_of_nomograph.pdf&#39;</span><span class="p">,</span>  <span class="c"># filename of output</span>
+              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_1</span><span class="p">,</span><span class="n">block_2</span><span class="p">],</span>        <span class="c"># the blocks make the nomograph</span>
+              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)],</span>    <span class="c"># these make (projective) transformations for the canves</span>
+              <span class="p">}</span>
+<span class="c"># create nomograph</span>
+<span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is to be noted that nomograph is defined as python dicts that
+constitute one dict that is passed to Nomographer class.</p>
+<div class="section" id="basic-blocks">
+<h2>Basic blocks</h2>
+<p>The following blocks are the core of PyNomo. These are used as easy
+building blocks for nomograph construction. If these do not suffice one
+can build as complex nomograph as one wishes by using determinants in
+<a class="reference external" href="type9">type 9</a>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="58%" />
+<col width="20%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference external" href="Type1">Type 1</a></td>
+<td><span class="math">\(F_1(u_1)+F_2(u_2)+F_3(u_3)=0 \,\)</span></td>
+<td>Three parallel lines</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="Type2">Type 2</a></td>
+<td><span class="math">\(F_1(u_1)=F_2(u_2) F_3(u_3) \,\)</span></td>
+<td>&#8220;N&#8221; or &#8220;Z&#8221;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="Type3">Type 3</a></td>
+<td><span class="math">\(F_1(u_1)+F_2(u_2)+\cdots+F_N(u_N)=0\)</span></td>
+<td>N parallel lines</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="Type4">Type 4</a></td>
+<td><span class="math">\(\frac{F_1(u_1)}{F_2(u_2)}=\frac{F_3(u_3)}{F_4(u_4)}\)</span></td>
+<td>&#8220;Proportion&#8221;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="Type5">Type 5</a></td>
+<td><span class="math">\(F_1(v) = F_2(x,u). \,\)</span></td>
+<td>&#8220;Contour&#8221;</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="Type6">Type 6</a></td>
+<td><span class="math">\(u=u \,\)</span></td>
+<td>&#8220;Ladder&#8221;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="Type7">Type 7</a></td>
+<td><span class="math">\(\frac{1}{F_1(u_1)}+\frac{1}{F_2(u_2)}=\frac{1}{F_3(u_3)} \,\)</span></td>
+<td>&#8220;Angle&#8221;</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="Type8">Type 8</a></td>
+<td><span class="math">\(y = {F(u)} \,\)</span></td>
+<td>&#8220;Single&#8221;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="Type9">Type 9</a></td>
+<td><span class="math">\(\begin{vmatrix}F_1(u_1[,v_1])&amp; G_1(u_1[,v_1]) &amp; H_1(u_1[,v_1])\\
+F_2(u_2[,v_2])&amp; G_2(u_2[,v_2]) &amp; H_2(u_2[,v_2]) \\
+F_3(u_3[,v_3])&amp; G_3(u_3[,v_3]) &amp; H_3(u_3[,v_3]) \end{vmatrix} = 0\)</span></td>
+<td>&#8220;General&#8221;</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="Type10">Type 10</a></td>
+<td><span class="math">\(F_1(u)+F_2(v)F_3(w)+F_4(w)=0 \,\)</span></td>
+<td>One curved line</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="axes">
+<h2>Axes</h2>
+<p>Defining axes and their appearance is major work in nomograph
+construction. Different possibilities are illustrated in <a class="reference external" href="examplesofaxesparameters">examples of
+axes parameters</a>.</p>
+</div>
+<div class="section" id="combination-of-blocks">
+<h2>Combination of blocks</h2>
+<p>If a nomograph consists of many equations that are aligned, a <a class="reference external" href="compoundnomograph">compound
+nomograph</a> is constructed.</p>
+</div>
+<div class="section" id="transformations">
+<h2>Transformations</h2>
+<p>Scales shall be <a class="reference external" href="transformations">transformed</a> in order to tune the
+appearance.</p>
+</div>
+<div class="section" id="manual">
+<h2>Manual</h2>
+<p>Article &#8216;&#8217;<a class="reference external" href="http://www.myreckonings.com/wordpress/">&#8220;Creating Nomograms with the PyNomo Software&#8221;&#8217;&#8217; by Ron
+Doerfler</a><span class="link-target"> [http://www.myreckonings.com/wordpress/]</span> is a detailed
+manual for using PyNomo.</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Leif Roschier.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

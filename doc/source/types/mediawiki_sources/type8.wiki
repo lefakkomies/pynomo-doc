@@ -1,0 +1,142 @@
+== In general ==
+Type 8 is single nomograph:
+
+<math> y = F(u) \,</math>
+
+or
+
+<math> x = F_x(u), \,</math>
+
+<math> y = F_y(u). \,</math>
+
+x and y are coordinates of canvas.
+In practice this is block for construction dual-scales to
+existing scales.
+
+== Simple example ==
+{{Infobox_nomogram1
+| name         = Simple example: Type 8
+| image =  [[Image:Ex type8 nomo 1.png|200px]]
+| file = [[Image:Ex type8 nomo 1.pdf]]
+}}
+==== Source code of simple example of type 1 ====
+<source lang=python>
+"""
+    ex_type8_nomo_1.py
+
+    Simple nomogram of type 8.
+
+    Copyright (C) 2007-2009  Leif Roschier
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+from pynomo.nomographer import *
+
+N_params_1={
+        'u_min':1.0,
+        'u_max':10.0,
+        'function':lambda u:u,
+        'title':'u',
+        'tick_levels':3,
+        'tick_text_levels':2,
+        'tick_side':'left',
+        }
+
+block_params={
+              'block_type':'type_8',
+              'f_params':N_params_1,
+              'width':5.0,
+              'height':10.0,
+              'isopleth_values':[[5]]
+                     }
+
+main_params={
+              'filename':'ex_type8_nomo_1.pdf',
+              'paper_height':10.0,
+              'paper_width':5.0,
+              'block_params':[block_params],
+              'transformations':[]
+              }
+
+Nomographer(main_params)
+
+
+
+</source>
+
+== Parameters for type 8 ==
+
+==== Axis parameters ====
+{{Infobox_test1
+| name = Specific axis parameters for type 8
+| Field1a = 'function'
+| Field1b = -
+| Field1c = Function in the equation
+
+| Field2a = 'u_min'
+| Field2b = -
+| Field2c = Minimum value of function variable
+
+| Field3a = 'u_max'
+| Field3b = -
+| Field3c = Maximum value of function variable
+
+| Field4a = 'function_x'
+| Field4b = -
+| Field4c = x-position in function. Must define 'function_y'.
+
+| Field5a = 'function_y'
+| Field5b = -
+| Field5c = y-position in function. Must define 'function_x'. Overrides 'function'.
+}}
+{{Axis_params}}
+
+==== Block parameters ====
+{{Infobox_test1
+| name = Specific block parameters for type 8
+| Field1a = 'block_type'
+| Field1b = 'type_8'
+| Field1c = This is type 8 block
+
+| Field2a = 'width'
+| Field2b = 10.0
+| Field2c = Block width (to be scaled)
+
+| Field3a = 'height'
+| Field3b = 10.0
+| Field3c = Block height (to be scaled)
+
+| Field4a = 'f_params'
+| Field4b = --
+| Field4c = Axis params for function f
+
+| Field5a = 'mirror_x'
+| Field5b = False
+| Field5c = If x-axis is mirrored
+
+| Field6a = 'mirror_y'
+| Field6b = False
+| Field6c = If y-axis is mirrored
+
+| Field7a = 'isopleth_values'
+| Field7b = [[]]
+| Field7c = List of list of isopleth values. Unknown values are given with strings, e.g. 'x'. An example:
+<source lang=python>
+'isopleth_values':[[0.8],['x']]
+</source>
+
+}}
+
+==== General main parameters  ====
+{{Infobox general params}}

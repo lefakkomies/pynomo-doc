@@ -1,0 +1,183 @@
+== In general ==
+Type 4 is proportion nomograph that have functional relationship:
+
+<math>\frac{F_1(u_1)}{F_2(u_2)}=\frac{F_3(u_3)}{F_4(u_4)} </math>
+
+Use of this nomograph is given by the following
+simple example.
+
+== Simple example ==
+{{Infobox_nomogram1
+| name         = Simple example: Type 4
+| image =  [[Image:Ex type4 nomo 1.png|600px]]
+| file = [http://nomography.org/wiki/images/6/66/Ex_type4_nomo_1.pdf Ex_type4_nomo_1.pdf]
+}}
+==== Source code of simple example of type 4 ====
+<source lang=python>
+"""
+    ex_type4_nomo_1.py
+
+    Simple nomogram of type 4: F1/F2=F3/F4
+
+    Copyright (C) 2007-2009  Leif Roschier
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+from pynomo.nomographer import *
+
+N_params_1={
+        'u_min':1.0,
+        'u_max':10.0,
+        'function':lambda u:u,
+        'title':r'$u_1$',
+        'tick_levels':3,
+        'tick_text_levels':1,
+        'tick_side':'left',
+                }
+N_params_2={
+        'u_min':1.0,
+        'u_max':10.0,
+        'function':lambda u:u,
+        'title':r'$u_2$',
+        'tick_levels':3,
+        'tick_text_levels':1,
+        'tick_side':'right',
+                }
+N_params_3={
+        'u_min':1.0,
+        'u_max':10.0,
+        'function':lambda u:u,
+        'title':r'$u_3$',
+        'tick_levels':3,
+        'tick_text_levels':1,
+        'tick_side':'right',
+        'title_draw_center':True,
+        'title_opposite_tick':False,
+                }
+N_params_4={
+        'u_min':1.0,
+        'u_max':10.0,
+        'function':lambda u:u,
+        'title':r'$u_4$',
+        'tick_levels':3,
+        'tick_text_levels':1,
+        'tick_side':'left',
+        'title_draw_center':True,
+        'title_opposite_tick':False,
+                }
+
+block_1_params={
+                'block_type':'type_4',
+                'f1_params':N_params_1,
+                'f2_params':N_params_2,
+                'f3_params':N_params_3,
+                'f4_params':N_params_4,
+                'isopleth_values':[[7,6,2,'x']],
+                             }
+
+main_params={
+              'filename':'ex_type4_nomo_1.pdf',
+              'paper_height':10.0,
+              'paper_width':10.0,
+              'block_params':[block_1_params],
+              'transformations':[('rotate',0.01),('scale paper',)],
+              'title_str':r'$u_1/u_2=u_3/u_4$',
+              'title_y':8.0,
+              }
+Nomographer(main_params)
+
+
+</source>
+
+== Parameters for type 4 ==
+
+==== Axis parameters ====
+{{Infobox_test1
+| name = Specific axis parameters for type 2
+| Field1a = 'function'
+| Field1b = -
+| Field1c = Function in the equation
+
+| Field2a = 'u_min'
+| Field2b = -
+| Field2c = Minimum value of function variable
+
+| Field3a = 'u_max'
+| Field3b = -
+| Field3c = Maximum value of function variable
+}}
+{{Axis_params}}
+
+==== Block parameters ====
+{{Infobox_test1
+| name = Specific block parameters for type 4
+| Field1a = 'block_type'
+| Field1b = 'type_4'
+| Field1c = This is type 4 block
+
+| Field2a = 'width'
+| Field2b = 10.0
+| Field2c = Block width (to be scaled)
+
+| Field3a = 'height'
+| Field3b = 10.0
+| Field3c = Block height (to be scaled)
+
+| Field4a = 'f1_params'
+| Field4b = --
+| Field4c = Axis params for function f1
+
+| Field5a = 'f2_params'
+| Field5b = --
+| Field5c = Axis params for function f2
+
+| Field6a = 'f3_params'
+| Field6b = --
+| Field6c = Axis params for function f3
+
+| Field7a = 'f4_params'
+| Field7b = --
+| Field7c = Axis params for function f4
+
+| Field8a = 'mirror_x'
+| Field8b = False
+| Field8c = If x-axis is mirrored
+
+| Field9a = 'mirror_y'
+| Field9b = False
+| Field9c = If y-axis is mirrored
+
+| Field10a = 'float_axis'
+| Field10b = 'F1 or F2'
+| Field10c = If given 'F1 or F2', then scaling is according to them, otherwise according to F3 and F4.
+
+| Field11a = 'padding'
+| Field11b = 0.9
+| Field11c = how much axis extend w.r.t. width/height
+
+| Field12a = 'reference_color'
+| Field12b = color.rgb.black
+| Field12c = Color of reference line
+
+| Field13a = 'isopleth_values'
+| Field13b = [[]]
+| Field13c = List of list of isopleth values. Unknown values are given with strings, e.g. 'x'. An example:
+<source lang=python>
+'isopleth_values':[[0.8,'x',0.7,0.5],[0.7,0.8,'x',0.3]]
+</source>
+
+}}
+
+==== General main parameters  ====
+{{Infobox general params}}

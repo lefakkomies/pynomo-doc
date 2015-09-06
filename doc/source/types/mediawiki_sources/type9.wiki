@@ -1,0 +1,297 @@
+== In general ==
+Type 9 is "general determinant" nomograph that has functional relationship:
+
+<math> \begin{vmatrix}
+  F_1(u_1[,v_1])      & G_1(u_1[,v_1]) & H_1(u_1[,v_1])      \\
+  F_2(u_2[,v_2])      & G_2(u_2[,v_2]) & H_2(u_2[,v_2]) \\
+  F_3(u_3[,v_3])      & G_3(u_3[,v_3]) & H_3(u_3[,v_3])
+\end{vmatrix} = 0.</math>
+
+This is the basic building block for line nomographs. Notation
+<math>u[,v]\,</math> is to be understood such that if v is defined´,
+a grid is constructed for the row, otherwise a normal scale with variable u.
+
+== Simple example ==
+This simple example plots nomograph for equation in determinant form:
+
+<math> \begin{vmatrix}
+  0      & u_1 & 1      \\
+  u_2+2      & 2v_2+5 & 1 \\
+  4      & u_3 & 1
+\end{vmatrix} = 0</math>
+
+
+{{Infobox_nomogram1
+| name         = Simple example: Type 9
+| image =  [[Image:Ex type9 nomo 1.png|600px]]
+| file = [[Image:Ex type9 nomo 1.pdf]]
+}}
+==== Source code of simple example of type 9 ====
+<source lang=python>
+"""
+    ex_type9_nomo_1.py
+
+    Simple nomogram of type 9: determinant
+
+    Copyright (C) 2007-2009  Leif Roschier
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+from pynomo.nomographer import *
+
+N_params_1={
+            'u_min':3.0,
+            'u_max':10.0,
+            'f':lambda u:0,
+            'g':lambda u:u,
+            'h':lambda u:1.0,
+            'title':r'$u_1$',
+            'scale_type':'linear',
+            'tick_levels':3,
+            'tick_text_levels':2,
+            'grid':False}
+
+N_params_2={
+        'u_min':0.0, # for alignment
+        'u_max':1.0,  # for alignment
+        'f_grid':lambda u,v:u+2.0,
+        'g_grid':lambda u,v:2*v+5.0,
+        'h_grid':lambda u,v:1.0,
+        'u_start':0.0,
+        'u_stop':1.0,
+        'v_start':0.0,
+        'v_stop':1.0,
+        'u_values':[0.0,0.25,0.5,0.75,1.0],
+        'v_values':[0.0,0.25,0.5,0.75,1.0],
+        'grid':True,
+        'text_prefix_u':r'$u_2$=',
+        'text_prefix_v':r'$v_2$=',
+        }
+
+N_params_3={
+            'u_min':3.0,
+            'u_max':10.0,
+            'f':lambda u:4.0,
+            'g':lambda u:u,
+            'h':lambda u:1.0,
+            'title':r'$u_3$',
+            'scale_type':'linear',
+            'tick_levels':3,
+            'tick_text_levels':2,
+            'grid':False
+            }
+
+block_params={
+             'block_type':'type_9',
+             'f1_params':N_params_1,
+             'f2_params':N_params_2,
+             'f3_params':N_params_3,
+             'transform_ini':False,
+             'isopleth_values':[[7,[0.75,0.5],'x']]
+             }
+
+main_params={
+              'filename':'ex_type9_nomo_1.pdf',
+              'paper_height':10.0,
+              'paper_width':10.0,
+              'block_params':[block_params],
+              'transformations':[('rotate',0.01),('scale paper',)]
+              }
+Nomographer(main_params)
+
+</source>
+
+== Parameters for type 9 ==
+
+==== Axis parameters ====
+For grid parameters, see below.
+{{Infobox_test1
+| name = Specific axis parameters for type 9
+| Field1a = 'f'
+| Field1b = -
+| Field1c = F function in determinant
+
+| Field2a = 'g'
+| Field2b = -
+| Field2c = G function in determinant
+
+| Field3a = 'h'
+| Field3b = -
+| Field3c = H function in determinant
+
+| Field4a = 'u_min'
+| Field4b = -
+| Field4c = Minimum value of function variable
+
+| Field5a = 'u_max'
+| Field5b = -
+| Field5c = Maximum value of function variable
+
+| Field6a = 'u_min_trafo'
+| Field6b = -
+| Field6c = Minimum value of function variable for initial transformation
+
+| Field7a = 'u_max_trafo'
+| Field7b = -
+| Field7c = Maximum value of function variable for initial transformation
+}}
+{{Axis_params}}
+
+==== Grid parameters ====
+{{Infobox_test1
+| name = Specific axis parameters for type 9
+
+| Field1a = 'grid'
+| Field1b = -
+| Field1c = True. Have to be true because this is grid
+
+| Field2a = 'f'
+| Field2b = -
+| Field2c = F function in determinant. For example lambda u,v:u+v
+
+| Field3a = 'g'
+| Field3b = -
+| Field3c = G function in determinant. For example lambda u,v:u+v
+
+| Field4a = 'h'
+| Field4b = -
+| Field4c = H function in determinant. For example lambda u,v:u+v
+
+| Field5a = 'u_start'
+| Field5b = --
+| Field5c = u start when drawing v=const line
+
+| Field6a = 'u_stop'
+| Field6b = --
+| Field6c = u stop when drawing v=const line
+
+| Field7a = 'v_start'
+| Field7b = --
+| Field7c = v start when drawing u=const line
+
+| Field8a = 'v_stop'
+| Field8b = --
+| Field8c = v start when drawing u=const line
+
+| Field9a = 'u_values'
+| Field9b = --
+| Field9c = List of grid lines u=const. For example [0.0,0.25,0.5,0.75,1.0]
+
+| Field10a = 'v_values'
+| Field10b = --
+| Field10c = List of grid lines v=const. For example [0.0,0.25,0.5,0.75,1.0]
+
+| Field11a = 'text_prefix_u'
+| Field11b = --
+| Field11c = Text prefix for u before value
+
+| Field12a = 'text_prefix_v'
+| Field12b = --
+| Field12c = Text prefix for v before value
+
+| Field13a = 'v_texts_u_start'
+| Field13b = False
+| Field13c = If v-texts are in u start side
+
+| Field14a = 'v_texts_u_stop'
+| Field14b = True
+| Field14c = If v-texts are in u stop side
+
+| Field15a = 'u_texts_v_start'
+| Field15b = False
+| Field15c = If u-texts are in v start side
+
+| Field16a = 'u_texts_v_stop'
+| Field16b = True
+| Field16c = If u-texts are in v stop side
+
+| Field17a = 'u_line_color'
+| Field17b = color.rgb.black
+| Field17c = u line color
+
+| Field18a = 'v_line_color'
+| Field18b = color.rgb.black
+| Field18c = v line color
+
+| Field19a = 'u_text_color'
+| Field19b = color.rgb.black
+| Field19c = u text color
+
+| Field20a = 'v_text_color'
+| Field20b = color.rgb.black
+| Field20c = v text color
+
+| Field21a = 'text_distance'
+| Field21b = 0.25
+| Field21c = Text distance
+
+| Field22a = 'circles'
+| Field22b = False
+| Field22c = If marker circles to crossings
+
+| Field23a = 'extra_params'
+| Field23b = --
+| Field23c = List of params to be drawn.
+}}
+
+==== Block parameters ====
+{{Infobox_test1
+| name = Specific block parameters for type 9
+| Field1a = 'block_type'
+| Field1b = 'type_9'
+| Field1c = This is type 9 block
+
+| Field2a = 'width'
+| Field2b = 10.0
+| Field2c = Block width (to be scaled)
+
+| Field3a = 'height'
+| Field3b = 10.0
+| Field3c = Block height (to be scaled)
+
+| Field4a = 'f1_params'
+| Field4b = --
+| Field4c = Axis params for function f1
+
+| Field5a = 'f2_params'
+| Field5b = --
+| Field5c = Axis params for function f2
+
+| Field6a = 'f3_params'
+| Field6b = --
+| Field6c = Axis params for function f3
+
+| Field7a = 'mirror_x'
+| Field7b = False
+| Field7c = If x-axis is mirrored
+
+| Field8a = 'mirror_y'
+| Field8b = False
+| Field8c = If y-axis is mirrored
+
+| Field9a = 'transform_ini'
+| Field9b = False
+| Field9c = If row 1 and row 3 end and start are to be transformed to be in rectangle corners. If True, be sure that 'u_min_trafo' and 'u_max_trafo' are defined.
+
+| Field10a = 'isopleth_values'
+| Field10b = [[]]
+| Field10c = List of list of isopleth values. Grid values are given with tuple (a,b) and are not solved. Unknown values are given with strings, e.g. 'x'. An example:
+<source lang=python>
+'isopleth_values':[[0.8,(0.1,0.2),'x'],['x',(0.1,0.2),1.0]]
+</source>
+
+}}
+
+==== General main parameters  ====
+{{Infobox general params}}

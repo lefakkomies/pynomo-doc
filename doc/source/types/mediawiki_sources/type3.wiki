@@ -1,0 +1,180 @@
+== In general ==
+Type 3 has N parallel lines that have functional relationship:
+
+<math>F_1(u_1)+F_2(u_2)+\cdots+F_N(u_N)=0 </math>
+
+== Simple example ==
+{{Infobox_nomogram1
+| name         = Simple example: Type 3
+| image =  [[Image:Ex type3 nomo 1.png|800px]]
+| file = [http://nomography.org/wiki/images/a/a6/Ex_type3_nomo_1.pdf Ex_type3_nomo_1.pdf]
+}}
+==== Source code of simple example of type 3 ====
+<source lang=python>
+"""
+    ex_type3_nomo_1.py
+
+    Simple nomogram of type 3: F1+F2+...+FN=0
+
+    This example has N=6: F1+F2+F3+F4+F5+F6=0
+
+    Copyright (C) 2007-2009  Leif Roschier
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+from pynomo.nomographer import *
+
+N_params_1={
+        'u_min':0.0,
+        'u_max':10.0,
+        'function':lambda u:u,
+        'title':r'$u_1$',
+        'tick_levels':2,
+        'tick_text_levels':1,
+                }
+N_params_2={
+        'u_min':0.0,
+        'u_max':10.0,
+        'function':lambda u:u,
+        'title':r'$u_2$',
+        'tick_levels':2,
+        'tick_text_levels':1,
+                }
+N_params_3={
+        'u_min':0.0,
+        'u_max':10.0,
+        'function':lambda u:u,
+        'title':r'$u_3$',
+        'tick_levels':2,
+        'tick_text_levels':1,
+                }
+N_params_4={
+        'u_min':0.0,
+        'u_max':10.0,
+        'function':lambda u:u,
+        'title':r'$u_4$',
+        'tick_levels':2,
+        'tick_text_levels':1,
+                }
+N_params_5={
+        'u_min':0.0,
+        'u_max':10.0,
+        'function':lambda u:u,
+        'title':r'$u_5$',
+        'tick_levels':2,
+        'tick_text_levels':1,
+                }
+N_params_6={
+        'u_min':-20.0,
+        'u_max':0.0,
+        'function':lambda u:u,
+        'title':r'$u_6$',
+        'tick_levels':2,
+        'tick_text_levels':1,
+        'tick_side':'right',
+                }
+
+block_1_params={
+             'block_type':'type_3',
+             'width':10.0,
+             'height':10.0,
+             'f_params':[N_params_1,N_params_2,N_params_3,
+                         N_params_4,N_params_5,N_params_6],
+             'isopleth_values':[[3,2,1,0,3,'x']],
+             }
+
+main_params={
+              'filename':'ex_type3_nomo_1.pdf',
+              'paper_height':20.0,
+              'paper_width':20.0,
+              'block_params':[block_1_params],
+              'transformations':[('rotate',0.01),('scale paper',)],
+              'title_str':r'$u_1+u_2+u_3+u_4+u_5+u_6=0$',
+              'title_y':21.0,
+              }
+Nomographer(main_params)
+
+
+</source>
+
+== Parameters for type 3 ==
+
+
+
+==== Axis parameters ====
+{{Infobox_test1
+| name = Specific axis parameters for type 3
+| Field1a = 'function'
+| Field1b = -
+| Field1c = Function in the equation
+
+| Field2a = 'u_min'
+| Field2b = -
+| Field2c = Minimum value of function variable
+
+| Field3a = 'u_max'
+| Field3b = -
+| Field3c = Maximum value of function variable
+}}
+{{Axis_params}}
+
+==== Block parameters ====
+{{Infobox_test1
+| name = Specific block parameters for type 3
+| Field1a = 'block_type'
+| Field1b = 'type_3'
+| Field1c = This is type 3 block
+
+| Field2a = 'width'
+| Field2b = 10.0
+| Field2c = Block width (to be scaled)
+
+| Field3a = 'height'
+| Field3b = 10.0
+| Field3c = Block height (to be scaled)
+
+| Field4a = 'f_params'
+| Field4b = --
+| Field4c = List of axis params.
+
+| Field7a = 'mirror_x'
+| Field7b = False
+| Field7c = If x-axis is mirrored
+
+| Field8a = 'mirror_y'
+| Field8b = False
+| Field8c = If y-axis is mirrored
+
+| Field9a = 'reference_padding'
+| Field9b = 0.2
+| Field9c = Additional length to reference axes
+
+| Field10a = 'reference_titles'
+| Field10b = []
+| Field10c = List of reference line titles. For example ['$R_1$','$R_2$','$R_3$'].
+
+| Field11a = 'reference_color'
+| Field11b = color.rgb.black
+| Field11c = Color of reference line.
+
+| Field12a = 'isopleth_values'
+| Field12b = [[]]
+| Field12c = List of list of isopleth values. Unknown values are given with strings, e.g. 'x'. An example:
+<source lang=python>
+'isopleth_values':[[0.8,'x',0.7,7.0,9.0],[0.7,0.8,'x',5.0,4.44]]
+</source>
+}}
+
+==== General main parameters  ====
+{{Infobox general params}}

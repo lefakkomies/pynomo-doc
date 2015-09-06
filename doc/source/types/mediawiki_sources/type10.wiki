@@ -1,0 +1,165 @@
+== In general ==
+Type 10 is nomograph that has one curved line. It has functional relationship:
+
+<math> F_1(u)+F_2(v)F_3(w)+F_4(w)=0 \,</math>
+
+== Simple example ==
+{{Infobox_nomogram1
+| name         = Simple example: Type 10
+| image =  [[Image:Ex type10 nomo 1.png|600px]]
+| file = [[Image:Ex type10 nomo 1.pdf]]
+}}
+==== Source code of simple example of type 10 ====
+<source lang=python>
+"""
+    ex_type10_nomo_1.py
+
+    Simple nomogram of type 7: F1(u)+F2(v)*F3(w)+F4(w)=0
+    This example plots: u+v*w+w=0
+
+    Copyright (C) 2007-2009  Leif Roschier
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+from pynomo.nomographer import *
+
+N_params_1={
+        'u_min':-10.0,
+        'u_max':10.0,
+        'function':lambda u:u,
+        'title':r'$u$',
+        'tick_levels':3,
+        'tick_text_levels':2,
+                }
+
+N_params_2={
+        'u_min':-10.0,
+        'u_max':10.0,
+        'function':lambda u:u,
+        'title':r'$v$',
+        'tick_levels':3,
+        'tick_text_levels':2,
+        'tick_side':'left',
+                }
+
+N_params_3={
+        'u_min':0.3,
+        'u_max':4.0,
+        'function_3':lambda u:u,
+        'function_4':lambda u:u,
+        'title':r'$w$',
+        'tick_levels':4,
+        'tick_text_levels':3,
+        'scale_type':'linear smart',
+        'title_draw_center':True,
+                }
+
+block_1_params={
+             'block_type':'type_10',
+             'width':10.0,
+             'height':10.0,
+             'f1_params':N_params_1,
+             'f2_params':N_params_2,
+             'f3_params':N_params_3,
+             'isopleth_values':[[6,-4,'x']]
+             }
+
+main_params={
+              'filename':'ex_type10_nomo_1.pdf',
+              'paper_height':10.0,
+              'paper_width':10.0,
+              'block_params':[block_1_params],
+              'transformations':[('rotate',0.01),('scale paper',)],
+              'title_str':r'$u+vw+w=0$'
+              }
+Nomographer(main_params)
+
+
+</source>
+
+== Parameters for type 1 ==
+
+
+
+==== Axis parameters ====
+{{Infobox_test1
+| name = Specific axis parameters for type 10
+| Field1a = 'function'
+| Field1b = -
+| Field1c = Function in the equation for F1 and F2
+
+| Field2a = 'function_3'
+| Field2b = -
+| Field2c = Function in the equation for F3
+
+| Field3a = 'function_4'
+| Field3b = -
+| Field3c = Function in the equation for F4
+
+| Field4a = 'u_min'
+| Field4b = -
+| Field4c = Minimum value of function variable
+
+| Field5a = 'u_max'
+| Field5b = -
+| Field5c = Maximum value of function variable
+}}
+{{Axis_params}}
+
+==== Block parameters ====
+{{Infobox_test1
+| name = Specific block parameters for type 10
+| Field1a = 'block_type'
+| Field1b = 'type_10'
+| Field1c = This is type 10 block
+
+| Field2a = 'width'
+| Field2b = 10.0
+| Field2c = Block width (to be scaled)
+
+| Field3a = 'height'
+| Field3b = 10.0
+| Field3c = Block height (to be scaled)
+
+| Field4a = 'f1_params'
+| Field4b = --
+| Field4c = Axis params for function f1
+
+| Field5a = 'f2_params'
+| Field5b = --
+| Field5c = Axis params for function f2
+
+| Field6a = 'f3_params'
+| Field6b = --
+| Field6c = Axis params for function f3
+
+| Field7a = 'mirror_x'
+| Field7b = False
+| Field7c = If x-axis is mirrored
+
+| Field8a = 'mirror_y'
+| Field8b = False
+| Field8c = If y-axis is mirrored
+
+| Field9a = 'isopleth_values'
+| Field9b = [[]]
+| Field9c = List of list of isopleth values. Unknown values are given with strings, e.g. 'x'. An example:
+<source lang=python>
+'isopleth_values':[[0.8,'x',0.7],[0.7,0.8,'x']]
+</source>
+
+}}
+
+==== General main parameters  ====
+{{Infobox general params}}

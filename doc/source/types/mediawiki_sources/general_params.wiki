@@ -1,0 +1,121 @@
+{{Infobox_test1
+| name = General main parameters
+| Field1a = 'filename'
+| Field1b = --
+| Field1c = filename of generated pdf
+
+| Field2a = 'paper_height'
+| Field2b = 10.0
+| Field2c = Height of paper (roughly, ticks and texts extend this)
+
+| Field3a = 'paper_width'
+| Field3b = 10.0
+| Field3c = Width of paper (roughly, ticks and texts extend this)
+
+| Field4a = 'block_params'
+| Field4b = --
+| Field4c = List of blocks that make the nomograph
+
+| Field5a = 'transformations'
+| Field5b = --
+| Field5c = List of transformations to transform nomograph
+
+| Field6a = 'title_str'
+| Field6b = --
+| Field6c = Title string of nomograph
+
+| Field7a = 'title_x'
+| Field7b = --
+| Field7c = Title x-position
+
+| Field8a = 'title_y'
+| Field8b = --
+| Field8c = Title y-position
+
+| Field9a = 'title_box_width'
+| Field9b = --
+| Field9c = Title box width
+
+| Field10a = 'title_color'
+| Field10b = color.rgb.black
+| Field10c = Title color
+
+| Field11a = 'make_grid'
+| Field11b = False
+| Field11c = If True, draws grid to help position texts, etc.
+
+| Field12a = 'draw_lines'
+| Field12b = False
+| Field12c = If True, draws (brute-force) lines according to 'line_params'
+
+| Field13a = 'line_params'
+| Field13b = []
+| Field13c = OBSOLETE, USE ISOPLETHS. List of dics of (brute-force) lines. For example:
+<source lang=python>
+[{'coords':[[0,0,1,1],[2,2,3,3]],
+ 'line_style':[color.cmyk.Black,
+               style.linewidth.thick,
+               style.linestyle.dashed],
+ 'circle_size':0.0005,
+ 'circle_color':color.cmyk.Black,
+}]
+</source>
+
+| Field14a = 'pre_func'
+| Field14b = None
+| Field14c = PyX function(canvas) to draw under nomograph. Function definitin could be:
+<source lang=python>
+def post(c):
+    c.stroke(path.line(2, 2, 15, 2) +
+         path.line(15, 2, 10, 15) +
+         path.line(15, 15, 2, 15) +
+         path.line(2, 15, 2, 2))
+</source>
+
+| Field15a = 'post_func'
+| Field15b = None
+| Field15c = PyX function(canvas) to draw over nomograph. Definiton same as for 'pre_func'.
+
+| Field16a = 'debug'
+| Field16b = False
+| Field16c = If True, prints dicts of definions. Feature in PyNomo 0.2.1: not all default values are printed.
+
+| Field17a = 'extra_texts'
+| Field17b = []
+| Field17c = List of dicts defining extra texts. Could be for example:
+<source lang=python>
+[{'x':1.0,
+  'y':1.0,
+  'text':'testing',
+  'width':5,
+  'pyx_extra_defs':[color.rgb.red,text.size.Huge]
+ },
+ {'x':1.0,
+  'y':2.0,
+  'text':'testing',
+  'width':5,
+  'pyx_extra_defs':[color.rgb.green]
+ },
+ {'x':1.0,
+  'y':3.0,
+  'text':r"line \par break",
+  'width':5,
+  'pyx_extra_defs':[color.rgb.blue,text.size.tiny]
+ }]
+</source>
+
+| Field18a = 'isopleth_params'
+| Field18b = [{}]
+| Field18c = List of dicts defining isopleths. Could be for example:
+<source lang=python>
+[{'color':'MidnightBlue',
+  'linewidth':'THICK',
+  'linestyle':'dashdotted',
+  'transparency':0.2},
+  {'color':'Orange',
+   'linewidth':'THIN',
+   'linestyle':'dashdotted',
+   'transparency':0.9}]
+</source>
+
+}}

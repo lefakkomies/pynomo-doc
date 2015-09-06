@@ -1,0 +1,343 @@
+== In general ==
+Type 5 is contour block that has functional relationship:
+
+<math>F_1(u) = F_2(x,v). \,</math>
+
+This type of block is used commonly in nomographs that have an equation in form
+
+<math>f_a(a_1,a_2,a_3,...) = f_b(u,v) \,</math>
+
+and <math> f_b(u,v) \,</math> cannot be represented as line-nomograph.
+Typically equation above is written as pair of equations:
+
+<math>f_a(a_1,a_2,a_3,...) = x \,</math>
+
+and
+
+<math> f_b(u,v) = x. \,</math>
+
+This equation is written in form
+
+<math>F_1(u) = F_2(x,v). \,</math>
+
+in order to construct this contour block. In reality block consists of horizontal lines:
+
+<math>F_1(u) = y \,</math>
+
+and contour lines
+
+<math>F_2(x,v) = y, \,</math>
+
+where x and y are the coordinates of canvas. Coordinate x is reference with name wd in block parameters and it holds
+
+<math>x = f_{wd}(wd). \,</math>
+
+== Simple example ==
+In the following example
+
+<math> F_1(u)=u \, </math>
+
+and
+
+<math> F_2(wd,v)=wd+v. \, </math>
+
+Thus the original equation is
+
+<math> wd=u-v. \, </math>
+
+{{Infobox_nomogram1
+| name         = Simple example: Type 5
+| image =  [[Image:Ex type5 nomo 1.png|600px]]
+| file = [[Image:Ex_type5_nomo_1.pdf]]
+}}
+==== Source code of simple example of type 5 ====
+<source lang=python>
+"""
+    ex_type5_nomo_1.py
+
+    Simple nomogram of type 5.
+
+    In this example: wd = u-v
+
+    Copyright (C) 2007-2009  Leif Roschier
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+from pynomo.nomographer import *
+
+block_params={
+   'block_type':'type_5',
+   'u_func':lambda u:u,
+   'v_func':lambda x,v:x+v,
+   'u_values':[1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0],
+   'v_values':[1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0],
+   'wd_tick_levels':2,
+   'wd_tick_text_levels':1,
+   'wd_tick_side':'right',
+   'wd_title':'wd = u-v',
+   'u_title':'u',
+   'v_title':'v',
+   'wd_title_opposite_tick':True,
+   'wd_title_distance_center':2.5,
+   'isopleth_values':[[6.5,7,'x']],
+ }
+
+
+main_params={
+              'filename':'ex_type5_nomo_1.pdf',
+              'paper_height':10.0,
+              'paper_width':10.0,
+              'block_params':[block_params],
+              'transformations':[('rotate',0.01),('scale paper',)]
+              }
+
+Nomographer(main_params)
+
+</source>
+
+== Parameters for type 5 ==
+No specific axis parameters. Everything is defined in block.
+
+==== Block parameters ====
+{{Infobox_test1
+| name = Specific block parameters for type 5
+| Field1a = 'block_type'
+| Field1b = 'type_5'
+| Field1c = This is type 5 block
+
+| Field2a = 'width'
+| Field2b = 10.0
+| Field2c = Block width (to be scaled)
+
+| Field3a = 'height'
+| Field3b = 10.0
+| Field3c = Block height (to be scaled)
+
+| Field4a = 'mirror_x'
+| Field4b = False
+| Field4c = If x-axis is mirrored
+
+| Field5a = 'mirror_y'
+| Field5b = False
+| Field5c = If y-axis is mirrored
+
+| Field6a = 'u_func'
+| Field6b = --
+| Field6c = u function. For example lambda u:u
+
+| Field7a = 'v_func'
+| Field7b = --
+| Field7c = v function. For example lambda x,v:x+v
+
+| Field8a = 'wd_func'
+| Field8b = lambda x:x
+| Field8c = wd function for plotting wd.
+
+| Field9a = 'wd_func_inv'
+| Field9b = lambda x:x
+| Field9c = inverse of wd function for plotting wd.
+
+| Field10a = 'u_values'
+| Field10b = --
+| Field10c = List of plotted u values. For example [1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]
+
+| Field11a = 'u_title'
+| Field11b =
+| Field11c =
+
+| Field12a = 'scale_type_u'
+| Field12b = 'manual_line'
+| Field12c = Scale type. can be
+* 'linear': linear scale
+* 'log': logarithmic scale
+* 'manual point': Points and corresponding text positions are given manually in 'manual axis data'. No line is drawn.
+* 'manual line': Ticks and corresponding text positions are given manually in 'manual axis data'. Line is drawn.
+
+| Field13a = 'u_tick_side'
+| Field13b = --
+| Field13c = Tick and text side in final paper. Can be:
+* 'right'
+* 'left'
+
+| Field14a = 'u_tag'
+| Field14b = 'none'
+| Field14c = To align blocks w.r.t each other along axes with same tag
+
+| Field15a = 'u_reference'
+| Field15b = False
+| Field15c = If axis is treated as reference line that is a turning point.
+
+| Field16a = 'u_tick_levels'
+| Field16b = 0
+| Field16c = How many levels (minor, minor-minor, etc.) of ticks are drawn. Largest effect to 'linear' scale.
+
+| Field17a = 'u_tick_text_levels'
+| Field17b = 0
+| Field17c = How many levels (minor, minor-minor, etc.) of texts are drawn. Largest effect to 'linear' scale.
+
+| Field18a = 'u_title_opposite_tick'
+| Field18b = False
+| Field18c = Title in opposite direction w.r.t ticks
+
+| Field19a = 'u_title_distance_center'
+| Field19b = 1.5
+| Field19c = Distance of centered title from line if centered title
+
+| Field20a = 'u_title_draw_center'
+| Field20b = False
+| Field20c = Title is drawn to center of line
+
+| Field21a = 'v_values'
+| Field21b = --
+| Field21c = List of plotted v values. For example [1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]
+
+| Field22a = 'v_title'
+| Field22b = ''
+| Field22c = v axis title.
+
+| Field23a = 'v_tick_side'
+| Field23b = 'right'
+| Field23c = Tick and text side in final paper. Can be:
+* 'right'
+* 'left'
+
+| Field24a = 'v_tag'
+| Field24b = 'none'
+| Field24c = To align blocks w.r.t each other along axes with same tag
+
+| Field25a = 'v_reference'
+| Field25b = False
+| Field25c = If axis is treated as reference line that is a turning point.
+
+| Field26a = 'v_title_opposite_tick'
+| Field26b = False
+| Field26c = Title in opposite direction w.r.t ticks
+
+| Field27a = 'v_title_distance_center'
+| Field27b = 1.5
+| Field27c = Distance of centered title from line if centered title
+
+| Field28a = 'v_title_draw_center'
+| Field28b = True
+| Field28c = Title is drawn to center of line
+
+| Field29a = 'wd_title'
+| Field29b = --
+| Field29c = Axis title
+
+| Field30a = 'scale_type_wd'
+| Field30b = 'linear'
+| Field30c = Scale type. can be
+* 'linear': linear scale
+* 'log': logarithmic scale
+* 'manual point': Points and corresponding text positions are given manually in 'manual axis data'. No line is drawn.
+* 'manual line': Ticks and corresponding text positions are given manually in 'manual axis data'. Line is drawn.
+
+| Field31a = 'wd_tick_side'
+| Field31b = --
+| Field31c = Tick and text side in final paper. Can be:
+* 'right'
+* 'left'
+
+| Field32a = 'wd_tag'
+| Field32b = 'none'
+| Field32c = To align blocks w.r.t each other along axes with same tag
+
+| Field33a = 'wd_reference'
+| Field33b = False
+| Field33c = If axis is treated as reference line that is a turning point.
+
+| Field34a = 'wd_tick_levels'
+| Field34b = 0
+| Field34c = How many levels (minor, minor-minor, etc.) of ticks are drawn. Largest effect to 'linear' scale.
+
+| Field35a = 'wd_tick_text_levels'
+| Field35b = 0
+| Field35c = How many levels (minor, minor-minor, etc.) of texts are drawn. Largest effect to 'linear' scale.
+
+| Field36a = 'wd_title_opposite_tick'
+| Field36b = False
+| Field36c = Title in opposite direction w.r.t ticks
+
+| Field37a = 'wd_title_distance_center'
+| Field37b = 1.5
+| Field37c = Distance of centered title from line if centered title
+
+| Field38a = 'wd_title_draw_center'
+| Field38b = False
+| Field38c = Title is drawn to center of line
+
+| Field39a = 'u_text_format'
+| Field39b = r"$%3.2f$ "
+| Field39c = number format
+
+| Field40a = 'v_text_format'
+| Field40b = r"$%3.2f$ "
+| Field40c = number format
+
+| Field41a = 'u_align_func'
+| Field41b = lambda u:u
+| Field41c = for block alignment
+
+| Field42a = 'wd_align_func'
+| Field42b = lambda u:u
+| Field42c = for block alignment
+
+| Field43a = 'u_axis_color'
+| Field43b = color.rgb.black
+| Field43c = Color of u-scale
+
+| Field44a = 'u_text_color'
+| Field44b = color.rgb.black
+| Field44c = Color of u-scale texts
+
+| Field45a = 'u_title_color'
+| Field45b = color.rgb.black
+| Field45c = Color of u-scale title
+
+| Field46a = 'v_axis_color'
+| Field46b = color.rgb.black
+| Field46c = Color of v-scale
+
+| Field47a = 'v_text_color'
+| Field47b = color.rgb.black
+| Field47c = Color of v-scale texts
+
+| Field48a = 'v_title_color'
+| Field48b = color.rgb.black
+| Field48c = Color of v-scale title
+
+| Field49a = 'wd_axis_color'
+| Field49b = color.rgb.black
+| Field49c = Color of wd-scale
+
+| Field50a = 'wd_text_color'
+| Field50b = color.rgb.black
+| Field50c = Color of wd-scale texts
+
+| Field51a = 'wd_title_color'
+| Field51b = color.rgb.black
+| Field51c = Color of wd-scale title
+
+| Field52a = 'isopleth_values'
+| Field52b = [[]]
+| Field52c = List of list of isopleth values. Unknown values are given with strings, e.g. 'x'. An example:
+<source lang=python>
+'isopleth_values':[[0.8,'x',0.7],[0.7,0.8,'x']]
+</source>
+
+}}
+
+==== General main parameters  ====
+{{Infobox general params}}

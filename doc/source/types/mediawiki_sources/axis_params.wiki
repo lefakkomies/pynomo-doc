@@ -1,0 +1,170 @@
+{{Infobox_test1
+| name = Common axis parameters
+| Field1a = 'ID'
+| Field1b = 'none'
+| Field1c = To identify the axis
+
+| Field2a = 'tag'
+| Field2b = 'none'
+| Field2c = To align blocks w.r.t each other along axes with same tag
+
+| Field3a = 'title'
+| Field3b = <nowiki>''</nowiki>
+| Field3c = Axis title
+
+| Field4a = 'title_x_shift'
+| Field4b = 0.0
+| Field4c = Title shift in x-direction
+
+| Field5a = 'title_y_shift'
+| Field5b = 0.25
+| Field5c = Title shift in y-direction
+
+| Field6a = 'scale_type'
+| Field6b = 'linear'
+| Field6c = Scale type. can be
+* 'linear': linear scale
+* 'log': logarithmic scale
+* 'smart linear': linear scale with equal spacings
+* 'smart log': logarithmic scale with equal spacings, can also have negative values
+* 'manual point': Points and corresponding text positions are given manually in 'manual axis data'. No line is drawn.
+* 'manual line': Ticks and corresponding text positions are given manually in 'manual axis data'. Line is drawn.
+
+| Field7a = 'tick_levels'
+| Field7b = 4
+| Field7c = How many levels (minor, minor-minor, etc.) of ticks are drawn. Largest effect to 'linear' scale.
+
+| Field8a = 'tick_text_levels'
+| Field8b = 3
+| Field8c = How many levels (minor, minor-minor, etc.) of texts are drawn. Largest effect to 'linear' scale.
+
+
+| Field9a = 'tick_side'
+| Field9b = 'right'
+| Field9c = Tick and text side in final paper. Can be:
+* 'right'
+* 'left'
+
+| Field10a = 'reference'
+| Field10b = False
+| Field10c = If axis is treated as reference line that is a turning point.
+
+
+| Field11a = 'reference_padding'
+| Field11b = 0.2
+| Field11c = Fraction of reference line over other lines
+
+| Field12a = 'manual_axis_data'
+| Field12b = {}
+| Field12c = Manually set tick/point positions and text positions. Could be for example:
+<source lang=python>
+{1:'1',3.14:r'$\pi$',5:'5',7:'seven',10:'10'}
+</source>
+| Field13a = 'title_draw_center'
+| Field13b = False
+| Field13c = Title is drawn to center of line
+
+| Field14a = 'title_distance_center'
+| Field14b = 0.5
+| Field14c = Distance of centered title from line if centered title
+
+| Field15a = 'title_opposite_tick'
+| Field15b = True
+| Field15c = Title in opposite direction w.r.t ticks
+
+| Field16a = 'align_func'
+| Field16b = lambda u:u
+| Field16c = function to align different scalings
+
+
+| Field17a = 'align_x_offset'
+| Field17b = 0.0
+| Field17c = If axis is aligned with other axis, this value x offsets final scale
+
+| Field18a = 'align_y_offset'
+| Field18b = 0.0
+| Field18c = If axis is aligned with other axis, this value y offsets final scale
+
+| Field19a = 'text_format'
+| Field19b = r"$%4.4g$ "
+| Field19c = Format for numbers in scale.
+
+| Field20a = 'extra_params'
+| Field20b = --
+| Field20c = List of dictionary of params to be drawn additionally.
+
+| Field21a = 'text_distance_#'
+| Field21b = --
+| Field21c = where #=0,1,2,3 or 4. Distance of text from scale line. Number corresponds to the level, where 0 is the major tick and 4 is the most minor ticks.
+
+| Field22a = 'grid_length_#'
+| Field22b = --
+| Field22c = where #=0,1,2,3 or 4. Length of the tick. Number corresponds to the level, where 0 is the major tick and 4 is the most minor ticks.
+
+| Field23a = 'text_size_#'
+| Field23b = --
+| Field23c = where #=0,1,2,3 or 4. Text size. For example: text.size.small, text.size.scriptsize or text.size.tiny . Number corresponds to the level, where 0 is the major tick and 4 is the most minor ticks.
+
+| Field24a = 'text_size_log_#'
+| Field24b = --
+| Field24c = where #=0,1 or 2. Text size. For example: text.size.small, text.size.scriptsize or text.size.tiny . Number corresponds to the level, where 0 is the major tick and 2 is the most minor ticks.
+
+
+| Field25a = 'full_angle'
+| Field25b = False
+| Field25c = If true, text can be upside down, otherwise +- 90 degrees from horizontal. Good foor example for full circle scales.
+
+| Field26a = 'extra_angle'
+| Field26b = 0.0
+| Field26c = Angle to rotate tick text from horizontal along tick.
+
+| Field27a = 'text_horizontal_align_center'
+| Field27b = False
+| Field27c = Aligns tick text horizontally to center. Good when text rotated 90 degrees.
+
+| Field28a = 'turn_relative'
+| Field28b = False
+| Field28c = Side left or right is relative according to traveling of scale from min to max.
+
+| Field29a = 'arrow_size'
+| Field29b = 0.2
+| Field29c = Used with arrow scale.
+
+| Field30a = 'arrow_length'
+| Field30b = 1.0
+| Field30c = Used with arrow scale.
+
+| Field31a = 'arrow_color'
+| Field31b = color.rgb.black
+| Field31c = Used with arrow scale.
+
+| Field32a = 'axis_color'
+| Field32b = color.rgb.black
+| Field32c = Color of axis.
+
+| Field33a = 'text_color'
+| Field33b = color.rgb.black
+| Field33c = Color of tick texts.
+
+| Field34a = 'extra_titles'
+| Field34b = []
+| Field34c = List of extra title dicts for scale. Could be i.e.
+<source lang=python>
+[{'dx':1.0,
+ 'dy':1.0,
+ 'text':'extra title 1',
+ 'width':5,
+ 'pyx_extra_defs':[color.rgb.red,text.size.Huge]
+ },
+ {'text':'extra title 2'}
+]
+</source>
+| Field35a = 'base_start'
+| Field35b = None
+| Field35c = Defines number with 'base_stop' (instead of u_min or u_max) to find major tick decades.
+
+| Field36a = 'base_stop'
+| Field36b = None
+| Field36c = Defines number with 'base_start' (instead of u_min or u_max) to find major tick decades.
+
+}}

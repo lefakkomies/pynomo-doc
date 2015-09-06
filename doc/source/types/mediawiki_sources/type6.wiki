@@ -1,0 +1,172 @@
+== In general ==
+Type 6 is ladder nomograph:
+
+<math>u = u \,</math>
+
+In practice this means that if one axis has for example y-position as
+
+<math>y = f_1(u) \,</math>
+
+and it was desirable to have
+
+<math>y = f_2(u) \,</math>
+
+in order to connect blocks together, one uses ladder to make the transformation.
+
+Ladders are not beautiful and should be used only when no other solution exist.
+
+== Simple example ==
+{{Infobox_nomogram1
+| name         = Simple example: Type 6
+| image =  [[Image:Ex type6 nomo 1.png|400px]]
+| file = [[Image:Ex type6 nomo 1.pdf]]
+}}
+==== Source code of simple example of type 1 ====
+<source lang=python>
+"""
+    ex_type6_nomo_1.py
+
+    Simple nomogram of type 6.
+
+    Copyright (C) 2007-2009  Leif Roschier
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+from pynomo.nomographer import *
+
+N_params_1={
+        'u_min':1.0,
+        'u_max':10.0,
+        'function':lambda u:u**0.5,
+        'title':'u',
+        'tick_levels':3,
+        'tick_text_levels':2,
+        'tick_side':'left',
+        }
+
+N_params_2={
+        'u_min':1.0,
+        'u_max':10.0,
+        'function':lambda u:log(u),
+        'title':'u',
+        'tick_levels':3,
+        'tick_text_levels':2,
+        }
+
+block_params={
+              'block_type':'type_6',
+              'f1_params':N_params_1,
+              'f2_params':N_params_2,
+              'width':5.0,
+              'height':10.0,
+              'isopleth_values':[[2.2,'x']],
+              #'curve_const':0.01
+                     }
+
+main_params={
+              'filename':'ex_type6_nomo_1.pdf',
+              'paper_height':10.0,
+              'paper_width':5.0,
+              'block_params':[block_params],
+              'transformations':[('rotate',0.01),('scale paper',)]
+              }
+
+Nomographer(main_params)
+
+
+</source>
+
+== Parameters for type 6 ==
+
+==== Axis parameters ====
+{{Infobox_test1
+| name = Specific axis parameters for type 6
+| Field1a = 'function'
+| Field1b = -
+| Field1c = Function in the equation
+
+| Field2a = 'u_min'
+| Field2b = -
+| Field2c = Minimum value of function variable
+
+| Field3a = 'u_max'
+| Field3b = -
+| Field3c = Maximum value of function variable
+}}
+{{Axis_params}}
+
+==== Block parameters ====
+{{Infobox_test1
+| name = Specific block parameters for type 6
+| Field1a = 'block_type'
+| Field1b = 'type_6'
+| Field1c = This is type 6 block
+
+| Field2a = 'width'
+| Field2b = 10.0
+| Field2c = Block width (to be scaled)
+
+| Field3a = 'height'
+| Field3b = 10.0
+| Field3c = Block height (to be scaled)
+
+| Field4a = 'f1_params'
+| Field4b = --
+| Field4c = Axis params for function f1
+
+| Field5a = 'f2_params'
+| Field5b = --
+| Field5c = Axis params for function f2
+
+| Field6a = 'mirror_x'
+| Field6b = False
+| Field6c = If x-axis is mirrored
+
+| Field7a = 'mirror_y'
+| Field7b = False
+| Field7c = If y-axis is mirrored
+
+| Field8a = 'type'
+| Field8b = 'parallel'
+| Field8c = Orientation of axes can be
+*'parallel'
+*'orthogonal'
+
+| Field9a = 'x_empty'
+| Field9b = 0.2
+| Field9c = If orthogonal, how much fractional space before start of x-axis
+
+| Field10a = 'y_empty'
+| Field10b = 0.2
+| Field10c = If orthogonal, how much fractional space before start of y-axis
+
+| Field11a = 'curve_const'
+| Field11b = 0.0
+| Field11c = Sets the lenght of angle of Bezier curve. low value = straigh line, high value = curved line
+
+| Field12a = 'ladder_color'
+| Field12b = color.rgb.black
+| Field12c = Ladder color
+
+| Field13a = 'isopleth_values'
+| Field13b = [[]]
+| Field13c = List of list of isopleth values. Unknown values are given with strings, e.g. 'x'. An example:
+<source lang=python>
+'isopleth_values':[[0.8,'x'],['x',0.8]]
+</source>
+
+}}
+
+==== General main parameters  ====
+{{Infobox general params}}
