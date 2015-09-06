@@ -64,7 +64,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'pyNomo Documentation'
-copyright = u'2014, Leif Roschier'
+copyright = u'2015, Leif Roschier'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
