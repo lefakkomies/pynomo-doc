@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="pyNomo Documentation 0.3.0 documentation" href="../index.html" />
-    <link rel="next" title="Example: Amortized loan calculator" href="../examples/example_amortized_loan_calculator.html" />
+    <link rel="next" title="Examples" href="../examples/examples.html" />
     <link rel="prev" title="Main params" href="../main_params.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -69,12 +69,12 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main_page.html">Software documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../axes.html">Axes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main_params.html">Main params</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Type reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/example_amortized_loan_calculator.html">Example: Amortized loan calculator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/example_photography_exposure.html">Example Photography exposure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
 </ul>
 </ul>
 </li>
@@ -244,7 +244,7 @@
     </a>
   </li>
   <li>
-    <a href="../examples/example_amortized_loan_calculator.html" title="Next Chapter: Example: Amortized loan calculator"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Example: Amor... &raquo;</span>
+    <a href="../examples/examples.html" title="Next Chapter: Examples"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Examples &raquo;</span>
     </a>
   </li>
               
@@ -282,7 +282,7 @@
 <h1>Type reference<a class="headerlink" href="#type-reference" title="Permalink to this headline">¶</a></h1>
 <p>In the following is a reference for the types used in pyNomo.</p>
 <div class="section" id="type-1">
-<h2>Type 1<a class="headerlink" href="#type-1" title="Permalink to this headline">¶</a></h2>
+<span id="type1-ref"></span><h2>Type 1<a class="headerlink" href="#type-1" title="Permalink to this headline">¶</a></h2>
 <p>Type 1 is three parallel lines that have functional relationship:</p>
 <div class="math">
 \[F_1(u_1)+F_2(u_2)+F_3(u_3)=0\]</div>
@@ -807,7 +807,7 @@ simple example.</p>
 </div>
 </div>
 <div class="section" id="type-2">
-<h2>Type 2<a class="headerlink" href="#type-2" title="Permalink to this headline">¶</a></h2>
+<span id="type2-ref"></span><h2>Type 2<a class="headerlink" href="#type-2" title="Permalink to this headline">¶</a></h2>
 <p>Type 1 is &#8220;N&#8221; or &#8220;Z&#8221; nomograph that have functional relationship:</p>
 <div class="math">
 \[F_1(u_1) = F_2(u_2) F_3(u_3)\]</div>
@@ -1329,7 +1329,7 @@ simple example.</p>
 </div>
 </div>
 <div class="section" id="type-3">
-<h2>Type 3<a class="headerlink" href="#type-3" title="Permalink to this headline">¶</a></h2>
+<span id="type3-ref"></span><h2>Type 3<a class="headerlink" href="#type-3" title="Permalink to this headline">¶</a></h2>
 <p>Type 3 has N parallel lines that have functional relationship:</p>
 <div class="math">
 \[F_1(u_1) + F_2(u_2) + \cdots + F_N(u_N) = 0\]</div>
@@ -1897,7 +1897,7 @@ simple example.</p>
 </div>
 </div>
 <div class="section" id="type-4">
-<h2>Type 4<a class="headerlink" href="#type-4" title="Permalink to this headline">¶</a></h2>
+<span id="type4-ref"></span><h2>Type 4<a class="headerlink" href="#type-4" title="Permalink to this headline">¶</a></h2>
 <p>Type 4 is proportion nomograph that have functional relationship:</p>
 <div class="math">
 \[\frac{F_1(u_1)}{F_2(u_2)} = \frac{F_3(u_3)}{F_4(u_4)}\]</div>
@@ -2453,7 +2453,7 @@ simple example.</p>
 </div>
 </div>
 <div class="section" id="type-5">
-<h2>Type 5<a class="headerlink" href="#type-5" title="Permalink to this headline">¶</a></h2>
+<span id="type5-ref"></span><h2>Type 5<a class="headerlink" href="#type-5" title="Permalink to this headline">¶</a></h2>
 <p>Type 5 is graphing block that has functional relationship:</p>
 <div class="math">
 \[F_1(u) = F_2(x,v).\]</div>
@@ -3022,7 +3022,7 @@ Typically equation above is written as pair of equations:</p>
 </div>
 </div>
 <div class="section" id="type-6">
-<h2>Type 6<a class="headerlink" href="#type-6" title="Permalink to this headline">¶</a></h2>
+<span id="type6-ref"></span><h2>Type 6<a class="headerlink" href="#type-6" title="Permalink to this headline">¶</a></h2>
 <p>Type 6 is ladder nomograph:</p>
 <div class="math">
 \[u = u.\]</div>
@@ -3546,7 +3546,7 @@ Typically equation above is written as pair of equations:</p>
 </div>
 </div>
 <div class="section" id="type-7">
-<h2>Type 7<a class="headerlink" href="#type-7" title="Permalink to this headline">¶</a></h2>
+<span id="type7-ref"></span><h2>Type 7<a class="headerlink" href="#type-7" title="Permalink to this headline">¶</a></h2>
 <p>Type 7 is &#8220;angle&#8221; nomograph that has functional relationship:</p>
 <div class="math">
 \[\frac{1}{F_1(u_1)}+\frac{1}{F_2(u_2)}=\frac{1}{F_3(u_3)}\]</div>
@@ -3955,7 +3955,7 @@ Typically equation above is written as pair of equations:</p>
 </div>
 </div>
 <div class="section" id="type-8">
-<h2>Type 8<a class="headerlink" href="#type-8" title="Permalink to this headline">¶</a></h2>
+<span id="type8-ref"></span><h2>Type 8<a class="headerlink" href="#type-8" title="Permalink to this headline">¶</a></h2>
 <p>Type 8 is single nomograph:</p>
 <div class="math">
 \[y = F(u)\]</div>
@@ -4459,7 +4459,7 @@ existing scales.</p>
 </div>
 </div>
 <div class="section" id="type-9">
-<h2>Type 9<a class="headerlink" href="#type-9" title="Permalink to this headline">¶</a></h2>
+<span id="type9-ref"></span><h2>Type 9<a class="headerlink" href="#type-9" title="Permalink to this headline">¶</a></h2>
 <p>Type 9 is &#8220;general determinant&#8221; nomograph that has functional
 relationship:</p>
 <div class="math">
@@ -5092,7 +5092,7 @@ u_2+2      &amp; 2v_2+5 &amp; 1 \\
 </div>
 </div>
 <div class="section" id="type-10">
-<h2>Type 10<a class="headerlink" href="#type-10" title="Permalink to this headline">¶</a></h2>
+<span id="type10-ref"></span><h2>Type 10<a class="headerlink" href="#type-10" title="Permalink to this headline">¶</a></h2>
 <p>Type 10 is nomograph that has one curved line. It has functional relationship:</p>
 <div class="math">
 \[F_1(u)+F_2(v)F_3(w)+F_4(w)=0.\]</div>
