@@ -25,6 +25,6 @@ pyNomo documentation
 
 
 
-Authors and license
+License
 -------------------
 PyNomo is open source and free software licensed under the GNU GPL Version 3.
