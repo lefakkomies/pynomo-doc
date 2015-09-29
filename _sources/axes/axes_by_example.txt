@@ -1,5 +1,5 @@
 Axes by example
-===============
++++++++++++++++
 
 
 .. literalinclude:: ./codes/ex_axes_1.py
