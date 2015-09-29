@@ -24,7 +24,7 @@
         
 
 \title{PyNomo Documentation}
-\date{September 07, 2015}
+\date{September 29, 2015}
 \release{0.3.0}
 \author{Ron Doerfler, Leif Roschier}
 \newcommand{\sphinxlogo}{}
@@ -456,16 +456,555 @@ appearance.
 
 \section{Manual}
 \label{main_page:manual}
-Article `'\href{http://www.myreckonings.com/wordpress/}{``Creating Nomograms with the PyNomo Software'''' by Ron
+Article `'\href{http://www.myreckonings.com/pynomo/CreatingNomogramsWithPynomo.pdf}{``Creating Nomograms with the PyNomo Software'''' by Ron
 Doerfler} is a detailed
 manual for using PyNomo.
 
 
 \chapter{Axes}
-\label{axes:axes}\label{axes::doc}
+\label{axes/axes:axes}\label{axes/axes::doc}
+
+\chapter{Axes by example}
+\label{axes/axes:axes-by-example}
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
+\PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}1.py}
+
+\PYG{k+kn}{import} \PYG{n+nn}{sys}
+\PYG{n}{sys}\PYG{o}{.}\PYG{n}{path}\PYG{o}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{..}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+\PYG{k+kn}{from} \PYG{n+nn}{pynomo.nomographer} \PYG{k+kn}{import} \PYG{o}{*}
+
+\PYG{n}{N\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{function}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{k}{lambda} \PYG{n}{u}\PYG{p}{:}\PYG{n}{u}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{p}{\PYGZcb{}}
+
+\PYG{n}{block\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{type\PYGZus{}8}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{f\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{N\PYGZus{}params}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{15.0}\PYG{p}{,}
+                     \PYG{p}{\PYGZcb{}}
+
+\PYG{n}{main\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{filename}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ex\PYGZus{}axes\PYGZus{}1.pdf}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{15.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{block\PYGZus{}params}\PYG{p}{]}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{transformations}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale paper}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}\PYG{p}{)}\PYG{p}{]}
+              \PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Nomographer}\PYG{p}{(}\PYG{n}{main\PYGZus{}params}\PYG{p}{)}
+\end{Verbatim}
+
+\includegraphics{ex_axes_1.pdf}
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
+\PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}2.py}
+
+\PYG{n}{N\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{function}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{k}{lambda} \PYG{n}{u}\PYG{p}{:}\PYG{n}{u}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}side}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{left}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{p}{\PYGZcb{}}
+\PYG{n}{block\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{type\PYGZus{}8}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{f\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{N\PYGZus{}params}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+                     \PYG{p}{\PYGZcb{}}
+\PYG{n}{main\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{filename}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ex\PYGZus{}axes\PYGZus{}2.pdf}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{block\PYGZus{}params}\PYG{p}{]}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{transformations}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale paper}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}\PYG{p}{)}\PYG{p}{]}
+              \PYG{p}{\PYGZcb{}}
+\PYG{n}{Nomographer}\PYG{p}{(}\PYG{n}{main\PYGZus{}params}\PYG{p}{)}
+\end{Verbatim}
+
+\includegraphics{ex_axes_2.pdf}
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
+\PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}3.py}
+
+\PYG{n}{N\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{function}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{k}{lambda} \PYG{n}{u}\PYG{p}{:}\PYG{n}{u}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}side}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{left}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}x\PYGZus{}shift}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}y\PYGZus{}shift}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{0.5}
+        \PYG{p}{\PYGZcb{}}
+\PYG{n}{block\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{type\PYGZus{}8}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{f\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{N\PYGZus{}params}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+                     \PYG{p}{\PYGZcb{}}
+\PYG{n}{main\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{filename}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ex\PYGZus{}axes\PYGZus{}3.pdf}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{block\PYGZus{}params}\PYG{p}{]}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{transformations}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale paper}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}\PYG{p}{)}\PYG{p}{]}
+                            \PYG{p}{\PYGZcb{}}
+\PYG{n}{Nomographer}\PYG{p}{(}\PYG{n}{main\PYGZus{}params}\PYG{p}{)}
+\end{Verbatim}
+
+\includegraphics{ex_axes_3.pdf}
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
+\PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}4.py}
+
+\PYG{n}{N\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{function}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{k}{lambda} \PYG{n}{u}\PYG{p}{:}\PYG{n}{u}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{1}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}side}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{left}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}draw\PYGZus{}center}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n+nb+bp}{True}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{\PYGZob{}}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
+                        \PYG{p}{\PYGZcb{}}\PYG{p}{,}
+                        \PYG{p}{\PYGZob{}}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{9.0}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
+                        \PYG{p}{\PYGZcb{}}
+                        \PYG{p}{]}
+        \PYG{p}{\PYGZcb{}}
+\PYG{n}{block\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{type\PYGZus{}8}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{f\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{N\PYGZus{}params}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+                     \PYG{p}{\PYGZcb{}}
+\PYG{n}{main\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{filename}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ex\PYGZus{}axes\PYGZus{}4.pdf}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{block\PYGZus{}params}\PYG{p}{]}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{transformations}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale paper}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}\PYG{p}{)}\PYG{p}{]}
+              \PYG{p}{\PYGZcb{}}
+\PYG{n}{Nomographer}\PYG{p}{(}\PYG{n}{main\PYGZus{}params}\PYG{p}{)}
+\end{Verbatim}
+
+\includegraphics{ex_axes_4.pdf}
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
+\PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}4\PYGZus{}1.py}
+
+\PYG{n}{N\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{function}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{k}{lambda} \PYG{n}{u}\PYG{p}{:}\PYG{n}{u}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{1}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}side}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{left}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}draw\PYGZus{}center}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n+nb+bp}{True}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}format}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{r\PYGZdq{}}\PYG{l+s}{\PYGZdl{}}\PYG{l+s+si}{\PYGZpc{}3.1f}\PYG{l+s}{\PYGZdl{} }\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{axis\PYGZus{}color}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{color}\PYG{o}{.}\PYG{n}{cmyk}\PYG{o}{.}\PYG{n}{Orange}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}color}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{color}\PYG{o}{.}\PYG{n}{cmyk}\PYG{o}{.}\PYG{n}{Plum}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}color}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{color}\PYG{o}{.}\PYG{n}{cmyk}\PYG{o}{.}\PYG{n}{Plum}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{\PYGZob{}}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{axis\PYGZus{}color}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{color}\PYG{o}{.}\PYG{n}{cmyk}\PYG{o}{.}\PYG{n}{Red}\PYG{p}{,}
+                        \PYG{p}{\PYGZcb{}}\PYG{p}{,}
+                        \PYG{p}{\PYGZob{}}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{9.0}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{axis\PYGZus{}color}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{color}\PYG{o}{.}\PYG{n}{cmyk}\PYG{o}{.}\PYG{n}{Blue}\PYG{p}{,}
+                        \PYG{p}{\PYGZcb{}}
+                        \PYG{p}{]}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra\PYGZus{}titles}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}
+              \PYG{p}{\PYGZob{}}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dx}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dy}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra title 1}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{5}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{pyx\PYGZus{}extra\PYGZus{}defs}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{color}\PYG{o}{.}\PYG{n}{rgb}\PYG{o}{.}\PYG{n}{red}\PYG{p}{,}\PYG{n}{text}\PYG{o}{.}\PYG{n}{size}\PYG{o}{.}\PYG{n}{tiny}\PYG{p}{]}
+              \PYG{p}{\PYGZcb{}}\PYG{p}{,}
+              \PYG{p}{\PYGZob{}}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dx}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{0.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dy}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{2.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra title 2}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{5}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{pyx\PYGZus{}extra\PYGZus{}defs}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{color}\PYG{o}{.}\PYG{n}{rgb}\PYG{o}{.}\PYG{n}{green}\PYG{p}{]}
+              \PYG{p}{\PYGZcb{}}\PYG{p}{,}
+              \PYG{p}{\PYGZob{}}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dx}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dy}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{r\PYGZdq{}}\PYG{l+s}{extra  }\PYG{l+s}{\PYGZbs{}}\PYG{l+s}{par title 3}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{c}{\PYGZsh{} \PYGZbs{}par = newline}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{5}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{pyx\PYGZus{}extra\PYGZus{}defs}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{color}\PYG{o}{.}\PYG{n}{rgb}\PYG{o}{.}\PYG{n}{blue}\PYG{p}{]}
+              \PYG{p}{\PYGZcb{}}\PYG{p}{]}
+        \PYG{p}{\PYGZcb{}}
+\PYG{n}{block\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{type\PYGZus{}8}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{f\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{N\PYGZus{}params}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+                     \PYG{p}{\PYGZcb{}}
+\PYG{n}{main\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{filename}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ex\PYGZus{}axes\PYGZus{}4\PYGZus{}1.pdf}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{block\PYGZus{}params}\PYG{p}{]}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{transformations}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale paper}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}\PYG{p}{)}\PYG{p}{]}
+              \PYG{p}{\PYGZcb{}}
+\PYG{n}{Nomographer}\PYG{p}{(}\PYG{n}{main\PYGZus{}params}\PYG{p}{)}
+\end{Verbatim}
+
+\includegraphics{ex_axes_4_1.pdf}
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
+\PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}5.py}
+
+\PYG{n}{N\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{function}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{k}{lambda} \PYG{n}{u}\PYG{p}{:}\PYG{n}{u}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{1}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}side}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{left}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}draw\PYGZus{}center}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n+nb+bp}{True}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{manual point}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{manual\PYGZus{}axis\PYGZus{}data}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{\PYGZob{}}\PYG{l+m+mf}{1.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{one}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{2.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{two}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{3.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{three}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{3.1415}\PYG{p}{:}\PYG{l+s}{r\PYGZsq{}}\PYG{l+s}{\PYGZdl{}}\PYG{l+s}{\PYGZbs{}}\PYG{l+s}{pi\PYGZdl{}}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{4.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{four}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{5.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{five}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{6.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{six}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{7.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{seven}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{8.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{eight}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{9.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{nine}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{10.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ten}\PYG{l+s}{\PYGZsq{}}\PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+\PYG{n}{block\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{type\PYGZus{}8}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{f\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{N\PYGZus{}params}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+                     \PYG{p}{\PYGZcb{}}
+\PYG{n}{main\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{filename}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ex\PYGZus{}axes\PYGZus{}5.pdf}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{block\PYGZus{}params}\PYG{p}{]}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{transformations}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale paper}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}\PYG{p}{)}\PYG{p}{]}
+              \PYG{p}{\PYGZcb{}}
+\PYG{n}{Nomographer}\PYG{p}{(}\PYG{n}{main\PYGZus{}params}\PYG{p}{)}
+\end{Verbatim}
+
+\includegraphics{ex_axes_5.pdf}
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
+\PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}6.py}
+
+\PYG{n}{N\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{function}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{k}{lambda} \PYG{n}{u}\PYG{p}{:}\PYG{n}{u}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{1}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}side}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{left}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}draw\PYGZus{}center}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n+nb+bp}{True}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{manual line}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{manual\PYGZus{}axis\PYGZus{}data}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{\PYGZob{}}\PYG{l+m+mf}{1.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{one}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{2.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{two}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{3.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{three}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{3.1415}\PYG{p}{:}\PYG{l+s}{r\PYGZsq{}}\PYG{l+s}{\PYGZdl{}}\PYG{l+s}{\PYGZbs{}}\PYG{l+s}{pi\PYGZdl{}}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{4.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{four}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{5.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{five}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{6.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{six}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{7.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{seven}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{8.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{eight}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{9.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{nine}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{10.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ten}\PYG{l+s}{\PYGZsq{}}\PYG{p}{\PYGZcb{}}
+
+        \PYG{p}{\PYGZcb{}}
+\PYG{n}{block\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{type\PYGZus{}8}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{f\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{N\PYGZus{}params}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+                     \PYG{p}{\PYGZcb{}}
+\PYG{n}{main\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{filename}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ex\PYGZus{}axes\PYGZus{}6.pdf}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{block\PYGZus{}params}\PYG{p}{]}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{transformations}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale paper}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}\PYG{p}{)}\PYG{p}{]}
+              \PYG{p}{\PYGZcb{}}
+\PYG{n}{Nomographer}\PYG{p}{(}\PYG{n}{main\PYGZus{}params}\PYG{p}{)}
+\end{Verbatim}
+
+\includegraphics{ex_axes_6.pdf}
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
+\PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}7.py}
+
+\PYG{n}{N\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{function}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{k}{lambda} \PYG{n}{u}\PYG{p}{:}\PYG{n}{u}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{1}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}side}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{left}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{manual line}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{manual\PYGZus{}axis\PYGZus{}data}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{\PYGZob{}}\PYG{l+m+mf}{1.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{one}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{2.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{two}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{3.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{three}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{3.1415}\PYG{p}{:}\PYG{l+s}{r\PYGZsq{}}\PYG{l+s}{\PYGZdl{}}\PYG{l+s}{\PYGZbs{}}\PYG{l+s}{pi\PYGZdl{}}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{4.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{four}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{5.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{five}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{6.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{six}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{7.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{seven}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{8.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{eight}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{9.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{nine}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{10.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ten}\PYG{l+s}{\PYGZsq{}}\PYG{p}{\PYGZcb{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{\PYGZob{}}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{linear}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}side}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{right}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                        \PYG{p}{\PYGZcb{}}\PYG{p}{]}
+        \PYG{p}{\PYGZcb{}}
+\PYG{n}{block\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{type\PYGZus{}8}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{f\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{N\PYGZus{}params}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+                     \PYG{p}{\PYGZcb{}}
+\PYG{n}{main\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{filename}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ex\PYGZus{}axes\PYGZus{}7.pdf}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{block\PYGZus{}params}\PYG{p}{]}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{transformations}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale paper}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}\PYG{p}{)}\PYG{p}{]}
+              \PYG{p}{\PYGZcb{}}
+\PYG{n}{Nomographer}\PYG{p}{(}\PYG{n}{main\PYGZus{}params}\PYG{p}{)}
+\end{Verbatim}
+
+\includegraphics{ex_axes_7.pdf}
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
+\PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}7\PYGZus{}1.py}
+
+\PYG{n}{N\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{function}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{k}{lambda} \PYG{n}{u}\PYG{p}{:}\PYG{n}{u}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{r\PYGZsq{}}\PYG{l+s}{\PYGZbs{}}\PYG{l+s}{bf title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{1}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}side}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{left}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{manual line}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{manual\PYGZus{}axis\PYGZus{}data}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{\PYGZob{}}\PYG{l+m+mf}{1.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{one}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{2.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{two}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{3.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{three}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{3.1415}\PYG{p}{:}\PYG{l+s}{r\PYGZsq{}}\PYG{l+s}{\PYGZdl{}}\PYG{l+s}{\PYGZbs{}}\PYG{l+s}{pi\PYGZdl{}}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{4.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{four}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{5.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{five}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{6.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{six}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{7.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{seven}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{8.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{eight}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{9.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{nine}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                     \PYG{l+m+mf}{10.0}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ten}\PYG{l+s}{\PYGZsq{}}\PYG{p}{\PYGZcb{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{\PYGZob{}}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{linear}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}side}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{right}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra\PYGZus{}angle}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{90.0}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}horizontal\PYGZus{}align\PYGZus{}center}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n+nb+bp}{True}\PYG{p}{,}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}format}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{r\PYGZdq{}}\PYG{l+s}{\PYGZdl{}}\PYG{l+s+si}{\PYGZpc{}2.1f}\PYG{l+s}{\PYGZdl{}}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}
+                        \PYG{p}{\PYGZcb{}}\PYG{p}{,}
+                        \PYG{p}{\PYGZob{}}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{manual arrow}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{manual\PYGZus{}axis\PYGZus{}data}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{\PYGZob{}}\PYG{l+m+mf}{6.2830}\PYG{p}{:}\PYG{l+s}{r\PYGZsq{}}\PYG{l+s}{\PYGZdl{}2}\PYG{l+s}{\PYGZbs{}}\PYG{l+s}{pi\PYGZdl{}}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+                                            \PYG{l+m+mf}{9.4245}\PYG{p}{:}\PYG{l+s}{r\PYGZsq{}}\PYG{l+s}{\PYGZdl{}3}\PYG{l+s}{\PYGZbs{}}\PYG{l+s}{pi\PYGZdl{}}\PYG{l+s}{\PYGZsq{}}\PYG{p}{\PYGZcb{}}\PYG{p}{,}
+                         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{arrow\PYGZus{}color}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{color}\PYG{o}{.}\PYG{n}{cmyk}\PYG{o}{.}\PYG{n}{Sepia}\PYG{p}{,}
+                         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{arrow\PYGZus{}length}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{2.0}\PYG{p}{,}
+                         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}color}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{color}\PYG{o}{.}\PYG{n}{cmyk}\PYG{o}{.}\PYG{n}{Sepia}\PYG{p}{,}
+                        \PYG{p}{\PYGZcb{}}
+                        \PYG{p}{]}
+        \PYG{p}{\PYGZcb{}}
+\PYG{n}{block\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{type\PYGZus{}8}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{f\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{N\PYGZus{}params}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+                     \PYG{p}{\PYGZcb{}}
+\PYG{n}{main\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{filename}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ex\PYGZus{}axes\PYGZus{}7\PYGZus{}1.pdf}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{block\PYGZus{}params}\PYG{p}{]}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{transformations}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale paper}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}\PYG{p}{)}\PYG{p}{]}
+              \PYG{p}{\PYGZcb{}}
+\PYG{n}{Nomographer}\PYG{p}{(}\PYG{n}{main\PYGZus{}params}\PYG{p}{)}
+\end{Verbatim}
+
+\includegraphics{ex_axes_7_1.pdf}
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
+\PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}8.py}
+
+\PYG{n}{N\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{0.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{300.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{function\PYGZus{}x}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{k}{lambda} \PYG{n}{u}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{o}{*}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{u}\PYG{o}{/}\PYG{l+m+mf}{180.0}\PYG{o}{*}\PYG{n}{pi}\PYG{p}{)}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{function\PYGZus{}y}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{k}{lambda} \PYG{n}{u}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{o}{*}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{u}\PYG{o}{/}\PYG{l+m+mf}{180.0}\PYG{o}{*}\PYG{n}{pi}\PYG{p}{)}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{1}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}x\PYGZus{}shift}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.5}\PYG{p}{,}
+        \PYG{p}{\PYGZcb{}}
+
+\PYG{n}{block\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{type\PYGZus{}8}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{f\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{N\PYGZus{}params}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{15.0}\PYG{p}{,}
+                     \PYG{p}{\PYGZcb{}}
+
+\PYG{n}{main\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{filename}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ex\PYGZus{}axes\PYGZus{}8.pdf}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{block\PYGZus{}params}\PYG{p}{]}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{transformations}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale paper}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}\PYG{p}{)}\PYG{p}{]}
+              \PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Nomographer}\PYG{p}{(}\PYG{n}{main\PYGZus{}params}\PYG{p}{)}
+\end{Verbatim}
+
+\includegraphics{ex_axes_8.pdf}
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
+\PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}8\PYGZus{}1.py}
+
+\PYG{n}{N\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{0.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{300.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{function\PYGZus{}x}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{k}{lambda} \PYG{n}{u}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{o}{*}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{u}\PYG{o}{/}\PYG{l+m+mf}{180.0}\PYG{o}{*}\PYG{n}{pi}\PYG{p}{)}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{function\PYGZus{}y}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{k}{lambda} \PYG{n}{u}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{o}{*}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{u}\PYG{o}{/}\PYG{l+m+mf}{180.0}\PYG{o}{*}\PYG{n}{pi}\PYG{p}{)}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{1}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}x\PYGZus{}shift}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.5}\PYG{p}{,}
+         \PYG{c}{\PYGZsh{}\PYGZsq{}grid\PYGZus{}length\PYGZsq{}:0.1,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{grid\PYGZus{}length\PYGZus{}0}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{0.8}\PYG{o}{/}\PYG{l+m+mi}{4}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{grid\PYGZus{}length\PYGZus{}1}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{0.6}\PYG{o}{/}\PYG{l+m+mi}{4}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{grid\PYGZus{}length\PYGZus{}2}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{0.5}\PYG{o}{/}\PYG{l+m+mi}{4}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{grid\PYGZus{}length\PYGZus{}3}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{0.4}\PYG{o}{/}\PYG{l+m+mi}{4}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{grid\PYGZus{}length\PYGZus{}4}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{0.3}\PYG{o}{/}\PYG{l+m+mi}{4}\PYG{p}{,}
+         \PYG{c}{\PYGZsh{}\PYGZsq{}text\PYGZus{}size\PYGZsq{}: text.size.scriptsize, \PYGZsh{}not used in this example}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}size\PYGZus{}0}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{text}\PYG{o}{.}\PYG{n}{size}\PYG{o}{.}\PYG{n}{tiny}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}size\PYGZus{}1}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{text}\PYG{o}{.}\PYG{n}{size}\PYG{o}{.}\PYG{n}{tiny}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}size\PYGZus{}2}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{text}\PYG{o}{.}\PYG{n}{size}\PYG{o}{.}\PYG{n}{tiny}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}size\PYGZus{}3}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{text}\PYG{o}{.}\PYG{n}{size}\PYG{o}{.}\PYG{n}{tiny}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}size\PYGZus{}4}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{text}\PYG{o}{.}\PYG{n}{size}\PYG{o}{.}\PYG{n}{tiny}\PYG{p}{,}
+         \PYG{c}{\PYGZsh{}\PYGZsq{}text\PYGZus{}size\PYGZus{}log\PYGZus{}0\PYGZsq{}: text.size.tiny, \PYGZsh{}not used in this example}
+         \PYG{c}{\PYGZsh{}\PYGZsq{}text\PYGZus{}size\PYGZus{}log\PYGZus{}1\PYGZsq{}: text.size.tiny, \PYGZsh{}not used in this example}
+         \PYG{c}{\PYGZsh{}\PYGZsq{}text\PYGZus{}size\PYGZus{}log\PYGZus{}2\PYGZsq{}: text.size.tiny, \PYGZsh{}not used in this example}
+         \PYG{c}{\PYGZsh{}\PYGZsq{}text\PYGZus{}size\PYGZus{}manual\PYGZsq{}: text.size.tiny, \PYGZsh{}not used in this example}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}distance\PYGZus{}0}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.2}\PYG{o}{/}\PYG{l+m+mi}{4}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}distance\PYGZus{}1}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.1}\PYG{o}{/}\PYG{l+m+mi}{4}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}distance\PYGZus{}2}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{o}{/}\PYG{l+m+mi}{4}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}distance\PYGZus{}3}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{o}{/}\PYG{l+m+mi}{4}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}distance\PYGZus{}4}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{o}{/}\PYG{l+m+mi}{4}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}distance\PYGZus{}center}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{0.7}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}opposite\PYGZus{}tick}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n+nb+bp}{True}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}draw\PYGZus{}center}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n+nb+bp}{True}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}format}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZdl{}}\PYG{l+s+si}{\PYGZpc{}3.1f}\PYG{l+s}{\PYGZdl{}}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{full\PYGZus{}angle}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n+nb+bp}{True}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra\PYGZus{}angle}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{90.0}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}horizontal\PYGZus{}align\PYGZus{}center}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n+nb+bp}{True}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}format}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{r\PYGZdq{}}\PYG{l+s}{\PYGZdl{}}\PYG{l+s+si}{\PYGZpc{}2.0f}\PYG{l+s}{\PYGZdl{}}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}
+         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}color}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{color}\PYG{o}{.}\PYG{n}{cmyk}\PYG{o}{.}\PYG{n}{Sepia}\PYG{p}{,}
+        \PYG{p}{\PYGZcb{}}
+
+\PYG{n}{block\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{type\PYGZus{}8}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{f\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{N\PYGZus{}params}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{15.0}\PYG{p}{,}
+                     \PYG{p}{\PYGZcb{}}
+
+\PYG{n}{main\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{filename}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ex\PYGZus{}axes\PYGZus{}8\PYGZus{}1.pdf}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{block\PYGZus{}params}\PYG{p}{]}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{transformations}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale paper}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}\PYG{p}{)}\PYG{p}{]}
+              \PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Nomographer}\PYG{p}{(}\PYG{n}{main\PYGZus{}params}\PYG{p}{)}
+\end{Verbatim}
+
+\includegraphics{ex_axes_8_1.pdf}
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
+\PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}9.py}
+
+\PYG{n}{N\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10000.0}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{function}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{k}{lambda} \PYG{n}{u}\PYG{p}{:}\PYG{n}{log}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{log}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{p}{\PYGZcb{}}
+
+\PYG{n}{block\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{type\PYGZus{}8}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{f\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{N\PYGZus{}params}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{15.0}\PYG{p}{,}
+                     \PYG{p}{\PYGZcb{}}
+
+\PYG{n}{main\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{filename}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ex\PYGZus{}axes\PYGZus{}9.pdf}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}height}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{15.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{paper\PYGZus{}width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{block\PYGZus{}params}\PYG{p}{]}\PYG{p}{,}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{transformations}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale paper}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}\PYG{p}{)}\PYG{p}{]}
+              \PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Nomographer}\PYG{p}{(}\PYG{n}{main\PYGZus{}params}\PYG{p}{)}
+\end{Verbatim}
+
+\includegraphics{ex_axes_9.pdf}
+
 
 \section{Common axis params}
-\label{axes:common-axis-params}\label{axes:id1}
+\label{axes/axes:common-axis-params}\label{axes/axes:id1}
 \begin{longtable}{|p{4cm}|p{4cm}|p{7cm}|}
 \caption{Common axis params}\\
 \hline
@@ -1053,7 +1592,7 @@ default value
 \end{threeparttable}
 
 
-See {\hyperref[axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
+See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
 
 
 \subsubsection{Block parameters}
@@ -1281,7 +1820,7 @@ default value
 \end{threeparttable}
 
 
-See {\hyperref[axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
+See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
 
 
 \subsubsection{Block parameters}
@@ -1532,7 +2071,7 @@ default value
 \end{threeparttable}
 
 
-See {\hyperref[axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
+See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
 
 
 \subsubsection{Block parameters}
@@ -1769,7 +2308,7 @@ default value
 \end{threeparttable}
 
 
-See {\hyperref[axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
+See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
 
 
 \subsubsection{Block parameters}
@@ -2681,7 +3220,7 @@ default value
 \end{threeparttable}
 
 
-See {\hyperref[axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
+See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
 
 
 \subsubsection{Block parameters}
@@ -2867,7 +3406,7 @@ default value
 \end{threeparttable}
 
 
-See {\hyperref[axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
+See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
 
 
 \subsubsection{Block parameters}
@@ -3100,7 +3639,7 @@ default value
 \end{threeparttable}
 
 
-See {\hyperref[axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
+See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
 
 
 \subsubsection{Block parameters}
@@ -3509,7 +4048,7 @@ If u-texts are in v stop side
 \end{threeparttable}
 
 
-See {\hyperref[axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
+See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
 
 
 \subsubsection{Block parameters}
@@ -3751,7 +4290,7 @@ default value
 \end{threeparttable}
 
 
-See {\hyperref[axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
+See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}}}} for other parameters.
 
 
 \subsubsection{Block parameters}

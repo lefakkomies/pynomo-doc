@@ -17,7 +17,7 @@ pyNomo documentation
 
    installation/installation.rst
    main_page.rst
-   axes.rst
+   axes/axes.rst
    main_params.rst
    types/types.rst
    examples/examples.rst
