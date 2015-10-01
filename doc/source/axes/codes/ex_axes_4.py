@@ -8,20 +8,20 @@ N_params={
         'tick_levels':2,
         'tick_text_levels':1,
         'tick_side':'left',
-        'title_draw_center':True,
-        'extra_params':[{
-                        'u_min':5.0,
-                        'u_max':10.0,
-                        'tick_levels':3,
-                        'tick_text_levels':2,
-                        },
-                        {
-                        'u_min':9.0,
-                        'u_max':10.0,
-                        'tick_levels':4,
-                        'tick_text_levels':2,
-                        }
-                        ]
+        'title_draw_center':True,               # <-
+        'extra_params':[{                       # <- range 1
+                        'u_min':5.0,            # <-
+                        'u_max':10.0,           # <-
+                        'tick_levels':3,        # <-
+                        'tick_text_levels':2,   # <-
+                        },                      # <-
+                        {                       # <- range 2
+                        'u_min':9.0,            # <-
+                        'u_max':10.0,           # <-
+                        'tick_levels':4,        # <-
+                        'tick_text_levels':2,   # <-
+                        }                       # <-
+                        ]                       # <-
         }
 block_params={
               'block_type':'type_8',

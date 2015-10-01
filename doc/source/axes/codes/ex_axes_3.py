@@ -8,8 +8,8 @@ N_params={
         'tick_levels':3,
         'tick_text_levels':2,
         'tick_side':'left',
-        'title_x_shift':-1.0,
-        'title_y_shift':0.5
+        'title_x_shift':-1.0,   # <-
+        'title_y_shift':0.5     # <-
         }
 block_params={
               'block_type':'type_8',

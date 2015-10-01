@@ -24,7 +24,7 @@
         
 
 \title{PyNomo Documentation}
-\date{September 29, 2015}
+\date{October 01, 2015}
 \release{0.3.0}
 \author{Ron Doerfler, Leif Roschier}
 \newcommand{\sphinxlogo}{}
@@ -466,6 +466,14 @@ manual for using PyNomo.
 
 \section{Axes by example}
 \label{axes/axes:axes-by-example}
+Axes are fundamental building blocks of nomographs. The following code uses minimal axis definion \code{N\_params} that is
+rendered as a linear scale illustrated below. The range of values axis represents is defined with keywords \code{u\_min}
+and \code{u\_max}. \code{title} sets title string for the axis. Key part of the nomograph is the functional form of the axis.
+In the example below it is defined with keyword \code{function} and is given as a function. Different types of blocks assume different keywords
+of axis functions. For example types 1, 2 and 3 take keyword \code{function} but type 9 takes either \code{f}, \code{g}, \code{h} or
+\code{f\_grid}, \code{g\_grid}, \code{h\_grid} keywords. So one have to define axis parameters compatible with the used block type.
+In the examples below Type 8 is used as block to taking axis definition because it is the simplest one.
+\phantomsection\label{axes/axes:axes-ex-code-ref}
 \begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
 \PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}1.py}
 
@@ -500,6 +508,10 @@ manual for using PyNomo.
 
 \includegraphics{ex_axes_1.pdf}
 
+Because the example above looked little too busy or packed, we reduce the ticks by using only three different tick levels
+\code{'tick\_levels':3} and two tick text levels \code{'tick\_text\_levels':2}. Tick side relative to the final drawing is set to
+left using \code{'tick\_side':'left'}.
+
 \begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
 \PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}2.py}
 
@@ -508,9 +520,9 @@ manual for using PyNomo.
         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{function}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{k}{lambda} \PYG{n}{u}\PYG{p}{:}\PYG{n}{u}\PYG{p}{,}
         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
-        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{,}
-        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
-        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}side}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{left}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{,}        \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}   \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}side}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{left}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}     \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
         \PYG{p}{\PYGZcb{}}
 \PYG{n}{block\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
               \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{type\PYGZus{}8}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
@@ -530,6 +542,9 @@ manual for using PyNomo.
 
 \includegraphics{ex_axes_2.pdf}
 
+Title position can be shifted in both x- and y-directions. In the following we shift it using key-values
+\code{'title\_x\_shift':-1.0} and \code{'title\_y\_shift':0.5}. Units are here centimeters.
+
 \begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
 \PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}3.py}
 
@@ -541,8 +556,8 @@ manual for using PyNomo.
         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{,}
         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}side}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{left}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
-        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}x\PYGZus{}shift}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.0}\PYG{p}{,}
-        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}y\PYGZus{}shift}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{0.5}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}x\PYGZus{}shift}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.0}\PYG{p}{,}   \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}y\PYGZus{}shift}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{0.5}     \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
         \PYG{p}{\PYGZcb{}}
 \PYG{n}{block\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
               \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{type\PYGZus{}8}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
@@ -562,6 +577,11 @@ manual for using PyNomo.
 
 \includegraphics{ex_axes_3.pdf}
 
+Sometimes single level of axis definitions is not enough. We might want to add more ticks in some additional range of the axis.
+Keyword \code{'extra\_params'} helps here. Value for this key is an array of dictionaries that modify given params in the
+given range set by \code{u\_min} and \code{u\_max}. In the following example we define additional ranges with more ticks in ranges
+5.0..10.0 and 9.0..10.0. We also draw title this time to center using \code{'title\_draw\_center:True}.
+
 \begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
 \PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}4.py}
 
@@ -573,20 +593,20 @@ manual for using PyNomo.
         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{1}\PYG{p}{,}
         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}side}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{left}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
-        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}draw\PYGZus{}center}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n+nb+bp}{True}\PYG{p}{,}
-        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{\PYGZob{}}
-                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}
-                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
-                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{,}
-                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
-                        \PYG{p}{\PYGZcb{}}\PYG{p}{,}
-                        \PYG{p}{\PYGZob{}}
-                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{9.0}\PYG{p}{,}
-                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}
-                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{,}
-                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}
-                        \PYG{p}{\PYGZcb{}}
-                        \PYG{p}{]}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}draw\PYGZus{}center}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n+nb+bp}{True}\PYG{p}{,}               \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{\PYGZob{}}                       \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{} range 1}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{5.0}\PYG{p}{,}            \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}           \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{,}        \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}   \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+                        \PYG{p}{\PYGZcb{}}\PYG{p}{,}                      \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+                        \PYG{p}{\PYGZob{}}                       \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{} range 2}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}min}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{9.0}\PYG{p}{,}            \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{u\PYGZus{}max}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{10.0}\PYG{p}{,}           \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{,}        \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+                        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}   \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+                        \PYG{p}{\PYGZcb{}}                       \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+                        \PYG{p}{]}                       \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
         \PYG{p}{\PYGZcb{}}
 \PYG{n}{block\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
               \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}type}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{type\PYGZus{}8}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
@@ -606,6 +626,13 @@ manual for using PyNomo.
 
 \includegraphics{ex_axes_4.pdf}
 
+Color can be used to tune visual appearance of the axis. In the following example we tune colors with self-explaining
+keywords \code{'axis\_color'}, \code{'text\_color'} and \code{'title\_color'}. Additional titles are set by using keyword \code{'extra\_titles'}
+with value of an array of dictionaries that can take keywords \code{'dx'} and \code{'dy'} as relative position to main title.
+Value of keyword \code{'text'{}`{}`sets the title text and {}`{}`'pyx\_extra\_defs'} can be used to give additional parameters for pyx rendering
+that is only option in current release. In the example numbers are formatted to have one three digits before comma and
+and one digit after comma using \code{'text\_format':r"\$\%3.1f\$ "}.
+
 \begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
 \PYG{c}{\PYGZsh{} ex\PYGZus{}axes\PYGZus{}4\PYGZus{}1.py}
 
@@ -618,7 +645,7 @@ manual for using PyNomo.
         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}text\PYGZus{}levels}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{1}\PYG{p}{,}
         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{tick\PYGZus{}side}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{left}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}draw\PYGZus{}center}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n+nb+bp}{True}\PYG{p}{,}
-        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}format}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{r\PYGZdq{}}\PYG{l+s}{\PYGZdl{}}\PYG{l+s+si}{\PYGZpc{}3.1f}\PYG{l+s}{\PYGZdl{} }\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}format}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{r\PYGZdq{}}\PYG{l+s}{\PYGZdl{}}\PYG{l+s+si}{\PYGZpc{}3.1f}\PYG{l+s}{\PYGZdl{} }\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}                              \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{} format numbers as \PYGZpc{}3.1f}
         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{axis\PYGZus{}color}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{color}\PYG{o}{.}\PYG{n}{cmyk}\PYG{o}{.}\PYG{n}{Orange}\PYG{p}{,}
         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text\PYGZus{}color}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{color}\PYG{o}{.}\PYG{n}{cmyk}\PYG{o}{.}\PYG{n}{Plum}\PYG{p}{,}
         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{title\PYGZus{}color}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{color}\PYG{o}{.}\PYG{n}{cmyk}\PYG{o}{.}\PYG{n}{Plum}\PYG{p}{,}
@@ -637,24 +664,24 @@ manual for using PyNomo.
                         \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{axis\PYGZus{}color}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{color}\PYG{o}{.}\PYG{n}{cmyk}\PYG{o}{.}\PYG{n}{Blue}\PYG{p}{,}
                         \PYG{p}{\PYGZcb{}}
                         \PYG{p}{]}\PYG{p}{,}
-        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra\PYGZus{}titles}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}
-              \PYG{p}{\PYGZob{}}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dx}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
-              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dy}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
-              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra title 1}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
-              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{5}\PYG{p}{,}
-              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{pyx\PYGZus{}extra\PYGZus{}defs}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{color}\PYG{o}{.}\PYG{n}{rgb}\PYG{o}{.}\PYG{n}{red}\PYG{p}{,}\PYG{n}{text}\PYG{o}{.}\PYG{n}{size}\PYG{o}{.}\PYG{n}{tiny}\PYG{p}{]}
+        \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra\PYGZus{}titles}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}                                         \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{} 1st extra title}
+              \PYG{p}{\PYGZob{}}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dx}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}                                         \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dy}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}                                          \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra title 1}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}                            \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{5}\PYG{p}{,}                                         \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{pyx\PYGZus{}extra\PYGZus{}defs}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{color}\PYG{o}{.}\PYG{n}{rgb}\PYG{o}{.}\PYG{n}{red}\PYG{p}{,}\PYG{n}{text}\PYG{o}{.}\PYG{n}{size}\PYG{o}{.}\PYG{n}{tiny}\PYG{p}{]}    \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
               \PYG{p}{\PYGZcb{}}\PYG{p}{,}
-              \PYG{p}{\PYGZob{}}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dx}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{0.0}\PYG{p}{,}
-              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dy}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{2.0}\PYG{p}{,}
-              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra title 2}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}
-              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{5}\PYG{p}{,}
-              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{pyx\PYGZus{}extra\PYGZus{}defs}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{color}\PYG{o}{.}\PYG{n}{rgb}\PYG{o}{.}\PYG{n}{green}\PYG{p}{]}
+              \PYG{p}{\PYGZob{}}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dx}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{0.0}\PYG{p}{,}                                         \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{} 2nd extra title}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dy}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{2.0}\PYG{p}{,}                                          \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{extra title 2}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}                            \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{5}\PYG{p}{,}                                         \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{pyx\PYGZus{}extra\PYGZus{}defs}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{color}\PYG{o}{.}\PYG{n}{rgb}\PYG{o}{.}\PYG{n}{green}\PYG{p}{]}                 \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
               \PYG{p}{\PYGZcb{}}\PYG{p}{,}
-              \PYG{p}{\PYGZob{}}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dx}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.0}\PYG{p}{,}
-              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dy}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}
-              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{r\PYGZdq{}}\PYG{l+s}{extra  }\PYG{l+s}{\PYGZbs{}}\PYG{l+s}{par title 3}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{c}{\PYGZsh{} \PYGZbs{}par = newline}
-              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{5}\PYG{p}{,}
-              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{pyx\PYGZus{}extra\PYGZus{}defs}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{color}\PYG{o}{.}\PYG{n}{rgb}\PYG{o}{.}\PYG{n}{blue}\PYG{p}{]}
+              \PYG{p}{\PYGZob{}}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dx}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.0}\PYG{p}{,}                                        \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{} 3rd extra title}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{dy}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mf}{1.0}\PYG{p}{,}                                          \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{text}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{r\PYGZdq{}}\PYG{l+s}{extra  }\PYG{l+s}{\PYGZbs{}}\PYG{l+s}{par title 3}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}                     \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{} \PYGZbs{}par = newline}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{width}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{5}\PYG{p}{,}                                         \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
+              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{pyx\PYGZus{}extra\PYGZus{}defs}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{color}\PYG{o}{.}\PYG{n}{rgb}\PYG{o}{.}\PYG{n}{blue}\PYG{p}{]}                  \PYG{c}{\PYGZsh{} \PYGZlt{}\PYGZhy{}}
               \PYG{p}{\PYGZcb{}}\PYG{p}{]}
         \PYG{p}{\PYGZcb{}}
 \PYG{n}{block\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}

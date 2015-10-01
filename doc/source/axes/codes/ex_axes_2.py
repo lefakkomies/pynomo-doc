@@ -5,9 +5,9 @@ N_params={
         'u_max':10.0,
         'function':lambda u:u,
         'title':'u',
-        'tick_levels':3,
-        'tick_text_levels':2,
-        'tick_side':'left',
+        'tick_levels':3,        # <-
+        'tick_text_levels':2,   # <-
+        'tick_side':'left',     # <-
         }
 block_params={
               'block_type':'type_8',
