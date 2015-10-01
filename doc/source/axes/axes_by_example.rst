@@ -11,12 +11,19 @@ In the examples below Type 8 is used as block to taking axis definition because 
 
 .. _axes_ex_code_ref:
 
+
+
+
 .. literalinclude:: ./codes/ex_axes_1.py
     :encoding: latin-1
     :linenos:
+    :name: ex_axes_1-py
+
 
 .. image:: images/ex_axes_1.*
     :height: 600px
+
+
 
 Because the example above looked little too busy or packed, we reduce the ticks by using only three different tick levels
 ``'tick_levels':3`` and two tick text levels ``'tick_text_levels':2``. Tick side relative to the final drawing is set to
