@@ -128,7 +128,14 @@
       
   <div class="section" id="axes-by-example">
 <h1>Axes by example<a class="headerlink" href="#axes-by-example" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>Axes are fundamental building blocks of nomographs. The following code uses minimal axis definion <code class="docutils literal"><span class="pre">N_params</span></code> that is
+rendered as a linear scale illustrated below. The range of values axis represents is defined with keywords <code class="docutils literal"><span class="pre">u_min</span></code>
+and <code class="docutils literal"><span class="pre">u_max</span></code>. <code class="docutils literal"><span class="pre">title</span></code> sets title string for the axis. Key part of the nomograph is the functional form of the axis.
+In the example below it is defined with keyword <code class="docutils literal"><span class="pre">function</span></code> and is given as a function. Different types of blocks assume different keywords
+of axis functions. For example types 1, 2 and 3 take keyword <code class="docutils literal"><span class="pre">function</span></code> but type 9 takes either <code class="docutils literal"><span class="pre">f</span></code>, <code class="docutils literal"><span class="pre">g</span></code>, <code class="docutils literal"><span class="pre">h</span></code> or
+<code class="docutils literal"><span class="pre">f_grid</span></code>, <code class="docutils literal"><span class="pre">g_grid</span></code>, <code class="docutils literal"><span class="pre">h_grid</span></code> keywords. So one have to define axis parameters compatible with the used block type.
+In the examples below Type 8 is used as block to taking axis definition because it is the simplest one.</p>
+<div class="highlight-python" id="axes-ex-code-ref"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -188,6 +195,9 @@
 </pre></div>
 </td></tr></table></div>
 <a class="reference internal image-reference" href="../_images/ex_axes_1.png"><img alt="../_images/ex_axes_1.png" src="../_images/ex_axes_1.png" style="height: 600px;" /></a>
+<p>Because the example above looked little too busy or packed, we reduce the ticks by using only three different tick levels
+<code class="docutils literal"><span class="pre">'tick_levels':3</span></code> and two tick text levels <code class="docutils literal"><span class="pre">'tick_text_levels':2</span></code>. Tick side relative to the final drawing is set to
+left using <code class="docutils literal"><span class="pre">'tick_side':'left'</span></code>.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -219,9 +229,9 @@
         <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
         <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
         <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">&#39;u&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
+        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>        <span class="c"># &lt;-</span>
+        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>   <span class="c"># &lt;-</span>
+        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>     <span class="c"># &lt;-</span>
         <span class="p">}</span>
 <span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
               <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
@@ -240,6 +250,8 @@
 </pre></div>
 </td></tr></table></div>
 <a class="reference internal image-reference" href="../_images/ex_axes_2.png"><img alt="../_images/ex_axes_2.png" src="../_images/ex_axes_2.png" style="height: 600px;" /></a>
+<p>Title position can be shifted in both x- and y-directions. In the following we shift it using key-values
+<code class="docutils literal"><span class="pre">'title_x_shift':-1.0</span></code> and <code class="docutils literal"><span class="pre">'title_y_shift':0.5</span></code>. Units are here centimeters.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -276,8 +288,8 @@
         <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
         <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
         <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
-        <span class="s">&#39;title_x_shift&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;title_y_shift&#39;</span><span class="p">:</span><span class="mf">0.5</span>
+        <span class="s">&#39;title_x_shift&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>   <span class="c"># &lt;-</span>
+        <span class="s">&#39;title_y_shift&#39;</span><span class="p">:</span><span class="mf">0.5</span>     <span class="c"># &lt;-</span>
         <span class="p">}</span>
 <span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
               <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
@@ -296,6 +308,10 @@
 </pre></div>
 </td></tr></table></div>
 <a class="reference internal image-reference" href="../_images/ex_axes_3.png"><img alt="../_images/ex_axes_3.png" src="../_images/ex_axes_3.png" style="height: 600px;" /></a>
+<p>Sometimes single level of axis definitions is not enough. We might want to add more ticks in some additional range of the axis.
+Keyword <code class="docutils literal"><span class="pre">'extra_params'</span></code> helps here. Value for this key is an array of dictionaries that modify given params in the
+given range set by <code class="docutils literal"><span class="pre">u_min</span></code> and <code class="docutils literal"><span class="pre">u_max</span></code>. In the following example we define additional ranges with more ticks in ranges
+5.0..10.0 and 9.0..10.0. We also draw title this time to center using <code class="docutils literal"><span class="pre">'title_draw_center:True</span></code>.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -344,20 +360,20 @@
         <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
         <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
         <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
-        <span class="s">&#39;title_draw_center&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-        <span class="s">&#39;extra_params&#39;</span><span class="p">:[{</span>
-                        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-                        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-                        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-                        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-                        <span class="p">},</span>
-                        <span class="p">{</span>
-                        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">9.0</span><span class="p">,</span>
-                        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-                        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
-                        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-                        <span class="p">}</span>
-                        <span class="p">]</span>
+        <span class="s">&#39;title_draw_center&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>               <span class="c"># &lt;-</span>
+        <span class="s">&#39;extra_params&#39;</span><span class="p">:[{</span>                       <span class="c"># &lt;- range 1</span>
+                        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>            <span class="c"># &lt;-</span>
+                        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>           <span class="c"># &lt;-</span>
+                        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>        <span class="c"># &lt;-</span>
+                        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>   <span class="c"># &lt;-</span>
+                        <span class="p">},</span>                      <span class="c"># &lt;-</span>
+                        <span class="p">{</span>                       <span class="c"># &lt;- range 2</span>
+                        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">9.0</span><span class="p">,</span>            <span class="c"># &lt;-</span>
+                        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>           <span class="c"># &lt;-</span>
+                        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>        <span class="c"># &lt;-</span>
+                        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>   <span class="c"># &lt;-</span>
+                        <span class="p">}</span>                       <span class="c"># &lt;-</span>
+                        <span class="p">]</span>                       <span class="c"># &lt;-</span>
         <span class="p">}</span>
 <span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
               <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
@@ -376,6 +392,12 @@
 </pre></div>
 </td></tr></table></div>
 <a class="reference internal image-reference" href="../_images/ex_axes_4.png"><img alt="../_images/ex_axes_4.png" src="../_images/ex_axes_4.png" style="height: 600px;" /></a>
+<p>Color can be used to tune visual appearance of the axis. In the following example we tune colors with self-explaining
+keywords <code class="docutils literal"><span class="pre">'axis_color'</span></code>, <code class="docutils literal"><span class="pre">'text_color'</span></code> and <code class="docutils literal"><span class="pre">'title_color'</span></code>. Additional titles are set by using keyword <code class="docutils literal"><span class="pre">'extra_titles'</span></code>
+with value of an array of dictionaries that can take keywords <code class="docutils literal"><span class="pre">'dx'</span></code> and <code class="docutils literal"><span class="pre">'dy'</span></code> as relative position to main title.
+Value of keyword <code class="docutils literal"><span class="pre">'text'``sets</span> <span class="pre">the</span> <span class="pre">title</span> <span class="pre">text</span> <span class="pre">and</span> <span class="pre">``'pyx_extra_defs'</span></code> can be used to give additional parameters for pyx rendering
+that is only option in current release. In the example numbers are formatted to have one three digits before comma and
+and one digit after comma using <code class="docutils literal"><span class="pre">'text_format':r&quot;$%3.1f$</span> <span class="pre">&quot;</span></code>.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -450,7 +472,7 @@
         <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
         <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
         <span class="s">&#39;title_draw_center&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-        <span class="s">&#39;text_format&#39;</span><span class="p">:</span><span class="s">r&quot;$</span><span class="si">%3.1f</span><span class="s">$ &quot;</span><span class="p">,</span>
+        <span class="s">&#39;text_format&#39;</span><span class="p">:</span><span class="s">r&quot;$</span><span class="si">%3.1f</span><span class="s">$ &quot;</span><span class="p">,</span>                              <span class="c"># &lt;- format numbers as %3.1f</span>
         <span class="s">&#39;axis_color&#39;</span><span class="p">:</span><span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Orange</span><span class="p">,</span>
         <span class="s">&#39;text_color&#39;</span><span class="p">:</span><span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Plum</span><span class="p">,</span>
         <span class="s">&#39;title_color&#39;</span><span class="p">:</span><span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Plum</span><span class="p">,</span>
@@ -469,24 +491,24 @@
                         <span class="s">&#39;axis_color&#39;</span><span class="p">:</span><span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Blue</span><span class="p">,</span>
                         <span class="p">}</span>
                         <span class="p">],</span>
-        <span class="s">&#39;extra_titles&#39;</span><span class="p">:[</span>
-              <span class="p">{</span><span class="s">&#39;dx&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-              <span class="s">&#39;dy&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-              <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">&#39;extra title 1&#39;</span><span class="p">,</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
-              <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">red</span><span class="p">,</span><span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">]</span>
+        <span class="s">&#39;extra_titles&#39;</span><span class="p">:[</span>                                         <span class="c"># &lt;- 1st extra title</span>
+              <span class="p">{</span><span class="s">&#39;dx&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>                                         <span class="c"># &lt;-</span>
+              <span class="s">&#39;dy&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>                                          <span class="c"># &lt;-</span>
+              <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">&#39;extra title 1&#39;</span><span class="p">,</span>                            <span class="c"># &lt;-</span>
+              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>                                         <span class="c"># &lt;-</span>
+              <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">red</span><span class="p">,</span><span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">]</span>    <span class="c"># &lt;-</span>
               <span class="p">},</span>
-              <span class="p">{</span><span class="s">&#39;dx&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-              <span class="s">&#39;dy&#39;</span><span class="p">:</span><span class="mf">2.0</span><span class="p">,</span>
-              <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">&#39;extra title 2&#39;</span><span class="p">,</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
-              <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">green</span><span class="p">]</span>
+              <span class="p">{</span><span class="s">&#39;dx&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>                                         <span class="c"># &lt;- 2nd extra title</span>
+              <span class="s">&#39;dy&#39;</span><span class="p">:</span><span class="mf">2.0</span><span class="p">,</span>                                          <span class="c"># &lt;-</span>
+              <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">&#39;extra title 2&#39;</span><span class="p">,</span>                            <span class="c"># &lt;-</span>
+              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>                                         <span class="c"># &lt;-</span>
+              <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">green</span><span class="p">]</span>                 <span class="c"># &lt;-</span>
               <span class="p">},</span>
-              <span class="p">{</span><span class="s">&#39;dx&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>
-              <span class="s">&#39;dy&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-              <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">r&quot;extra  \par title 3&quot;</span><span class="p">,</span> <span class="c"># \par = newline</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
-              <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">blue</span><span class="p">]</span>
+              <span class="p">{</span><span class="s">&#39;dx&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>                                        <span class="c"># &lt;- 3rd extra title</span>
+              <span class="s">&#39;dy&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>                                          <span class="c"># &lt;-</span>
+              <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">r&quot;extra  \par title 3&quot;</span><span class="p">,</span>                     <span class="c"># &lt;- \par = newline</span>
+              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>                                         <span class="c"># &lt;-</span>
+              <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">blue</span><span class="p">]</span>                  <span class="c"># &lt;-</span>
               <span class="p">}]</span>
         <span class="p">}</span>
 <span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
