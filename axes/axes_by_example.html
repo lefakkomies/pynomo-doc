@@ -86,7 +86,16 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Axes by example</a></li>
+<li><a class="reference internal" href="#">Axes by example</a><ul>
+<li><a class="reference internal" href="#linear-scale-scale-type-linear">Linear scale (<code class="docutils literal"><span class="pre">'scale_type':'linear'</span></code>)</a></li>
+<li><a class="reference internal" href="#manual-point-scale-scale-type-manual-point">Manual point scale (<code class="docutils literal"><span class="pre">'scale_type':'manual</span> <span class="pre">point'</span></code>)</a></li>
+<li><a class="reference internal" href="#manual-line-scale-scale-type-manual-line">Manual line scale (<code class="docutils literal"><span class="pre">'scale_type':'manual</span> <span class="pre">line'</span></code>)</a></li>
+<li><a class="reference internal" href="#manual-arrows-scale-type-manual-arrow">Manual arrows  (<code class="docutils literal"><span class="pre">'scale_type':'manual</span> <span class="pre">arrow'</span></code>)</a></li>
+<li><a class="reference internal" href="#manual-function-function-x-and-function-y">Manual function  (<code class="docutils literal"><span class="pre">'function_x'</span></code> and <code class="docutils literal"><span class="pre">'function_y'</span></code>)</a></li>
+<li><a class="reference internal" href="#linear-scale-scale-type-log">Linear scale (<code class="docutils literal"><span class="pre">'scale_type':'log'</span></code>)</a></li>
+<li><a class="reference internal" href="#smart-scales-scale-type-smart-linear-scale-type-smart-log">Smart scales (<code class="docutils literal"><span class="pre">'scale_type':'smart</span> <span class="pre">linear'</span></code>, <code class="docutils literal"><span class="pre">'scale_type':'smart</span> <span class="pre">log'</span></code>)</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -135,7 +144,10 @@ In the example below it is defined with keyword <code class="docutils literal"><
 of axis functions. For example types 1, 2 and 3 take keyword <code class="docutils literal"><span class="pre">function</span></code> but type 9 takes either <code class="docutils literal"><span class="pre">f</span></code>, <code class="docutils literal"><span class="pre">g</span></code>, <code class="docutils literal"><span class="pre">h</span></code> or
 <code class="docutils literal"><span class="pre">f_grid</span></code>, <code class="docutils literal"><span class="pre">g_grid</span></code>, <code class="docutils literal"><span class="pre">h_grid</span></code> keywords. So one have to define axis parameters compatible with the used block type.
 In the examples below Type 8 is used as block to taking axis definition because it is the simplest one.</p>
-<div class="highlight-python" id="ex-axes-1-py"><span id="axes-ex-code-ref"></span><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="section" id="linear-scale-scale-type-linear">
+<h2>Linear scale (<code class="docutils literal"><span class="pre">'scale_type':'linear'</span></code>)<a class="headerlink" href="#linear-scale-scale-type-linear" title="Permalink to this headline">¶</a></h2>
+<p id="axes-ex-code-ref">Here we start with the simplest axis. It has by default scale <code class="docutils literal"><span class="pre">'scale_type':'linear'</span></code> that is simple linear scale.</p>
+<div class="highlight-python" id="ex-axes-1-py"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -163,34 +175,36 @@ In the examples below Type 8 is used as block to taking axis definition because 
 26
 27
 28
-29</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_1.py</span>
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_1.py</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="n">N_params</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">&#39;u&#39;</span><span class="p">,</span>
-        <span class="p">}</span>
+<span class="c"># axis definitions</span>
+<span class="n">N_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>            <span class="c"># axis start value</span>
+            <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>           <span class="c"># axis stop value</span>
+            <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span> <span class="c"># axis function</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">&#39;u&#39;</span><span class="p">,</span>            <span class="c"># axis titles</span>
+            <span class="p">}</span>
 
-<span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
-              <span class="s">&#39;f_params&#39;</span><span class="p">:</span><span class="n">N_params</span><span class="p">,</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
-                     <span class="p">}</span>
+<span class="c"># block definitons defining one block of type 8</span>
+<span class="n">block_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_8&#39;</span><span class="p">,</span>
+                <span class="s">&#39;f_params&#39;</span><span class="p">:</span> <span class="n">N_params</span><span class="p">,</span>
+                <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                <span class="s">&#39;height&#39;</span><span class="p">:</span> <span class="mf">15.0</span><span class="p">,</span>
+                <span class="p">}</span>
 
-<span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_axes_1.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
+<span class="c"># nomograph generation definitions</span>
+<span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;filename&#39;</span><span class="p">:</span> <span class="s">&#39;ex_axes_1.pdf&#39;</span><span class="p">,</span>
+                <span class="s">&#39;paper_height&#39;</span><span class="p">:</span> <span class="mf">15.0</span><span class="p">,</span>
+                <span class="s">&#39;paper_width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                <span class="s">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_params</span><span class="p">],</span>
+                <span class="s">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
               <span class="p">}</span>
 
+<span class="c"># actual code that builds the nomograph</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
@@ -224,28 +238,28 @@ left using <code class="docutils literal"><span class="pre">'tick_side':'left'</
 24
 25</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_2.py</span>
 
-<span class="n">N_params</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">&#39;u&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>        <span class="c"># &lt;-</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>   <span class="c"># &lt;-</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>     <span class="c"># &lt;-</span>
-        <span class="p">}</span>
-<span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
-              <span class="s">&#39;f_params&#39;</span><span class="p">:</span><span class="n">N_params</span><span class="p">,</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-                     <span class="p">}</span>
-<span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_axes_2.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
-              <span class="p">}</span>
+<span class="n">N_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+            <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">&#39;u&#39;</span><span class="p">,</span>
+            <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>        <span class="c"># &lt;-</span>
+            <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>   <span class="c"># &lt;-</span>
+            <span class="s">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;left&#39;</span><span class="p">,</span>     <span class="c"># &lt;-</span>
+            <span class="p">}</span>
+
+<span class="n">block_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_8&#39;</span><span class="p">,</span>
+                <span class="s">&#39;f_params&#39;</span><span class="p">:</span> <span class="n">N_params</span><span class="p">,</span>
+                <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                <span class="s">&#39;height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                <span class="p">}</span>
+
+<span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;filename&#39;</span><span class="p">:</span> <span class="s">&#39;ex_axes_2.pdf&#39;</span><span class="p">,</span>
+                <span class="s">&#39;paper_height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                <span class="s">&#39;paper_width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                <span class="s">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_params</span><span class="p">],</span>
+                <span class="s">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
+               <span class="p">}</span>
+
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
@@ -280,30 +294,30 @@ left using <code class="docutils literal"><span class="pre">'tick_side':'left'</
 26
 27</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_3.py</span>
 
-<span class="n">N_params</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">&#39;u&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
-        <span class="s">&#39;title_x_shift&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>   <span class="c"># &lt;-</span>
-        <span class="s">&#39;title_y_shift&#39;</span><span class="p">:</span><span class="mf">0.5</span>     <span class="c"># &lt;-</span>
-        <span class="p">}</span>
-<span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
-              <span class="s">&#39;f_params&#39;</span><span class="p">:</span><span class="n">N_params</span><span class="p">,</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-                     <span class="p">}</span>
-<span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_axes_3.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
-                            <span class="p">}</span>
+<span class="n">N_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+            <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">&#39;u&#39;</span><span class="p">,</span>
+            <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;left&#39;</span><span class="p">,</span>
+            <span class="s">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>   <span class="c"># &lt;-</span>
+            <span class="s">&#39;title_y_shift&#39;</span><span class="p">:</span> <span class="mf">0.5</span>     <span class="c"># &lt;-</span>
+            <span class="p">}</span>
+
+<span class="n">block_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_8&#39;</span><span class="p">,</span>
+                <span class="s">&#39;f_params&#39;</span><span class="p">:</span> <span class="n">N_params</span><span class="p">,</span>
+                <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                <span class="s">&#39;height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                <span class="p">}</span>
+
+<span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;filename&#39;</span><span class="p">:</span> <span class="s">&#39;ex_axes_3.pdf&#39;</span><span class="p">,</span>
+               <span class="s">&#39;paper_height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+               <span class="s">&#39;paper_width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+               <span class="s">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_params</span><span class="p">],</span>
+               <span class="s">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
+               <span class="p">}</span>
+
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
@@ -345,49 +359,39 @@ given range set by <code class="docutils literal"><span class="pre">u_min</span>
 31
 32
 33
-34
-35
-36
-37
-38
-39</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_4.py</span>
+34</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_4.py</span>
 
-<span class="n">N_params</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">&#39;title&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
-        <span class="s">&#39;title_draw_center&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>               <span class="c"># &lt;-</span>
-        <span class="s">&#39;extra_params&#39;</span><span class="p">:[{</span>                       <span class="c"># &lt;- range 1</span>
-                        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>            <span class="c"># &lt;-</span>
-                        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>           <span class="c"># &lt;-</span>
-                        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>        <span class="c"># &lt;-</span>
-                        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>   <span class="c"># &lt;-</span>
-                        <span class="p">},</span>                      <span class="c"># &lt;-</span>
-                        <span class="p">{</span>                       <span class="c"># &lt;- range 2</span>
-                        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">9.0</span><span class="p">,</span>            <span class="c"># &lt;-</span>
-                        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>           <span class="c"># &lt;-</span>
-                        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>        <span class="c"># &lt;-</span>
-                        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>   <span class="c"># &lt;-</span>
-                        <span class="p">}</span>                       <span class="c"># &lt;-</span>
-                        <span class="p">]</span>                       <span class="c"># &lt;-</span>
-        <span class="p">}</span>
-<span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
-              <span class="s">&#39;f_params&#39;</span><span class="p">:</span><span class="n">N_params</span><span class="p">,</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-                     <span class="p">}</span>
-<span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_axes_4.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
-              <span class="p">}</span>
+<span class="n">N_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+            <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">&#39;title&#39;</span><span class="p">,</span>
+            <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;left&#39;</span><span class="p">,</span>
+            <span class="s">&#39;title_draw_center&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>                 <span class="c"># &lt;-</span>
+            <span class="s">&#39;extra_params&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>            <span class="c"># &lt;- range 1</span>
+                              <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>           <span class="c"># &lt;-</span>
+                              <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>        <span class="c"># &lt;-</span>
+                              <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>   <span class="c"># &lt;-</span>
+                              <span class="p">},</span>                       <span class="c"># &lt;-</span>
+                             <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">9.0</span><span class="p">,</span>            <span class="c"># &lt;- range 2</span>
+                              <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>           <span class="c"># &lt;-</span>
+                              <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>        <span class="c"># &lt;-</span>
+                              <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>   <span class="c"># &lt;-</span>
+                              <span class="p">}</span>                        <span class="c"># &lt;-</span>
+                             <span class="p">]</span>                         <span class="c"># &lt;-</span>
+            <span class="p">}</span>
+<span class="n">block_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_8&#39;</span><span class="p">,</span>
+                <span class="s">&#39;f_params&#39;</span><span class="p">:</span> <span class="n">N_params</span><span class="p">,</span>
+                <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                <span class="s">&#39;height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                <span class="p">}</span>
+<span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;filename&#39;</span><span class="p">:</span> <span class="s">&#39;ex_axes_4.pdf&#39;</span><span class="p">,</span>
+               <span class="s">&#39;paper_height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+               <span class="s">&#39;paper_width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+               <span class="s">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_params</span><span class="p">],</span>
+               <span class="s">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
+               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
@@ -455,79 +459,72 @@ and one digit after comma using <code class="docutils literal"><span class="pre"
 55
 56
 57
-58
-59
-60
-61
-62
-63
-64</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_4_1.py</span>
+58</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_4_1.py</span>
 
-<span class="n">N_params</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">&#39;title&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
-        <span class="s">&#39;title_draw_center&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-        <span class="s">&#39;text_format&#39;</span><span class="p">:</span><span class="s">r&quot;$</span><span class="si">%3.1f</span><span class="s">$ &quot;</span><span class="p">,</span>                              <span class="c"># &lt;- format numbers as %3.1f</span>
-        <span class="s">&#39;axis_color&#39;</span><span class="p">:</span><span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Orange</span><span class="p">,</span>
-        <span class="s">&#39;text_color&#39;</span><span class="p">:</span><span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Plum</span><span class="p">,</span>
-        <span class="s">&#39;title_color&#39;</span><span class="p">:</span><span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Plum</span><span class="p">,</span>
-        <span class="s">&#39;extra_params&#39;</span><span class="p">:[{</span>
-                        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-                        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-                        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-                        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-                        <span class="s">&#39;axis_color&#39;</span><span class="p">:</span><span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Red</span><span class="p">,</span>
-                        <span class="p">},</span>
-                        <span class="p">{</span>
-                        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">9.0</span><span class="p">,</span>
-                        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-                        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
-                        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-                        <span class="s">&#39;axis_color&#39;</span><span class="p">:</span><span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Blue</span><span class="p">,</span>
-                        <span class="p">}</span>
-                        <span class="p">],</span>
-        <span class="s">&#39;extra_titles&#39;</span><span class="p">:[</span>                                         <span class="c"># &lt;- 1st extra title</span>
-              <span class="p">{</span><span class="s">&#39;dx&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>                                         <span class="c"># &lt;-</span>
-              <span class="s">&#39;dy&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>                                          <span class="c"># &lt;-</span>
-              <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">&#39;extra title 1&#39;</span><span class="p">,</span>                            <span class="c"># &lt;-</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>                                         <span class="c"># &lt;-</span>
-              <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">red</span><span class="p">,</span><span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">]</span>    <span class="c"># &lt;-</span>
-              <span class="p">},</span>
-              <span class="p">{</span><span class="s">&#39;dx&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>                                         <span class="c"># &lt;- 2nd extra title</span>
-              <span class="s">&#39;dy&#39;</span><span class="p">:</span><span class="mf">2.0</span><span class="p">,</span>                                          <span class="c"># &lt;-</span>
-              <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">&#39;extra title 2&#39;</span><span class="p">,</span>                            <span class="c"># &lt;-</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>                                         <span class="c"># &lt;-</span>
-              <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">green</span><span class="p">]</span>                 <span class="c"># &lt;-</span>
-              <span class="p">},</span>
-              <span class="p">{</span><span class="s">&#39;dx&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>                                        <span class="c"># &lt;- 3rd extra title</span>
-              <span class="s">&#39;dy&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>                                          <span class="c"># &lt;-</span>
-              <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">r&quot;extra  \par title 3&quot;</span><span class="p">,</span>                     <span class="c"># &lt;- \par = newline</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>                                         <span class="c"># &lt;-</span>
-              <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">blue</span><span class="p">]</span>                  <span class="c"># &lt;-</span>
-              <span class="p">}]</span>
-        <span class="p">}</span>
-<span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
-              <span class="s">&#39;f_params&#39;</span><span class="p">:</span><span class="n">N_params</span><span class="p">,</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-                     <span class="p">}</span>
-<span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_axes_4_1.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
-              <span class="p">}</span>
+<span class="n">N_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+            <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">&#39;title&#39;</span><span class="p">,</span>
+            <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;left&#39;</span><span class="p">,</span>
+            <span class="s">&#39;title_draw_center&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+            <span class="s">&#39;text_format&#39;</span><span class="p">:</span> <span class="s">r&quot;$</span><span class="si">%3.1f</span><span class="s">$ &quot;</span><span class="p">,</span>                              <span class="c"># &lt;- format numbers as %3.1f</span>
+            <span class="s">&#39;axis_color&#39;</span><span class="p">:</span> <span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Orange</span><span class="p">,</span>
+            <span class="s">&#39;text_color&#39;</span><span class="p">:</span> <span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Plum</span><span class="p">,</span>
+            <span class="s">&#39;title_color&#39;</span><span class="p">:</span> <span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Plum</span><span class="p">,</span>
+            <span class="s">&#39;extra_params&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                              <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                              <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                              <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                              <span class="s">&#39;axis_color&#39;</span><span class="p">:</span> <span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Red</span><span class="p">,</span>
+                              <span class="p">},</span>
+                             <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">9.0</span><span class="p">,</span>
+                              <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                              <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                              <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                              <span class="s">&#39;axis_color&#39;</span><span class="p">:</span> <span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Blue</span><span class="p">,</span>
+                              <span class="p">}</span>
+                            <span class="p">],</span>
+            <span class="s">&#39;extra_titles&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s">&#39;dx&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>                                          <span class="c"># &lt;- 1st extra title</span>
+                              <span class="s">&#39;dy&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>                                          <span class="c"># &lt;-</span>
+                              <span class="s">&#39;text&#39;</span><span class="p">:</span> <span class="s">&#39;extra title 1&#39;</span><span class="p">,</span>                            <span class="c"># &lt;-</span>
+                              <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>                                         <span class="c"># &lt;-</span>
+                              <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">red</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">]</span>   <span class="c"># &lt;-</span>
+                              <span class="p">},</span>
+                            <span class="p">{</span><span class="s">&#39;dx&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>                                           <span class="c"># &lt;- 2nd extra title</span>
+                             <span class="s">&#39;dy&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>                                           <span class="c"># &lt;-</span>
+                             <span class="s">&#39;text&#39;</span><span class="p">:</span> <span class="s">&#39;extra title 2&#39;</span><span class="p">,</span>                             <span class="c"># &lt;-</span>
+                             <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>                                          <span class="c"># &lt;-</span>
+                             <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">green</span><span class="p">]</span>                  <span class="c"># &lt;-</span>
+                             <span class="p">},</span>
+                            <span class="p">{</span><span class="s">&#39;dx&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>                                          <span class="c"># &lt;- 3rd extra title</span>
+                             <span class="s">&#39;dy&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>                                           <span class="c"># &lt;-</span>
+                             <span class="s">&#39;text&#39;</span><span class="p">:</span> <span class="s">r&quot;extra  \par title 3&quot;</span><span class="p">,</span>                      <span class="c"># &lt;- \par = newline</span>
+                             <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>                                          <span class="c"># &lt;-</span>
+                             <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">blue</span><span class="p">]</span>                   <span class="c"># &lt;-</span>
+                             <span class="p">}]</span>
+            <span class="p">}</span>
+<span class="n">block_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_8&#39;</span><span class="p">,</span>
+                <span class="s">&#39;f_params&#39;</span><span class="p">:</span> <span class="n">N_params</span><span class="p">,</span>
+                <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                <span class="s">&#39;height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                <span class="p">}</span>
+<span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;filename&#39;</span><span class="p">:</span> <span class="s">&#39;ex_axes_4_1.pdf&#39;</span><span class="p">,</span>
+               <span class="s">&#39;paper_height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+               <span class="s">&#39;paper_width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+               <span class="s">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_params</span><span class="p">],</span>
+               <span class="s">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
+               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <a class="reference internal image-reference" href="../_images/ex_axes_4_1.png"><img alt="../_images/ex_axes_4_1.png" src="../_images/ex_axes_4_1.png" style="height: 600px;" /></a>
+</div>
+<div class="section" id="manual-point-scale-scale-type-manual-point">
+<h2>Manual point scale (<code class="docutils literal"><span class="pre">'scale_type':'manual</span> <span class="pre">point'</span></code>)<a class="headerlink" href="#manual-point-scale-scale-type-manual-point" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes axes have to be defined manually. One option is to use manual point scale type with <code class="docutils literal"><span class="pre">'scale_type':'manual</span> <span class="pre">point'</span></code>
+and define the points as a dict to keyword <code class="docutils literal"><span class="pre">'manual_axis_data'</span></code>.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -562,50 +559,49 @@ and one digit after comma using <code class="docutils literal"><span class="pre"
 32
 33
 34
-35
-36
-37
-38</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_5.py</span>
+35</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_5.py</span>
 
-<span class="n">N_params</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">&#39;title&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
-        <span class="s">&#39;title_draw_center&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;manual point&#39;</span><span class="p">,</span>
-        <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">:</span><span class="s">&#39;one&#39;</span><span class="p">,</span>
-                     <span class="mf">2.0</span><span class="p">:</span><span class="s">&#39;two&#39;</span><span class="p">,</span>
-                     <span class="mf">3.0</span><span class="p">:</span><span class="s">&#39;three&#39;</span><span class="p">,</span>
-                     <span class="mf">3.1415</span><span class="p">:</span><span class="s">r&#39;$\pi$&#39;</span><span class="p">,</span>
-                     <span class="mf">4.0</span><span class="p">:</span><span class="s">&#39;four&#39;</span><span class="p">,</span>
-                     <span class="mf">5.0</span><span class="p">:</span><span class="s">&#39;five&#39;</span><span class="p">,</span>
-                     <span class="mf">6.0</span><span class="p">:</span><span class="s">&#39;six&#39;</span><span class="p">,</span>
-                     <span class="mf">7.0</span><span class="p">:</span><span class="s">&#39;seven&#39;</span><span class="p">,</span>
-                     <span class="mf">8.0</span><span class="p">:</span><span class="s">&#39;eight&#39;</span><span class="p">,</span>
-                     <span class="mf">9.0</span><span class="p">:</span><span class="s">&#39;nine&#39;</span><span class="p">,</span>
-                     <span class="mf">10.0</span><span class="p">:</span><span class="s">&#39;ten&#39;</span><span class="p">}</span>
-        <span class="p">}</span>
-<span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
-              <span class="s">&#39;f_params&#39;</span><span class="p">:</span><span class="n">N_params</span><span class="p">,</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-                     <span class="p">}</span>
-<span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_axes_5.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
-              <span class="p">}</span>
+<span class="n">N_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+            <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">&#39;title&#39;</span><span class="p">,</span>
+            <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;left&#39;</span><span class="p">,</span>
+            <span class="s">&#39;title_draw_center&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+            <span class="s">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s">&#39;manual point&#39;</span><span class="p">,</span>        <span class="c"># &lt;- use manual points</span>
+            <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">:</span> <span class="s">&#39;one&#39;</span><span class="p">,</span>     <span class="c"># &lt;- give point values as keys</span>
+                                 <span class="mf">2.0</span><span class="p">:</span> <span class="s">&#39;two&#39;</span><span class="p">,</span>     <span class="c"># &lt;- and texts as values</span>
+                                 <span class="mf">3.0</span><span class="p">:</span> <span class="s">&#39;three&#39;</span><span class="p">,</span>
+                                 <span class="mf">3.1415</span><span class="p">:</span> <span class="s">r&#39;$\pi$&#39;</span><span class="p">,</span>
+                                 <span class="mf">4.0</span><span class="p">:</span> <span class="s">&#39;four&#39;</span><span class="p">,</span>
+                                 <span class="mf">5.0</span><span class="p">:</span> <span class="s">&#39;five&#39;</span><span class="p">,</span>
+                                 <span class="mf">6.0</span><span class="p">:</span> <span class="s">&#39;six&#39;</span><span class="p">,</span>
+                                 <span class="mf">7.0</span><span class="p">:</span> <span class="s">&#39;seven&#39;</span><span class="p">,</span>
+                                 <span class="mf">8.0</span><span class="p">:</span> <span class="s">&#39;eight&#39;</span><span class="p">,</span>
+                                 <span class="mf">9.0</span><span class="p">:</span> <span class="s">&#39;nine&#39;</span><span class="p">,</span>
+                                 <span class="mf">10.0</span><span class="p">:</span> <span class="s">&#39;ten&#39;</span><span class="p">}</span>
+            <span class="p">}</span>
+<span class="n">block_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_8&#39;</span><span class="p">,</span>
+                <span class="s">&#39;f_params&#39;</span><span class="p">:</span> <span class="n">N_params</span><span class="p">,</span>
+                <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                <span class="s">&#39;height&#39;</span><span class="p">:</span> <span class="mf">10.0</span>
+                <span class="p">}</span>
+<span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;filename&#39;</span><span class="p">:</span> <span class="s">&#39;ex_axes_5.pdf&#39;</span><span class="p">,</span>
+               <span class="s">&#39;paper_height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+               <span class="s">&#39;paper_width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+               <span class="s">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_params</span><span class="p">],</span>
+               <span class="s">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
+               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <a class="reference internal image-reference" href="../_images/ex_axes_5.png"><img alt="../_images/ex_axes_5.png" src="../_images/ex_axes_5.png" style="height: 600px;" /></a>
+</div>
+<div class="section" id="manual-line-scale-scale-type-manual-line">
+<h2>Manual line scale (<code class="docutils literal"><span class="pre">'scale_type':'manual</span> <span class="pre">line'</span></code>)<a class="headerlink" href="#manual-line-scale-scale-type-manual-line" title="Permalink to this headline">¶</a></h2>
+<p>Similarly other option is to use manual line scale type with <code class="docutils literal"><span class="pre">'scale_type':'manual</span> <span class="pre">line'</span></code> that draws main scale line
+and ticks. Drawn ticks are defined as a dict to keyword <code class="docutils literal"><span class="pre">'manual_axis_data'</span></code> as above example.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -640,52 +636,45 @@ and one digit after comma using <code class="docutils literal"><span class="pre"
 32
 33
 34
-35
-36
-37
-38
-39</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_6.py</span>
+35</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_6.py</span>
 
-<span class="n">N_params</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">&#39;title&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
-        <span class="s">&#39;title_draw_center&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;manual line&#39;</span><span class="p">,</span>
-        <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">:</span><span class="s">&#39;one&#39;</span><span class="p">,</span>
-                     <span class="mf">2.0</span><span class="p">:</span><span class="s">&#39;two&#39;</span><span class="p">,</span>
-                     <span class="mf">3.0</span><span class="p">:</span><span class="s">&#39;three&#39;</span><span class="p">,</span>
-                     <span class="mf">3.1415</span><span class="p">:</span><span class="s">r&#39;$\pi$&#39;</span><span class="p">,</span>
-                     <span class="mf">4.0</span><span class="p">:</span><span class="s">&#39;four&#39;</span><span class="p">,</span>
-                     <span class="mf">5.0</span><span class="p">:</span><span class="s">&#39;five&#39;</span><span class="p">,</span>
-                     <span class="mf">6.0</span><span class="p">:</span><span class="s">&#39;six&#39;</span><span class="p">,</span>
-                     <span class="mf">7.0</span><span class="p">:</span><span class="s">&#39;seven&#39;</span><span class="p">,</span>
-                     <span class="mf">8.0</span><span class="p">:</span><span class="s">&#39;eight&#39;</span><span class="p">,</span>
-                     <span class="mf">9.0</span><span class="p">:</span><span class="s">&#39;nine&#39;</span><span class="p">,</span>
-                     <span class="mf">10.0</span><span class="p">:</span><span class="s">&#39;ten&#39;</span><span class="p">}</span>
-
-        <span class="p">}</span>
-<span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
-              <span class="s">&#39;f_params&#39;</span><span class="p">:</span><span class="n">N_params</span><span class="p">,</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-                     <span class="p">}</span>
-<span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_axes_6.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
-              <span class="p">}</span>
+<span class="n">N_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+            <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">&#39;title&#39;</span><span class="p">,</span>
+            <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;left&#39;</span><span class="p">,</span>
+            <span class="s">&#39;title_draw_center&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+            <span class="s">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s">&#39;manual line&#39;</span><span class="p">,</span>     <span class="c"># &lt;-</span>
+            <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">:</span> <span class="s">&#39;one&#39;</span><span class="p">,</span>
+                                 <span class="mf">2.0</span><span class="p">:</span> <span class="s">&#39;two&#39;</span><span class="p">,</span>
+                                 <span class="mf">3.0</span><span class="p">:</span> <span class="s">&#39;three&#39;</span><span class="p">,</span>
+                                 <span class="mf">3.1415</span><span class="p">:</span> <span class="s">r&#39;$\pi$&#39;</span><span class="p">,</span>
+                                 <span class="mf">4.0</span><span class="p">:</span> <span class="s">&#39;four&#39;</span><span class="p">,</span>
+                                 <span class="mf">5.0</span><span class="p">:</span> <span class="s">&#39;five&#39;</span><span class="p">,</span>
+                                 <span class="mf">6.0</span><span class="p">:</span> <span class="s">&#39;six&#39;</span><span class="p">,</span>
+                                 <span class="mf">7.0</span><span class="p">:</span> <span class="s">&#39;seven&#39;</span><span class="p">,</span>
+                                 <span class="mf">8.0</span><span class="p">:</span> <span class="s">&#39;eight&#39;</span><span class="p">,</span>
+                                 <span class="mf">9.0</span><span class="p">:</span> <span class="s">&#39;nine&#39;</span><span class="p">,</span>
+                                 <span class="mf">10.0</span><span class="p">:</span> <span class="s">&#39;ten&#39;</span><span class="p">}</span>
+            <span class="p">}</span>
+<span class="n">block_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_8&#39;</span><span class="p">,</span>
+                <span class="s">&#39;f_params&#39;</span><span class="p">:</span> <span class="n">N_params</span><span class="p">,</span>
+                <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                <span class="s">&#39;height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                <span class="p">}</span>
+<span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;filename&#39;</span><span class="p">:</span> <span class="s">&#39;ex_axes_6.pdf&#39;</span><span class="p">,</span>
+               <span class="s">&#39;paper_height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+               <span class="s">&#39;paper_width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+               <span class="s">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_params</span><span class="p">],</span>
+               <span class="s">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
+               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <a class="reference internal image-reference" href="../_images/ex_axes_6.png"><img alt="../_images/ex_axes_6.png" src="../_images/ex_axes_6.png" style="height: 600px;" /></a>
+<p>Combining manual lines and  a linear scale.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -726,58 +715,54 @@ and one digit after comma using <code class="docutils literal"><span class="pre"
 38
 39
 40
-41
-42
-43
-44
-45</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_7.py</span>
+41</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_7.py</span>
 
-<span class="n">N_params</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">&#39;title&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
-        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;manual line&#39;</span><span class="p">,</span>
-        <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">:</span><span class="s">&#39;one&#39;</span><span class="p">,</span>
-                     <span class="mf">2.0</span><span class="p">:</span><span class="s">&#39;two&#39;</span><span class="p">,</span>
-                     <span class="mf">3.0</span><span class="p">:</span><span class="s">&#39;three&#39;</span><span class="p">,</span>
-                     <span class="mf">3.1415</span><span class="p">:</span><span class="s">r&#39;$\pi$&#39;</span><span class="p">,</span>
-                     <span class="mf">4.0</span><span class="p">:</span><span class="s">&#39;four&#39;</span><span class="p">,</span>
-                     <span class="mf">5.0</span><span class="p">:</span><span class="s">&#39;five&#39;</span><span class="p">,</span>
-                     <span class="mf">6.0</span><span class="p">:</span><span class="s">&#39;six&#39;</span><span class="p">,</span>
-                     <span class="mf">7.0</span><span class="p">:</span><span class="s">&#39;seven&#39;</span><span class="p">,</span>
-                     <span class="mf">8.0</span><span class="p">:</span><span class="s">&#39;eight&#39;</span><span class="p">,</span>
-                     <span class="mf">9.0</span><span class="p">:</span><span class="s">&#39;nine&#39;</span><span class="p">,</span>
-                     <span class="mf">10.0</span><span class="p">:</span><span class="s">&#39;ten&#39;</span><span class="p">},</span>
-        <span class="s">&#39;extra_params&#39;</span><span class="p">:[{</span>
-                        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-                        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-                        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;linear&#39;</span><span class="p">,</span>
-                        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-                        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-                        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;right&#39;</span><span class="p">,</span>
-                        <span class="p">}]</span>
-        <span class="p">}</span>
-<span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
-              <span class="s">&#39;f_params&#39;</span><span class="p">:</span><span class="n">N_params</span><span class="p">,</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-                     <span class="p">}</span>
-<span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_axes_7.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
-              <span class="p">}</span>
+<span class="n">N_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+            <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">&#39;title&#39;</span><span class="p">,</span>
+            <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;left&#39;</span><span class="p">,</span>
+            <span class="s">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s">&#39;manual line&#39;</span><span class="p">,</span>
+            <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">:</span> <span class="s">&#39;one&#39;</span><span class="p">,</span>
+                                 <span class="mf">2.0</span><span class="p">:</span> <span class="s">&#39;two&#39;</span><span class="p">,</span>
+                                 <span class="mf">3.0</span><span class="p">:</span> <span class="s">&#39;three&#39;</span><span class="p">,</span>
+                                 <span class="mf">3.1415</span><span class="p">:</span> <span class="s">r&#39;$\pi$&#39;</span><span class="p">,</span>
+                                 <span class="mf">4.0</span><span class="p">:</span> <span class="s">&#39;four&#39;</span><span class="p">,</span>
+                                 <span class="mf">5.0</span><span class="p">:</span> <span class="s">&#39;five&#39;</span><span class="p">,</span>
+                                 <span class="mf">6.0</span><span class="p">:</span> <span class="s">&#39;six&#39;</span><span class="p">,</span>
+                                 <span class="mf">7.0</span><span class="p">:</span> <span class="s">&#39;seven&#39;</span><span class="p">,</span>
+                                 <span class="mf">8.0</span><span class="p">:</span> <span class="s">&#39;eight&#39;</span><span class="p">,</span>
+                                 <span class="mf">9.0</span><span class="p">:</span> <span class="s">&#39;nine&#39;</span><span class="p">,</span>
+                                 <span class="mf">10.0</span><span class="p">:</span> <span class="s">&#39;ten&#39;</span><span class="p">},</span>
+            <span class="s">&#39;extra_params&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+                              <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                              <span class="s">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s">&#39;linear&#39;</span><span class="p">,</span>
+                              <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                              <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                              <span class="s">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;right&#39;</span><span class="p">,</span>
+                              <span class="p">}]</span>
+            <span class="p">}</span>
+<span class="n">block_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_8&#39;</span><span class="p">,</span>
+                <span class="s">&#39;f_params&#39;</span><span class="p">:</span> <span class="n">N_params</span><span class="p">,</span>
+                <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                <span class="s">&#39;height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                <span class="p">}</span>
+<span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;filename&#39;</span><span class="p">:</span> <span class="s">&#39;ex_axes_7.pdf&#39;</span><span class="p">,</span>
+               <span class="s">&#39;paper_height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+               <span class="s">&#39;paper_width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+               <span class="s">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_params</span><span class="p">],</span>
+               <span class="s">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
+               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <a class="reference internal image-reference" href="../_images/ex_axes_7.png"><img alt="../_images/ex_axes_7.png" src="../_images/ex_axes_7.png" style="height: 600px;" /></a>
+</div>
+<div class="section" id="manual-arrows-scale-type-manual-arrow">
+<h2>Manual arrows  (<code class="docutils literal"><span class="pre">'scale_type':'manual</span> <span class="pre">arrow'</span></code>)<a class="headerlink" href="#manual-arrows-scale-type-manual-arrow" title="Permalink to this headline">¶</a></h2>
+<p>Manual arrows can be used to point values in the scale using arrows.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -827,71 +812,64 @@ and one digit after comma using <code class="docutils literal"><span class="pre"
 47
 48
 49
-50
-51
-52
-53
-54
-55
-56</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_7_1.py</span>
+50</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_7_1.py</span>
 
-<span class="n">N_params</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;\bf title&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
-        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;manual line&#39;</span><span class="p">,</span>
-        <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">:</span><span class="s">&#39;one&#39;</span><span class="p">,</span>
-                     <span class="mf">2.0</span><span class="p">:</span><span class="s">&#39;two&#39;</span><span class="p">,</span>
-                     <span class="mf">3.0</span><span class="p">:</span><span class="s">&#39;three&#39;</span><span class="p">,</span>
-                     <span class="mf">3.1415</span><span class="p">:</span><span class="s">r&#39;$\pi$&#39;</span><span class="p">,</span>
-                     <span class="mf">4.0</span><span class="p">:</span><span class="s">&#39;four&#39;</span><span class="p">,</span>
-                     <span class="mf">5.0</span><span class="p">:</span><span class="s">&#39;five&#39;</span><span class="p">,</span>
-                     <span class="mf">6.0</span><span class="p">:</span><span class="s">&#39;six&#39;</span><span class="p">,</span>
-                     <span class="mf">7.0</span><span class="p">:</span><span class="s">&#39;seven&#39;</span><span class="p">,</span>
-                     <span class="mf">8.0</span><span class="p">:</span><span class="s">&#39;eight&#39;</span><span class="p">,</span>
-                     <span class="mf">9.0</span><span class="p">:</span><span class="s">&#39;nine&#39;</span><span class="p">,</span>
-                     <span class="mf">10.0</span><span class="p">:</span><span class="s">&#39;ten&#39;</span><span class="p">},</span>
-        <span class="s">&#39;extra_params&#39;</span><span class="p">:[{</span>
-                        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-                        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-                        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;linear&#39;</span><span class="p">,</span>
-                        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-                        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-                        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;right&#39;</span><span class="p">,</span>
-                        <span class="s">&#39;extra_angle&#39;</span><span class="p">:</span><span class="mf">90.0</span><span class="p">,</span>
-                        <span class="s">&#39;text_horizontal_align_center&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-                        <span class="s">&#39;text_format&#39;</span><span class="p">:</span><span class="s">r&quot;$</span><span class="si">%2.1f</span><span class="s">$&quot;</span><span class="p">,</span>
-                        <span class="p">},</span>
-                        <span class="p">{</span><span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;manual arrow&#39;</span><span class="p">,</span>
-                         <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:{</span><span class="mf">6.2830</span><span class="p">:</span><span class="s">r&#39;$2\pi$&#39;</span><span class="p">,</span>
-                                            <span class="mf">9.4245</span><span class="p">:</span><span class="s">r&#39;$3\pi$&#39;</span><span class="p">},</span>
-                         <span class="s">&#39;arrow_color&#39;</span><span class="p">:</span><span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Sepia</span><span class="p">,</span>
-                         <span class="s">&#39;arrow_length&#39;</span><span class="p">:</span><span class="mf">2.0</span><span class="p">,</span>
-                         <span class="s">&#39;text_color&#39;</span><span class="p">:</span><span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Sepia</span><span class="p">,</span>
-                        <span class="p">}</span>
-                        <span class="p">]</span>
-        <span class="p">}</span>
-<span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
-              <span class="s">&#39;f_params&#39;</span><span class="p">:</span><span class="n">N_params</span><span class="p">,</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-                     <span class="p">}</span>
-<span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_axes_7_1.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
-              <span class="p">}</span>
+<span class="n">N_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+            <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">r&#39;\bf title&#39;</span><span class="p">,</span>
+            <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;left&#39;</span><span class="p">,</span>
+            <span class="s">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s">&#39;manual line&#39;</span><span class="p">,</span>
+            <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">:</span> <span class="s">&#39;one&#39;</span><span class="p">,</span>
+                                 <span class="mf">2.0</span><span class="p">:</span> <span class="s">&#39;two&#39;</span><span class="p">,</span>
+                                 <span class="mf">3.0</span><span class="p">:</span> <span class="s">&#39;three&#39;</span><span class="p">,</span>
+                                 <span class="mf">3.1415</span><span class="p">:</span> <span class="s">r&#39;$\pi$&#39;</span><span class="p">,</span>
+                                 <span class="mf">4.0</span><span class="p">:</span> <span class="s">&#39;four&#39;</span><span class="p">,</span>
+                                 <span class="mf">5.0</span><span class="p">:</span> <span class="s">&#39;five&#39;</span><span class="p">,</span>
+                                 <span class="mf">6.0</span><span class="p">:</span> <span class="s">&#39;six&#39;</span><span class="p">,</span>
+                                 <span class="mf">7.0</span><span class="p">:</span> <span class="s">&#39;seven&#39;</span><span class="p">,</span>
+                                 <span class="mf">8.0</span><span class="p">:</span> <span class="s">&#39;eight&#39;</span><span class="p">,</span>
+                                 <span class="mf">9.0</span><span class="p">:</span> <span class="s">&#39;nine&#39;</span><span class="p">,</span>
+                                 <span class="mf">10.0</span><span class="p">:</span> <span class="s">&#39;ten&#39;</span><span class="p">},</span>
+            <span class="s">&#39;extra_params&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+                              <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                              <span class="s">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s">&#39;linear&#39;</span><span class="p">,</span>
+                              <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                              <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                              <span class="s">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;right&#39;</span><span class="p">,</span>
+                              <span class="s">&#39;extra_angle&#39;</span><span class="p">:</span> <span class="mf">90.0</span><span class="p">,</span>
+                              <span class="s">&#39;text_horizontal_align_center&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                              <span class="s">&#39;text_format&#39;</span><span class="p">:</span> <span class="s">r&quot;$</span><span class="si">%2.1f</span><span class="s">$&quot;</span><span class="p">},</span>
+                             <span class="p">{</span><span class="s">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s">&#39;manual arrow&#39;</span><span class="p">,</span>           <span class="c"># &lt;-</span>
+                              <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">6.2830</span><span class="p">:</span> <span class="s">r&#39;$2\pi$&#39;</span><span class="p">,</span>
+                                                   <span class="mf">9.4245</span><span class="p">:</span> <span class="s">r&#39;$3\pi$&#39;</span><span class="p">},</span>
+                              <span class="s">&#39;arrow_color&#39;</span><span class="p">:</span> <span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Sepia</span><span class="p">,</span>
+                              <span class="s">&#39;arrow_length&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
+                              <span class="s">&#39;text_color&#39;</span><span class="p">:</span> <span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Sepia</span><span class="p">,</span>
+                              <span class="p">}]</span>
+            <span class="p">}</span>
+<span class="n">block_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_8&#39;</span><span class="p">,</span>
+                <span class="s">&#39;f_params&#39;</span><span class="p">:</span> <span class="n">N_params</span><span class="p">,</span>
+                <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                <span class="s">&#39;height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                <span class="p">}</span>
+<span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;filename&#39;</span><span class="p">:</span> <span class="s">&#39;ex_axes_7_1.pdf&#39;</span><span class="p">,</span>
+               <span class="s">&#39;paper_height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+               <span class="s">&#39;paper_width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+               <span class="s">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_params</span><span class="p">],</span>
+               <span class="s">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
+               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <a class="reference internal image-reference" href="../_images/ex_axes_7_1.png"><img alt="../_images/ex_axes_7_1.png" src="../_images/ex_axes_7_1.png" style="height: 600px;" /></a>
+</div>
+<div class="section" id="manual-function-function-x-and-function-y">
+<h2>Manual function  (<code class="docutils literal"><span class="pre">'function_x'</span></code> and <code class="docutils literal"><span class="pre">'function_y'</span></code>)<a class="headerlink" href="#manual-function-function-x-and-function-y" title="Permalink to this headline">¶</a></h2>
+<p>If one wants to explicitely draw scale in xy-scace, parameters <code class="docutils literal"><span class="pre">'function_x'</span></code> and <code class="docutils literal"><span class="pre">'function_y'</span></code> can be used
+in conjuction with block type 8. In the following example circular scale is drawn.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -914,44 +892,36 @@ and one digit after comma using <code class="docutils literal"><span class="pre"
 20
 21
 22
-23
-24
-25
-26
-27
-28
-29</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_8.py</span>
+23</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_8.py</span>
 
-<span class="n">N_params</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">300.0</span><span class="p">,</span>
-        <span class="s">&#39;function_x&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">u</span><span class="o">/</span><span class="mf">180.0</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span>
-        <span class="s">&#39;function_y&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">u</span><span class="o">/</span><span class="mf">180.0</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">&#39;u&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="s">&#39;title_x_shift&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>
-        <span class="p">}</span>
-
-<span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
-              <span class="s">&#39;f_params&#39;</span><span class="p">:</span><span class="n">N_params</span><span class="p">,</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
-                     <span class="p">}</span>
-
-<span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_axes_8.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
-              <span class="p">}</span>
-
+<span class="n">N_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">300.0</span><span class="p">,</span>
+            <span class="s">&#39;function_x&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">u</span> <span class="o">/</span> <span class="mf">180.0</span> <span class="o">*</span> <span class="n">pi</span><span class="p">),</span>
+            <span class="s">&#39;function_y&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">u</span> <span class="o">/</span> <span class="mf">180.0</span> <span class="o">*</span> <span class="n">pi</span><span class="p">),</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">&#39;u&#39;</span><span class="p">,</span>
+            <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>
+            <span class="p">}</span>
+<span class="n">block_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_8&#39;</span><span class="p">,</span>
+                <span class="s">&#39;f_params&#39;</span><span class="p">:</span> <span class="n">N_params</span><span class="p">,</span>
+                <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                <span class="s">&#39;height&#39;</span><span class="p">:</span> <span class="mf">15.0</span><span class="p">,</span>
+                <span class="p">}</span>
+<span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;filename&#39;</span><span class="p">:</span> <span class="s">&#39;ex_axes_8.pdf&#39;</span><span class="p">,</span>
+               <span class="s">&#39;paper_height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+               <span class="s">&#39;paper_width&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+               <span class="s">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_params</span><span class="p">],</span>
+               <span class="s">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
+               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <a class="reference internal image-reference" href="../_images/ex_axes_8.png"><img alt="../_images/ex_axes_8.png" src="../_images/ex_axes_8.png" style="height: 600px;" /></a>
+<p>In the following we fine-tune the appearance of the scale. Tick lengths are explicitly given with params <code class="docutils literal"><span class="pre">'grid_length_x'</span></code>
+(note name with bad logic), text sizes are tuned with params <code class="docutils literal"><span class="pre">'text_size_x'</span></code> and distance of text to the scale is set using
+<code class="docutils literal"><span class="pre">'text_distance_x'</span></code>. <code class="docutils literal"><span class="pre">'full_angle'</span></code> parameter allows text to be drawn also upside down and text angle is rotated with
+<code class="docutils literal"><span class="pre">'extra_angle'</span></code>.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -998,80 +968,61 @@ and one digit after comma using <code class="docutils literal"><span class="pre"
 44
 45
 46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_8_1.py</span>
+47</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_8_1.py</span>
 
-<span class="n">N_params</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">300.0</span><span class="p">,</span>
-        <span class="s">&#39;function_x&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">u</span><span class="o">/</span><span class="mf">180.0</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span>
-        <span class="s">&#39;function_y&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">u</span><span class="o">/</span><span class="mf">180.0</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">&#39;u&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="s">&#39;title_x_shift&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>
-         <span class="c">#&#39;grid_length&#39;:0.1,</span>
-         <span class="s">&#39;grid_length_0&#39;</span><span class="p">:</span><span class="mf">0.8</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
-         <span class="s">&#39;grid_length_1&#39;</span><span class="p">:</span><span class="mf">0.6</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
-         <span class="s">&#39;grid_length_2&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
-         <span class="s">&#39;grid_length_3&#39;</span><span class="p">:</span><span class="mf">0.4</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
-         <span class="s">&#39;grid_length_4&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
-         <span class="c">#&#39;text_size&#39;: text.size.scriptsize, #not used in this example</span>
-         <span class="s">&#39;text_size_0&#39;</span><span class="p">:</span> <span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">,</span>
-         <span class="s">&#39;text_size_1&#39;</span><span class="p">:</span> <span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">,</span>
-         <span class="s">&#39;text_size_2&#39;</span><span class="p">:</span> <span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">,</span>
-         <span class="s">&#39;text_size_3&#39;</span><span class="p">:</span> <span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">,</span>
-         <span class="s">&#39;text_size_4&#39;</span><span class="p">:</span> <span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">,</span>
-         <span class="c">#&#39;text_size_log_0&#39;: text.size.tiny, #not used in this example</span>
-         <span class="c">#&#39;text_size_log_1&#39;: text.size.tiny, #not used in this example</span>
-         <span class="c">#&#39;text_size_log_2&#39;: text.size.tiny, #not used in this example</span>
-         <span class="c">#&#39;text_size_manual&#39;: text.size.tiny, #not used in this example</span>
-         <span class="s">&#39;text_distance_0&#39;</span><span class="p">:</span><span class="mf">1.2</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
-         <span class="s">&#39;text_distance_1&#39;</span><span class="p">:</span><span class="mf">1.1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
-         <span class="s">&#39;text_distance_2&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
-         <span class="s">&#39;text_distance_3&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
-         <span class="s">&#39;text_distance_4&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
-         <span class="s">&#39;title_distance_center&#39;</span><span class="p">:</span><span class="mf">0.7</span><span class="p">,</span>
-         <span class="s">&#39;title_opposite_tick&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-         <span class="s">&#39;title_draw_center&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-         <span class="s">&#39;text_format&#39;</span><span class="p">:</span><span class="s">&quot;$</span><span class="si">%3.1f</span><span class="s">$&quot;</span><span class="p">,</span>
-         <span class="s">&#39;full_angle&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-         <span class="s">&#39;extra_angle&#39;</span><span class="p">:</span><span class="mf">90.0</span><span class="p">,</span>
-         <span class="s">&#39;text_horizontal_align_center&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-         <span class="s">&#39;text_format&#39;</span><span class="p">:</span><span class="s">r&quot;$</span><span class="si">%2.0f</span><span class="s">$&quot;</span><span class="p">,</span>
-         <span class="s">&#39;text_color&#39;</span><span class="p">:</span><span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Sepia</span><span class="p">,</span>
-        <span class="p">}</span>
-
-<span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
-              <span class="s">&#39;f_params&#39;</span><span class="p">:</span><span class="n">N_params</span><span class="p">,</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
-                     <span class="p">}</span>
-
-<span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_axes_8_1.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
-              <span class="p">}</span>
-
+<span class="n">N_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">300.0</span><span class="p">,</span>
+            <span class="s">&#39;function_x&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">u</span> <span class="o">/</span> <span class="mf">180.0</span> <span class="o">*</span> <span class="n">pi</span><span class="p">),</span>
+            <span class="s">&#39;function_y&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">u</span> <span class="o">/</span> <span class="mf">180.0</span> <span class="o">*</span> <span class="n">pi</span><span class="p">),</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">&#39;u&#39;</span><span class="p">,</span>
+            <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>
+            <span class="s">&#39;grid_length_0&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
+            <span class="s">&#39;grid_length_1&#39;</span><span class="p">:</span> <span class="mf">0.6</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
+            <span class="s">&#39;grid_length_2&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
+            <span class="s">&#39;grid_length_3&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
+            <span class="s">&#39;grid_length_4&#39;</span><span class="p">:</span> <span class="mf">0.3</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
+            <span class="s">&#39;text_size_0&#39;</span><span class="p">:</span> <span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">,</span>
+            <span class="s">&#39;text_size_1&#39;</span><span class="p">:</span> <span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">,</span>
+            <span class="s">&#39;text_size_2&#39;</span><span class="p">:</span> <span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">,</span>
+            <span class="s">&#39;text_size_3&#39;</span><span class="p">:</span> <span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">,</span>
+            <span class="s">&#39;text_size_4&#39;</span><span class="p">:</span> <span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">,</span>
+            <span class="s">&#39;text_distance_0&#39;</span><span class="p">:</span> <span class="mf">1.2</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
+            <span class="s">&#39;text_distance_1&#39;</span><span class="p">:</span> <span class="mf">1.1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
+            <span class="s">&#39;text_distance_2&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
+            <span class="s">&#39;text_distance_3&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
+            <span class="s">&#39;text_distance_4&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
+            <span class="s">&#39;title_distance_center&#39;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+            <span class="s">&#39;title_opposite_tick&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+            <span class="s">&#39;title_draw_center&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+            <span class="s">&#39;text_format&#39;</span><span class="p">:</span> <span class="s">&quot;$</span><span class="si">%3.1f</span><span class="s">$&quot;</span><span class="p">,</span>
+            <span class="s">&#39;full_angle&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+            <span class="s">&#39;extra_angle&#39;</span><span class="p">:</span> <span class="mf">90.0</span><span class="p">,</span>
+            <span class="s">&#39;text_horizontal_align_center&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+            <span class="s">&#39;text_format&#39;</span><span class="p">:</span> <span class="s">r&quot;$</span><span class="si">%2.0f</span><span class="s">$&quot;</span><span class="p">,</span>
+            <span class="s">&#39;text_color&#39;</span><span class="p">:</span> <span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Sepia</span><span class="p">,</span>
+            <span class="p">}</span>
+<span class="n">block_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_8&#39;</span><span class="p">,</span>
+                <span class="s">&#39;f_params&#39;</span><span class="p">:</span> <span class="n">N_params</span><span class="p">,</span>
+                <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                <span class="s">&#39;height&#39;</span><span class="p">:</span> <span class="mf">15.0</span><span class="p">,</span>
+                <span class="p">}</span>
+<span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;filename&#39;</span><span class="p">:</span> <span class="s">&#39;ex_axes_8_1.pdf&#39;</span><span class="p">,</span>
+               <span class="s">&#39;paper_height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+               <span class="s">&#39;paper_width&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+               <span class="s">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_params</span><span class="p">],</span>
+               <span class="s">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
+               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <a class="reference internal image-reference" href="../_images/ex_axes_8_1.png"><img alt="../_images/ex_axes_8_1.png" src="../_images/ex_axes_8_1.png" style="height: 600px;" /></a>
+</div>
+<div class="section" id="linear-scale-scale-type-log">
+<h2>Linear scale (<code class="docutils literal"><span class="pre">'scale_type':'log'</span></code>)<a class="headerlink" href="#linear-scale-scale-type-log" title="Permalink to this headline">¶</a></h2>
+<p>Often one needs to use logarithmic functions in scales and <code class="docutils literal"><span class="pre">'scale_type':'log'</span></code> makes some optimizations for this kind
+of scale appearance.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1091,41 +1042,38 @@ and one digit after comma using <code class="docutils literal"><span class="pre"
 17
 18
 19
-20
-21
-22
-23
-24
-25
-26</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_9.py</span>
+20</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># ex_axes_9.py</span>
 
-<span class="n">N_params</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10000.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">&#39;u&#39;</span><span class="p">,</span>
-        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;log&#39;</span><span class="p">,</span>
-        <span class="p">}</span>
-
-<span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
-              <span class="s">&#39;f_params&#39;</span><span class="p">:</span><span class="n">N_params</span><span class="p">,</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
-                     <span class="p">}</span>
-
-<span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_axes_9.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
+<span class="n">N_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10000.0</span><span class="p">,</span>
+            <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">&#39;u&#39;</span><span class="p">,</span>
+            <span class="s">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s">&#39;log&#39;</span><span class="p">,</span>
+            <span class="p">}</span>
+<span class="n">block_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_8&#39;</span><span class="p">,</span>
+                <span class="s">&#39;f_params&#39;</span><span class="p">:</span> <span class="n">N_params</span><span class="p">,</span>
+                <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                <span class="s">&#39;height&#39;</span><span class="p">:</span> <span class="mf">15.0</span><span class="p">,</span>
+                <span class="p">}</span>
+<span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;filename&#39;</span><span class="p">:</span> <span class="s">&#39;ex_axes_9.pdf&#39;</span><span class="p">,</span>
+               <span class="s">&#39;paper_height&#39;</span><span class="p">:</span> <span class="mf">15.0</span><span class="p">,</span>
+               <span class="s">&#39;paper_width&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+               <span class="s">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_params</span><span class="p">],</span>
+               <span class="s">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
               <span class="p">}</span>
-
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <a class="reference internal image-reference" href="../_images/ex_axes_9.png"><img alt="../_images/ex_axes_9.png" src="../_images/ex_axes_9.png" style="height: 600px;" /></a>
+</div>
+<div class="section" id="smart-scales-scale-type-smart-linear-scale-type-smart-log">
+<h2>Smart scales (<code class="docutils literal"><span class="pre">'scale_type':'smart</span> <span class="pre">linear'</span></code>, <code class="docutils literal"><span class="pre">'scale_type':'smart</span> <span class="pre">log'</span></code>)<a class="headerlink" href="#smart-scales-scale-type-smart-linear-scale-type-smart-log" title="Permalink to this headline">¶</a></h2>
+<p>Linear and log scales just plot ticks and texts as given with params <code class="docutils literal"><span class="pre">'tick_levels'</span></code> and <code class="docutils literal"><span class="pre">'tick_text_levels'</span></code>. Often
+this approach generates busy scales with overlapping texts and too dense ticks. Better approach is to use smart
+linear scales <code class="docutils literal"><span class="pre">'scale_type':'smart</span> <span class="pre">linear'</span></code> or smart log scales <code class="docutils literal"><span class="pre">'scale_type':'smart</span> <span class="pre">log'</span></code> These scales check that
+tick and text distances does not go below given thresholds (<code class="docutils literal"><span class="pre">'tick_distance_smart'</span></code> and  <code class="docutils literal"><span class="pre">'text_distance_smart'</span></code>.
+TODO: example to use smart scales.</p>
+</div>
 </div>
 
 

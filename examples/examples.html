@@ -1030,39 +1030,7 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
 414
 415
 416
-417
-418
-419
-420
-421
-422
-423
-424
-425
-426
-427
-428
-429
-430
-431
-432
-433
-434
-435
-436
-437
-438
-439
-440
-441
-442
-443
-444
-445
-446
-447
-448
-449</pre></div></td><td class="code"><div class="highlight"><pre><span class="sd">&quot;&quot;&quot;</span>
+417</pre></div></td><td class="code"><div class="highlight"><pre><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    ex_photo_exposure.py</span>
 
 <span class="sd">    Photgraph exposure.</span>
@@ -1074,443 +1042,411 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
 <span class="sd">functions for solartime taken from solareqns.pdf from</span>
 <span class="sd">http://www.srrb.noaa.gov/highlights/sunrise/solareqns.PDF</span>
 <span class="sd">&quot;&quot;&quot;</span>
+
+
 <span class="c"># fractional year</span>
 <span class="k">def</span> <span class="nf">gamma</span><span class="p">(</span><span class="n">day</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mf">365.0</span><span class="o">*</span><span class="p">(</span><span class="n">day</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">/</span> <span class="mf">365.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">day</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="c"># equation of time</span>
+
+
 <span class="k">def</span> <span class="nf">eq_time</span><span class="p">(</span><span class="n">day</span><span class="p">):</span>
-    <span class="n">gamma0</span><span class="o">=</span><span class="n">gamma</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
-    <span class="k">return</span> <span class="mf">229.18</span><span class="o">*</span><span class="p">(</span><span class="mf">0.000075</span><span class="o">+</span><span class="mf">0.001868</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">gamma0</span><span class="p">)</span><span class="o">-</span><span class="mf">0.032077</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">gamma0</span><span class="p">)</span>\
-                   <span class="o">-</span><span class="mf">0.014615</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">gamma0</span><span class="p">)</span><span class="o">-</span><span class="mf">0.040849</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">gamma0</span><span class="p">))</span>
+    <span class="n">gamma0</span> <span class="o">=</span> <span class="n">gamma</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">229.18</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.000075</span> <span class="o">+</span> <span class="mf">0.001868</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">gamma0</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.032077</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">gamma0</span><span class="p">)</span>\
+                   <span class="o">-</span> <span class="mf">0.014615</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">gamma0</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.040849</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">gamma0</span><span class="p">))</span>
 
 <span class="c"># mean correction, with constant correction we make less than 17 minutes  error</span>
 <span class="c"># in time axis</span>
-<span class="n">temp_a</span><span class="o">=</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">365.0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">temp_b</span><span class="o">=</span><span class="n">eq_time</span><span class="p">(</span><span class="n">temp_a</span><span class="p">)</span>
-<span class="n">correction</span><span class="o">=</span><span class="n">mean</span><span class="p">(</span><span class="n">temp_b</span><span class="p">)</span> <span class="c"># this is 0.0171885 minutes</span>
-<span class="c">#print &quot;maximum time errors: %g %g&quot;%(min(temp_b),max(temp_b))</span>
+<span class="n">temp_a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">365.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">temp_b</span> <span class="o">=</span> <span class="n">eq_time</span><span class="p">(</span><span class="n">temp_a</span><span class="p">)</span>
+<span class="n">correction</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">temp_b</span><span class="p">)</span> <span class="c"># this is 0.0171885 minutes</span>
+
 
 <span class="c"># declination</span>
 <span class="k">def</span> <span class="nf">eq_declination</span><span class="p">(</span><span class="n">day</span><span class="p">):</span>
-    <span class="n">g0</span><span class="o">=</span><span class="n">gamma</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
-    <span class="k">return</span> <span class="mf">0.006918</span><span class="o">-</span><span class="mf">0.399912</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">g0</span><span class="p">)</span><span class="o">+</span><span class="mf">0.070257</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">g0</span><span class="p">)</span><span class="o">-</span><span class="mf">0.006758</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">g0</span><span class="p">)</span>\
-            <span class="o">+</span><span class="mf">0.000907</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">g0</span><span class="p">)</span><span class="o">-</span><span class="mf">0.002697</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">g0</span><span class="p">)</span><span class="o">+</span><span class="mf">0.00148</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">g0</span><span class="p">)</span>
+    <span class="n">g0</span> <span class="o">=</span> <span class="n">gamma</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">0.006918</span> <span class="o">-</span> <span class="mf">0.399912</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">g0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.070257</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">g0</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.006758</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">g0</span><span class="p">)</span>\
+            <span class="o">+</span> <span class="mf">0.000907</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">g0</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.002697</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">g0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.00148</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">g0</span><span class="p">)</span>
+
 
 <span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">dummy</span><span class="p">):</span>
     <span class="k">return</span> <span class="mf">0.0</span>
+
+
 <span class="k">def</span> <span class="nf">g1</span><span class="p">(</span><span class="n">fii</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">cos</span><span class="p">(</span><span class="n">fii</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span><span class="n">day</span><span class="p">):</span>
-    <span class="n">dec</span><span class="o">=</span><span class="n">eq_declination</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">lat</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">dec</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span><span class="o">+</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">lat</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">dec</span><span class="p">)))</span>
-<span class="k">def</span> <span class="nf">g2</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span><span class="n">day</span><span class="p">):</span>
-    <span class="n">dec</span><span class="o">=</span><span class="n">eq_declination</span><span class="p">(</span><span class="n">day</span><span class="p">)</span> <span class="c"># in radians</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">lat</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">dec</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span><span class="o">+</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">lat</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">dec</span><span class="p">)))</span>
+
+<span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">day</span><span class="p">):</span>
+    <span class="n">dec</span> <span class="o">=</span> <span class="n">eq_declination</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">lat</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">dec</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">lat</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">dec</span><span class="p">)))</span>
+
+
+<span class="k">def</span> <span class="nf">g2</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">day</span><span class="p">):</span>
+    <span class="n">dec</span> <span class="o">=</span> <span class="n">eq_declination</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>  <span class="c"># in radians</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">lat</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">dec</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">lat</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">dec</span><span class="p">)))</span>
+
 
 <span class="k">def</span> <span class="nf">f3</span><span class="p">(</span><span class="n">dummy</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">1</span>
-<span class="k">def</span> <span class="nf">g3</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
-    <span class="n">hr</span><span class="o">=</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="mf">60.0</span><span class="o">+</span><span class="n">correction</span><span class="p">)</span><span class="o">/</span><span class="mf">4.0</span><span class="o">-</span><span class="mf">180.0</span>
-    <span class="k">return</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">hr</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">)</span>
 
-<span class="n">days_in_month</span> <span class="o">=</span> <span class="p">(</span><span class="mi">31</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">31</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">g3</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
+    <span class="n">hr</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span> <span class="o">*</span> <span class="mf">60.0</span> <span class="o">+</span> <span class="n">correction</span><span class="p">)</span> <span class="o">/</span> <span class="mf">4.0</span> <span class="o">-</span> <span class="mf">180.0</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">hr</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">)</span>
+
+<span class="n">days_in_month</span> <span class="o">=</span> <span class="p">(</span><span class="mi">31</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
 <span class="n">times1</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">):</span>
     <span class="n">times1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">days_in_month</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">idx</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 
+<span class="n">time_titles</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;January&#39;</span><span class="p">,</span> <span class="s">&#39;February&#39;</span><span class="p">,</span> <span class="s">&#39;March&#39;</span><span class="p">,</span> <span class="s">&#39;April&#39;</span><span class="p">,</span> <span class="s">&#39;May&#39;</span><span class="p">,</span> <span class="s">&#39;June&#39;</span><span class="p">,</span>
+               <span class="s">&#39;July&#39;</span><span class="p">,</span> <span class="s">&#39;August&#39;</span><span class="p">,</span> <span class="s">&#39;September&#39;</span><span class="p">,</span> <span class="s">&#39;October&#39;</span><span class="p">,</span> <span class="s">&#39;November&#39;</span><span class="p">,</span> <span class="s">&#39;December&#39;</span><span class="p">]</span>
 
-<span class="c">#times=linspace(0,350,10)</span>
-<span class="c">#times=arange(0.0,360.0,10.0,dtype=double).tolist()</span>
-<span class="n">time_titles</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;January&#39;</span><span class="p">,</span><span class="s">&#39;February&#39;</span><span class="p">,</span><span class="s">&#39;March&#39;</span><span class="p">,</span><span class="s">&#39;April&#39;</span><span class="p">,</span><span class="s">&#39;May&#39;</span><span class="p">,</span><span class="s">&#39;June&#39;</span><span class="p">,</span>
-             <span class="s">&#39;July&#39;</span><span class="p">,</span><span class="s">&#39;August&#39;</span><span class="p">,</span><span class="s">&#39;September&#39;</span><span class="p">,</span><span class="s">&#39;October&#39;</span><span class="p">,</span><span class="s">&#39;November&#39;</span><span class="p">,</span><span class="s">&#39;December&#39;</span><span class="p">]</span>
+<span class="n">phi_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+              <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">90.0</span><span class="p">,</span>
+              <span class="s">&#39;u_min_trafo&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+              <span class="s">&#39;u_max_trafo&#39;</span><span class="p">:</span> <span class="mf">90.0</span><span class="p">,</span>
+              <span class="s">&#39;f&#39;</span><span class="p">:</span> <span class="n">f1</span><span class="p">,</span>
+              <span class="s">&#39;g&#39;</span><span class="p">:</span> <span class="n">g1</span><span class="p">,</span>
+              <span class="s">&#39;h&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+              <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">r&#39;Solar zenith angle $\phi$&#39;</span><span class="p">,</span>
+              <span class="s">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+              <span class="s">&#39;title_y_shift&#39;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
+              <span class="s">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s">&#39;linear smart&#39;</span><span class="p">,</span>
+              <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+              <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+              <span class="s">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;right&#39;</span><span class="p">,</span>
+              <span class="s">&#39;tag&#39;</span><span class="p">:</span> <span class="s">&#39;phi&#39;</span><span class="p">,</span>
+              <span class="s">&#39;grid&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+              <span class="p">}</span>
+<span class="n">time_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+               <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">23.0</span><span class="p">,</span>
+               <span class="s">&#39;u_min_trafo&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+               <span class="s">&#39;u_max_trafo&#39;</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span>
+               <span class="s">&#39;f&#39;</span><span class="p">:</span> <span class="n">f3</span><span class="p">,</span>
+               <span class="s">&#39;g&#39;</span><span class="p">:</span> <span class="n">g3</span><span class="p">,</span>
+               <span class="s">&#39;h&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+               <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">r&#39;Hour (h)&#39;</span><span class="p">,</span>
+               <span class="s">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+               <span class="s">&#39;title_y_shift&#39;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
+               <span class="s">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s">&#39;linear&#39;</span><span class="p">,</span>
+               <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+               <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+               <span class="s">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;right&#39;</span><span class="p">,</span>
+               <span class="s">&#39;tag&#39;</span><span class="p">:</span> <span class="s">&#39;none&#39;</span><span class="p">,</span>
+               <span class="s">&#39;grid&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+               <span class="p">}</span>
+<span class="n">lat_day_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;ID&#39;</span><span class="p">:</span> <span class="s">&#39;none&#39;</span><span class="p">,</span>  <span class="c"># to identify the axis</span>
+                  <span class="s">&#39;tag&#39;</span><span class="p">:</span> <span class="s">&#39;none&#39;</span><span class="p">,</span>  <span class="c"># for aligning block wrt others</span>
+                  <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">&#39;Grid&#39;</span><span class="p">,</span>
+                  <span class="s">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                  <span class="s">&#39;title_y_shift&#39;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
+                  <span class="s">&#39;title_distance_center&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+                  <span class="s">&#39;title_opposite_tick&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                  <span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>  <span class="c"># for alignment</span>
+                  <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">80.0</span><span class="p">,</span>  <span class="c"># for alignment</span>
+                  <span class="s">&#39;f_grid&#39;</span><span class="p">:</span> <span class="n">f2</span><span class="p">,</span>
+                  <span class="s">&#39;g_grid&#39;</span><span class="p">:</span> <span class="n">g2</span><span class="p">,</span>
+                  <span class="s">&#39;h_grid&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+                  <span class="s">&#39;u_start&#39;</span><span class="p">:</span> <span class="mf">30.0</span><span class="p">,</span>
+                  <span class="s">&#39;u_stop&#39;</span><span class="p">:</span> <span class="mf">80.0</span><span class="p">,</span>
+                  <span class="s">&#39;v_start&#39;</span><span class="p">:</span> <span class="n">times1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>  <span class="c"># day</span>
+                  <span class="s">&#39;v_stop&#39;</span><span class="p">:</span> <span class="n">times1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                  <span class="s">&#39;u_values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">30.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">,</span> <span class="mf">70.0</span><span class="p">,</span> <span class="mf">80.0</span><span class="p">],</span>
+                  <span class="s">&#39;u_texts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;30&#39;</span><span class="p">,</span> <span class="s">&#39;40&#39;</span><span class="p">,</span> <span class="s">&#39;50&#39;</span><span class="p">,</span> <span class="s">&#39;Latitude = 60&#39;</span><span class="p">,</span> <span class="s">&#39;70&#39;</span><span class="p">,</span> <span class="s">&#39;80&#39;</span><span class="p">],</span>
+                  <span class="s">&#39;v_values&#39;</span><span class="p">:</span> <span class="n">times1</span><span class="p">,</span>
+                  <span class="s">&#39;v_texts&#39;</span><span class="p">:</span> <span class="n">time_titles</span><span class="p">,</span>
+                  <span class="s">&#39;grid&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                  <span class="s">&#39;text_prefix_u&#39;</span><span class="p">:</span> <span class="s">r&#39;&#39;</span><span class="p">,</span>
+                  <span class="s">&#39;text_prefix_v&#39;</span><span class="p">:</span> <span class="s">r&#39;&#39;</span><span class="p">,</span>
+                  <span class="s">&#39;text_distance&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+                  <span class="s">&#39;v_texts_u_start&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                  <span class="s">&#39;v_texts_u_stop&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                  <span class="s">&#39;u_texts_v_start&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                  <span class="s">&#39;u_texts_v_stop&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                  <span class="p">}</span>
+<span class="n">block_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_9&#39;</span><span class="p">,</span>
+                <span class="s">&#39;f1_params&#39;</span><span class="p">:</span> <span class="n">phi_params</span><span class="p">,</span>
+                <span class="s">&#39;f2_params&#39;</span><span class="p">:</span> <span class="n">lat_day_params</span><span class="p">,</span>
+                <span class="s">&#39;f3_params&#39;</span><span class="p">:</span> <span class="n">time_params</span><span class="p">,</span>
+                <span class="s">&#39;transform_ini&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                <span class="s">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="n">times1</span><span class="p">[</span><span class="mi">4</span><span class="p">]],</span> <span class="mf">14.0</span><span class="p">]]</span>
+                <span class="p">}</span>
 
-<span class="n">phi_params</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">90.0</span><span class="p">,</span>
-        <span class="s">&#39;u_min_trafo&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max_trafo&#39;</span><span class="p">:</span><span class="mf">90.0</span><span class="p">,</span>
-        <span class="s">&#39;f&#39;</span><span class="p">:</span><span class="n">f1</span><span class="p">,</span>
-        <span class="s">&#39;g&#39;</span><span class="p">:</span><span class="n">g1</span><span class="p">,</span>
-        <span class="s">&#39;h&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;Solar zenith angle $\phi$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;title_x_shift&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;title_y_shift&#39;</span><span class="p">:</span><span class="mf">0.25</span><span class="p">,</span>
-        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;linear smart&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;right&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tag&#39;</span><span class="p">:</span><span class="s">&#39;phi&#39;</span><span class="p">,</span>
-        <span class="s">&#39;grid&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
-<span class="c">#        &#39;extra_params&#39;:[{&#39;u_min&#39;:20.0,</span>
-<span class="c">#                         &#39;u_max&#39;:90.0,</span>
-<span class="c">#                         &#39;tick_levels&#39;:4,</span>
-<span class="c">#                         &#39;tick_text_levels&#39;:2,</span>
-<span class="c">#                         }]</span>
-        <span class="p">}</span>
-
-<span class="n">time_params</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">23.0</span><span class="p">,</span>
-        <span class="s">&#39;u_min_trafo&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max_trafo&#39;</span><span class="p">:</span><span class="mf">12.0</span><span class="p">,</span>
-        <span class="s">&#39;f&#39;</span><span class="p">:</span><span class="n">f3</span><span class="p">,</span>
-        <span class="s">&#39;g&#39;</span><span class="p">:</span><span class="n">g3</span><span class="p">,</span>
-        <span class="s">&#39;h&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;Hour (h)&#39;</span><span class="p">,</span>
-        <span class="s">&#39;title_x_shift&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;title_y_shift&#39;</span><span class="p">:</span><span class="mf">0.25</span><span class="p">,</span>
-        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;linear&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;right&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tag&#39;</span><span class="p">:</span><span class="s">&#39;none&#39;</span><span class="p">,</span>
-        <span class="s">&#39;grid&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
-        <span class="p">}</span>
-
-<span class="n">lat_day_params</span><span class="o">=</span><span class="p">{</span>
-    <span class="s">&#39;ID&#39;</span><span class="p">:</span><span class="s">&#39;none&#39;</span><span class="p">,</span> <span class="c"># to identify the axis</span>
-    <span class="s">&#39;tag&#39;</span><span class="p">:</span><span class="s">&#39;none&#39;</span><span class="p">,</span> <span class="c"># for aligning block wrt others</span>
-    <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">&#39;Grid&#39;</span><span class="p">,</span>
-    <span class="s">&#39;title_x_shift&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-    <span class="s">&#39;title_y_shift&#39;</span><span class="p">:</span><span class="mf">0.25</span><span class="p">,</span>
-    <span class="s">&#39;title_distance_center&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
-    <span class="s">&#39;title_opposite_tick&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-    <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">20.0</span><span class="p">,</span> <span class="c"># for alignment</span>
-    <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">80.0</span><span class="p">,</span>  <span class="c"># for alignment</span>
-    <span class="s">&#39;f_grid&#39;</span><span class="p">:</span><span class="n">f2</span><span class="p">,</span>
-    <span class="s">&#39;g_grid&#39;</span><span class="p">:</span><span class="n">g2</span><span class="p">,</span>
-    <span class="s">&#39;h_grid&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-    <span class="s">&#39;u_start&#39;</span><span class="p">:</span><span class="mf">30.0</span><span class="p">,</span>
-    <span class="s">&#39;u_stop&#39;</span><span class="p">:</span><span class="mf">80.0</span><span class="p">,</span>
-    <span class="s">&#39;v_start&#39;</span><span class="p">:</span><span class="n">times1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="c"># day</span>
-    <span class="s">&#39;v_stop&#39;</span><span class="p">:</span><span class="n">times1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-    <span class="s">&#39;u_values&#39;</span><span class="p">:[</span><span class="mf">30.0</span><span class="p">,</span><span class="mf">40.0</span><span class="p">,</span><span class="mf">50.0</span><span class="p">,</span><span class="mf">60.0</span><span class="p">,</span><span class="mf">70.0</span><span class="p">,</span><span class="mf">80.0</span><span class="p">],</span>
-    <span class="s">&#39;u_texts&#39;</span><span class="p">:[</span><span class="s">&#39;30&#39;</span><span class="p">,</span><span class="s">&#39;40&#39;</span><span class="p">,</span><span class="s">&#39;50&#39;</span><span class="p">,</span><span class="s">&#39;Latitude = 60&#39;</span><span class="p">,</span><span class="s">&#39;70&#39;</span><span class="p">,</span><span class="s">&#39;80&#39;</span><span class="p">],</span>
-    <span class="s">&#39;v_values&#39;</span><span class="p">:</span><span class="n">times1</span><span class="p">,</span>
-    <span class="s">&#39;v_texts&#39;</span><span class="p">:</span><span class="n">time_titles</span><span class="p">,</span>
-    <span class="s">&#39;grid&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-    <span class="s">&#39;text_prefix_u&#39;</span><span class="p">:</span><span class="s">r&#39;&#39;</span><span class="p">,</span>
-    <span class="s">&#39;text_prefix_v&#39;</span><span class="p">:</span><span class="s">r&#39;&#39;</span><span class="p">,</span>
-    <span class="s">&#39;text_distance&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
-    <span class="s">&#39;v_texts_u_start&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
-    <span class="s">&#39;v_texts_u_stop&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-    <span class="s">&#39;u_texts_v_start&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
-    <span class="s">&#39;u_texts_v_stop&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-             <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_9&#39;</span><span class="p">,</span>
-             <span class="s">&#39;f1_params&#39;</span><span class="p">:</span><span class="n">phi_params</span><span class="p">,</span>
-             <span class="s">&#39;f2_params&#39;</span><span class="p">:</span><span class="n">lat_day_params</span><span class="p">,</span>
-             <span class="s">&#39;f3_params&#39;</span><span class="p">:</span><span class="n">time_params</span><span class="p">,</span>
-             <span class="s">&#39;transform_ini&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-             <span class="s">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="s">&#39;x&#39;</span><span class="p">,[</span><span class="mi">60</span><span class="p">,</span><span class="n">times1</span><span class="p">[</span><span class="mi">4</span><span class="p">]],</span><span class="mf">14.0</span><span class="p">]],</span>
-             <span class="p">}</span>
 
 <span class="c"># limiting functions are to avoid NaN in contour construction that uses optimization</span>
 <span class="k">def</span> <span class="nf">limit_xx</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">x1</span><span class="o">=</span><span class="n">x</span>
-<span class="c">#    if x1&gt;1.0:</span>
-<span class="c">#        x1=1.0</span>
-<span class="c">#    if x1&lt;-1.0:</span>
-<span class="c">#        x1=-1.0</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span>
     <span class="k">return</span> <span class="n">x1</span>
+
 
 <span class="k">def</span> <span class="nf">limit_x</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">x1</span><span class="o">=</span><span class="n">x</span>
-<span class="c">#    if not x1&gt;0.0:</span>
-<span class="c">#        x1=0.0001</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span>
     <span class="k">return</span> <span class="n">x1</span>
 
-<span class="n">const_A</span><span class="o">=</span><span class="mf">0.33766</span>
-<span class="n">const_B</span><span class="o">=-</span><span class="mf">13.656</span>
+<span class="n">const_A</span> <span class="o">=</span> <span class="mf">0.33766</span>
+<span class="n">const_B</span> <span class="o">=</span> <span class="o">-</span><span class="mf">13.656</span>
 
-<span class="n">block_params_weather</span><span class="o">=</span><span class="p">{</span>
-   <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_5&#39;</span><span class="p">,</span>
-   <span class="s">&#39;u_func&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-   <span class="s">&#39;v_func&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">v</span><span class="p">:</span><span class="n">const_A</span><span class="o">+</span><span class="n">const_B</span><span class="o">*</span><span class="n">log10</span><span class="p">(</span><span class="n">limit_x</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">+</span><span class="n">v</span><span class="p">,</span>
-   <span class="c">#&#39;u_values&#39;:[1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,15.0,20,25],</span>
-   <span class="s">&#39;u_values&#39;</span><span class="p">:[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">25.0</span><span class="p">],</span>
-   <span class="s">&#39;u_manual_axis_data&#39;</span><span class="p">:{</span><span class="mf">1.0</span><span class="p">:</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-                         <span class="mf">25.0</span><span class="p">:</span><span class="s">&#39;&#39;</span><span class="p">},</span>
-   <span class="s">&#39;v_values&#39;</span><span class="p">:[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">6.0</span><span class="p">,</span><span class="mf">9.0</span><span class="p">,</span><span class="mf">12.0</span><span class="p">],</span>
-   <span class="s">&#39;v_manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">:[</span><span class="s">&#39;Clear sky, Cumulus clouds&#39;</span><span class="p">,{</span><span class="s">&#39;x_corr&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
-                                                            <span class="s">&#39;y_corr&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-                                                            <span class="s">&#39;draw_line&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">}],</span>
-                     <span class="mf">1.0</span><span class="p">:</span><span class="s">&#39;Clear sky&#39;</span><span class="p">,</span>
-                     <span class="mf">3.0</span><span class="p">:</span><span class="s">&#39;Sun through clouds&#39;</span><span class="p">,</span>
-                     <span class="mf">6.0</span><span class="p">:</span><span class="s">&#39;Sky light gray&#39;</span><span class="p">,</span>
-                     <span class="mf">9.0</span><span class="p">:</span><span class="s">&#39;Sky dark gray&#39;</span><span class="p">,</span>
-                     <span class="mf">12.0</span><span class="p">:</span><span class="s">&#39;Thunder-clouds cover sky&#39;</span><span class="p">,</span>
-                     <span class="p">},</span>
-   <span class="s">&#39;v_text_distance&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
-   <span class="s">&#39;wd_tick_levels&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-   <span class="s">&#39;wd_tick_text_levels&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-   <span class="s">&#39;wd_tick_side&#39;</span><span class="p">:</span><span class="s">&#39;right&#39;</span><span class="p">,</span>
-   <span class="s">&#39;wd_title&#39;</span><span class="p">:</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-   <span class="s">&#39;manual_x_scale&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-   <span class="s">&#39;x_min&#39;</span><span class="p">:</span><span class="mf">0.06</span><span class="p">,</span>
-   <span class="s">&#39;x_max&#39;</span><span class="p">:</span><span class="mf">0.99</span><span class="p">,</span>
-   <span class="s">&#39;u_title&#39;</span><span class="p">:</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-   <span class="s">&#39;v_title&#39;</span><span class="p">:</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-   <span class="s">&#39;wd_title_opposite_tick&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-   <span class="s">&#39;wd_title_distance_center&#39;</span><span class="p">:</span><span class="mf">2.5</span><span class="p">,</span>
-   <span class="s">&#39;wd_align_func&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">L</span><span class="p">:</span><span class="n">acos</span><span class="p">(</span><span class="n">limit_xx</span><span class="p">(</span><span class="mf">10.0</span><span class="o">**</span><span class="p">((</span><span class="n">L</span><span class="o">-</span><span class="n">const_A</span><span class="p">)</span><span class="o">/</span><span class="n">const_B</span><span class="p">)))</span><span class="o">*</span><span class="mf">180.0</span><span class="o">/</span><span class="n">pi</span><span class="p">,</span> <span class="c"># phi as L</span>
-   <span class="s">&#39;wd_func&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">L</span><span class="p">:</span><span class="mf">10.0</span><span class="o">**</span><span class="p">((</span><span class="n">L</span><span class="o">-</span><span class="n">const_A</span><span class="p">)</span><span class="o">/</span><span class="n">const_B</span><span class="p">),</span> <span class="c"># x as L</span>
-   <span class="s">&#39;wd_func_inv&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">const_A</span><span class="o">+</span><span class="n">const_B</span><span class="o">*</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="c"># L as x</span>
-   <span class="s">&#39;wd_tag&#39;</span><span class="p">:</span><span class="s">&#39;phi&#39;</span><span class="p">,</span>
-   <span class="s">&#39;mirror_y&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-   <span class="s">&#39;mirror_x&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
-   <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-   <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-   <span class="s">&#39;u_scale_opposite&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-   <span class="s">&#39;u_tag&#39;</span><span class="p">:</span><span class="s">&#39;AA&#39;</span><span class="p">,</span>
-   <span class="s">&#39;horizontal_guides&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-   <span class="s">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="s">&#39;x&#39;</span><span class="p">,</span><span class="mf">9.0</span><span class="p">,</span><span class="s">&#39;x&#39;</span><span class="p">]],</span>
- <span class="p">}</span>
-
-<span class="n">block_params_scene</span><span class="o">=</span><span class="p">{</span>
-   <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_5&#39;</span><span class="p">,</span>
-   <span class="s">&#39;u_func&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-   <span class="s">&#39;v_func&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">v</span><span class="p">:</span><span class="n">x</span><span class="o">+</span><span class="n">v</span><span class="p">,</span>
-   <span class="s">&#39;u_values&#39;</span><span class="p">:[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">25.0</span><span class="p">],</span>
-   <span class="s">&#39;u_manual_axis_data&#39;</span><span class="p">:{</span><span class="mf">1.0</span><span class="p">:</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-                         <span class="mf">25.0</span><span class="p">:</span><span class="s">&#39;&#39;</span><span class="p">},</span>
-   <span class="s">&#39;u_tag&#39;</span><span class="p">:</span><span class="s">&#39;AA&#39;</span><span class="p">,</span>
-   <span class="s">&#39;wd_tag&#39;</span><span class="p">:</span><span class="s">&#39;EV&#39;</span><span class="p">,</span>
-   <span class="s">&#39;v_values&#39;</span><span class="p">:[</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">5.0</span><span class="p">,</span><span class="mf">7.0</span><span class="p">,</span><span class="mf">9.0</span><span class="p">,</span><span class="mf">11.0</span><span class="p">,</span><span class="mf">13.0</span><span class="p">,</span><span class="mf">15.0</span><span class="p">],</span>
-   <span class="s">&#39;v_manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="o">-</span><span class="mf">6.0</span><span class="p">:</span><span class="s">&#39;Person under trees&#39;</span><span class="p">,</span>
-                          <span class="o">-</span><span class="mf">4.0</span><span class="p">:</span><span class="s">&#39;Inside forest&#39;</span><span class="p">,</span>
-                          <span class="o">-</span><span class="mf">1.0</span><span class="p">:</span><span class="s">&#39;Person in shadow of wall&#39;</span><span class="p">,</span>
-                          <span class="mf">2.0</span><span class="p">:</span><span class="s">&#39;Person at open place; alley under trees&#39;</span><span class="p">,</span>
-                          <span class="mf">5.0</span><span class="p">:</span><span class="s">&#39;Buildings; street&#39;</span><span class="p">,</span>
-                          <span class="mf">7.0</span><span class="p">:</span><span class="s">&#39;Landscape and front matter&#39;</span><span class="p">,</span>
-                          <span class="mf">9.0</span><span class="p">:</span><span class="s">&#39;Open landscape&#39;</span><span class="p">,</span>
-                          <span class="mf">11.0</span><span class="p">:</span><span class="s">&#39;Snow landscape and front matter; beach&#39;</span><span class="p">,</span>
-                          <span class="mf">13.0</span><span class="p">:</span><span class="s">&#39;Snow field; open sea&#39;</span><span class="p">,</span>
-                          <span class="mf">15.0</span><span class="p">:</span><span class="s">&#39;Clouds&#39;</span><span class="p">,</span>
-                          <span class="p">},</span>
-   <span class="s">&#39;wd_tick_levels&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-   <span class="s">&#39;wd_tick_text_levels&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-   <span class="s">&#39;wd_tick_side&#39;</span><span class="p">:</span><span class="s">&#39;right&#39;</span><span class="p">,</span>
-   <span class="s">&#39;wd_title&#39;</span><span class="p">:</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-   <span class="s">&#39;u_title&#39;</span><span class="p">:</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-   <span class="s">&#39;v_title&#39;</span><span class="p">:</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-   <span class="s">&#39;wd_title_opposite_tick&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-   <span class="s">&#39;wd_title_distance_center&#39;</span><span class="p">:</span><span class="mf">2.5</span><span class="p">,</span>
-   <span class="s">&#39;mirror_x&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-   <span class="s">&#39;horizontal_guides&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-   <span class="s">&#39;u_align_y_offset&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.9</span><span class="p">,</span>
-   <span class="s">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="s">&#39;x&#39;</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="s">&#39;x&#39;</span><span class="p">]],</span>
- <span class="p">}</span>
-
-
-<span class="n">camera_params_1</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="s">&#39;tag&#39;</span><span class="p">:</span><span class="s">&#39;EV&#39;</span><span class="p">,</span>
-                <span class="p">}</span>
-<span class="n">camera_params_2</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">25600.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">S</span><span class="p">:</span><span class="o">-</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">log10</span><span class="p">(</span><span class="n">S</span><span class="p">)</span><span class="o">+</span><span class="mf">1.0</span><span class="p">),</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;Film speed&#39;</span><span class="p">,</span>
-        <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">10.0</span><span class="p">:</span><span class="s">&#39;ISO 10&#39;</span><span class="p">,</span>
-                             <span class="mf">20.0</span><span class="p">:</span><span class="s">&#39;ISO 20&#39;</span><span class="p">,</span>
-                             <span class="c">#40.0:&#39;ISO 40&#39;,</span>
-                             <span class="mf">50.0</span><span class="p">:</span><span class="s">&#39;ISO 50&#39;</span><span class="p">,</span>
-                             <span class="mf">100.0</span><span class="p">:</span><span class="s">&#39;ISO 100&#39;</span><span class="p">,</span>
-                             <span class="mf">200.0</span><span class="p">:</span><span class="s">&#39;ISO 200&#39;</span><span class="p">,</span>
-                             <span class="mf">400.0</span><span class="p">:</span><span class="s">&#39;ISO 400&#39;</span><span class="p">,</span>
-                             <span class="mf">800.0</span><span class="p">:</span><span class="s">&#39;ISO 800&#39;</span><span class="p">,</span>
-                             <span class="mf">1600.0</span><span class="p">:</span><span class="s">&#39;ISO 1600&#39;</span><span class="p">,</span>
-                             <span class="mf">3200.0</span><span class="p">:</span><span class="s">&#39;ISO 3200&#39;</span><span class="p">,</span>
-                             <span class="mf">6400.0</span><span class="p">:</span><span class="s">&#39;ISO 6400&#39;</span><span class="p">,</span>
-                             <span class="mf">12800.0</span><span class="p">:</span><span class="s">&#39;ISO 12800&#39;</span><span class="p">,</span>
-                             <span class="mf">25600.0</span><span class="p">:</span><span class="s">&#39;ISO 25600&#39;</span><span class="p">,</span>
+<span class="n">block_params_weather</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_5&#39;</span><span class="p">,</span>
+                        <span class="s">&#39;u_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+                        <span class="s">&#39;v_func&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">const_A</span> <span class="o">+</span> <span class="n">const_B</span> <span class="o">*</span> <span class="n">log10</span><span class="p">(</span><span class="n">limit_x</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">+</span> <span class="n">v</span><span class="p">,</span>
+                        <span class="s">&#39;u_values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">],</span>
+                        <span class="s">&#39;u_manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+                                               <span class="mf">25.0</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">},</span>
+                        <span class="s">&#39;v_values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">],</span>
+                        <span class="s">&#39;v_manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;Clear sky, Cumulus clouds&#39;</span><span class="p">,</span>
+                                                     <span class="p">{</span><span class="s">&#39;x_corr&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+                                                      <span class="s">&#39;y_corr&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                                                      <span class="s">&#39;draw_line&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">}],</span>
+                                               <span class="mf">1.0</span><span class="p">:</span> <span class="s">&#39;Clear sky&#39;</span><span class="p">,</span>
+                                               <span class="mf">3.0</span><span class="p">:</span> <span class="s">&#39;Sun through clouds&#39;</span><span class="p">,</span>
+                                               <span class="mf">6.0</span><span class="p">:</span> <span class="s">&#39;Sky light gray&#39;</span><span class="p">,</span>
+                                               <span class="mf">9.0</span><span class="p">:</span> <span class="s">&#39;Sky dark gray&#39;</span><span class="p">,</span>
+                                               <span class="mf">12.0</span><span class="p">:</span> <span class="s">&#39;Thunder-clouds cover sky&#39;</span><span class="p">},</span>
+                        <span class="s">&#39;v_text_distance&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+                        <span class="s">&#39;wd_tick_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="s">&#39;wd_tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="s">&#39;wd_tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;right&#39;</span><span class="p">,</span>
+                        <span class="s">&#39;wd_title&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+                        <span class="s">&#39;manual_x_scale&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                        <span class="s">&#39;x_min&#39;</span><span class="p">:</span> <span class="mf">0.06</span><span class="p">,</span>
+                        <span class="s">&#39;x_max&#39;</span><span class="p">:</span> <span class="mf">0.99</span><span class="p">,</span>
+                        <span class="s">&#39;u_title&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+                        <span class="s">&#39;v_title&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+                        <span class="s">&#39;wd_title_opposite_tick&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                        <span class="s">&#39;wd_title_distance_center&#39;</span><span class="p">:</span> <span class="mf">2.5</span><span class="p">,</span>
+                        <span class="s">&#39;wd_align_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">L</span><span class="p">:</span> <span class="n">acos</span><span class="p">(</span><span class="n">limit_xx</span><span class="p">(</span><span class="mf">10.0</span><span class="o">**</span><span class="p">((</span><span class="n">L</span> <span class="o">-</span> <span class="n">const_A</span><span class="p">)</span> <span class="o">/</span> <span class="n">const_B</span><span class="p">)))</span> <span class="o">*</span> <span class="mf">180.0</span> <span class="o">/</span> <span class="n">pi</span><span class="p">,</span>  <span class="c"># phi as L</span>
+                        <span class="s">&#39;wd_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">L</span><span class="p">:</span> <span class="mf">10.0</span><span class="o">**</span><span class="p">((</span><span class="n">L</span> <span class="o">-</span> <span class="n">const_A</span><span class="p">)</span> <span class="o">/</span> <span class="n">const_B</span><span class="p">),</span>  <span class="c"># x as L</span>
+                        <span class="s">&#39;wd_func_inv&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">const_A</span><span class="o">+</span><span class="n">const_B</span> <span class="o">*</span> <span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>  <span class="c"># L as x</span>
+                        <span class="s">&#39;wd_tag&#39;</span><span class="p">:</span> <span class="s">&#39;phi&#39;</span><span class="p">,</span>
+                        <span class="s">&#39;mirror_y&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                        <span class="s">&#39;mirror_x&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                        <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                        <span class="s">&#39;height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                        <span class="s">&#39;u_scale_opposite&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                        <span class="s">&#39;u_tag&#39;</span><span class="p">:</span> <span class="s">&#39;AA&#39;</span><span class="p">,</span>
+                        <span class="s">&#39;horizontal_guides&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                        <span class="s">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="s">&#39;x&#39;</span><span class="p">]],</span>
+                        <span class="p">}</span>
+<span class="n">block_params_scene</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_5&#39;</span><span class="p">,</span>
+                      <span class="s">&#39;u_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+                      <span class="s">&#39;v_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span><span class="p">,</span>
+                      <span class="s">&#39;u_values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">],</span>
+                      <span class="s">&#39;u_manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+                                             <span class="mf">25.0</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">},</span>
+                      <span class="s">&#39;u_tag&#39;</span><span class="p">:</span> <span class="s">&#39;AA&#39;</span><span class="p">,</span>
+                      <span class="s">&#39;wd_tag&#39;</span><span class="p">:</span> <span class="s">&#39;EV&#39;</span><span class="p">,</span>
+                      <span class="s">&#39;v_values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">],</span>
+                      <span class="s">&#39;v_manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="o">-</span><span class="mf">6.0</span><span class="p">:</span> <span class="s">&#39;Person under trees&#39;</span><span class="p">,</span>
+                                             <span class="o">-</span><span class="mf">4.0</span><span class="p">:</span> <span class="s">&#39;Inside forest&#39;</span><span class="p">,</span>
+                                             <span class="o">-</span><span class="mf">1.0</span><span class="p">:</span> <span class="s">&#39;Person in shadow of wall&#39;</span><span class="p">,</span>
+                                             <span class="mf">2.0</span><span class="p">:</span> <span class="s">&#39;Person at open place; alley under trees&#39;</span><span class="p">,</span>
+                                             <span class="mf">5.0</span><span class="p">:</span> <span class="s">&#39;Buildings; street&#39;</span><span class="p">,</span>
+                                             <span class="mf">7.0</span><span class="p">:</span> <span class="s">&#39;Landscape and front matter&#39;</span><span class="p">,</span>
+                                             <span class="mf">9.0</span><span class="p">:</span> <span class="s">&#39;Open landscape&#39;</span><span class="p">,</span>
+                                             <span class="mf">11.0</span><span class="p">:</span> <span class="s">&#39;Snow landscape and front matter; beach&#39;</span><span class="p">,</span>
+                                             <span class="mf">13.0</span><span class="p">:</span> <span class="s">&#39;Snow field; open sea&#39;</span><span class="p">,</span>
+                                             <span class="mf">15.0</span><span class="p">:</span> <span class="s">&#39;Clouds&#39;</span><span class="p">,</span>
+                                             <span class="p">},</span>
+                      <span class="s">&#39;wd_tick_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                      <span class="s">&#39;wd_tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                      <span class="s">&#39;wd_tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;right&#39;</span><span class="p">,</span>
+                      <span class="s">&#39;wd_title&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+                      <span class="s">&#39;u_title&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+                      <span class="s">&#39;v_title&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+                      <span class="s">&#39;wd_title_opposite_tick&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                      <span class="s">&#39;wd_title_distance_center&#39;</span><span class="p">:</span> <span class="mf">2.5</span><span class="p">,</span>
+                      <span class="s">&#39;mirror_x&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                      <span class="s">&#39;horizontal_guides&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                      <span class="s">&#39;u_align_y_offset&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.9</span><span class="p">,</span>
+                      <span class="s">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s">&#39;x&#39;</span><span class="p">]],</span>
+                      <span class="p">}</span>
+<span class="n">camera_params_1</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">10.0</span><span class="p">,</span>
+                   <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">15.0</span><span class="p">,</span>
+                   <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+                   <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">r&#39;&#39;</span><span class="p">,</span>
+                   <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                   <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                   <span class="s">&#39;tag&#39;</span><span class="p">:</span> <span class="s">&#39;EV&#39;</span><span class="p">,</span>
+                   <span class="p">}</span>
+<span class="n">camera_params_2</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                   <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">25600.0</span><span class="p">,</span>
+                   <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">S</span><span class="p">:</span> <span class="o">-</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="n">log10</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">),</span>
+                   <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">r&#39;Film speed&#39;</span><span class="p">,</span>
+                   <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">10.0</span><span class="p">:</span> <span class="s">&#39;ISO 10&#39;</span><span class="p">,</span>
+                                        <span class="mf">20.0</span><span class="p">:</span> <span class="s">&#39;ISO 20&#39;</span><span class="p">,</span>
+                                        <span class="mf">50.0</span><span class="p">:</span> <span class="s">&#39;ISO 50&#39;</span><span class="p">,</span>
+                                        <span class="mf">100.0</span><span class="p">:</span> <span class="s">&#39;ISO 100&#39;</span><span class="p">,</span>
+                                        <span class="mf">200.0</span><span class="p">:</span> <span class="s">&#39;ISO 200&#39;</span><span class="p">,</span>
+                                        <span class="mf">400.0</span><span class="p">:</span> <span class="s">&#39;ISO 400&#39;</span><span class="p">,</span>
+                                        <span class="mf">800.0</span><span class="p">:</span> <span class="s">&#39;ISO 800&#39;</span><span class="p">,</span>
+                                        <span class="mf">1600.0</span><span class="p">:</span> <span class="s">&#39;ISO 1600&#39;</span><span class="p">,</span>
+                                        <span class="mf">3200.0</span><span class="p">:</span> <span class="s">&#39;ISO 3200&#39;</span><span class="p">,</span>
+                                        <span class="mf">6400.0</span><span class="p">:</span> <span class="s">&#39;ISO 6400&#39;</span><span class="p">,</span>
+                                        <span class="mf">12800.0</span><span class="p">:</span> <span class="s">&#39;ISO 12800&#39;</span><span class="p">,</span>
+                                        <span class="mf">25600.0</span><span class="p">:</span> <span class="s">&#39;ISO 25600&#39;</span><span class="p">,</span>
+                                        <span class="p">},</span>
+                   <span class="s">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s">&#39;manual line&#39;</span>
+                   <span class="p">}</span>
+<span class="n">camera_params_3</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+                   <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10000.0</span><span class="p">,</span>
+                   <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span> <span class="o">*</span> <span class="n">log10</span><span class="p">((</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">))</span> <span class="o">-</span> <span class="mi">30</span><span class="p">,</span>
+                   <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="o">/</span><span class="mf">10.0</span><span class="p">:</span> <span class="s">&#39;10&#39;</span><span class="p">,</span>
+                                        <span class="mi">1</span><span class="o">/</span><span class="mf">7.0</span><span class="p">:</span> <span class="s">&#39;7&#39;</span><span class="p">,</span>
+                                        <span class="mi">1</span><span class="o">/</span><span class="mf">5.0</span><span class="p">:</span> <span class="s">&#39;5&#39;</span><span class="p">,</span>
+                                        <span class="mi">1</span><span class="o">/</span><span class="mf">3.0</span><span class="p">:</span> <span class="s">&#39;3&#39;</span><span class="p">,</span>
+                                        <span class="mi">1</span><span class="o">/</span><span class="mf">2.0</span><span class="p">:</span> <span class="s">&#39;2&#39;</span><span class="p">,</span>
+                                        <span class="mf">1.0</span><span class="p">:</span> <span class="s">&#39;1&#39;</span><span class="p">,</span>
+                                        <span class="mf">2.0</span><span class="p">:</span> <span class="s">&#39;1/2&#39;</span><span class="p">,</span>
+                                        <span class="mf">3.0</span><span class="p">:</span> <span class="s">&#39;1/3&#39;</span><span class="p">,</span>
+                                        <span class="mf">5.0</span><span class="p">:</span> <span class="s">&#39;1/5&#39;</span><span class="p">,</span>
+                                        <span class="mf">7.0</span><span class="p">:</span> <span class="s">&#39;1/7&#39;</span><span class="p">,</span>
+                                        <span class="mf">10.0</span><span class="p">:</span> <span class="s">&#39;1/10&#39;</span><span class="p">,</span>
+                                        <span class="mf">20.0</span><span class="p">:</span> <span class="s">&#39;1/20&#39;</span><span class="p">,</span>
+                                        <span class="mf">30.0</span><span class="p">:</span> <span class="s">&#39;1/30&#39;</span><span class="p">,</span>
+                                        <span class="mf">50.0</span><span class="p">:</span> <span class="s">&#39;1/50&#39;</span><span class="p">,</span>
+                                        <span class="mf">70.0</span><span class="p">:</span> <span class="s">&#39;1/70&#39;</span><span class="p">,</span>
+                                        <span class="mf">100.0</span><span class="p">:</span> <span class="s">&#39;1/100&#39;</span><span class="p">,</span>
+                                        <span class="mf">200.0</span><span class="p">:</span> <span class="s">&#39;1/200&#39;</span><span class="p">,</span>
+                                        <span class="mf">300.0</span><span class="p">:</span> <span class="s">&#39;1/300&#39;</span><span class="p">,</span>
+                                        <span class="mf">500.0</span><span class="p">:</span> <span class="s">&#39;1/500&#39;</span><span class="p">,</span>
+                                        <span class="mf">700.0</span><span class="p">:</span> <span class="s">&#39;1/700&#39;</span><span class="p">,</span>
+                                        <span class="mf">1000.0</span><span class="p">:</span> <span class="s">&#39;1/1000&#39;</span><span class="p">,</span>
+                                        <span class="mf">2000.0</span><span class="p">:</span> <span class="s">&#39;1/2000&#39;</span><span class="p">,</span>
+                                        <span class="mf">3000.0</span><span class="p">:</span> <span class="s">&#39;1/3000&#39;</span><span class="p">,</span>
+                                        <span class="mf">5000.0</span><span class="p">:</span> <span class="s">&#39;1/5000&#39;</span><span class="p">,</span>
+                                        <span class="mf">7000.0</span><span class="p">:</span> <span class="s">&#39;1/7000&#39;</span><span class="p">,</span>
+                                        <span class="mf">10000.0</span><span class="p">:</span> <span class="s">&#39;1/10000&#39;</span><span class="p">,</span>
                              <span class="p">},</span>
-        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;manual line&#39;</span>
-                <span class="p">}</span>
-<span class="n">camera_params_3</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10000.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="n">log10</span><span class="p">((</span><span class="mf">1.0</span><span class="o">/</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="mf">10.0</span><span class="p">))</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span>
-        <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="o">/</span><span class="mf">10.0</span><span class="p">:</span><span class="s">&#39;10&#39;</span><span class="p">,</span>
-                             <span class="mi">1</span><span class="o">/</span><span class="mf">7.0</span><span class="p">:</span><span class="s">&#39;7&#39;</span><span class="p">,</span>
-                             <span class="mi">1</span><span class="o">/</span><span class="mf">5.0</span><span class="p">:</span><span class="s">&#39;5&#39;</span><span class="p">,</span>
-                             <span class="mi">1</span><span class="o">/</span><span class="mf">3.0</span><span class="p">:</span><span class="s">&#39;3&#39;</span><span class="p">,</span>
-                             <span class="mi">1</span><span class="o">/</span><span class="mf">2.0</span><span class="p">:</span><span class="s">&#39;2&#39;</span><span class="p">,</span>
-                             <span class="mf">1.0</span><span class="p">:</span><span class="s">&#39;1&#39;</span><span class="p">,</span>
-                             <span class="mf">2.0</span><span class="p">:</span><span class="s">&#39;1/2&#39;</span><span class="p">,</span>
-                             <span class="mf">3.0</span><span class="p">:</span><span class="s">&#39;1/3&#39;</span><span class="p">,</span>
-                             <span class="mf">5.0</span><span class="p">:</span><span class="s">&#39;1/5&#39;</span><span class="p">,</span>
-                             <span class="mf">7.0</span><span class="p">:</span><span class="s">&#39;1/7&#39;</span><span class="p">,</span>
-                             <span class="mf">10.0</span><span class="p">:</span><span class="s">&#39;1/10&#39;</span><span class="p">,</span>
-                             <span class="mf">20.0</span><span class="p">:</span><span class="s">&#39;1/20&#39;</span><span class="p">,</span>
-                             <span class="mf">30.0</span><span class="p">:</span><span class="s">&#39;1/30&#39;</span><span class="p">,</span>
-                             <span class="mf">50.0</span><span class="p">:</span><span class="s">&#39;1/50&#39;</span><span class="p">,</span>
-                             <span class="mf">70.0</span><span class="p">:</span><span class="s">&#39;1/70&#39;</span><span class="p">,</span>
-                             <span class="mf">100.0</span><span class="p">:</span><span class="s">&#39;1/100&#39;</span><span class="p">,</span>
-                             <span class="mf">200.0</span><span class="p">:</span><span class="s">&#39;1/200&#39;</span><span class="p">,</span>
-                             <span class="mf">300.0</span><span class="p">:</span><span class="s">&#39;1/300&#39;</span><span class="p">,</span>
-                             <span class="mf">500.0</span><span class="p">:</span><span class="s">&#39;1/500&#39;</span><span class="p">,</span>
-                             <span class="mf">700.0</span><span class="p">:</span><span class="s">&#39;1/700&#39;</span><span class="p">,</span>
-                             <span class="mf">1000.0</span><span class="p">:</span><span class="s">&#39;1/1000&#39;</span><span class="p">,</span>
-                             <span class="mf">2000.0</span><span class="p">:</span><span class="s">&#39;1/2000&#39;</span><span class="p">,</span>
-                             <span class="mf">3000.0</span><span class="p">:</span><span class="s">&#39;1/3000&#39;</span><span class="p">,</span>
-                             <span class="mf">5000.0</span><span class="p">:</span><span class="s">&#39;1/5000&#39;</span><span class="p">,</span>
-                             <span class="mf">7000.0</span><span class="p">:</span><span class="s">&#39;1/7000&#39;</span><span class="p">,</span>
-                             <span class="mf">10000.0</span><span class="p">:</span><span class="s">&#39;1/10000&#39;</span><span class="p">,</span>
-                             <span class="p">},</span>
-        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;manual line&#39;</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;t (s)&#39;</span><span class="p">,</span>
-        <span class="s">&#39;text_format&#39;</span><span class="p">:</span><span class="s">r&quot;1/</span><span class="si">%3.0f</span><span class="s"> s&quot;</span><span class="p">,</span>
-        <span class="s">&#39;tag&#39;</span><span class="p">:</span><span class="s">&#39;shutter&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
-                <span class="p">}</span>
+                   <span class="s">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s">&#39;manual line&#39;</span><span class="p">,</span>
+                   <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">r&#39;t (s)&#39;</span><span class="p">,</span>
+                   <span class="s">&#39;text_format&#39;</span><span class="p">:</span> <span class="s">r&quot;1/</span><span class="si">%3.0f</span><span class="s"> s&quot;</span><span class="p">,</span>
+                   <span class="s">&#39;tag&#39;</span><span class="p">:</span> <span class="s">&#39;shutter&#39;</span><span class="p">,</span>
+                   <span class="s">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;left&#39;</span><span class="p">,</span>
+                   <span class="p">}</span>
+<span class="n">camera_params_4</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+                   <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">22.0</span><span class="p">,</span>
+                   <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">N</span><span class="p">:</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">log10</span><span class="p">((</span><span class="n">N</span> <span class="o">/</span> <span class="mf">3.2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">30</span><span class="p">,</span>
+                   <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">:</span> <span class="s">&#39;$f$/1&#39;</span><span class="p">,</span>
+                                        <span class="mf">1.2</span><span class="p">:</span> <span class="s">&#39;$f$/1.2&#39;</span><span class="p">,</span>
+                                        <span class="mf">1.4</span><span class="p">:</span> <span class="s">&#39;$f$/1.4&#39;</span><span class="p">,</span>
+                                        <span class="mf">1.7</span><span class="p">:</span> <span class="s">&#39;$f$/1.7&#39;</span><span class="p">,</span>
+                                        <span class="mf">2.0</span><span class="p">:</span> <span class="s">&#39;$f$/2&#39;</span><span class="p">,</span>
+                                        <span class="mf">2.4</span><span class="p">:</span> <span class="s">&#39;$f$/2.4&#39;</span><span class="p">,</span>
+                                        <span class="mf">2.8</span><span class="p">:</span> <span class="s">&#39;$f$/2.8&#39;</span><span class="p">,</span>
+                                        <span class="mf">3.3</span><span class="p">:</span> <span class="s">&#39;$f$/3.3&#39;</span><span class="p">,</span>
+                                        <span class="mf">4.0</span><span class="p">:</span> <span class="s">&#39;$f$/4&#39;</span><span class="p">,</span>
+                                        <span class="mf">4.8</span><span class="p">:</span> <span class="s">&#39;$f$/4.8&#39;</span><span class="p">,</span>
+                                        <span class="mf">5.6</span><span class="p">:</span> <span class="s">&#39;$f$/5.6&#39;</span><span class="p">,</span>
+                                        <span class="mf">6.7</span><span class="p">:</span> <span class="s">&#39;$f$/6.7&#39;</span><span class="p">,</span>
+                                        <span class="mf">8.0</span><span class="p">:</span> <span class="s">&#39;$f$/8&#39;</span><span class="p">,</span>
+                                        <span class="mf">9.5</span><span class="p">:</span> <span class="s">&#39;$f$/9.5&#39;</span><span class="p">,</span>
+                                        <span class="mf">11.0</span> <span class="p">:</span><span class="s">&#39;$f$/11&#39;</span><span class="p">,</span>
+                                        <span class="mf">13.0</span> <span class="p">:</span><span class="s">&#39;$f$/13&#39;</span><span class="p">,</span>
+                                        <span class="mf">16.0</span> <span class="p">:</span><span class="s">&#39;$f$/16&#39;</span><span class="p">,</span>
+                                        <span class="mf">19.0</span> <span class="p">:</span><span class="s">&#39;$f$/19&#39;</span><span class="p">,</span>
+                                        <span class="mf">22.0</span> <span class="p">:</span><span class="s">&#39;$f$/22&#39;</span><span class="p">,</span>
+                                        <span class="p">},</span>
+                   <span class="s">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s">&#39;manual line&#39;</span><span class="p">,</span>
+                   <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">r&#39;Aperture&#39;</span><span class="p">,</span>
+                   <span class="p">}</span>
+<span class="n">block_params_camera</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_3&#39;</span><span class="p">,</span>
+                       <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                       <span class="s">&#39;height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                       <span class="s">&#39;f_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">camera_params_1</span><span class="p">,</span> <span class="n">camera_params_2</span><span class="p">,</span> <span class="n">camera_params_3</span><span class="p">,</span>
+                                    <span class="n">camera_params_4</span><span class="p">],</span>
+                       <span class="s">&#39;mirror_x&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                       <span class="s">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]],</span>
+                       <span class="p">}</span>
 
-<span class="n">camera_params_4</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">22.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">N</span><span class="p">:</span><span class="mi">10</span><span class="o">*</span><span class="n">log10</span><span class="p">((</span><span class="n">N</span><span class="o">/</span><span class="mf">3.2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">30</span><span class="p">,</span>
-        <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">:</span><span class="s">&#39;$f$/1&#39;</span><span class="p">,</span>
-                             <span class="mf">1.2</span><span class="p">:</span><span class="s">&#39;$f$/1.2&#39;</span><span class="p">,</span>
-                             <span class="mf">1.4</span><span class="p">:</span><span class="s">&#39;$f$/1.4&#39;</span><span class="p">,</span>
-                             <span class="mf">1.7</span><span class="p">:</span><span class="s">&#39;$f$/1.7&#39;</span><span class="p">,</span>
-                             <span class="mf">2.0</span><span class="p">:</span><span class="s">&#39;$f$/2&#39;</span><span class="p">,</span>
-                             <span class="mf">2.4</span><span class="p">:</span><span class="s">&#39;$f$/2.4&#39;</span><span class="p">,</span>
-                             <span class="mf">2.8</span><span class="p">:</span><span class="s">&#39;$f$/2.8&#39;</span><span class="p">,</span>
-                             <span class="mf">3.3</span><span class="p">:</span><span class="s">&#39;$f$/3.3&#39;</span><span class="p">,</span>
-                             <span class="mf">4.0</span><span class="p">:</span><span class="s">&#39;$f$/4&#39;</span><span class="p">,</span>
-                             <span class="mf">4.8</span><span class="p">:</span><span class="s">&#39;$f$/4.8&#39;</span><span class="p">,</span>
-                             <span class="mf">5.6</span><span class="p">:</span><span class="s">&#39;$f$/5.6&#39;</span><span class="p">,</span>
-                             <span class="mf">6.7</span><span class="p">:</span><span class="s">&#39;$f$/6.7&#39;</span><span class="p">,</span>
-                             <span class="mf">8.0</span><span class="p">:</span><span class="s">&#39;$f$/8&#39;</span><span class="p">,</span>
-                             <span class="mf">9.5</span><span class="p">:</span><span class="s">&#39;$f$/9.5&#39;</span><span class="p">,</span>
-                             <span class="mf">11.0</span><span class="p">:</span><span class="s">&#39;$f$/11&#39;</span><span class="p">,</span>
-                             <span class="mf">13.0</span><span class="p">:</span><span class="s">&#39;$f$/13&#39;</span><span class="p">,</span>
-                             <span class="mf">16.0</span><span class="p">:</span><span class="s">&#39;$f$/16&#39;</span><span class="p">,</span>
-                             <span class="mf">19.0</span><span class="p">:</span><span class="s">&#39;$f$/19&#39;</span><span class="p">,</span>
-                             <span class="mf">22.0</span><span class="p">:</span><span class="s">&#39;$f$/22&#39;</span><span class="p">,</span>
-                             <span class="p">},</span>
-        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;manual line&#39;</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;Aperture&#39;</span><span class="p">,</span>
-                <span class="p">}</span>
 
-<span class="n">block_params_camera</span><span class="o">=</span><span class="p">{</span>
-             <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_3&#39;</span><span class="p">,</span>
-             <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-             <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-             <span class="s">&#39;f_params&#39;</span><span class="p">:[</span><span class="n">camera_params_1</span><span class="p">,</span><span class="n">camera_params_2</span><span class="p">,</span><span class="n">camera_params_3</span><span class="p">,</span>
-                         <span class="n">camera_params_4</span><span class="p">],</span>
-             <span class="s">&#39;mirror_x&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-             <span class="s">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="s">&#39;x&#39;</span><span class="p">,</span><span class="mf">100.0</span><span class="p">,</span><span class="s">&#39;x&#39;</span><span class="p">,</span><span class="mf">4.0</span><span class="p">]],</span>
-             <span class="p">}</span>
+<span class="k">def</span> <span class="nf">old_EV</span><span class="p">(</span><span class="n">EV</span><span class="p">):</span>  <span class="c"># C2(EV100) in wiki</span>
+    <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="n">EV</span> <span class="o">+</span> <span class="mf">13.654</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.3322</span>
 
-<span class="k">def</span> <span class="nf">old_EV</span><span class="p">(</span><span class="n">EV</span><span class="p">):</span> <span class="c"># C2(EV100) in wiki</span>
-    <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="n">EV</span><span class="o">+</span><span class="mf">13.654</span><span class="p">)</span><span class="o">/</span><span class="mf">0.3322</span>
-
-<span class="n">EV_para</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;tag&#39;</span><span class="p">:</span><span class="s">&#39;EV&#39;</span><span class="p">,</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">4.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">19.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">old_EV</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;EV$_{100}$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="s">&#39;align_func&#39;</span><span class="p">:</span><span class="n">old_EV</span><span class="p">,</span>
-        <span class="s">&#39;title_x_shift&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;right&#39;</span><span class="p">,</span>
-        <span class="p">}</span>
-<span class="n">EV_block</span><span class="o">=</span><span class="p">{</span>
-         <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
-         <span class="s">&#39;f_params&#39;</span><span class="p">:</span><span class="n">EV_para</span><span class="p">,</span>
-         <span class="s">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="s">&#39;x&#39;</span><span class="p">]],</span>
+<span class="n">EV_para</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;tag&#39;</span><span class="p">:</span> <span class="s">&#39;EV&#39;</span><span class="p">,</span>
+           <span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span>
+           <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">19.0</span><span class="p">,</span>
+           <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">old_EV</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
+           <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">r&#39;EV$_{100}$&#39;</span><span class="p">,</span>
+           <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+           <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+           <span class="s">&#39;align_func&#39;</span><span class="p">:</span> <span class="n">old_EV</span><span class="p">,</span>
+           <span class="s">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+           <span class="s">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;right&#39;</span><span class="p">,</span>
+           <span class="p">}</span>
+<span class="n">EV_block</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_8&#39;</span><span class="p">,</span>
+            <span class="s">&#39;f_params&#39;</span><span class="p">:</span> <span class="n">EV_para</span><span class="p">,</span>
+            <span class="s">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s">&#39;x&#39;</span><span class="p">]],</span>
             <span class="p">}</span>
-
 <span class="c"># maximum focal length</span>
-<span class="n">FL_t_para</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10000.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="n">log10</span><span class="p">((</span><span class="mf">1.0</span><span class="o">/</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="mf">10.0</span><span class="p">))</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span>
-        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;linear&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;t (s)&#39;</span><span class="p">,</span>
-        <span class="s">&#39;text_format&#39;</span><span class="p">:</span><span class="s">r&quot;1/</span><span class="si">%3.0f</span><span class="s"> s&quot;</span><span class="p">,</span>
-        <span class="s">&#39;tag&#39;</span><span class="p">:</span><span class="s">&#39;shutter&#39;</span><span class="p">,</span>
+<span class="n">FL_t_para</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+           <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">10000.0</span><span class="p">,</span>
+           <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span><span class="o">-</span><span class="mi">10</span> <span class="o">*</span> <span class="n">log10</span><span class="p">((</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">))</span> <span class="o">-</span> <span class="mi">30</span><span class="p">,</span>
+           <span class="s">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s">&#39;linear&#39;</span><span class="p">,</span>
+           <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+           <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+           <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">r&#39;t (s)&#39;</span><span class="p">,</span>
+           <span class="s">&#39;text_format&#39;</span><span class="p">:</span> <span class="s">r&quot;1/</span><span class="si">%3.0f</span><span class="s"> s&quot;</span><span class="p">,</span>
+           <span class="s">&#39;tag&#39;</span><span class="p">:</span> <span class="s">&#39;shutter&#39;</span><span class="p">,</span>
+           <span class="p">}</span>
+<span class="n">FL_factor_params_2</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span>
+                      <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">3.0</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span>
+                      <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">factor</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span> <span class="o">*</span> <span class="n">log10</span><span class="p">(</span><span class="n">factor</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">0</span><span class="p">,</span>
+                      <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">r&#39;Sensor, IS&#39;</span><span class="p">,</span>
+                      <span class="s">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s">&#39;manual point&#39;</span><span class="p">,</span>
+                      <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">):</span> <span class="s">&#39;DSLR&#39;</span><span class="p">,</span>
+                                           <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span><span class="p">):</span> <span class="s">&#39;35mm&#39;</span><span class="p">,</span>
+                                           <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">8.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">):</span> <span class="s">&#39;DSLR IS&#39;</span><span class="p">,</span>
+                                           <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">4.0</span><span class="p">):</span> <span class="s">&#39;35mm IS&#39;</span><span class="p">,</span>
+                      <span class="p">},</span>
+                      <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
+                      <span class="s">&#39;text_size_manual&#39;</span><span class="p">:</span> <span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">footnotesize</span><span class="p">,</span>  <span class="c"># pyx directive</span>
+                      <span class="p">}</span>
+<span class="n">FL_fl_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>
+                <span class="s">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">1000.0</span><span class="p">,</span>
+                <span class="s">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">FL</span><span class="p">:</span><span class="o">-</span><span class="mi">10</span> <span class="o">*</span> <span class="n">log10</span><span class="p">(</span><span class="n">FL</span><span class="p">)</span> <span class="o">+</span> <span class="mi">30</span><span class="p">,</span>
+                <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="s">r&#39;Max focal length&#39;</span><span class="p">,</span>
+                <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s">&#39;left&#39;</span><span class="p">,</span>
+                <span class="s">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s">&#39;manual line&#39;</span><span class="p">,</span>
+                <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">20.0</span><span class="p">:</span> <span class="s">&#39;20mm&#39;</span><span class="p">,</span>
+                                     <span class="mf">35.0</span><span class="p">:</span> <span class="s">&#39;35mm&#39;</span><span class="p">,</span>
+                                     <span class="mf">50.0</span><span class="p">:</span> <span class="s">&#39;50mm&#39;</span><span class="p">,</span>
+                                     <span class="mf">80.0</span><span class="p">:</span> <span class="s">&#39;80mm&#39;</span><span class="p">,</span>
+                                     <span class="mf">100.0</span><span class="p">:</span> <span class="s">&#39;100mm&#39;</span><span class="p">,</span>
+                                     <span class="mf">150.0</span><span class="p">:</span> <span class="s">&#39;150mm&#39;</span><span class="p">,</span>
+                                     <span class="mf">200.0</span><span class="p">:</span> <span class="s">&#39;200mm&#39;</span><span class="p">,</span>
+                                     <span class="mf">300.0</span><span class="p">:</span> <span class="s">&#39;300mm&#39;</span><span class="p">,</span>
+                                     <span class="mf">400.0</span><span class="p">:</span> <span class="s">&#39;400mm&#39;</span><span class="p">,</span>
+                                     <span class="mf">500.0</span><span class="p">:</span> <span class="s">&#39;500mm&#39;</span><span class="p">,</span>
+                                     <span class="mf">1000.0</span><span class="p">:</span> <span class="s">&#39;1000mm&#39;</span><span class="p">}</span>
                 <span class="p">}</span>
 
-<span class="n">FL_factor_params_2</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">3.0</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">factor</span><span class="p">:</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="n">log10</span><span class="p">(</span><span class="n">factor</span><span class="o">/</span><span class="mf">10.0</span><span class="p">)</span><span class="o">+</span><span class="mi">0</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;Sensor, IS&#39;</span><span class="p">,</span>
-        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;manual point&#39;</span><span class="p">,</span>
-        <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">):</span><span class="s">&#39;DSLR&#39;</span><span class="p">,</span>
-                     <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span><span class="p">):</span><span class="s">&#39;35mm&#39;</span><span class="p">,</span>
-                     <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">8.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">):</span><span class="s">&#39;DSLR IS&#39;</span><span class="p">,</span>
-                     <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">4.0</span><span class="p">):</span><span class="s">&#39;35mm IS&#39;</span><span class="p">,</span>
-                     <span class="p">},</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
-        <span class="s">&#39;text_size_manual&#39;</span><span class="p">:</span><span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">footnotesize</span><span class="p">,</span> <span class="c"># pyx directive</span>
-        <span class="p">}</span>
+<span class="n">FL_block_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;block_type&#39;</span><span class="p">:</span> <span class="s">&#39;type_1&#39;</span><span class="p">,</span>
+                   <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span>
+                   <span class="s">&#39;height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                   <span class="s">&#39;f1_params&#39;</span><span class="p">:</span> <span class="n">FL_t_para</span><span class="p">,</span>
+                   <span class="s">&#39;f2_params&#39;</span><span class="p">:</span> <span class="n">FL_factor_params_2</span><span class="p">,</span>
+                   <span class="s">&#39;f3_params&#39;</span><span class="p">:</span> <span class="n">FL_fl_params</span><span class="p">,</span>
+                   <span class="s">&#39;mirror_x&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                   <span class="s">&#39;proportion&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+                   <span class="s">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">8.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">),</span> <span class="s">&#39;x&#39;</span><span class="p">]],</span>
+                   <span class="p">}</span>
 
-<span class="n">FL_fl_params</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">20.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">1000.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">FL</span><span class="p">:</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="n">log10</span><span class="p">(</span><span class="n">FL</span><span class="p">)</span><span class="o">+</span><span class="mi">30</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;Max focal length&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
-        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;manual line&#39;</span><span class="p">,</span>
-        <span class="s">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">20.0</span><span class="p">:</span><span class="s">&#39;20mm&#39;</span><span class="p">,</span>
-                             <span class="mf">35.0</span><span class="p">:</span><span class="s">&#39;35mm&#39;</span><span class="p">,</span>
-                             <span class="mf">50.0</span><span class="p">:</span><span class="s">&#39;50mm&#39;</span><span class="p">,</span>
-                             <span class="mf">80.0</span><span class="p">:</span><span class="s">&#39;80mm&#39;</span><span class="p">,</span>
-                             <span class="mf">100.0</span><span class="p">:</span><span class="s">&#39;100mm&#39;</span><span class="p">,</span>
-                             <span class="mf">150.0</span><span class="p">:</span><span class="s">&#39;150mm&#39;</span><span class="p">,</span>
-                             <span class="mf">200.0</span><span class="p">:</span><span class="s">&#39;200mm&#39;</span><span class="p">,</span>
-                             <span class="mf">300.0</span><span class="p">:</span><span class="s">&#39;300mm&#39;</span><span class="p">,</span>
-                             <span class="mf">400.0</span><span class="p">:</span><span class="s">&#39;400mm&#39;</span><span class="p">,</span>
-                             <span class="mf">500.0</span><span class="p">:</span><span class="s">&#39;500mm&#39;</span><span class="p">,</span>
-                             <span class="mf">1000.0</span><span class="p">:</span><span class="s">&#39;1000mm&#39;</span><span class="p">}</span>
-        <span class="p">}</span>
-
-
-
-<span class="n">FL_block_params</span><span class="o">=</span><span class="p">{</span>
-             <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_1&#39;</span><span class="p">,</span>
-             <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">12.0</span><span class="p">,</span>
-             <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-             <span class="s">&#39;f1_params&#39;</span><span class="p">:</span><span class="n">FL_t_para</span><span class="p">,</span>
-             <span class="s">&#39;f2_params&#39;</span><span class="p">:</span><span class="n">FL_factor_params_2</span><span class="p">,</span>
-             <span class="s">&#39;f3_params&#39;</span><span class="p">:</span><span class="n">FL_fl_params</span><span class="p">,</span>
-             <span class="s">&#39;mirror_x&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-             <span class="s">&#39;proportion&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
-             <span class="s">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="s">&#39;x&#39;</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">8.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">),</span><span class="s">&#39;x&#39;</span><span class="p">]],</span>
-             <span class="p">}</span>
-
-
-<span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:[</span><span class="s">&#39;ex_photo_exposure.pdf&#39;</span><span class="p">,</span><span class="s">&#39;ex_photo_exposure.eps&#39;</span><span class="p">],</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">35.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">35.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">,</span><span class="n">block_params_weather</span><span class="p">,</span><span class="n">block_params_scene</span><span class="p">,</span><span class="n">block_params_camera</span><span class="p">,</span><span class="n">EV_block</span><span class="p">,</span><span class="n">FL_block_params</span><span class="p">],</span>
-              <span class="c">#&#39;block_params&#39;:[block_params_weather,block_params_scene,block_params_camera,EV_block,FL_block_params],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)],</span>
-              <span class="s">&#39;title_x&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
-              <span class="s">&#39;title_y&#39;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>
-              <span class="s">&#39;title_box_width&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-              <span class="s">&#39;title_str&#39;</span><span class="p">:</span><span class="s">r&#39;\LARGE Photography exposure (Setala 1940) \par \copyright Leif Roschier  2009 &#39;</span>
+<span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;filename&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;ex_photo_exposure.pdf&#39;</span><span class="p">,</span> <span class="s">&#39;ex_photo_exposure.eps&#39;</span><span class="p">],</span>
+               <span class="s">&#39;paper_height&#39;</span><span class="p">:</span> <span class="mf">35.0</span><span class="p">,</span>
+               <span class="s">&#39;paper_width&#39;</span><span class="p">:</span> <span class="mf">35.0</span><span class="p">,</span>
+               <span class="s">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_params</span><span class="p">,</span> <span class="n">block_params_weather</span><span class="p">,</span> <span class="n">block_params_scene</span><span class="p">,</span>
+                                <span class="n">block_params_camera</span><span class="p">,</span> <span class="n">EV_block</span><span class="p">,</span> <span class="n">FL_block_params</span><span class="p">],</span>
+               <span class="s">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s">&#39;rotate&#39;</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)],</span>
+               <span class="s">&#39;title_x&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+               <span class="s">&#39;title_y&#39;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>
+               <span class="s">&#39;title_box_width&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+               <span class="s">&#39;title_str&#39;</span><span class="p">:</span> <span class="s">r&#39;\LARGE Photography exposure (Setala 1940) \par \copyright Leif Roschier  2009 &#39;</span>
               <span class="p">}</span>
-<span class="n">b</span><span class="o">=</span><span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
+<span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
