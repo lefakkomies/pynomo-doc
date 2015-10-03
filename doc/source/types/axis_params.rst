@@ -45,5 +45,6 @@
     "``'extra_titles'``", "``[]``", "**Array.** List of extra title dicts for scale. Could be i.e.``[{'dx':1.0, 'dy':1.0, 'text':'extra title 1', 'width':5, 'pyx_extra_defs': [color.rgb.red,text.size.Huge]}, {'text': 'extra title 2'}]``."
     "``'base_start'``", "``None``", "**None/Float.** Defines number with ``'base_stop'`` (instead of ``'u_min'`` or ``'u_max'``) to find major tick decades."
     "``'base_stop'``", "``None``", "**None/Float.** Defines number with ``'base_start'`` (instead of ``'u_min'`` or ``'u_max'``) to find major tick decades."
-
+    "``'tick_distance_smart'``", "``.05``", "**Float**. Minimum distance between smart ticks."
+    "``'text_distance_smart'``", "``.25``", "**Float**. Minimum distance between smart texts."
 
