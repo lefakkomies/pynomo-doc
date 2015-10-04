@@ -1,11 +1,11 @@
-Main params
-===========
+Top level parameters
+====================
 
-Main params define the top level properties of the nomograph.
+Main params define the top level properties of the nomograph. TODO: some explanations.
 
 .. _main_params:
 
-List of main params
--------------------
+Main params
+-----------
 
 .. include:: types/general_params.rst

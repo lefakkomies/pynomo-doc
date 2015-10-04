@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="pyNomo Documentation 0.3.0 documentation" href="../index.html" />
     <link rel="next" title="Main params" href="../main_params.html" />
-    <link rel="prev" title="Software documentation" href="../main_page.html" />
+    <link rel="prev" title="Big picture of nomograph generation" href="../main_page.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -69,11 +69,12 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../main_page.html">Software documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main_page.html">Big picture of nomograph generation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Axes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main_params.html">Main params</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../types/types.html">Type reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../types/types.html">Blocks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
 </ul>
 </ul>
@@ -111,7 +112,7 @@
               
                 
   <li>
-    <a href="../main_page.html" title="Previous Chapter: Software documentation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Software docu...</span>
+    <a href="../main_page.html" title="Previous Chapter: Big picture of nomograph generation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Big picture o...</span>
     </a>
   </li>
   <li>
@@ -1093,8 +1094,8 @@ TODO: example to use smart scales.</p>
 </div>
 <div class="section" id="common-axis-params">
 <span id="id1"></span><h2>Common axis params<a class="headerlink" href="#common-axis-params" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils" id="id4">
-<caption><span class="caption-text">Common axis params</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id2">
+<caption><span class="caption-text">Common axis params</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="17%" />
 <col width="17%" />
@@ -1159,7 +1160,7 @@ TODO: example to use smart scales.</p>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">'manual_axis_data'</span></code></td>
 <td><code class="docutils literal"><span class="pre">{}</span></code></td>
-<td><strong>Dict.</strong> Manually set tick/point positions and text positions. Could be for example:<a href="#id2"><span class="problematic" id="id3">``</span></a>{1:&#8216;1&#8217;,3.14:r&#8217;$pi$&#8217;,5:&#8216;5&#8217;,7:&#8217;seven&#8217;,10:&#8216;10&#8217;}`</td>
+<td><strong>Dict.</strong> Manually set tick/point positions and text positions. Could be for example:<code class="docutils literal"><span class="pre">{1:'1',</span> <span class="pre">3.14:r'$\pi$',</span> <span class="pre">5:'5',</span> <span class="pre">7:'seven',</span> <span class="pre">10:'10'}</span></code></td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">'title_draw_center'</span></code></td>
 <td><code class="docutils literal"><span class="pre">False</span></code></td>

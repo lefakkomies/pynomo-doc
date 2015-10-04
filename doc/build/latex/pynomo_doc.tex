@@ -24,7 +24,7 @@
         
 
 \title{PyNomo Documentation}
-\date{October 03, 2015}
+\date{October 04, 2015}
 \release{0.3.0}
 \author{Ron Doerfler, Leif Roschier}
 \newcommand{\sphinxlogo}{}
@@ -141,8 +141,38 @@ in most part of dictionaries.
 \end{quote}
 
 
+\chapter{Introduction}
+\label{introduction/introduction:introduction}\label{introduction/introduction::doc}\label{introduction/introduction:pynomo-documentation}
+
+\section{Background}
+\label{introduction/introduction:background}
+\begin{notice}{note}{Todo}
+
+Here what are nomographs, where they are good, some history,...
+\end{notice}
+
+
+\chapter{Tutorial}
+\label{tutorials/tutorials::doc}\label{tutorials/tutorials:tutorial}
+
+\section{Tutorial 1: Hello World}
+\label{tutorials/tutorials:tutorial-1-hello-world}
+\begin{notice}{note}{Todo}
+
+Here simplest tutorial...
+\end{notice}
+
+
+\section{Tutorial 2: More complex example...}
+\label{tutorials/tutorials:tutorial-2-more-complex-example}
+\begin{notice}{note}{Todo}
+
+Here more complex tutorial... (15 minutes?)
+\end{notice}
+
+
 \chapter{Installation}
-\label{installation/installation:installation}\label{installation/installation::doc}\label{installation/installation:pynomo-documentation}
+\label{installation/installation:installation}\label{installation/installation::doc}
 pyNomo is a  \href{https://www.python.org}{python2} library and thus requires working python installation on the computer.
 pyNomo stands on the shoulders  of (read: requires) the python packages: \href{http://www.numpy.org}{numpy}, \href{http://www.scipy.org}{scipy} and
 \href{http://pyx.sourceforge.net}{pyx} that requires LaTeX-installation.
@@ -309,21 +339,21 @@ That way a folder is used to share the script file and the generated pdf file be
 Linux environment).
 
 
-\chapter{Software documentation}
-\label{main_page:software-documentation}\label{main_page::doc}
+\chapter{Big picture of nomograph construction}
+\label{main_page:big-picture-of-nomograph-construction}\label{main_page::doc}
 Nomographs of PyNomo are
-constructed by writing a python script that defines the nomograph and
-calls class Nomographer to build the nomograph.
+constructed by writing a python script that defines the nomograph parameters and
+initializes class \code{Nomographer(parameters)} to build the nomograph.
 
-Nomograph is constructed by defining axis parameters that are used to
-build a block. Many blocks are possibly aligned with each other and
+Nomograph is constructed by defining axes that are used to
+build blocks. If there are more than one block,  they are aligned with each other in order to
 construct the nomograph.
 
 A simple example of pseudocode of typical PyNomo structure is the
 following:
 
 \begin{Verbatim}[commandchars=\\\{\},formatcom=\scriptsize]
-\PYG{k+kn}{from} \PYG{n+nn}{pynomo.nomographer} \PYG{k+kn}{import} \PYG{o}{*} \PYG{c}{\PYGZsh{} this loads the needed pynomo class}
+\PYG{k+kn}{from} \PYG{n+nn}{pynomo.nomographer} \PYG{k+kn}{import} \PYG{o}{*}  \PYG{c}{\PYGZsh{} this loads the needed pynomo class}
 \PYG{c}{\PYGZsh{} define block 1}
 \PYG{n}{axis\PYGZus{}params\PYGZus{}1\PYGZus{}for\PYGZus{}block\PYGZus{}1} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{o}{.}\PYG{o}{.}\PYG{o}{.}\PYG{p}{\PYGZcb{}}
 \PYG{n}{axis\PYGZus{}params\PYGZus{}2\PYGZus{}for\PYGZus{}block\PYGZus{}1} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{o}{.}\PYG{o}{.}\PYG{o}{.}\PYG{p}{\PYGZcb{}}
@@ -337,27 +367,35 @@ following:
 \PYG{n}{block\PYGZus{}2} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{o}{.}\PYG{o}{.}\PYG{o}{.}\PYG{p}{\PYGZcb{}}
 
 \PYG{c}{\PYGZsh{} define nomograph}
-\PYG{n}{main\PYGZus{}params}\PYG{o}{=}\PYG{p}{\PYGZob{}}
-              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{filename}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{filename\PYGZus{}of\PYGZus{}nomograph.pdf}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}  \PYG{c}{\PYGZsh{} filename of output}
-              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{n}{block\PYGZus{}1}\PYG{p}{,}\PYG{n}{block\PYGZus{}2}\PYG{p}{]}\PYG{p}{,}        \PYG{c}{\PYGZsh{} the blocks make the nomograph}
-              \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{transformations}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale paper}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}\PYG{p}{)}\PYG{p}{]}\PYG{p}{,}    \PYG{c}{\PYGZsh{} these make (projective) transformations for the canves}
-              \PYG{p}{\PYGZcb{}}
+\PYG{n}{main\PYGZus{}params} \PYG{o}{=} \PYG{p}{\PYGZob{}} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{filename}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{filename\PYGZus{}of\PYGZus{}nomograph.pdf}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}  \PYG{c}{\PYGZsh{} filename of output}
+                \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{block\PYGZus{}params}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{n}{block\PYGZus{}1}\PYG{p}{,}\PYG{n}{block\PYGZus{}2}\PYG{p}{]}\PYG{p}{,}        \PYG{c}{\PYGZsh{} the blocks make the nomograph}
+                \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{transformations}\PYG{l+s}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{scale paper}\PYG{l+s}{\PYGZsq{}}\PYG{p}{,}\PYG{p}{)}\PYG{p}{]}\PYG{p}{,}     \PYG{c}{\PYGZsh{} these make (projective) transformations for the canves}
+                \PYG{p}{\PYGZcb{}}
 \PYG{c}{\PYGZsh{} create nomograph}
 \PYG{n}{Nomographer}\PYG{p}{(}\PYG{n}{main\PYGZus{}params}\PYG{p}{)}
 \end{Verbatim}
 
-It is to be noted that nomograph is defined as python dicts that
-constitute one dict that is passed to Nomographer class.
+It is to be noted that nomograph is defined as python dictionaries that
+constitute one main dictionary that is passed to Nomographer class.
 
 
-\section{Basic blocks}
-\label{main_page:basic-blocks}
-The following blocks are the core of PyNomo. These are used as easy
+\section{Axes}
+\label{main_page:axes}
+A nomograph consist in simple terms of axes (or scales) that are positioned in a way to fulfil the equation to be graphed.
+Axes (or grids or graphs) are the leafs that build the tree of a nomograph.
+Defining axes and their appearance is major work in nomograph
+construction. Different possibilities are illustrated in Axes chapter.
+
+
+\section{Blocks}
+\label{main_page:blocks}
+Blocks relate axes to each other. Each block fulfils some equation where axes are the variables.
+The following blocks below with corresponding equations are the core of PyNomo.
+These are used as easy
 building blocks for nomograph construction. If these do not suffice one
-can build as complex nomograph as one wishes by using determinants in
-type 9.
+can build as complex nomograph as one wishes by using determinants in type 9.
 
-\begin{tabulary}{\linewidth}{|L|L|L|}
+\begin{tabulary}{\linewidth}{|p{2cm}|p{7cm}|p{5cm}|}
 \hline
 
 {\hyperref[types/types:type1-ref]{\emph{\DUspan{}{Type 1}}}}
@@ -435,30 +473,15 @@ One curved line
 
 
 
-\section{Axes}
-\label{main_page:axes}
-Defining axes and their appearance is major work in nomograph
-construction. Different possibilities are illustrated in examples of
-axes parameters.
-
-
 \section{Combination of blocks}
 \label{main_page:combination-of-blocks}
-If a nomograph consists of many equations that are aligned, a compound
-nomograph is constructed.
+If a nomograph consists of many equations that are aligned, a compound nomograph is constructed. Chapter compound nomograph
+discusses block aligment in detail.
 
 
 \section{Transformations}
 \label{main_page:transformations}
-Scales shall be transformed in order to tune the
-appearance.
-
-
-\section{Manual}
-\label{main_page:manual}
-Article `'\href{http://www.myreckonings.com/pynomo/CreatingNomogramsWithPynomo.pdf}{``Creating Nomograms with the PyNomo Software'''' by Ron
-Doerfler} is a detailed
-manual for using PyNomo.
+Scales shall be transformed in order to use given space (paper) optimally. Chapter Transformations discusses transformations.
 
 
 \chapter{Axes}
@@ -1151,7 +1174,7 @@ explanation
  & 
 \code{\{\}}
  & 
-\textbf{Dict.} Manually set tick/point positions and text positions. Could be for example:{\color{red}\bfseries{}{}`{}`}\{1:`1',3.14:r'\$pi\$',5:`5',7:'seven',10:`10'\}{}`
+\textbf{Dict.} Manually set tick/point positions and text positions. Could be for example:\code{\{1:'1', 3.14:r'\$\textbackslash{}pi\$', 5:'5', 7:'seven', 10:'10'\}}
 \\
 \hline
 \code{'title\_draw\_center'}
@@ -1346,159 +1369,86 @@ explanation
 
 
 
-\chapter{Main params}
-\label{main_params:main-params}\label{main_params::doc}
-Main params define the top level properties of the nomograph.
+\chapter{Blocks}
+\label{types/types:blocks}\label{types/types::doc}
+Every block in pynomo represents some equation. The blocks and their functions are listed in the following table.
 
+\begin{tabulary}{\linewidth}{|L|L|L|}
+\hline
 
-\section{List of main params}
-\label{main_params:list-of-main-params}\label{main_params:id1}
-\begin{longtable}{|p{4cm}|p{4cm}|p{7cm}|}
-\caption{General params}\\
+{\hyperref[types/types:type1-ref]{\emph{\DUspan{}{Type 1}}}}
+ & 
+\(F_1(u_1)+F_2(u_2)+F_3(u_3)=0 \,\)
+ & 
+Three parallel lines
+\\
 \hline
-\textsf{\relax 
-parameter
-} & \textsf{\relax 
-default value
-} & \textsf{\relax 
-explanation
-}\\
-\hline\endfirsthead
+{\hyperref[types/types:type2-ref]{\emph{\DUspan{}{Type 2}}}}
+ & 
+\(F_1(u_1)=F_2(u_2) F_3(u_3) \,\)
+ & 
+``N'' or ``Z''
+\\
+\hline
+{\hyperref[types/types:type3-ref]{\emph{\DUspan{}{Type 3}}}}
+ & 
+\(F_1(u_1)+F_2(u_2)+\cdots+F_N(u_N)=0\)
+ & 
+N parallel lines
+\\
+\hline
+{\hyperref[types/types:type4-ref]{\emph{\DUspan{}{Type 4}}}}
+ & 
+\(\frac{F_1(u_1)}{F_2(u_2)}=\frac{F_3(u_3)}{F_4(u_4)}\)
+ & 
+``Proportion''
+\\
+\hline
+{\hyperref[types/types:type5-ref]{\emph{\DUspan{}{Type 5}}}}
+ & 
+\(F_1(v) = F_2(x,u). \,\)
+ & 
+``Contour''
+\\
+\hline
+{\hyperref[types/types:type6-ref]{\emph{\DUspan{}{Type 6}}}}
+ & 
+\(u=u \,\)
+ & 
+``Ladder''
+\\
+\hline
+{\hyperref[types/types:type7-ref]{\emph{\DUspan{}{Type 7}}}}
+ & 
+\(\frac{1}{F_1(u_1)}+\frac{1}{F_2(u_2)}=\frac{1}{F_3(u_3)} \,\)
+ & 
+``Angle''
+\\
+\hline
+{\hyperref[types/types:type8-ref]{\emph{\DUspan{}{Type 8}}}}
+ & 
+\(y = {F(u)} \,\)
+ & 
+``Single''
+\\
+\hline
+{\hyperref[types/types:type9-ref]{\emph{\DUspan{}{Type 9}}}}
+ & 
+\(\begin{vmatrix}F_1(u_1[,v_1])& G_1(u_1[,v_1]) & H_1(u_1[,v_1])\\
+F_2(u_2[,v_2])& G_2(u_2[,v_2]) & H_2(u_2[,v_2]) \\
+F_3(u_3[,v_3])& G_3(u_3[,v_3]) & H_3(u_3[,v_3]) \end{vmatrix} = 0\)
+ & 
+``General''
+\\
+\hline
+{\hyperref[types/types:type10-ref]{\emph{\DUspan{}{Type 10}}}}
+ & 
+\(F_1(u)+F_2(v)F_3(w)+F_4(w)=0 \,\)
+ & 
+One curved line
+\\
+\hline\end{tabulary}
 
-\multicolumn{3}{c}%
-{{\textsf{\tablename\ \thetable{} -- continued from previous page}}} \\
-\hline
-\textsf{\relax 
-parameter
-} & \textsf{\relax 
-default value
-} & \textsf{\relax 
-explanation
-}\\
-\hline\endhead
-
-\hline \multicolumn{3}{|r|}{{\textsf{Continued on next page}}} \\ \hline
-\endfoot
-
-\endlastfoot
-
-
-\code{'filename'}
- & 
-\code{'pynomo\_default.pdf'}
- & 
-\textbf{String.} Filename of generated file. .pdf and .eps formats supported.
-\\
-\hline
-\code{'paper\_height'}
- & 
-\code{20.0}
- & 
-\textbf{String.} Height of paper (roughly, ticks and texts extend this).
-\\
-\hline
-\code{'paper\_width'}
- & 
-\code{20.0}
- & 
-\textbf{String.} Width of paper (roughly, ticks and texts extend this).
-\\
-\hline
-\code{'block\_params'}
- &  & 
-\textbf{Array of Blocks.} List of blocks that make the nomograph.
-\\
-\hline
-\code{'transformations'}
- & 
-\code{{[}('rotate', 0.01), ('scale paper'){]}}
- & 
-\textbf{Array of tuples.} List of transformations to transform nomograph.
-\\
-\hline
-\code{'title\_str'}
- & 
-\code{'{'}}
- & 
-\textbf{String.} Title string of nomograph.
-\\
-\hline
-\code{'title\_x'}
- & 
-paper\_width/2.0
- & 
-\textbf{Float.} Title x-position.
-\\
-\hline
-\code{'title\_y'}
- & 
-paper\_height
- & 
-\textbf{Float.} Title y-position.
-\\
-\hline
-\code{'title\_box\_width'}
- & 
-paper\_width/2.2
- & 
-\textbf{Float.} Title box width.
-\\
-\hline
-\code{'title\_color'}
- & 
-\code{'color.rgb.black'}
- & 
-\textbf{Color.} Title color.
-\\
-\hline
-\code{'make\_grid'}
- & 
-\code{False}
- & 
-\textbf{Boolean.} If True, draws grid to help position texts, etc.
-\\
-\hline
-\code{'pre\_func'}
- & 
-\code{None}
- & 
-\textbf{func(context).} PyX function(canvas) to draw under nomograph. Function definition could be:
-\\
-\hline
-\code{'post\_func'}
- & 
-\code{None}
- & 
-\textbf{func(context).} PyX function(canvas) to draw over nomograph. Definiton same as for `pre\_func'.
-\\
-\hline
-\code{'debug'}
- & 
-\code{False}
- & 
-\textbf{Boolean.} If True, prints dicts of definions.
-\\
-\hline
-\code{'extra\_texts'}
- & 
-\code{{[}{]}}
- & 
-\textbf{List of Dicts defining texts.} Defines extra texts. Could be for example:
-\\
-\hline
-\code{'isopleth\_params'}
- & 
-\code{{[}\{\}{]}}
- & 
-\textbf{List of Dicts.} Defines appearance of isopleths. Could be for example:
-\\
-\hline\end{longtable}
-
-
-
-\chapter{Type reference}
-\label{types/types:type-reference}\label{types/types::doc}
-In the following is a reference for the types used in pyNomo.
 
 
 \section{Type 1}
@@ -1596,7 +1546,7 @@ This simple example plots nomograph for equation:
 
 \begin{threeparttable}
 \capstart\caption{Specific axis parameters for type 1}
-\label{types/types:id76}
+\label{types/types:id54}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -1640,7 +1590,7 @@ See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}
 
 \begin{threeparttable}
 \capstart\caption{Specific block parameters for type 9}
-\label{types/types:id78}
+\label{types/types:id55}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -1728,7 +1678,7 @@ explanation
 
 \subsubsection{General parameters}
 \label{types/types:general-parameters}
-See {\hyperref[main_params:id1]{\emph{\DUspan{}{List of main params}}}} for top level main parameters.
+See {\hyperref[main_params:main-params]{\emph{\DUspan{}{Main params}}}} for top level main parameters.
 
 
 \section{Type 2}
@@ -1742,14 +1692,14 @@ simple example.
 
 
 \subsection{Simple example}
-\label{types/types:id3}
+\label{types/types:id1}
 This simple example plots nomograph for equation:
 \begin{gather}
 \begin{split}u_1 = u_2 u_3\end{split}\notag
 \end{gather}
 
 \subsubsection{Generated nomograph}
-\label{types/types:id4}
+\label{types/types:id2}
 \includegraphics{ex_type2_nomo_1.pdf}
 
 
@@ -1820,11 +1770,11 @@ This simple example plots nomograph for equation:
 \label{types/types:parameters-for-type-2}
 
 \subsubsection{Axis parameters}
-\label{types/types:id5}
+\label{types/types:id3}
 
 \begin{threeparttable}
 \capstart\caption{Specific axis parameters for type 2}
-\label{types/types:id80}
+\label{types/types:id56}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -1864,11 +1814,11 @@ See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}
 
 
 \subsubsection{Block parameters}
-\label{types/types:id8}
+\label{types/types:id4}
 
 \begin{threeparttable}
 \capstart\caption{Specific block parameters for type 2}
-\label{types/types:id82}
+\label{types/types:id57}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -1955,8 +1905,8 @@ explanation
 
 
 \subsubsection{General parameters}
-\label{types/types:id9}
-See {\hyperref[main_params:id1]{\emph{\DUspan{}{List of main params}}}} for top level main parameters.
+\label{types/types:id5}
+See {\hyperref[main_params:main-params]{\emph{\DUspan{}{Main params}}}} for top level main parameters.
 
 
 \section{Type 3}
@@ -1970,19 +1920,19 @@ simple example.
 
 
 \subsection{Simple example}
-\label{types/types:id10}
+\label{types/types:id6}
 This simple example plots nomograph for equation:
 \begin{gather}
 \begin{split}u_1 + u_2 + u_3 + u_4 + u_5 + u_6 = 0\end{split}\notag
 \end{gather}
 
 \subsubsection{Generated nomograph}
-\label{types/types:id11}
+\label{types/types:id7}
 \includegraphics{ex_type3_nomo_1.pdf}
 
 
 \subsubsection{Source code of simple example of type 2}
-\label{types/types:id12}
+\label{types/types:id8}
 \begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,formatcom=\scriptsize]
 \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
 \PYG{l+s+sd}{    ex\PYGZus{}type3\PYGZus{}nomo\PYGZus{}1.py}
@@ -2071,11 +2021,11 @@ This simple example plots nomograph for equation:
 \label{types/types:parameters-for-type-3}
 
 \subsubsection{Axis parameters}
-\label{types/types:id13}
+\label{types/types:id9}
 
 \begin{threeparttable}
 \capstart\caption{Specific axis parameters for type 3}
-\label{types/types:id84}
+\label{types/types:id58}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -2115,11 +2065,11 @@ See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}
 
 
 \subsubsection{Block parameters}
-\label{types/types:id16}
+\label{types/types:id10}
 
 \begin{threeparttable}
 \capstart\caption{Specific block parameters for type 3}
-\label{types/types:id86}
+\label{types/types:id59}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -2206,8 +2156,8 @@ explanation
 
 
 \subsubsection{General parameters}
-\label{types/types:id17}
-See {\hyperref[main_params:id1]{\emph{\DUspan{}{List of main params}}}} for top level main parameters.
+\label{types/types:id11}
+See {\hyperref[main_params:main-params]{\emph{\DUspan{}{Main params}}}} for top level main parameters.
 
 
 \section{Type 4}
@@ -2218,14 +2168,14 @@ Type 4 is proportion nomograph that have functional relationship:
 \end{gather}
 
 \subsection{Simple example}
-\label{types/types:id18}
+\label{types/types:id12}
 This simple example plots nomograph for equation:
 \begin{gather}
 \begin{split}u_1 / u_2 = u_3 / u_4\end{split}\notag
 \end{gather}
 
 \subsubsection{Generated nomograph}
-\label{types/types:id19}
+\label{types/types:id13}
 \includegraphics{ex_type4_nomo_1.pdf}
 
 
@@ -2308,11 +2258,11 @@ This simple example plots nomograph for equation:
 \label{types/types:parameters-for-type-4}
 
 \subsubsection{Axis parameters}
-\label{types/types:id20}
+\label{types/types:id14}
 
 \begin{threeparttable}
 \capstart\caption{Specific axis parameters for type 4}
-\label{types/types:id88}
+\label{types/types:id60}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -2352,11 +2302,11 @@ See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}
 
 
 \subsubsection{Block parameters}
-\label{types/types:id23}
+\label{types/types:id15}
 
 \begin{threeparttable}
 \capstart\caption{Specific block parameters for type 4}
-\label{types/types:id90}
+\label{types/types:id61}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -2464,8 +2414,8 @@ explanation
 
 
 \subsubsection{General parameters}
-\label{types/types:id24}
-See {\hyperref[main_params:id1]{\emph{\DUspan{}{List of main params}}}} for top level main parameters.
+\label{types/types:id16}
+See {\hyperref[main_params:main-params]{\emph{\DUspan{}{Main params}}}} for top level main parameters.
 
 
 \section{Type 5}
@@ -2509,7 +2459,7 @@ Type 5 is a very complex (say stupid) way to make basic graphs. In the future ve
 
 
 \subsection{Simple example}
-\label{types/types:id27}
+\label{types/types:id19}
 In the following example
 \begin{gather}
 \begin{split}F_1(u)=u\end{split}\notag
@@ -2524,7 +2474,7 @@ Thus the original equation is
 \end{gather}
 
 \subsubsection{Generated nomograph}
-\label{types/types:id28}
+\label{types/types:id20}
 \includegraphics{ex_type5_nomo_1.pdf}
 
 
@@ -2576,12 +2526,12 @@ Thus the original equation is
 \label{types/types:parameters-for-type-5}
 
 \subsubsection{Axis parameters}
-\label{types/types:id29}
+\label{types/types:id21}
 No specific axis parameters. Everything is defined in block.
 
 
 \subsubsection{Block parameters}
-\label{types/types:id30}
+\label{types/types:id22}
 \begin{longtable}{|p{4cm}|p{4cm}|p{7cm}|}
 \caption{Specific block parameters for type 4}\\
 \hline
@@ -2651,7 +2601,7 @@ explanation
  & 
 --
  & 
-\textbf{func(u).} u function. For example {\color{red}\bfseries{}{}`{}`}lambda u:u{}`
+\textbf{func(u).} u function. For example \code{lambda u: u}
 \\
 \hline
 \code{'v\_func'}
@@ -2679,7 +2629,7 @@ explanation
  & 
 --
  & 
-\textbf{List of Floats.} List of plotted u values. For example \emph{{[}1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0{]}{}`}.
+\textbf{List of Floats.} List of plotted u values. For example \emph{{[}1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0{]}{}`}.
 \\
 \hline
 \code{'u\_tag'}
@@ -2758,7 +2708,7 @@ explanation
  & 
 \code{\{\}}
  & 
-\textbf{Dict.} Manually set tick/point positions and text positions. Could be for example:{\color{red}\bfseries{}{}`{}`}\{1:`1',3.14:r'\$pi\$',5:`5',7:'seven',10:`10'\}{}`
+\textbf{Dict.} Manually set tick/point positions and text positions. Could be for example:{\color{red}\bfseries{}{}`{}`}\{1:`1', 3.14:r'\$pi\$', 5:`5',7:'seven', 10:`10'\}{}`
 \\
 \hline
 \code{'u\_title\_draw\_center'}
@@ -2884,7 +2834,7 @@ explanation
  & 
 --
  & 
-\textbf{List of Floats.} List of plotted v values. For example \emph{{[}1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0{]}{}`}.
+\textbf{List of Floats.} List of plotted v values. For example \emph{{[}1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0{]}{}`}.
 \\
 \hline
 \code{'v\_title'}
@@ -2991,7 +2941,7 @@ explanation
  & 
 \code{\{\}}
  & 
-\textbf{Dict.} Manually set tick/point positions and text positions. Could be for example:{\color{red}\bfseries{}{}`{}`}\{1:`1',3.14:r'\$pi\$',5:`5',7:'seven',10:`10'\}{}`
+\textbf{Dict.} Manually set tick/point positions and text positions. Could be for example:\code{\{1:'1', 3.14:r'\$\textbackslash{}pi\$', 5:'5', 7:'seven', 10:'10'\}}
 \\
 \hline
 \code{'wd\_title\_draw\_center'}
@@ -3124,8 +3074,8 @@ explanation
 
 
 \subsubsection{General parameters}
-\label{types/types:id37}
-See {\hyperref[main_params:id1]{\emph{\DUspan{}{List of main params}}}} for top level main parameters.
+\label{types/types:id25}
+See {\hyperref[main_params:main-params]{\emph{\DUspan{}{Main params}}}} for top level main parameters.
 
 
 \section{Type 6}
@@ -3150,7 +3100,7 @@ Ladders are not beautiful and should be used only when no other solution exist.
 
 
 \subsection{Simple example}
-\label{types/types:id38}
+\label{types/types:id26}
 This simple example plots nomograph for equation:
 \begin{gather}
 \begin{split}u = u,\end{split}\notag
@@ -3159,7 +3109,7 @@ where linear scale is converted to a logarithmic scale.
 
 
 \subsubsection{Generated nomograph}
-\label{types/types:id39}
+\label{types/types:id27}
 \includegraphics{ex_type6_nomo_1.pdf}
 
 
@@ -3220,11 +3170,11 @@ where linear scale is converted to a logarithmic scale.
 \label{types/types:parameters-for-type-6}
 
 \subsubsection{Axis parameters}
-\label{types/types:id40}
+\label{types/types:id28}
 
 \begin{threeparttable}
 \capstart\caption{Specific axis parameters for type 6}
-\label{types/types:id94}
+\label{types/types:id63}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -3264,11 +3214,11 @@ See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}
 
 
 \subsubsection{Block parameters}
-\label{types/types:id43}
+\label{types/types:id29}
 
 \begin{threeparttable}
 \capstart\caption{Specific block parameters for type 6}
-\label{types/types:id96}
+\label{types/types:id64}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -3376,8 +3326,8 @@ explanation
 
 
 \subsubsection{General parameters}
-\label{types/types:id44}
-See {\hyperref[main_params:id1]{\emph{\DUspan{}{List of main params}}}} for top level main parameters.
+\label{types/types:id30}
+See {\hyperref[main_params:main-params]{\emph{\DUspan{}{Main params}}}} for top level main parameters.
 
 
 \section{Type 7}
@@ -3388,29 +3338,29 @@ Type 7 is ``angle'' nomograph that has functional relationship:
 \end{gather}
 
 \subsection{Simple example}
-\label{types/types:id45}
+\label{types/types:id31}
 This simple example plots nomograph for equation:
 \begin{gather}
 \begin{split}1/ u_1 + 1/u_2 = 1 / u_3\end{split}\notag
 \end{gather}
 
 \subsubsection{Generated nomograph}
-\label{types/types:id46}
+\label{types/types:id32}
 \includegraphics{ex_type7_nomo_1.pdf}
 
 
 \subsubsection{Source code of simple example of type 2}
-\label{types/types:id47}
+\label{types/types:id33}
 
 \subsection{Parameters for type 7}
 \label{types/types:parameters-for-type-7}
 
 \subsubsection{Axis parameters}
-\label{types/types:id48}
+\label{types/types:id34}
 
 \begin{threeparttable}
 \capstart\caption{Specific axis parameters for type 7}
-\label{types/types:id98}
+\label{types/types:id65}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -3450,11 +3400,11 @@ See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}
 
 
 \subsubsection{Block parameters}
-\label{types/types:id51}
+\label{types/types:id35}
 
 \begin{threeparttable}
 \capstart\caption{Specific block parameters for type 7}
-\label{types/types:id100}
+\label{types/types:id66}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -3548,8 +3498,8 @@ explanation
 
 
 \subsubsection{General parameters}
-\label{types/types:id52}
-See {\hyperref[main_params:id1]{\emph{\DUspan{}{List of main params}}}} for top level main parameters.
+\label{types/types:id36}
+See {\hyperref[main_params:main-params]{\emph{\DUspan{}{Main params}}}} for top level main parameters.
 
 
 \section{Type 8}
@@ -3570,12 +3520,12 @@ existing scales.
 
 
 \subsection{Simple example}
-\label{types/types:id53}
+\label{types/types:id37}
 This simple example plots single vertical scale.
 
 
 \subsubsection{Generated nomograph}
-\label{types/types:id54}
+\label{types/types:id38}
 \includegraphics{ex_type8_nomo_1.pdf}
 
 
@@ -3625,11 +3575,11 @@ This simple example plots single vertical scale.
 \label{types/types:parameters-for-type-8}
 
 \subsubsection{Axis parameters}
-\label{types/types:id55}
+\label{types/types:id39}
 
 \begin{threeparttable}
 \capstart\caption{Specific axis parameters for type 8}
-\label{types/types:id102}
+\label{types/types:id67}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -3683,11 +3633,11 @@ See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}
 
 
 \subsubsection{Block parameters}
-\label{types/types:id58}
+\label{types/types:id40}
 
 \begin{threeparttable}
 \capstart\caption{Specific block parameters for type 8}
-\label{types/types:id104}
+\label{types/types:id68}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -3795,8 +3745,8 @@ explanation
 
 
 \subsubsection{General parameters}
-\label{types/types:id59}
-See {\hyperref[main_params:id1]{\emph{\DUspan{}{List of main params}}}} for top level main parameters.
+\label{types/types:id41}
+See {\hyperref[main_params:main-params]{\emph{\DUspan{}{Main params}}}} for top level main parameters.
 
 
 \section{Type 9}
@@ -3816,7 +3766,7 @@ is constructed for the row, otherwise a normal scale with variable u.
 
 
 \subsection{Simple example}
-\label{types/types:id60}
+\label{types/types:id42}
 This simple example plots nomograph for equation in determinant form:
 \begin{gather}
 \begin{split}\begin{vmatrix}
@@ -3826,7 +3776,7 @@ u_2+2      & 2v_2+5 & 1 \\
 \end{gather}
 
 \subsubsection{Generated nomograph}
-\label{types/types:id61}
+\label{types/types:id43}
 \includegraphics{ex_type9_nomo_1.pdf}
 
 
@@ -3908,11 +3858,11 @@ u_2+2      & 2v_2+5 & 1 \\
 \label{types/types:parameters-for-type-9}
 
 \subsubsection{Axis parameters}
-\label{types/types:id62}
+\label{types/types:id44}
 
 \begin{threeparttable}
 \capstart\caption{Specific axis parameters for type 9 grid axis}
-\label{types/types:id106}
+\label{types/types:id69}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -4092,11 +4042,11 @@ See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}
 
 
 \subsubsection{Block parameters}
-\label{types/types:id67}
+\label{types/types:id47}
 
 \begin{threeparttable}
 \capstart\caption{Specific block parameters for type 9}
-\label{types/types:id108}
+\label{types/types:id70}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -4183,8 +4133,8 @@ explanation
 
 
 \subsubsection{General parameters}
-\label{types/types:id68}
-See {\hyperref[main_params:id1]{\emph{\DUspan{}{List of main params}}}} for top level main parameters.
+\label{types/types:id48}
+See {\hyperref[main_params:main-params]{\emph{\DUspan{}{Main params}}}} for top level main parameters.
 
 
 \section{Type 10}
@@ -4195,14 +4145,14 @@ Type 10 is nomograph that has one curved line. It has functional relationship:
 \end{gather}
 
 \subsection{Simple example}
-\label{types/types:id69}
+\label{types/types:id49}
 This simple example plots nomograph for equation:
 \begin{gather}
 \begin{split}u + v w + w = 0.\end{split}\notag
 \end{gather}
 
 \subsubsection{Generated nomograph}
-\label{types/types:id70}
+\label{types/types:id50}
 \includegraphics{ex_type10_nomo_1.pdf}
 
 
@@ -4276,11 +4226,11 @@ This simple example plots nomograph for equation:
 \label{types/types:parameters-for-type-10}
 
 \subsubsection{Axis parameters}
-\label{types/types:id71}
+\label{types/types:id51}
 
 \begin{threeparttable}
 \capstart\caption{Specific axis parameters for type 10}
-\label{types/types:id110}
+\label{types/types:id71}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -4334,11 +4284,11 @@ See {\hyperref[axes/axes:common-axis-params]{\emph{\DUspan{}{Common axis params}
 
 
 \subsubsection{Block parameters}
-\label{types/types:id74}
+\label{types/types:id52}
 
 \begin{threeparttable}
 \capstart\caption{Specific block parameters for type 10}
-\label{types/types:id112}
+\label{types/types:id72}
 \begin{tabulary}{\linewidth}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textsf{\relax 
@@ -4446,8 +4396,174 @@ explanation
 
 
 \subsubsection{General parameters}
-\label{types/types:id75}
-See {\hyperref[main_params:id1]{\emph{\DUspan{}{List of main params}}}} for top level main parameters.
+\label{types/types:id53}
+See {\hyperref[main_params:main-params]{\emph{\DUspan{}{Main params}}}} for top level main parameters.
+
+
+\chapter{Block alignment}
+\label{alignment/alignment:block-alignment}\label{alignment/alignment::doc}
+\begin{notice}{note}{Todo}
+
+Here discussion about block alignment, double alignment, tags, ...
+\end{notice}
+
+
+\chapter{Transformations}
+\label{transformations/transformations::doc}\label{transformations/transformations:transformations}
+\begin{notice}{note}{Todo}
+
+Here discussion about transformations. Why and how they are made.
+\end{notice}
+
+
+\chapter{Top level parameters}
+\label{main_params:top-level-parameters}\label{main_params::doc}
+Main params define the top level properties of the nomograph. TODO: some explanations.
+
+
+\section{Main params}
+\label{main_params:main-params}\label{main_params:id1}
+\begin{longtable}{|p{4cm}|p{4cm}|p{7cm}|}
+\caption{General params}\\
+\hline
+\textsf{\relax 
+parameter
+} & \textsf{\relax 
+default value
+} & \textsf{\relax 
+explanation
+}\\
+\hline\endfirsthead
+
+\multicolumn{3}{c}%
+{{\textsf{\tablename\ \thetable{} -- continued from previous page}}} \\
+\hline
+\textsf{\relax 
+parameter
+} & \textsf{\relax 
+default value
+} & \textsf{\relax 
+explanation
+}\\
+\hline\endhead
+
+\hline \multicolumn{3}{|r|}{{\textsf{Continued on next page}}} \\ \hline
+\endfoot
+
+\endlastfoot
+
+
+\code{'filename'}
+ & 
+\code{'pynomo\_default.pdf'}
+ & 
+\textbf{String.} Filename of generated file. .pdf and .eps formats supported.
+\\
+\hline
+\code{'paper\_height'}
+ & 
+\code{20.0}
+ & 
+\textbf{String.} Height of paper (roughly, ticks and texts extend this).
+\\
+\hline
+\code{'paper\_width'}
+ & 
+\code{20.0}
+ & 
+\textbf{String.} Width of paper (roughly, ticks and texts extend this).
+\\
+\hline
+\code{'block\_params'}
+ &  & 
+\textbf{Array of Blocks.} List of blocks that make the nomograph.
+\\
+\hline
+\code{'transformations'}
+ & 
+\code{{[}('rotate', 0.01), ('scale paper'){]}}
+ & 
+\textbf{Array of tuples.} List of transformations to transform nomograph.
+\\
+\hline
+\code{'title\_str'}
+ & 
+\code{'{'}}
+ & 
+\textbf{String.} Title string of nomograph.
+\\
+\hline
+\code{'title\_x'}
+ & 
+paper\_width/2.0
+ & 
+\textbf{Float.} Title x-position.
+\\
+\hline
+\code{'title\_y'}
+ & 
+paper\_height
+ & 
+\textbf{Float.} Title y-position.
+\\
+\hline
+\code{'title\_box\_width'}
+ & 
+paper\_width/2.2
+ & 
+\textbf{Float.} Title box width.
+\\
+\hline
+\code{'title\_color'}
+ & 
+\code{'color.rgb.black'}
+ & 
+\textbf{Color.} Title color.
+\\
+\hline
+\code{'make\_grid'}
+ & 
+\code{False}
+ & 
+\textbf{Boolean.} If True, draws grid to help position texts, etc.
+\\
+\hline
+\code{'pre\_func'}
+ & 
+\code{None}
+ & 
+\textbf{func(context).} PyX function(canvas) to draw under nomograph. Function definition could be:
+\\
+\hline
+\code{'post\_func'}
+ & 
+\code{None}
+ & 
+\textbf{func(context).} PyX function(canvas) to draw over nomograph. Definiton same as for `pre\_func'.
+\\
+\hline
+\code{'debug'}
+ & 
+\code{False}
+ & 
+\textbf{Boolean.} If True, prints dicts of definions.
+\\
+\hline
+\code{'extra\_texts'}
+ & 
+\code{{[}{]}}
+ & 
+\textbf{List of Dicts defining texts.} Defines extra texts. Could be for example:
+\\
+\hline
+\code{'isopleth\_params'}
+ & 
+\code{{[}\{\}{]}}
+ & 
+\textbf{List of Dicts.} Defines appearance of isopleths. Could be for example:
+\\
+\hline\end{longtable}
+
 
 
 \chapter{Examples}
@@ -5292,6 +5408,33 @@ Type 1
               \PYG{p}{\PYGZcb{}}
 \PYG{n}{Nomographer}\PYG{p}{(}\PYG{n}{main\PYGZus{}params}\PYG{p}{)}
 \end{Verbatim}
+
+
+\chapter{Literature}
+\label{literature/literature:literature}\label{literature/literature::doc}
+
+\section{List of relevant books}
+\label{literature/literature:list-of-relevant-books}
+\begin{notice}{note}{Todo}
+
+Here links to literature...
+\end{notice}
+
+
+\section{Sources in the web}
+\label{literature/literature:sources-in-the-web}
+\begin{notice}{note}{Todo}
+
+Here links to web resources...
+\end{notice}
+
+
+\section{Scientific articles}
+\label{literature/literature:scientific-articles}
+\begin{notice}{note}{Todo}
+
+Here links to peer-reviewed scientific articles related to nomography and some discussion why the link.
+\end{notice}
 
 
 \chapter{License}

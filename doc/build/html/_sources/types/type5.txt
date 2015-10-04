@@ -98,11 +98,11 @@ Block parameters
     "``'height'``", "10.0", "**Float.** Block height (to be scaled)"
     "``'mirror_x'``", "``False``", "**Boolean.** If x-axis is mirrored"
     "``'mirror_y'``", "``False``", "**Boolean.** If y-axis is mirrored"
-    "``'u_func'``", "--", "**func(u).** u function. For example ``lambda u:u`"
+    "``'u_func'``", "--", "**func(u).** u function. For example ``lambda u: u``"
     "``'v_func'``", "--", "**func(u,v).** v function. For example ``lambda x,v: x+v``"
     "``'wd_func'``", "--", "**func(wd).** wd func. For example ``lambda wd: wd``"
     "``'wd_func_inv'``", "--", "**func(wd).** Inverse of wd-func. For example ``lambda wd: wd``"
-    "``'u_values'``", "--", "**List of Floats.** List of plotted u values. For example `[1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]``."
+    "``'u_values'``", "--", "**List of Floats.** List of plotted u values. For example `[1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]``."
     "``'u_tag'``", "``'none'``", "**String.** To align blocks w.r.t each other along axes with same tag."
     "``'u_title'``", "``''``", "**String.** Axis title."
     "``'u_title_x_shift'``", "``0.0``", "**Float.** Title shift in x-direction."
@@ -115,7 +115,7 @@ Block parameters
     "``'u_tick_side'``", "``'right'``", "**String.** Tick and text side in final paper. Can be: ``'right'``or ``'left'``"
     "``'u_reference'``", "``False``", "**Boolean.** If axis is treated as reference line that is a turning point."
     "``'u_reference_padding'``", "``'0.2'``", "**Float.** Fraction of reference line over other lines."
-    "``'u_manual_axis_data'``", "``{}``", "**Dict.** Manually set tick/point positions and text positions. Could be for example:``{1:'1',3.14:r'$\pi$',5:'5',7:'seven',10:'10'}`"
+    "``'u_manual_axis_data'``", "``{}``", "**Dict.** Manually set tick/point positions and text positions. Could be for example:``{1:'1', 3.14:r'$\pi$', 5:'5',7:'seven', 10:'10'}`"
     "``'u_title_draw_center'``", "``False``", "**Boolean.** Title is drawn to center of line."
     "``'u_title_distance_center'``", "``'type_9'``", "**String.** To double-align blocks w.r.t each other along axes with same tag."
     "``'u_title_opposite_tick'``", "``True``", "**Boolean.** Title in opposite direction w.r.t ticks."
@@ -133,7 +133,7 @@ Block parameters
     "``'u_text_horizontal_align_center'``", "``False``", "**Boolean.** Aligns tick text horizontally to center. Good when text rotated 90 degrees."
     "``'u_axis_color'``", "``color.rgb.black``", "**Color.** Color of axis."
     "``'u_text_color'``", "``color.rgb.black``", "**Color.** Color of tick texts."
-    "``'v_values'``", "--", "**List of Floats.** List of plotted v values. For example `[1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]``."
+    "``'v_values'``", "--", "**List of Floats.** List of plotted v values. For example `[1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]``."
     "``'v_title'``", "``''``", "**String.** Axis title."
     "``'v_title_draw_center'``", "``False``", "**Boolean.** Title is drawn to center of line."
     "``'v_title_distance_center'``", "``'type_9'``", "**String.** To double-align blocks w.r.t each other along axes with same tag."
@@ -150,7 +150,7 @@ Block parameters
     "``'wd_tick_side'``", "``'right'``", "**String.** Tick and text side in final paper. Can be: ``'right'``or ``'left'``"
     "``'wd_reference'``", "``False``", "**Boolean.** If axis is treated as reference line that is a turning point."
     "``'wd_reference_padding'``", "``'0.2'``", "**Float.** Fraction of reference line over other lines."
-    "``'wd_manual_axis_data'``", "``{}``", "**Dict.** Manually set tick/point positions and text positions. Could be for example:``{1:'1',3.14:r'$\pi$',5:'5',7:'seven',10:'10'}`"
+    "``'wd_manual_axis_data'``", "``{}``", "**Dict.** Manually set tick/point positions and text positions. Could be for example:``{1:'1', 3.14:r'$\pi$', 5:'5', 7:'seven', 10:'10'}``"
     "``'wd_title_draw_center'``", "``False``", "**Boolean.** Title is drawn to center of line."
     "``'wd_title_distance_center'``", "``'type_9'``", "**String.** To double-align blocks w.r.t each other along axes with same tag."
     "``'wd_title_opposite_tick'``", "``True``", "**Boolean.** Title in opposite direction w.r.t ticks."
@@ -175,10 +175,5 @@ Block parameters
 
 General parameters
 ^^^^^^^^^^^^^^^^^^
-.. only:: html
 
-    .. include:: general_params.rst
-
-.. only:: latex
-
-    See :ref:`main_params` for top level main parameters.
+See :ref:`main_params` for top level main parameters.

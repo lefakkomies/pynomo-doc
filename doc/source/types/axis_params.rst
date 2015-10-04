@@ -19,7 +19,7 @@
     "``'tick_side'``", "``'right'``", "**String.** Tick and text side in final paper. Can be: ``'right'``or ``'left'``"
     "``'reference'``", "``False``", "**Boolean.** If axis is treated as reference line that is a turning point."
     "``'reference_padding'``", "``'0.2'``", "**Float.** Fraction of reference line over other lines."
-    "``'manual_axis_data'``", "``{}``", "**Dict.** Manually set tick/point positions and text positions. Could be for example:``{1:'1',3.14:r'$\pi$',5:'5',7:'seven',10:'10'}`"
+    "``'manual_axis_data'``", "``{}``", "**Dict.** Manually set tick/point positions and text positions. Could be for example:``{1:'1', 3.14:r'$\pi$', 5:'5', 7:'seven', 10:'10'}``"
     "``'title_draw_center'``", "``False``", "**Boolean.** Title is drawn to center of line."
     "``'title_distance_center'``", "``'type_9'``", "**String.** To double-align blocks w.r.t each other along axes with same tag."
     "``'title_opposite_tick'``", "``True``", "**Boolean.** Title in opposite direction w.r.t ticks."

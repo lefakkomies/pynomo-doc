@@ -44,13 +44,7 @@ Axis parameters
        "``'u_min'``", "--", "**Float.** Minimum value of function variable."
        "``'u_max'``", "--", "**Float.** Maximum value of function variable."
 
-.. only:: html
-
-    .. include:: axis_params.rst
-
-.. only:: latex
-
-    See :ref:`common_axis_params` for other parameters.
+See :ref:`common_axis_params` for other parameters.
 
 
 Block parameters
@@ -76,10 +70,5 @@ Block parameters
 
 General parameters
 ^^^^^^^^^^^^^^^^^^
-.. only:: html
 
-    .. include:: general_params.rst
-
-.. only:: latex
-
-    See :ref:`main_params` for top level main parameters.
+See :ref:`main_params` for top level main parameters.

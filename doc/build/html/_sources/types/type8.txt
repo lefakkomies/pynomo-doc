@@ -31,6 +31,7 @@ This simple example plots single vertical scale.
 Generated nomograph
 ^^^^^^^^^^^^^^^^^^^
 .. image:: images/ex_type8_nomo_1.*
+    :height: 600px
 
 Source code of simple example of type 8
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -57,13 +58,7 @@ Axis parameters
        "``'function_x'``", "--", "**func(u).** x-position in function. If used 'function_y' must be defined. For example ``lambda u: u``."
        "``'function_y'``", "--", "**func(u).** y-position in function. If used 'function_x' must be defined. Overrides 'function'. For example ``lambda u: u``."
 
-.. only:: html
-
-    .. include:: axis_params.rst
-
-.. only:: latex
-
-    See :ref:`common_axis_params` for other parameters.
+See :ref:`common_axis_params` for other parameters.
 
 
 Block parameters
@@ -91,10 +86,5 @@ Block parameters
 
 General parameters
 ^^^^^^^^^^^^^^^^^^
-.. only:: html
 
-    .. include:: general_params.rst
-
-.. only:: latex
-
-    See :ref:`main_params` for top level main parameters.
+See :ref:`main_params` for top level main parameters.
