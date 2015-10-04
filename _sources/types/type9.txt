@@ -79,13 +79,7 @@ Axis parameters
         "``'circles'``", "``False``", "**Boolean.** If marker circles to crossings"
         "``'extra_params'``", "--", "**List of Dicts.** List of params to be drawn."
 
-.. only:: html
-
-    .. include:: axis_params.rst
-
-.. only:: latex
-
-    See :ref:`common_axis_params` for other parameters.
+See :ref:`common_axis_params` for other parameters.
 
 
 Block parameters
@@ -112,12 +106,7 @@ Block parameters
 
 General parameters
 ^^^^^^^^^^^^^^^^^^
-.. only:: html
 
-    .. include:: general_params.rst
-
-.. only:: latex
-
-    See :ref:`main_params` for top level main parameters.
+See :ref:`main_params` for top level main parameters.
 
 

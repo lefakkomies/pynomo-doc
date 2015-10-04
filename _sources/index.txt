@@ -15,12 +15,17 @@ pyNomo documentation
 .. toctree::
    :maxdepth: 2
 
+   introduction/introduction.rst
+   tutorials/tutorials.rst
    installation/installation.rst
    main_page.rst
    axes/axes.rst
-   main_params.rst
    types/types.rst
+   alignment/alignment.rst
+   transformations/transformations.rst
+   main_params.rst
    examples/examples.rst
+   literature/literature.rst
 
 
 

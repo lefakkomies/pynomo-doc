@@ -67,12 +67,17 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../main_page.html">Software documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main_page.html">Big picture of nomograph construction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../axes/axes.html">Axes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../main_params.html">Main params</a></li>
-<li class="toctree-l1"><a class="reference internal" href="types.html">Type reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../alignment/alignment.html">Block alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transformations/transformations.html">Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main_params.html">Top level parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature/literature.html">Literature</a></li>
 </ul>
 </ul>
 </li>
@@ -274,8 +279,8 @@ Typically equation above is written as pair of equations:</p>
 </div>
 <div class="section" id="block-parameters">
 <h3>Block parameters<a class="headerlink" href="#block-parameters" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="docutils" id="id9">
-<caption><span class="caption-text">Specific block parameters for type 4</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id5">
+<caption><span class="caption-text">Specific block parameters for type 4</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="13%" />
 <col width="13%" />
@@ -310,7 +315,7 @@ Typically equation above is written as pair of equations:</p>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">'u_func'</span></code></td>
 <td>&#8211;</td>
-<td><strong>func(u).</strong> u function. For example <a href="#id3"><span class="problematic" id="id4">``</span></a>lambda u:u`</td>
+<td><strong>func(u).</strong> u function. For example <code class="docutils literal"><span class="pre">lambda</span> <span class="pre">u:</span> <span class="pre">u</span></code></td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">'v_func'</span></code></td>
 <td>&#8211;</td>
@@ -326,7 +331,7 @@ Typically equation above is written as pair of equations:</p>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">'u_values'</span></code></td>
 <td>&#8211;</td>
-<td><strong>List of Floats.</strong> List of plotted u values. For example <cite>[1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]`</cite>.</td>
+<td><strong>List of Floats.</strong> List of plotted u values. For example <cite>[1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]`</cite>.</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">'u_tag'</span></code></td>
 <td><code class="docutils literal"><span class="pre">'none'</span></code></td>
@@ -372,7 +377,7 @@ Typically equation above is written as pair of equations:</p>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">'u_manual_axis_data'</span></code></td>
 <td><code class="docutils literal"><span class="pre">{}</span></code></td>
-<td><strong>Dict.</strong> Manually set tick/point positions and text positions. Could be for example:<a href="#id5"><span class="problematic" id="id6">``</span></a>{1:&#8216;1&#8217;,3.14:r&#8217;$pi$&#8217;,5:&#8216;5&#8217;,7:&#8217;seven&#8217;,10:&#8216;10&#8217;}`</td>
+<td><strong>Dict.</strong> Manually set tick/point positions and text positions. Could be for example:<a href="#id3"><span class="problematic" id="id4">``</span></a>{1:&#8216;1&#8217;, 3.14:r&#8217;$pi$&#8217;, 5:&#8216;5&#8217;,7:&#8217;seven&#8217;, 10:&#8216;10&#8217;}`</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">'u_title_draw_center'</span></code></td>
 <td><code class="docutils literal"><span class="pre">False</span></code></td>
@@ -444,7 +449,7 @@ Typically equation above is written as pair of equations:</p>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">'v_values'</span></code></td>
 <td>&#8211;</td>
-<td><strong>List of Floats.</strong> List of plotted v values. For example <cite>[1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]`</cite>.</td>
+<td><strong>List of Floats.</strong> List of plotted v values. For example <cite>[1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]`</cite>.</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">'v_title'</span></code></td>
 <td><code class="docutils literal"><span class="pre">''</span></code></td>
@@ -506,7 +511,7 @@ Typically equation above is written as pair of equations:</p>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">'wd_manual_axis_data'</span></code></td>
 <td><code class="docutils literal"><span class="pre">{}</span></code></td>
-<td><strong>Dict.</strong> Manually set tick/point positions and text positions. Could be for example:<a href="#id7"><span class="problematic" id="id8">``</span></a>{1:&#8216;1&#8217;,3.14:r&#8217;$pi$&#8217;,5:&#8216;5&#8217;,7:&#8217;seven&#8217;,10:&#8216;10&#8217;}`</td>
+<td><strong>Dict.</strong> Manually set tick/point positions and text positions. Could be for example:<code class="docutils literal"><span class="pre">{1:'1',</span> <span class="pre">3.14:r'$\pi$',</span> <span class="pre">5:'5',</span> <span class="pre">7:'seven',</span> <span class="pre">10:'10'}</span></code></td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">'wd_title_draw_center'</span></code></td>
 <td><code class="docutils literal"><span class="pre">False</span></code></td>
@@ -585,126 +590,7 @@ Typically equation above is written as pair of equations:</p>
 </div>
 <div class="section" id="general-parameters">
 <h3>General parameters<a class="headerlink" href="#general-parameters" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="longtable docutils" id="id10">
-<caption><span class="caption-text">General params</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="17%" />
-<col width="17%" />
-<col width="67%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">parameter</th>
-<th class="head">default value</th>
-<th class="head">explanation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'filename'</span></code></td>
-<td><code class="docutils literal"><span class="pre">'pynomo_default.pdf'</span></code></td>
-<td><strong>String.</strong> Filename of generated file. .pdf and .eps formats supported.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'paper_height'</span></code></td>
-<td><code class="docutils literal"><span class="pre">20.0</span></code></td>
-<td><strong>String.</strong> Height of paper (roughly, ticks and texts extend this).</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'paper_width'</span></code></td>
-<td><code class="docutils literal"><span class="pre">20.0</span></code></td>
-<td><strong>String.</strong> Width of paper (roughly, ticks and texts extend this).</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'block_params'</span></code></td>
-<td>&nbsp;</td>
-<td><strong>Array of Blocks.</strong> List of blocks that make the nomograph.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'transformations'</span></code></td>
-<td><code class="docutils literal"><span class="pre">[('rotate',</span> <span class="pre">0.01),</span> <span class="pre">('scale</span> <span class="pre">paper')]</span></code></td>
-<td><strong>Array of tuples.</strong> List of transformations to transform nomograph.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'title_str'</span></code></td>
-<td><code class="docutils literal"><span class="pre">''</span></code></td>
-<td><strong>String.</strong> Title string of nomograph.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'title_x'</span></code></td>
-<td>paper_width/2.0</td>
-<td><strong>Float.</strong> Title x-position.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'title_y'</span></code></td>
-<td>paper_height</td>
-<td><strong>Float.</strong> Title y-position.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'title_box_width'</span></code></td>
-<td>paper_width/2.2</td>
-<td><strong>Float.</strong> Title box width.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'title_color'</span></code></td>
-<td><code class="docutils literal"><span class="pre">'color.rgb.black'</span></code></td>
-<td><strong>Color.</strong> Title color.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'make_grid'</span></code></td>
-<td><code class="docutils literal"><span class="pre">False</span></code></td>
-<td><strong>Boolean.</strong> If True, draws grid to help position texts, etc.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'pre_func'</span></code></td>
-<td><code class="docutils literal"><span class="pre">None</span></code></td>
-<td><p class="first"><strong>func(context).</strong> PyX function(canvas) to draw under nomograph. Function definition could be:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
-    <span class="n">c</span><span class="o">.</span><span class="n">stroke</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span>
-         <span class="n">path</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span> <span class="o">+</span>
-         <span class="n">path</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span> <span class="o">+</span>
-         <span class="n">path</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-</pre></div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'post_func'</span></code></td>
-<td><code class="docutils literal"><span class="pre">None</span></code></td>
-<td><strong>func(context).</strong> PyX function(canvas) to draw over nomograph. Definiton same as for &#8216;pre_func&#8217;.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'debug'</span></code></td>
-<td><code class="docutils literal"><span class="pre">False</span></code></td>
-<td><strong>Boolean.</strong> If True, prints dicts of definions.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'extra_texts'</span></code></td>
-<td><code class="docutils literal"><span class="pre">[]</span></code></td>
-<td><p class="first"><strong>List of Dicts defining texts.</strong> Defines extra texts. Could be for example:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="p">[{</span><span class="s">&#39;x&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-  <span class="s">&#39;y&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-  <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">&#39;testing&#39;</span><span class="p">,</span>
-  <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
-  <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">red</span><span class="p">,</span><span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">Huge</span><span class="p">]</span>
- <span class="p">},</span>
- <span class="p">{</span><span class="s">&#39;x&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-  <span class="s">&#39;y&#39;</span><span class="p">:</span><span class="mf">2.0</span><span class="p">,</span>
-  <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">&#39;testing&#39;</span><span class="p">,</span>
-  <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
-  <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">green</span><span class="p">]</span>
- <span class="p">},</span>
- <span class="p">{</span><span class="s">&#39;x&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-  <span class="s">&#39;y&#39;</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span>
-  <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">r&quot;line \par break&quot;</span><span class="p">,</span>
-  <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
-  <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">blue</span><span class="p">,</span><span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">]</span>
- <span class="p">}]</span>
-</pre></div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'isopleth_params'</span></code></td>
-<td><code class="docutils literal"><span class="pre">[{}]</span></code></td>
-<td><p class="first"><strong>List of Dicts.</strong> Defines appearance of isopleths. Could be for example:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="p">[{</span><span class="s">&#39;color&#39;</span><span class="p">:</span><span class="s">&#39;MidnightBlue&#39;</span><span class="p">,</span>
-  <span class="s">&#39;linewidth&#39;</span><span class="p">:</span><span class="s">&#39;THICK&#39;</span><span class="p">,</span>
-  <span class="s">&#39;linestyle&#39;</span><span class="p">:</span><span class="s">&#39;dashdotted&#39;</span><span class="p">,</span>
-  <span class="s">&#39;transparency&#39;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">},</span>
-  <span class="p">{</span><span class="s">&#39;color&#39;</span><span class="p">:</span><span class="s">&#39;Orange&#39;</span><span class="p">,</span>
-   <span class="s">&#39;linewidth&#39;</span><span class="p">:</span><span class="s">&#39;THIN&#39;</span><span class="p">,</span>
-   <span class="s">&#39;linestyle&#39;</span><span class="p">:</span><span class="s">&#39;dashdotted&#39;</span><span class="p">,</span>
-   <span class="s">&#39;transparency&#39;</span><span class="p">:</span><span class="mf">0.9</span><span class="p">}]</span>
-</pre></div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
+<p>See <a class="reference internal" href="../main_params.html#main-params"><span>Main params</span></a> for top level main parameters.</p>
 </div>
 </div>
 </div>

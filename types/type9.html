@@ -67,12 +67,17 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../main_page.html">Software documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main_page.html">Big picture of nomograph construction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../axes/axes.html">Axes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../main_params.html">Main params</a></li>
-<li class="toctree-l1"><a class="reference internal" href="types.html">Type reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../alignment/alignment.html">Block alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transformations/transformations.html">Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main_params.html">Top level parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature/literature.html">Literature</a></li>
 </ul>
 </ul>
 </li>
@@ -309,8 +314,8 @@ u_2+2      &amp; 2v_2+5 &amp; 1 \\
 <h2>Parameters for type 9<a class="headerlink" href="#parameters-for-type-9" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="axis-parameters">
 <h3>Axis parameters<a class="headerlink" href="#axis-parameters" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="docutils" id="id5">
-<caption><span class="caption-text">Specific axis parameters for type 9 grid axis</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id3">
+<caption><span class="caption-text">Specific axis parameters for type 9 grid axis</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="13%" />
 <col width="13%" />
@@ -417,189 +422,12 @@ u_2+2      &amp; 2v_2+5 &amp; 1 \\
 </tr>
 </tbody>
 </table>
-<table border="1" class="docutils" id="id6">
-<caption><span class="caption-text">Common axis params</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="17%" />
-<col width="17%" />
-<col width="67%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">parameter</th>
-<th class="head">default value</th>
-<th class="head">explanation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'ID'</span></code></td>
-<td><code class="docutils literal"><span class="pre">'none'</span></code></td>
-<td><strong>String.</strong> To identify the axis.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'tag'</span></code></td>
-<td><code class="docutils literal"><span class="pre">'none'</span></code></td>
-<td><strong>String.</strong> To align blocks w.r.t each other along axes with same tag.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'dtag'</span></code></td>
-<td><code class="docutils literal"><span class="pre">'none'</span></code></td>
-<td><strong>String.</strong> To double-align blocks w.r.t each other along axes with same tag.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'title'</span></code></td>
-<td><code class="docutils literal"><span class="pre">''</span></code></td>
-<td><strong>String.</strong> Axis title.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'title_x_shift'</span></code></td>
-<td><code class="docutils literal"><span class="pre">0.0</span></code></td>
-<td><strong>Float.</strong> Title shift in x-direction.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'title_y_shift'</span></code></td>
-<td><code class="docutils literal"><span class="pre">0.25</span></code></td>
-<td><strong>Float.</strong> Title shift in y-direction.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'scale_type'</span></code></td>
-<td><code class="docutils literal"><span class="pre">'linear'</span></code></td>
-<td><strong>String.</strong> Scale type. Can be <code class="docutils literal"><span class="pre">'linear'</span></code>: linear scale. <code class="docutils literal"><span class="pre">'log'</span></code>: logarithmic scale.  <code class="docutils literal"><span class="pre">'smart</span> <span class="pre">linear'</span></code>: linear scale with equal spacings.
-<code class="docutils literal"><span class="pre">'smart</span> <span class="pre">log'</span></code>: logarithmic scale with equal spacings, can also have negative values. <code class="docutils literal"><span class="pre">'manual</span> <span class="pre">point'</span></code>: Points and corresponding text positions are given manually in <code class="docutils literal"><span class="pre">'manual</span> <span class="pre">axis</span> <span class="pre">data'</span></code>. No line is drawn.
-<code class="docutils literal"><span class="pre">'manual</span> <span class="pre">line'</span></code>: Ticks and corresponding text positions are given manually in <code class="docutils literal"><span class="pre">'manual</span> <span class="pre">axis</span> <span class="pre">data'</span></code>.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'tick_levels'</span></code></td>
-<td><code class="docutils literal"><span class="pre">4</span></code></td>
-<td><strong>Integer.</strong> How many levels (minor, minor-minor, etc.) of ticks are drawn. Largest effect to &#8216;linear&#8217; scale.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'tick_text_levels'</span></code></td>
-<td><code class="docutils literal"><span class="pre">'3'</span></code></td>
-<td><strong>Integer.</strong> How many levels (minor, minor-minor, etc.) of texts are drawn. Largest effect to &#8216;linear&#8217; scale.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'tick_side'</span></code></td>
-<td><code class="docutils literal"><span class="pre">'right'</span></code></td>
-<td><strong>String.</strong> Tick and text side in final paper. Can be: <code class="docutils literal"><span class="pre">'right'``or</span> <span class="pre">``'left'</span></code></td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'reference'</span></code></td>
-<td><code class="docutils literal"><span class="pre">False</span></code></td>
-<td><strong>Boolean.</strong> If axis is treated as reference line that is a turning point.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'reference_padding'</span></code></td>
-<td><code class="docutils literal"><span class="pre">'0.2'</span></code></td>
-<td><strong>Float.</strong> Fraction of reference line over other lines.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'manual_axis_data'</span></code></td>
-<td><code class="docutils literal"><span class="pre">{}</span></code></td>
-<td><strong>Dict.</strong> Manually set tick/point positions and text positions. Could be for example:<a href="#id3"><span class="problematic" id="id4">``</span></a>{1:&#8216;1&#8217;,3.14:r&#8217;$pi$&#8217;,5:&#8216;5&#8217;,7:&#8217;seven&#8217;,10:&#8216;10&#8217;}`</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'title_draw_center'</span></code></td>
-<td><code class="docutils literal"><span class="pre">False</span></code></td>
-<td><strong>Boolean.</strong> Title is drawn to center of line.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'title_distance_center'</span></code></td>
-<td><code class="docutils literal"><span class="pre">'type_9'</span></code></td>
-<td><strong>String.</strong> To double-align blocks w.r.t each other along axes with same tag.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'title_opposite_tick'</span></code></td>
-<td><code class="docutils literal"><span class="pre">True</span></code></td>
-<td><strong>Boolean.</strong> Title in opposite direction w.r.t ticks.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'align_func'</span></code></td>
-<td><code class="docutils literal"><span class="pre">lambda</span> <span class="pre">u:u</span></code></td>
-<td><strong>func(u).</strong> function to align different scales.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'align_x_offset'</span></code></td>
-<td><code class="docutils literal"><span class="pre">0.0</span></code></td>
-<td><strong>Float.</strong> If axis is aligned with other axis, this value x offsets final scale.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'align_y_offset'</span></code></td>
-<td><code class="docutils literal"><span class="pre">0.0</span></code></td>
-<td><strong>Float.</strong> If axis is aligned with other axis, this value y offsets final scale.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'text_format'</span></code></td>
-<td><code class="docutils literal"><span class="pre">r'$%4.4g$</span> <span class="pre">'</span></code></td>
-<td><strong>String.</strong> Format for numbers in scale.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'extra_params'</span></code></td>
-<td><code class="docutils literal"><span class="pre">[{},...]</span></code></td>
-<td><strong>Array of Dicts.</strong> List of dictionary of params to be drawn additionally.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'text_distance_#'</span></code></td>
-<td><code class="docutils literal"><span class="pre">x.x</span></code></td>
-<td><strong>Float.</strong> where #=0,1,2,3 or 4. Distance of text from scale line. Number corresponds to the level, where 0 is the major tick and 4 is the most minor ticks.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'grid_length_#'</span></code></td>
-<td><code class="docutils literal"><span class="pre">x.x</span></code></td>
-<td><strong>Float.</strong> where #=0,1,2,3 or 4. Length of the tick. Number corresponds to the level, where 0 is the major tick and 4 is the most minor ticks.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'text_size_#'</span></code></td>
-<td><code class="docutils literal"><span class="pre">x.x</span></code></td>
-<td><strong>Float.</strong> where #=0,1,2,3 or 4. Text size. For example: <code class="docutils literal"><span class="pre">text.size.small</span></code>, <code class="docutils literal"><span class="pre">text.size.scriptsize</span></code> or <code class="docutils literal"><span class="pre">text.size.tiny</span></code>. Number corresponds to the level, where 0 is the major tick and 4 is the most minor ticks.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'text_size_log_#'</span></code></td>
-<td><code class="docutils literal"><span class="pre">x.x</span></code></td>
-<td><strong>Float.</strong> where #=0,1 or 2. Text size. For example: <code class="docutils literal"><span class="pre">text.size.small</span></code>, <code class="docutils literal"><span class="pre">text.size.scriptsize</span></code> or <code class="docutils literal"><span class="pre">text.size.tiny</span></code> . Number corresponds to the level, where 0 is the major tick and 2 is the most minor ticks.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'full_angle'</span></code></td>
-<td><code class="docutils literal"><span class="pre">False</span></code></td>
-<td><strong>Boolean.</strong> If true, text can be upside down, otherwise +- 90 degrees from horizontal. Good foor example for full circle scales.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'extra_angle'</span></code></td>
-<td><code class="docutils literal"><span class="pre">0.0</span></code></td>
-<td><strong>Boolean.</strong> Title is drawn to center of line.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'title_draw_center'</span></code></td>
-<td><code class="docutils literal"><span class="pre">False</span></code></td>
-<td><strong>Float.</strong>  Angle to rotate tick text from horizontal along tick.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'text_horizontal_align_center'</span></code></td>
-<td><code class="docutils literal"><span class="pre">False</span></code></td>
-<td><strong>Boolean.</strong> Aligns tick text horizontally to center. Good when text rotated 90 degrees.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'turn_relative'</span></code></td>
-<td><code class="docutils literal"><span class="pre">False</span></code></td>
-<td><strong>Boolean.</strong> Side left or right is relative according to traveling of scale from min to max.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'arrow_size'</span></code></td>
-<td><code class="docutils literal"><span class="pre">0.2</span></code></td>
-<td><strong>Float.</strong> Used with arrow scale.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'arrow_length'</span></code></td>
-<td><code class="docutils literal"><span class="pre">1.0</span></code></td>
-<td><strong>Float.</strong> Used with arrow scale..</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'arrow_color'</span></code></td>
-<td><code class="docutils literal"><span class="pre">color.rgb.black</span></code></td>
-<td><strong>Color.</strong> Used with arrow scale.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'axis_color'</span></code></td>
-<td><code class="docutils literal"><span class="pre">color.rgb.black</span></code></td>
-<td><strong>Color.</strong> Color of axis.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'text_color'</span></code></td>
-<td><code class="docutils literal"><span class="pre">color.rgb.black</span></code></td>
-<td><strong>Color.</strong> Color of tick texts.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'extra_titles'</span></code></td>
-<td><code class="docutils literal"><span class="pre">[]</span></code></td>
-<td><strong>Array.</strong> List of extra title dicts for scale. Could be i.e.``[{&#8216;dx&#8217;:1.0, &#8216;dy&#8217;:1.0, &#8216;text&#8217;:&#8217;extra title 1&#8217;, &#8216;width&#8217;:5, &#8216;pyx_extra_defs&#8217;: [color.rgb.red,text.size.Huge]}, {&#8216;text&#8217;: &#8216;extra title 2&#8217;}]``.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'base_start'</span></code></td>
-<td><code class="docutils literal"><span class="pre">None</span></code></td>
-<td><strong>None/Float.</strong> Defines number with <code class="docutils literal"><span class="pre">'base_stop'</span></code> (instead of <code class="docutils literal"><span class="pre">'u_min'</span></code> or <code class="docutils literal"><span class="pre">'u_max'</span></code>) to find major tick decades.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'base_stop'</span></code></td>
-<td><code class="docutils literal"><span class="pre">None</span></code></td>
-<td><strong>None/Float.</strong> Defines number with <code class="docutils literal"><span class="pre">'base_start'</span></code> (instead of <code class="docutils literal"><span class="pre">'u_min'</span></code> or <code class="docutils literal"><span class="pre">'u_max'</span></code>) to find major tick decades.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'tick_distance_smart'</span></code></td>
-<td><code class="docutils literal"><span class="pre">.05</span></code></td>
-<td><strong>Float</strong>. Minimum distance between smart ticks.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'text_distance_smart'</span></code></td>
-<td><code class="docutils literal"><span class="pre">.25</span></code></td>
-<td><strong>Float</strong>. Minimum distance between smart texts.</td>
-</tr>
-</tbody>
-</table>
+<p>See <a class="reference internal" href="../axes/axes.html#common-axis-params"><span>Common axis params</span></a> for other parameters.</p>
 </div>
 <div class="section" id="block-parameters">
 <h3>Block parameters<a class="headerlink" href="#block-parameters" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="docutils" id="id7">
-<caption><span class="caption-text">Specific block parameters for type 9</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id4">
+<caption><span class="caption-text">Specific block parameters for type 9</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="13%" />
 <col width="13%" />
@@ -657,126 +485,7 @@ u_2+2      &amp; 2v_2+5 &amp; 1 \\
 </div>
 <div class="section" id="general-parameters">
 <h3>General parameters<a class="headerlink" href="#general-parameters" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="longtable docutils" id="id8">
-<caption><span class="caption-text">General params</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="17%" />
-<col width="17%" />
-<col width="67%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">parameter</th>
-<th class="head">default value</th>
-<th class="head">explanation</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'filename'</span></code></td>
-<td><code class="docutils literal"><span class="pre">'pynomo_default.pdf'</span></code></td>
-<td><strong>String.</strong> Filename of generated file. .pdf and .eps formats supported.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'paper_height'</span></code></td>
-<td><code class="docutils literal"><span class="pre">20.0</span></code></td>
-<td><strong>String.</strong> Height of paper (roughly, ticks and texts extend this).</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'paper_width'</span></code></td>
-<td><code class="docutils literal"><span class="pre">20.0</span></code></td>
-<td><strong>String.</strong> Width of paper (roughly, ticks and texts extend this).</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'block_params'</span></code></td>
-<td>&nbsp;</td>
-<td><strong>Array of Blocks.</strong> List of blocks that make the nomograph.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'transformations'</span></code></td>
-<td><code class="docutils literal"><span class="pre">[('rotate',</span> <span class="pre">0.01),</span> <span class="pre">('scale</span> <span class="pre">paper')]</span></code></td>
-<td><strong>Array of tuples.</strong> List of transformations to transform nomograph.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'title_str'</span></code></td>
-<td><code class="docutils literal"><span class="pre">''</span></code></td>
-<td><strong>String.</strong> Title string of nomograph.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'title_x'</span></code></td>
-<td>paper_width/2.0</td>
-<td><strong>Float.</strong> Title x-position.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'title_y'</span></code></td>
-<td>paper_height</td>
-<td><strong>Float.</strong> Title y-position.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'title_box_width'</span></code></td>
-<td>paper_width/2.2</td>
-<td><strong>Float.</strong> Title box width.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'title_color'</span></code></td>
-<td><code class="docutils literal"><span class="pre">'color.rgb.black'</span></code></td>
-<td><strong>Color.</strong> Title color.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'make_grid'</span></code></td>
-<td><code class="docutils literal"><span class="pre">False</span></code></td>
-<td><strong>Boolean.</strong> If True, draws grid to help position texts, etc.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'pre_func'</span></code></td>
-<td><code class="docutils literal"><span class="pre">None</span></code></td>
-<td><p class="first"><strong>func(context).</strong> PyX function(canvas) to draw under nomograph. Function definition could be:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
-    <span class="n">c</span><span class="o">.</span><span class="n">stroke</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span>
-         <span class="n">path</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span> <span class="o">+</span>
-         <span class="n">path</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span> <span class="o">+</span>
-         <span class="n">path</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-</pre></div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'post_func'</span></code></td>
-<td><code class="docutils literal"><span class="pre">None</span></code></td>
-<td><strong>func(context).</strong> PyX function(canvas) to draw over nomograph. Definiton same as for &#8216;pre_func&#8217;.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'debug'</span></code></td>
-<td><code class="docutils literal"><span class="pre">False</span></code></td>
-<td><strong>Boolean.</strong> If True, prints dicts of definions.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'extra_texts'</span></code></td>
-<td><code class="docutils literal"><span class="pre">[]</span></code></td>
-<td><p class="first"><strong>List of Dicts defining texts.</strong> Defines extra texts. Could be for example:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="p">[{</span><span class="s">&#39;x&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-  <span class="s">&#39;y&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-  <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">&#39;testing&#39;</span><span class="p">,</span>
-  <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
-  <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">red</span><span class="p">,</span><span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">Huge</span><span class="p">]</span>
- <span class="p">},</span>
- <span class="p">{</span><span class="s">&#39;x&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-  <span class="s">&#39;y&#39;</span><span class="p">:</span><span class="mf">2.0</span><span class="p">,</span>
-  <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">&#39;testing&#39;</span><span class="p">,</span>
-  <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
-  <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">green</span><span class="p">]</span>
- <span class="p">},</span>
- <span class="p">{</span><span class="s">&#39;x&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-  <span class="s">&#39;y&#39;</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span>
-  <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">r&quot;line \par break&quot;</span><span class="p">,</span>
-  <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
-  <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">blue</span><span class="p">,</span><span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">]</span>
- <span class="p">}]</span>
-</pre></div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'isopleth_params'</span></code></td>
-<td><code class="docutils literal"><span class="pre">[{}]</span></code></td>
-<td><p class="first"><strong>List of Dicts.</strong> Defines appearance of isopleths. Could be for example:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="p">[{</span><span class="s">&#39;color&#39;</span><span class="p">:</span><span class="s">&#39;MidnightBlue&#39;</span><span class="p">,</span>
-  <span class="s">&#39;linewidth&#39;</span><span class="p">:</span><span class="s">&#39;THICK&#39;</span><span class="p">,</span>
-  <span class="s">&#39;linestyle&#39;</span><span class="p">:</span><span class="s">&#39;dashdotted&#39;</span><span class="p">,</span>
-  <span class="s">&#39;transparency&#39;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">},</span>
-  <span class="p">{</span><span class="s">&#39;color&#39;</span><span class="p">:</span><span class="s">&#39;Orange&#39;</span><span class="p">,</span>
-   <span class="s">&#39;linewidth&#39;</span><span class="p">:</span><span class="s">&#39;THIN&#39;</span><span class="p">,</span>
-   <span class="s">&#39;linestyle&#39;</span><span class="p">:</span><span class="s">&#39;dashdotted&#39;</span><span class="p">,</span>
-   <span class="s">&#39;transparency&#39;</span><span class="p">:</span><span class="mf">0.9</span><span class="p">}]</span>
-</pre></div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
+<p>See <a class="reference internal" href="../main_params.html#main-params"><span>Main params</span></a> for top level main parameters.</p>
 </div>
 </div>
 </div>
