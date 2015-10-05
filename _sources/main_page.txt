@@ -85,7 +85,6 @@ can build as complex nomograph as one wishes by using determinants in type 9.
     :height: 100px
 
 .. only:: latex
-
     .. tabularcolumns:: |p{2cm}|p{7cm}|p{5cm}|
     ========================== ======================================================================= =========================
      :ref:`type1_ref`          :math:`F_1(u_1)+F_2(u_2)+F_3(u_3)=0 \,`                                 Three parallel lines
@@ -104,6 +103,7 @@ can build as complex nomograph as one wishes by using determinants in type 9.
 
 
 .. only:: html
+    .. cssclass:: table-striped
 
     ========================== ======================================================================= ===================================
      :ref:`type1_ref`          :math:`F_1(u_1)+F_2(u_2)+F_3(u_3)=0 \,`                                 |type1image|
@@ -117,7 +117,7 @@ can build as complex nomograph as one wishes by using determinants in type 9.
      :ref:`type9_ref`          :math:`\begin{vmatrix}F_1(u_1[,v_1])& G_1(u_1[,v_1]) & H_1(u_1[,v_1])\\ |type9image|
                                F_2(u_2[,v_2])& G_2(u_2[,v_2]) & H_2(u_2[,v_2]) \\
                                F_3(u_3[,v_3])& G_3(u_3[,v_3]) & H_3(u_3[,v_3]) \end{vmatrix} = 0`
-     :ref:`type10_ref`          :math:`F_1(u)+F_2(v)F_3(w)+F_4(w)=0 \,`                                 |type10image|
+     :ref:`type10_ref`          :math:`F_1(u)+F_2(v)F_3(w)+F_4(w)=0 \,`                                |type10image|
     ========================== ======================================================================= ===================================
 
 
