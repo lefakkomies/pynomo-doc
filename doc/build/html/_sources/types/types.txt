@@ -3,6 +3,7 @@ Blocks
 
 Every block in pynomo represents some equation. The blocks and their functions are listed in the following table.
 
+.. cssclass:: table-striped
 ========================== ======================================================================= =========================
  :ref:`type1_ref`          :math:`F_1(u_1)+F_2(u_2)+F_3(u_3)=0 \,`                                 Three parallel lines
  :ref:`type2_ref`          :math:`F_1(u_1)=F_2(u_2) F_3(u_3) \,`                                   "N" or "Z"

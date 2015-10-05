@@ -31,8 +31,8 @@
     <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="pyNomo Documentation 0.3.0 documentation" href="../index.html" />
-    <link rel="next" title="Examples" href="../examples/examples.html" />
-    <link rel="prev" title="Main params" href="../main_params.html" />
+    <link rel="next" title="Block alignment" href="../alignment/alignment.html" />
+    <link rel="prev" title="Axes" href="../axes/axes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -70,12 +70,17 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../main_page.html">Big picture of nomograph generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main_page.html">Big picture of nomograph construction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../axes/axes.html">Axes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../main_params.html">Main params</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../alignment/alignment.html">Block alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transformations/transformations.html">Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main_params.html">Top level parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature/literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendices.html">Appendix</a></li>
 </ul>
 </ul>
 </li>
@@ -241,11 +246,11 @@
               
                 
   <li>
-    <a href="../main_params.html" title="Previous Chapter: Main params"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Main params</span>
+    <a href="../axes/axes.html" title="Previous Chapter: Axes"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Axes</span>
     </a>
   </li>
   <li>
-    <a href="../examples/examples.html" title="Next Chapter: Examples"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Examples &raquo;</span>
+    <a href="../alignment/alignment.html" title="Next Chapter: Block alignment"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Block alignment &raquo;</span>
     </a>
   </li>
               
@@ -282,7 +287,7 @@
   <div class="section" id="blocks">
 <h1>Blocks<a class="headerlink" href="#blocks" title="Permalink to this headline">¶</a></h1>
 <p>Every block in pynomo represents some equation. The blocks and their functions are listed in the following table.</p>
-<table border="1" class="docutils">
+<table border="1" class="table-striped docutils">
 <colgroup>
 <col width="21%" />
 <col width="58%" />
@@ -566,7 +571,7 @@ simple example.</p>
 </div>
 <div class="section" id="general-parameters">
 <h4>General parameters<a class="headerlink" href="#general-parameters" title="Permalink to this headline">¶</a></h4>
-<p>See <a class="reference internal" href="../main_params.html#id1"><span>Main params</span></a> for top level main parameters.</p>
+<p>See <a class="reference internal" href="../main_params.html#main-params"><span>Main params</span></a> for top level main parameters.</p>
 </div>
 </div>
 </div>
@@ -800,7 +805,7 @@ simple example.</p>
 </div>
 <div class="section" id="id5">
 <h4>General parameters<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
-<p>See <a class="reference internal" href="../main_params.html#id1"><span>Main params</span></a> for top level main parameters.</p>
+<p>See <a class="reference internal" href="../main_params.html#main-params"><span>Main params</span></a> for top level main parameters.</p>
 </div>
 </div>
 </div>
@@ -1080,7 +1085,7 @@ simple example.</p>
 </div>
 <div class="section" id="id11">
 <h4>General parameters<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
-<p>See <a class="reference internal" href="../main_params.html#id1"><span>Main params</span></a> for top level main parameters.</p>
+<p>See <a class="reference internal" href="../main_params.html#main-params"><span>Main params</span></a> for top level main parameters.</p>
 </div>
 </div>
 </div>
@@ -1348,7 +1353,7 @@ simple example.</p>
 </div>
 <div class="section" id="id16">
 <h4>General parameters<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
-<p>See <a class="reference internal" href="../main_params.html#id1"><span>Main params</span></a> for top level main parameters.</p>
+<p>See <a class="reference internal" href="../main_params.html#main-params"><span>Main params</span></a> for top level main parameters.</p>
 </div>
 </div>
 </div>
@@ -1798,7 +1803,7 @@ Typically equation above is written as pair of equations:</p>
 </div>
 <div class="section" id="id25">
 <h4>General parameters<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h4>
-<p>See <a class="reference internal" href="../main_params.html#id1"><span>Main params</span></a> for top level main parameters.</p>
+<p>See <a class="reference internal" href="../main_params.html#main-params"><span>Main params</span></a> for top level main parameters.</p>
 </div>
 </div>
 </div>
@@ -2034,7 +2039,7 @@ Typically equation above is written as pair of equations:</p>
 </div>
 <div class="section" id="id30">
 <h4>General parameters<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h4>
-<p>See <a class="reference internal" href="../main_params.html#id1"><span>Main params</span></a> for top level main parameters.</p>
+<p>See <a class="reference internal" href="../main_params.html#main-params"><span>Main params</span></a> for top level main parameters.</p>
 </div>
 </div>
 </div>
@@ -2155,7 +2160,7 @@ Typically equation above is written as pair of equations:</p>
 </div>
 <div class="section" id="id36">
 <h4>General parameters<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h4>
-<p>See <a class="reference internal" href="../main_params.html#id1"><span>Main params</span></a> for top level main parameters.</p>
+<p>See <a class="reference internal" href="../main_params.html#main-params"><span>Main params</span></a> for top level main parameters.</p>
 </div>
 </div>
 </div>
@@ -2371,7 +2376,7 @@ existing scales.</p>
 </div>
 <div class="section" id="id41">
 <h4>General parameters<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h4>
-<p>See <a class="reference internal" href="../main_params.html#id1"><span>Main params</span></a> for top level main parameters.</p>
+<p>See <a class="reference internal" href="../main_params.html#main-params"><span>Main params</span></a> for top level main parameters.</p>
 </div>
 </div>
 </div>
@@ -2716,7 +2721,7 @@ u_2+2      &amp; 2v_2+5 &amp; 1 \\
 </div>
 <div class="section" id="id48">
 <h4>General parameters<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h4>
-<p>See <a class="reference internal" href="../main_params.html#id1"><span>Main params</span></a> for top level main parameters.</p>
+<p>See <a class="reference internal" href="../main_params.html#main-params"><span>Main params</span></a> for top level main parameters.</p>
 </div>
 </div>
 </div>
@@ -2974,7 +2979,7 @@ u_2+2      &amp; 2v_2+5 &amp; 1 \\
 </div>
 <div class="section" id="id53">
 <h4>General parameters<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h4>
-<p>See <a class="reference internal" href="../main_params.html#id1"><span>Main params</span></a> for top level main parameters.</p>
+<p>See <a class="reference internal" href="../main_params.html#main-params"><span>Main params</span></a> for top level main parameters.</p>
 </div>
 </div>
 </div>
@@ -2992,7 +2997,7 @@ u_2+2      &amp; 2v_2+5 &amp; 1 \\
       
     </p>
     <p>
-        &copy; Copyright 2015, Leif Roschier, Ron Doerfler.<br/>
+        &copy; Copyright 2015, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>

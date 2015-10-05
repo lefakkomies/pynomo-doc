@@ -26,6 +26,7 @@ pyNomo documentation
    main_params.rst
    examples/examples.rst
    literature/literature.rst
+   appendix/appendices.rst
 
 
 

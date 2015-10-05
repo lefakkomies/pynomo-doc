@@ -24,9 +24,9 @@
         
 
 \title{PyNomo Documentation}
-\date{October 04, 2015}
+\date{October 05, 2015}
 \release{0.3.0}
-\author{Ron Doerfler, Leif Roschier}
+\author{Ron Doerfler, Joe Marasco, Leif Roschier}
 \newcommand{\sphinxlogo}{}
 \renewcommand{\releasename}{Release}
 \makeindex
@@ -395,63 +395,63 @@ These are used as easy
 building blocks for nomograph construction. If these do not suffice one
 can build as complex nomograph as one wishes by using determinants in type 9.
 
-\begin{tabulary}{\linewidth}{|p{2cm}|p{7cm}|p{5cm}|}
+\begin{tabulary}{\linewidth}{|L|L|L|}
 \hline
 
 {\hyperref[types/types:type1-ref]{\emph{\DUspan{}{Type 1}}}}
  & 
 \(F_1(u_1)+F_2(u_2)+F_3(u_3)=0 \,\)
  & 
-Three parallel lines
+\includegraphics{ex_type1_nomo_1.pdf}
 \\
 \hline
 {\hyperref[types/types:type2-ref]{\emph{\DUspan{}{Type 2}}}}
  & 
 \(F_1(u_1)=F_2(u_2) F_3(u_3) \,\)
  & 
-``N'' or ``Z''
+\includegraphics{ex_type2_nomo_1.pdf}
 \\
 \hline
 {\hyperref[types/types:type3-ref]{\emph{\DUspan{}{Type 3}}}}
  & 
 \(F_1(u_1)+F_2(u_2)+\cdots+F_N(u_N)=0\)
  & 
-N parallel lines
+\includegraphics{ex_type3_nomo_1.pdf}
 \\
 \hline
 {\hyperref[types/types:type4-ref]{\emph{\DUspan{}{Type 4}}}}
  & 
 \(\frac{F_1(u_1)}{F_2(u_2)}=\frac{F_3(u_3)}{F_4(u_4)}\)
  & 
-``Proportion''
+\includegraphics{ex_type4_nomo_1.pdf}
 \\
 \hline
 {\hyperref[types/types:type5-ref]{\emph{\DUspan{}{Type 5}}}}
  & 
 \(F_1(v) = F_2(x,u). \,\)
  & 
-``Contour''
+\includegraphics{ex_type5_nomo_1.pdf}
 \\
 \hline
 {\hyperref[types/types:type6-ref]{\emph{\DUspan{}{Type 6}}}}
  & 
 \(u=u \,\)
  & 
-``Ladder''
+\includegraphics{ex_type6_nomo_1.pdf}
 \\
 \hline
 {\hyperref[types/types:type7-ref]{\emph{\DUspan{}{Type 7}}}}
  & 
 \(\frac{1}{F_1(u_1)}+\frac{1}{F_2(u_2)}=\frac{1}{F_3(u_3)} \,\)
  & 
-``Angle''
+\includegraphics{ex_type7_nomo_1.pdf}
 \\
 \hline
 {\hyperref[types/types:type8-ref]{\emph{\DUspan{}{Type 8}}}}
  & 
 \(y = {F(u)} \,\)
  & 
-``Single''
+\includegraphics{ex_type8_nomo_1.pdf}
 \\
 \hline
 {\hyperref[types/types:type9-ref]{\emph{\DUspan{}{Type 9}}}}
@@ -460,14 +460,14 @@ N parallel lines
 F_2(u_2[,v_2])& G_2(u_2[,v_2]) & H_2(u_2[,v_2]) \\
 F_3(u_3[,v_3])& G_3(u_3[,v_3]) & H_3(u_3[,v_3]) \end{vmatrix} = 0\)
  & 
-``General''
+\includegraphics{ex_type9_nomo_1.pdf}
 \\
 \hline
 {\hyperref[types/types:type10-ref]{\emph{\DUspan{}{Type 10}}}}
  & 
 \(F_1(u)+F_2(v)F_3(w)+F_4(w)=0 \,\)
  & 
-One curved line
+\includegraphics{ex_type10_nomo_1.pdf}
 \\
 \hline\end{tabulary}
 
@@ -5435,6 +5435,190 @@ Here links to web resources...
 
 Here links to peer-reviewed scientific articles related to nomography and some discussion why the link.
 \end{notice}
+
+
+\chapter{Appendix}
+\label{appendix/appendices:appendix}\label{appendix/appendices::doc}
+
+\section{Comparison of Nomogram to Computer Application}
+\label{appendix/appendices:comparison-of-nomogram-to-computer-application}
+\begin{longtable}{|p{3cm}|p{6cm}|p{6cm}|}
+\hline
+\textsf{\relax 
+Characteristic
+} & \textsf{\relax 
+Computer
+} & \textsf{\relax 
+Nomogram
+}\\
+\hline\endfirsthead
+
+\multicolumn{3}{c}%
+{{\textsf{\tablename\ \thetable{} -- continued from previous page}}} \\
+\hline
+\textsf{\relax 
+Characteristic
+} & \textsf{\relax 
+Computer
+} & \textsf{\relax 
+Nomogram
+}\\
+\hline\endhead
+
+\hline \multicolumn{3}{|r|}{{\textsf{Continued on next page}}} \\ \hline
+\endfoot
+
+\endlastfoot
+
+
+Hardware Requirements
+ & 
+Computer, specialized calculator, or smartphone
+ & 
+Any straightedge, pencil
+\\
+\hline
+Software Requirements
+ & 
+Application encapsulating the relevant relationships
+ & 
+Graphical representation of the relevant relationships
+\\
+\hline
+Infrastructure Requirements
+ & 
+Computing resources, perhaps Internet access; if smartphone, appropriate app
+ & 
+Ambient light
+\\
+\hline
+Energy Needs
+ & 
+Electrical outlet or batteries
+ & 
+Ambient light
+\\
+\hline
+Learning Curve
+ & 
+Knowing what to punch in, plus learning curve for software, hardware, and infrastructure
+ & 
+Knowing how to connect two points, and how to interpolate a point on a scale
+\\
+\hline
+Documentation
+ & 
+What documentation? Where?
+ & 
+Self-documenting
+\\
+\hline
+Tool Distribution
+ & 
+Likely Internet access
+ & 
+Single sheet of paper
+\\
+\hline
+Results Distribution
+ & 
+Need printer or Internet connection
+ & 
+Hand-carry or fax document
+\\
+\hline
+Cost
+ & 
+Variable
+ & 
+Cost of duplicating and transmitting a single page
+\\
+\hline
+Accuracy (decimal places)
+ & 
+As many as you want… if the software provides them
+ & 
+As many as you need… given the precision of the input
+\\
+\hline
+Speed: As fast as…
+ & 
+…your hardware
+ & 
+…you can draw a straight line
+\\
+\hline
+Sensitivity Analysis
+ & 
+Repeated data sets
+ & 
+Examination of graphic
+\\
+\hline
+Implicit Solution
+ & 
+Usually difficult or impossible
+ & 
+Automatic
+\\
+\hline
+Common Failure Mode
+ & 
+Punch in wrong numbers
+ & 
+Can’t find glasses
+\\
+\hline
+Need to Calculate
+ & 
+None
+ & 
+None
+\\
+\hline
+Third World Use
+ & 
+Problematic depending on computing accessibility
+ & 
+Works so long as pencil and paper are available
+\\
+\hline
+GIGO Susceptibility
+ & 
+High; May be hard to detect
+ & 
+Garbage In is clearly documented
+\\
+\hline
+Permanence
+ & 
+Need a printer
+ & 
+Creates a written record as part of usage pattern
+\\
+\hline
+Trust Factor
+ & 
+Did the programmer get it right?
+ & 
+Did the nomographer get it right?
+\\
+\hline
+Communication
+ & 
+Single number output
+ & 
+Graphical interactivity
+\\
+\hline
+Pizzazz Factor
+ & 
+High: Very modern
+ & 
+Low: Old-fashioned slide-rule-like technology
+\\
+\hline\end{longtable}
+
 
 
 \chapter{License}
