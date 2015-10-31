@@ -1,5 +1,5 @@
-Docker installation
-===================
+Python 2.7.x Docker installation
+================================
 
 `Docker <https://www.docker.com/>`_ is a platform to create a sandboxed virtualized environments. In the following example `Dockerfile` a virtualized
 `Ubuntu <http://ubuntu.com/>`_ is created that has pyNomo installed with all requirements::
