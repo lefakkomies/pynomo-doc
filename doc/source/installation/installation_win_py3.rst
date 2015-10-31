@@ -1,4 +1,4 @@
-Python 2.7.x Windows installation
+Python 3.5 Windows installation
 =================================
 
 #. Download and install `python 3.5.x <https://www.python.org>`_ from `www.python.org/downloads/ <https://www.python.org/downloads/>`_ .

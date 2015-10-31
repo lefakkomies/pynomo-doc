@@ -1,5 +1,5 @@
-Python 2.7.x Linux installation
-===============================
+Python 3 Linux installation
+===========================
 
 In `Debian <https://www.debian.org>`_
 Linux distribution and in its `derivatives <https://en.wikipedia.org/wiki/List_of_Linux_distributions>`_ (for example `Ubuntu <http://ubuntu.com/>`_  and `Raspbian <https://www.raspbian.org>`_) pynomo can be installed using `apt-get` with the following commands.
