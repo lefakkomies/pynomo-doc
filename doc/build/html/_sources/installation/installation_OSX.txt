@@ -1,5 +1,5 @@
-OSX Installation
-================
+Python 2.7.x OSX Installation
+=============================
 In OSX `Macports <https://www.macports.org>`_ is an effective tool to manage open-source software. In the following a
 MacPorts environment is set for Python and pyNomo. `sudo` runs the commands as super-user and requires it's password to be given.
 

@@ -24,7 +24,7 @@
         
 
 \title{PyNomo Documentation}
-\date{October 05, 2015}
+\date{October 31, 2015}
 \release{0.3.0}
 \author{Ron Doerfler, Joe Marasco, Leif Roschier}
 \newcommand{\sphinxlogo}{}
@@ -173,16 +173,16 @@ Here more complex tutorial... (15 minutes?)
 
 \chapter{Installation}
 \label{installation/installation:installation}\label{installation/installation::doc}
-pyNomo is a  \href{https://www.python.org}{python2} library and thus requires working python installation on the computer.
+pyNomo is a  \href{https://www.python.org}{python} library and thus requires working python installation on the computer.
 pyNomo stands on the shoulders  of (read: requires) the python packages: \href{http://www.numpy.org}{numpy}, \href{http://www.scipy.org}{scipy} and
-\href{http://pyx.sourceforge.net}{pyx} that requires LaTeX-installation.
+\href{http://pyx.sourceforge.net}{pyx} that requires LaTeX-installation. From version \textgreater{} 0.3.0 pynomo is compatible both with python 2 and python 3.
 
 For editing pyNomo scripts any text browser works but integrated development environment (IDE) for python can speed up developments.
 Good free IDE alternatives are for example \href{https://www.jetbrains.com/pycharm/}{PyCharm community edition} and \href{https://github.com/spyder-ide/spyder}{spyder}.
 
 
-\section{OSX Installation}
-\label{installation/installation:osx-installation}
+\section{Python 2.7.x OSX Installation}
+\label{installation/installation:python-2-7-x-osx-installation}
 In OSX \href{https://www.macports.org}{Macports} is an effective tool to manage open-source software. In the following a
 MacPorts environment is set for Python and pyNomo. \emph{sudo} runs the commands as super-user and requires it's password to be given.
 
@@ -226,8 +226,68 @@ Now python environment should be correct to be run from \code{/opt/local/Library
 \end{Verbatim}
 
 
-\section{Linux installation}
-\label{installation/installation:linux-installation}
+\section{Python 3.5 OSX Installation}
+\label{installation/installation:python-3-5-osx-installation}
+In OSX \href{https://www.macports.org}{Macports} is an effective tool to manage open-source software. In the following a
+MacPorts environment is set for Python and pyNomo. \emph{sudo} runs the commands as super-user and requires it's password to be given.
+
+First install python 3.5
+
+\begin{Verbatim}[commandchars=\\\{\},formatcom=\scriptsize]
+\PYG{n+nv}{\PYGZdl{} }sudo port install python35
+\end{Verbatim}
+
+One can list available python versions on the system with command
+
+\begin{Verbatim}[commandchars=\\\{\},formatcom=\scriptsize]
+\PYG{n+nv}{\PYGZdl{} }sudo port \PYG{k}{select} \PYGZhy{}\PYGZhy{}list python
+\end{Verbatim}
+
+Select MacPorts python 2.7
+
+\begin{Verbatim}[commandchars=\\\{\},formatcom=\scriptsize]
+\PYG{n+nv}{\PYGZdl{} }sudo port \PYG{k}{select} \PYGZhy{}\PYGZhy{}set python3 python35
+\end{Verbatim}
+
+Install python package index tool (pip)
+
+\begin{Verbatim}[commandchars=\\\{\},formatcom=\scriptsize]
+\PYG{n+nv}{\PYGZdl{} }sudo port install py35\PYGZhy{}pip
+\end{Verbatim}
+
+and set it active (this sets it system-wide, if you are using also python2, consider twice)
+
+\begin{Verbatim}[commandchars=\\\{\},formatcom=\scriptsize]
+\PYG{n+nv}{\PYGZdl{} }port \PYG{k}{select} \PYGZhy{}\PYGZhy{}set pip pip35
+\end{Verbatim}
+
+Now python environment should be correct to be run from \code{/opt/local/Library/...}. Now install other required packages.
+
+\begin{Verbatim}[commandchars=\\\{\},formatcom=\scriptsize]
+\PYG{n+nv}{\PYGZdl{} }sudo port install py35\PYGZhy{}numpy
+\PYG{n+nv}{\PYGZdl{} }sudo port install py35\PYGZhy{}scipy
+\PYG{n+nv}{\PYGZdl{} }sudo port install py35\PYGZhy{}scipy
+\PYG{n+nv}{\PYGZdl{} }sudo port install texlive
+\PYG{n+nv}{\PYGZdl{} }sudo port install texlive\PYGZhy{}fonts\PYGZhy{}recommended
+\end{Verbatim}
+
+If you set pip active in whole system, run:
+
+\begin{Verbatim}[commandchars=\\\{\},formatcom=\scriptsize]
+\PYG{n+nv}{\PYGZdl{} }sudo pip install pynomo
+\PYG{n+nv}{\PYGZdl{} }sudo pip install \PYGZhy{}\PYGZhy{}allow\PYGZhy{}external pyx pyx
+\end{Verbatim}
+
+If not, check where pip is located and run for example (check your pip path)
+
+\begin{Verbatim}[commandchars=\\\{\},formatcom=\scriptsize]
+\PYG{n+nv}{\PYGZdl{} }sudo /opt/local/bin/pip install pynomo
+\PYG{n+nv}{\PYGZdl{} }sudo /opt/local/bin/pip install \PYGZhy{}\PYGZhy{}allow\PYGZhy{}external pyx pyx
+\end{Verbatim}
+
+
+\section{Python 2.7.x Linux installation}
+\label{installation/installation:python-2-7-x-linux-installation}
 In \href{https://www.debian.org}{Debian}
 Linux distribution and in its \href{https://en.wikipedia.org/wiki/List\_of\_Linux\_distributions}{derivatives} (for example \href{http://ubuntu.com/}{Ubuntu}  and \href{https://www.raspbian.org}{Raspbian}) pynomo can be installed using \emph{apt-get} with the following commands.
 \emph{sudo} runs the commands as super-user and requires it's password to be given.
@@ -242,10 +302,29 @@ Linux distribution and in its \href{https://en.wikipedia.org/wiki/List\_of\_Linu
 \end{Verbatim}
 
 
-\section{Windows installation}
-\label{installation/installation:windows-installation}\begin{enumerate}
+\section{Python 3 Linux installation}
+\label{installation/installation:python-3-linux-installation}
+In \href{https://www.debian.org}{Debian}
+Linux distribution and in its \href{https://en.wikipedia.org/wiki/List\_of\_Linux\_distributions}{derivatives} (for example \href{http://ubuntu.com/}{Ubuntu}  and \href{https://www.raspbian.org}{Raspbian}) pynomo can be installed using \emph{apt-get} with the following commands.
+\emph{sudo} runs the commands as super-user and requires it's password to be given.
+
+\begin{Verbatim}[commandchars=\\\{\},formatcom=\scriptsize]
+\PYG{n+nv}{\PYGZdl{} }sudo apt\PYGZhy{}get \PYGZhy{}y install python3
+\PYG{n+nv}{\PYGZdl{} }sudo apt\PYGZhy{}get \PYGZhy{}y install python3\PYGZhy{}pip
+\PYG{n+nv}{\PYGZdl{} }sudo apt\PYGZhy{}get \PYGZhy{}y install python3\PYGZhy{}numpy
+\PYG{n+nv}{\PYGZdl{} }sudo apt\PYGZhy{}get \PYGZhy{}y install python3\PYGZhy{}scipy
+\PYG{n+nv}{\PYGZdl{} }sudo apt\PYGZhy{}get \PYGZhy{}y install texlive\PYGZhy{}latex\PYGZhy{}base
+\PYG{n+nv}{\PYGZdl{} }sudo apt\PYGZhy{}get \PYGZhy{}y install texlive\PYGZhy{}fonts\PYGZhy{}recommended
+\PYG{n+nv}{\PYGZdl{} }sudo pip install pynomo
+\PYG{n+nv}{\PYGZdl{} }pip3 install \PYGZhy{}\PYGZhy{}allow\PYGZhy{}external pyx pyx
+\PYG{n+nv}{\PYGZdl{} }pip3 install pynomo
+\end{Verbatim}
+
+
+\section{Python 2.7.x Windows installation}
+\label{installation/installation:python-2-7-x-windows-installation}\begin{enumerate}
 \item {} 
-Download and install \href{https://www.python.org}{python 2.7.x} from \href{https://www.python.org/downloads/}{www.python.org/downloads/} . pyNomo is not yet compatible with python 3.x.x
+Download and install \href{https://www.python.org}{python 2.7.x} from \href{https://www.python.org/downloads/}{www.python.org/downloads/} .
 
 \item {} 
 Download and install \href{http://miktex.org}{MIKTeX} LaTeX -distribution from \href{http://miktex.org/download}{http://miktex.org/download}.
@@ -255,9 +334,6 @@ Download and install \href{http://www.numpy.org}{numpy} from \href{http://source
 
 \item {} 
 Download and install \href{http://www.scipy.org}{scipy} from \href{http://sourceforge.net/projects/scipy/files/latest/download?source=files}{sourceforge.net/projects/scipy}.
-
-\item {} 
-Download and install \href{http://www.pythonware.com/products/pil/}{PIL (python imaging library)} from \href{http://effbot.org/downloads/PIL-1.1.7.win32-py2.7.exe}{http://effbot.org/downloads/}. PIL is required by some pyx packages. pynomo might work without PIL.
 
 \end{enumerate}
 
@@ -294,8 +370,57 @@ Finally pyNomo is installed either by downloading installer from  \href{http://s
 on command line. Tedious, huh! If you find simpler Windows recipe, please email it to the maintainer of the project.
 
 
-\section{Docker installation}
-\label{installation/installation:docker-installation}
+\section{Python 3.5 Windows installation}
+\label{installation/installation:python-3-5-windows-installation}\begin{enumerate}
+\item {} 
+Download and install \href{https://www.python.org}{python 3.5.x} from \href{https://www.python.org/downloads/}{www.python.org/downloads/} .
+
+\item {} 
+Download and install \href{http://miktex.org}{MIKTeX} LaTeX -distribution from \href{http://miktex.org/download}{http://miktex.org/download}.
+
+\item {} 
+Download and install \href{http://www.numpy.org}{numpy} from \href{http://sourceforge.net/projects/numpy/files/latest/download?source=files}{sourceforge.net/projects/numpy}.
+
+\item {} 
+Download and install \href{http://www.scipy.org}{scipy} from \href{http://sourceforge.net/projects/scipy/files/latest/download?source=files}{sourceforge.net/projects/scipy}.
+
+\end{enumerate}
+
+pyx (python graphics package) installation is more tricky. Either
+\begin{itemize}
+\item {} 
+Download \href{http://pyx.sourceforge.net}{pyx 0.14 (python graphics package)} from \href{https://downloads.sourceforge.net/project/pyx/pyx/0.14/PyX-0.14.tar.gz}{https://downloads.sourceforge.net/project/pyx/pyx/0.14/PyX-0.14.tar.gz}
+
+\item {} 
+Uncompress the file \emph{PyX-0.14.tar.gz} using for example \href{http://www.7-zip.org}{7-zip}.
+
+\item {} 
+Open command prompt (cmd) and go to the uncompressed folder that contains file \emph{setup.py}.
+
+\item {} 
+run command \code{python setup.py install}
+
+\end{itemize}
+
+or cross your fingers and just run:
+
+\begin{Verbatim}[commandchars=\\\{\},formatcom=\scriptsize]
+\PYGZgt{} pip install \PYGZhy{}\PYGZhy{}allow\PYGZhy{}external pyx pyx
+\end{Verbatim}
+
+on command prompt with administrative rights.
+
+Finally pyNomo is installed either by downloading installer from  \href{http://sourceforge.net/projects/pynomo/files/pynomo/}{http://sourceforge.net/projects/pynomo/} and by running it. Other choice to try is to run:
+
+\begin{Verbatim}[commandchars=\\\{\},formatcom=\scriptsize]
+\PYGZgt{} pip install pynomo
+\end{Verbatim}
+
+on command line. Tedious, huh! If you find simpler Windows recipe, please email it to the maintainer of the project.
+
+
+\section{Python 2.7.x Docker installation}
+\label{installation/installation:python-2-7-x-docker-installation}
 \href{https://www.docker.com/}{Docker} is a platform to create a sandboxed virtualized environments. In the following example \emph{Dockerfile} a virtualized
 \href{http://ubuntu.com/}{Ubuntu} is created that has pyNomo installed with all requirements:
 
@@ -335,6 +460,55 @@ Once environment is built and \emph{my\_pynomo\_file.py is in directory {}`/my\_
 \end{Verbatim}
 
 that runs command \code{python my\_pynomo\_file.py} inside \emph{/app directory} of container that is mapped to directory \emph{/my\_directory\_path/pdf\_py\_dir} of the host system.
+That way a folder is used to share the script file and the generated pdf file between host system and the container (virtualized
+Linux environment).
+
+
+\section{Python 3 Docker installation}
+\label{installation/installation:python-3-docker-installation}
+\href{https://www.docker.com/}{Docker} is a platform to create a sandboxed virtualized environments. In the following example \emph{Dockerfile} a virtualized
+\href{http://ubuntu.com/}{Ubuntu} is created that has pyNomo installed with all requirements:
+
+\begin{Verbatim}[commandchars=\\\{\},formatcom=\scriptsize]
+FROM ubuntu
+
+\PYGZsh{} Install required packages
+RUN apt\PYGZhy{}get update \PYGZam{}\PYGZam{} apt\PYGZhy{}get \PYGZhy{}y install \PYGZhy{}y \PYGZbs{}
+    python3 \PYGZbs{}
+    python3\PYGZhy{}pip \PYGZbs{}
+    python3\PYGZhy{}numpy \PYGZbs{}
+    python3\PYGZhy{}scipy \PYGZbs{}
+    texlive\PYGZhy{}latex\PYGZhy{}base \PYGZbs{}
+    texlive\PYGZhy{}fonts\PYGZhy{}recommended
+RUN DEBIAN\PYGZus{}FRONTEND=noninteractive pip3 install \PYGZhy{}\PYGZhy{}allow\PYGZhy{}external pyx pyx
+
+\PYGZsh{} Add our python app code to the image
+RUN mkdir \PYGZhy{}p /app
+ADD . /app
+WORKDIR /app
+
+CMD [\PYGZdq{}bash\PYGZdq{}]
+\end{Verbatim}
+
+Docker container (environment) \emph{my\_pynomo\_docker} is built in the directory \emph{/my\_directory\_path} that has the file \emph{Dockerfile} with command
+
+\begin{Verbatim}[commandchars=\\\{\},formatcom=\scriptsize]
+\PYG{n+nv}{\PYGZdl{} }docker build \PYGZhy{}t my\PYGZus{}pynomo\PYGZus{}docker .
+\end{Verbatim}
+
+Once environment is built and \emph{my\_pynomo\_file.py is in directory {}`/my\_directory\_path/pdf\_py\_dir/} one can run
+
+\begin{Verbatim}[commandchars=\\\{\},formatcom=\scriptsize]
+\PYG{n+nv}{\PYGZdl{} }docker run \PYGZhy{}it \PYGZhy{}v /my\PYGZus{}directory\PYGZus{}path/pdf\PYGZus{}py\PYGZus{}dir:/app my\PYGZus{}pynomo\PYGZus{}docker
+\end{Verbatim}
+
+that opens terminal in \emph{/app directory} of container that is mapped to directory \emph{/my\_directory\_path/pdf\_py\_dir} of the host system.
+There one can run own scripts like:
+
+\begin{Verbatim}[commandchars=\\\{\},formatcom=\scriptsize]
+\PYG{n+nv}{\PYGZdl{} }python3 my\PYGZus{}script.py
+\end{Verbatim}
+
 That way a folder is used to share the script file and the generated pdf file between host system and the container (virtualized
 Linux environment).
 
