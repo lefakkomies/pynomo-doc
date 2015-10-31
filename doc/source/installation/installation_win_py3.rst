@@ -1,7 +1,7 @@
 Python 2.7.x Windows installation
 =================================
 
-#. Download and install `python 2.7.x <https://www.python.org>`_ from `www.python.org/downloads/ <https://www.python.org/downloads/>`_ .
+#. Download and install `python 3.5.x <https://www.python.org>`_ from `www.python.org/downloads/ <https://www.python.org/downloads/>`_ .
 
 #. Download and install `MIKTeX <http://miktex.org>`_ LaTeX -distribution from `http://miktex.org/download <http://miktex.org/download>`_.
 
@@ -13,8 +13,8 @@ Python 2.7.x Windows installation
 pyx (python graphics package) installation is more tricky. Either
 
 
-* Download `pyx 0.12.1 (python graphics package) <http://pyx.sourceforge.net>`_ from `http://sourceforge.net/projects/pyx/files/pyx/0.12.1/PyX-0.12.1.tar.gz/download <http://sourceforge.net/projects/pyx/files/pyx/0.12.1/PyX-0.12.1.tar.gz/download>`_
-* Uncompress the file `PyX-0.12.1.tar.gz` using for example `7-zip <http://www.7-zip.org>`_.
+* Download `pyx 0.14 (python graphics package) <http://pyx.sourceforge.net>`_ from `https://downloads.sourceforge.net/project/pyx/pyx/0.14/PyX-0.14.tar.gz <https://downloads.sourceforge.net/project/pyx/pyx/0.14/PyX-0.14.tar.gz>`_
+* Uncompress the file `PyX-0.14.tar.gz` using for example `7-zip <http://www.7-zip.org>`_.
 * Open command prompt (cmd) and go to the uncompressed folder that contains file `setup.py`.
 * run command ``python setup.py install``
 
