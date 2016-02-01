@@ -9,8 +9,8 @@
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.1.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -28,7 +28,7 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="pyNomo Documentation 0.3.0 documentation" href="../index.html" />
 <meta charset='utf-8'>
@@ -55,7 +55,6 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -130,7 +129,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="python-2-7-x-docker-installation">
 <h1>Python 2.7.x Docker installation<a class="headerlink" href="#python-2-7-x-docker-installation" title="Permalink to this headline">¶</a></h1>
@@ -159,11 +158,11 @@ CMD [&quot;python&quot;, &quot;my_pynomo_file.py&quot;]
 </pre></div>
 </div>
 <p>Docker container (environment) <cite>my_pynomo_docker</cite> is built in the directory <cite>/my_directory_path</cite> that has the file <cite>Dockerfile</cite> with command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>docker build -t my_pynomo_docker .
+<div class="highlight-bash"><div class="highlight"><pre>$ docker build -t my_pynomo_docker .
 </pre></div>
 </div>
 <p>Once environment is built and <cite>my_pynomo_file.py is in directory `/my_directory_path/pdf_py_dir/</cite> one can run</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>docker run -i -v /my_directory_path/pdf_py_dir:/app my_pynomo_docker
+<div class="highlight-bash"><div class="highlight"><pre>$ docker run -i -v /my_directory_path/pdf_py_dir:/app my_pynomo_docker
 </pre></div>
 </div>
 <p>that runs command <code class="docutils literal"><span class="pre">python</span> <span class="pre">my_pynomo_file.py</span></code> inside <cite>/app directory</cite> of container that is mapped to directory <cite>/my_directory_path/pdf_py_dir</cite> of the host system.
@@ -184,7 +183,7 @@ Linux environment).</p>
     </p>
     <p>
         &copy; Copyright 2015, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
     </p>
   </div>
 </footer>

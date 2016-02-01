@@ -9,8 +9,8 @@
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.1.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -28,7 +28,7 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="pyNomo Documentation 0.3.0 documentation" href="../index.html" />
     <link rel="next" title="Block alignment" href="../alignment/alignment.html" />
@@ -57,7 +57,6 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -246,11 +245,11 @@
               
                 
   <li>
-    <a href="../axes/axes.html" title="Previous Chapter: Axes"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Axes</span>
+    <a href="../axes/axes.html" title="Previous Chapter: Axes"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Axes</span>
     </a>
   </li>
   <li>
-    <a href="../alignment/alignment.html" title="Next Chapter: Block alignment"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Block alignment &raquo;</span>
+    <a href="../alignment/alignment.html" title="Next Chapter: Block alignment"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Block alignment &raquo;</span>
     </a>
   </li>
               
@@ -282,7 +281,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="blocks">
 <h1>Blocks<a class="headerlink" href="#blocks" title="Permalink to this headline">¶</a></h1>
@@ -420,56 +419,56 @@ simple example.</p>
 <span class="sd">    Simple nomogram of type 1: F1+F2+F3=0</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">)</span>
-<span class="c">#sys.path[:0] = [&quot;..&quot;]</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
+<span class="c1">#sys.path[:0] = [&quot;..&quot;]</span>
 <span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">N_params_1</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_1$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_1$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
                 <span class="p">}</span>
 
 <span class="n">N_params_2</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_2$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_2$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
                 <span class="p">}</span>
 
 <span class="n">N_params_3</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_3$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_3$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
                 <span class="p">}</span>
 
 
 <span class="n">block_1_params</span><span class="o">=</span><span class="p">{</span>
-             <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_1&#39;</span><span class="p">,</span>
-             <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-             <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-             <span class="s">&#39;f1_params&#39;</span><span class="p">:</span><span class="n">N_params_1</span><span class="p">,</span>
-             <span class="s">&#39;f2_params&#39;</span><span class="p">:</span><span class="n">N_params_2</span><span class="p">,</span>
-             <span class="s">&#39;f3_params&#39;</span><span class="p">:</span><span class="n">N_params_3</span><span class="p">,</span>
-             <span class="s">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s">&#39;x&#39;</span><span class="p">]],</span>
+             <span class="s1">&#39;block_type&#39;</span><span class="p">:</span><span class="s1">&#39;type_1&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+             <span class="s1">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+             <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span><span class="n">N_params_1</span><span class="p">,</span>
+             <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span><span class="n">N_params_2</span><span class="p">,</span>
+             <span class="s1">&#39;f3_params&#39;</span><span class="p">:</span><span class="n">N_params_3</span><span class="p">,</span>
+             <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">]],</span>
              <span class="p">}</span>
 
 <span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_type1_nomo_1.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_1_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)],</span>
-              <span class="s">&#39;title_str&#39;</span><span class="p">:</span><span class="s">r&#39;$u_1+u_2+u_3=0$&#39;</span><span class="p">,</span>
-              <span class="s">&#39;debug&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
+              <span class="s1">&#39;filename&#39;</span><span class="p">:</span><span class="s1">&#39;ex_type1_nomo_1.pdf&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_1_params</span><span class="p">],</span>
+              <span class="s1">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s1">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)],</span>
+              <span class="s1">&#39;title_str&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_1+u_2+u_3=0$&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;debug&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
@@ -655,55 +654,55 @@ simple example.</p>
 <span class="sd">    Simple nomogram of type 2: F1=F2*F3</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">N_params_1</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_1$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_1$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
                 <span class="p">}</span>
 
 <span class="n">N_params_2</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">6.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_2$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;linear smart&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">6.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_2$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span><span class="s1">&#39;linear smart&#39;</span><span class="p">,</span>
                 <span class="p">}</span>
 
 <span class="n">N_params_3</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_3$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_3$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
                 <span class="p">}</span>
 
 
 <span class="n">block_1_params</span><span class="o">=</span><span class="p">{</span>
-             <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_2&#39;</span><span class="p">,</span>
-             <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-             <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-             <span class="s">&#39;f1_params&#39;</span><span class="p">:</span><span class="n">N_params_1</span><span class="p">,</span>
-             <span class="s">&#39;f2_params&#39;</span><span class="p">:</span><span class="n">N_params_2</span><span class="p">,</span>
-             <span class="s">&#39;f3_params&#39;</span><span class="p">:</span><span class="n">N_params_3</span><span class="p">,</span>
-             <span class="s">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">9</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="s">&#39;x&#39;</span><span class="p">]],</span>
+             <span class="s1">&#39;block_type&#39;</span><span class="p">:</span><span class="s1">&#39;type_2&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+             <span class="s1">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+             <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span><span class="n">N_params_1</span><span class="p">,</span>
+             <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span><span class="n">N_params_2</span><span class="p">,</span>
+             <span class="s1">&#39;f3_params&#39;</span><span class="p">:</span><span class="n">N_params_3</span><span class="p">,</span>
+             <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">9</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">]],</span>
              <span class="p">}</span>
 
 <span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_type2_nomo_1.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_1_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)],</span>
-              <span class="s">&#39;title_str&#39;</span><span class="p">:</span><span class="s">r&#39;$u_1=u_2\times u_3$&#39;</span>
+              <span class="s1">&#39;filename&#39;</span><span class="p">:</span><span class="s1">&#39;ex_type2_nomo_1.pdf&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_1_params</span><span class="p">],</span>
+              <span class="s1">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s1">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)],</span>
+              <span class="s1">&#39;title_str&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_1=u_2\times u_3$&#39;</span>
               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
@@ -914,76 +913,76 @@ simple example.</p>
 <span class="sd">    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">N_params_1</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_1$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_1$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
                 <span class="p">}</span>
 <span class="n">N_params_2</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_2$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_2$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
                 <span class="p">}</span>
 <span class="n">N_params_3</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_3$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_3$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
                 <span class="p">}</span>
 <span class="n">N_params_4</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_4$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_4$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
                 <span class="p">}</span>
 <span class="n">N_params_5</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_5$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_5$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
                 <span class="p">}</span>
 <span class="n">N_params_6</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">20.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_6$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;right&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">20.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_6$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span><span class="s1">&#39;right&#39;</span><span class="p">,</span>
                 <span class="p">}</span>
 
 <span class="n">block_1_params</span><span class="o">=</span><span class="p">{</span>
-             <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_3&#39;</span><span class="p">,</span>
-             <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-             <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-             <span class="s">&#39;f_params&#39;</span><span class="p">:[</span><span class="n">N_params_1</span><span class="p">,</span><span class="n">N_params_2</span><span class="p">,</span><span class="n">N_params_3</span><span class="p">,</span>
+             <span class="s1">&#39;block_type&#39;</span><span class="p">:</span><span class="s1">&#39;type_3&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+             <span class="s1">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+             <span class="s1">&#39;f_params&#39;</span><span class="p">:[</span><span class="n">N_params_1</span><span class="p">,</span><span class="n">N_params_2</span><span class="p">,</span><span class="n">N_params_3</span><span class="p">,</span>
                          <span class="n">N_params_4</span><span class="p">,</span><span class="n">N_params_5</span><span class="p">,</span><span class="n">N_params_6</span><span class="p">],</span>
-             <span class="s">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s">&#39;x&#39;</span><span class="p">]],</span>
+             <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">]],</span>
              <span class="p">}</span>
 
 <span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_type3_nomo_1.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">20.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">20.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_1_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)],</span>
-              <span class="s">&#39;title_str&#39;</span><span class="p">:</span><span class="s">r&#39;$u_1+u_2+u_3+u_4+u_5+u_6=0$&#39;</span><span class="p">,</span>
-              <span class="s">&#39;title_y&#39;</span><span class="p">:</span><span class="mf">21.0</span><span class="p">,</span>
+              <span class="s1">&#39;filename&#39;</span><span class="p">:</span><span class="s1">&#39;ex_type3_nomo_1.pdf&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">20.0</span><span class="p">,</span>
+              <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">20.0</span><span class="p">,</span>
+              <span class="s1">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_1_params</span><span class="p">],</span>
+              <span class="s1">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s1">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)],</span>
+              <span class="s1">&#39;title_str&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_1+u_2+u_3+u_4+u_5+u_6=0$&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;title_y&#39;</span><span class="p">:</span><span class="mf">21.0</span><span class="p">,</span>
               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
@@ -1179,67 +1178,67 @@ simple example.</p>
 <span class="sd">    Simple nomogram of type 4: F1/F2=F3/F4</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">N_params_1</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_1$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_1$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
                 <span class="p">}</span>
 <span class="n">N_params_2</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_2$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;right&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_2$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span><span class="s1">&#39;right&#39;</span><span class="p">,</span>
                 <span class="p">}</span>
 <span class="n">N_params_3</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_3$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;right&#39;</span><span class="p">,</span>
-        <span class="s">&#39;title_draw_center&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-        <span class="s">&#39;title_opposite_tick&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_3$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span><span class="s1">&#39;right&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;title_draw_center&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
+        <span class="s1">&#39;title_opposite_tick&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
                 <span class="p">}</span>
 <span class="n">N_params_4</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_4$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
-        <span class="s">&#39;title_draw_center&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-        <span class="s">&#39;title_opposite_tick&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_4$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;title_draw_center&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
+        <span class="s1">&#39;title_opposite_tick&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
                 <span class="p">}</span>
 
 <span class="n">block_1_params</span><span class="o">=</span><span class="p">{</span>
-                <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_4&#39;</span><span class="p">,</span>
-                <span class="s">&#39;f1_params&#39;</span><span class="p">:</span><span class="n">N_params_1</span><span class="p">,</span>
-                <span class="s">&#39;f2_params&#39;</span><span class="p">:</span><span class="n">N_params_2</span><span class="p">,</span>
-                <span class="s">&#39;f3_params&#39;</span><span class="p">:</span><span class="n">N_params_3</span><span class="p">,</span>
-                <span class="s">&#39;f4_params&#39;</span><span class="p">:</span><span class="n">N_params_4</span><span class="p">,</span>
-                <span class="s">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s">&#39;x&#39;</span><span class="p">]],</span>
+                <span class="s1">&#39;block_type&#39;</span><span class="p">:</span><span class="s1">&#39;type_4&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span><span class="n">N_params_1</span><span class="p">,</span>
+                <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span><span class="n">N_params_2</span><span class="p">,</span>
+                <span class="s1">&#39;f3_params&#39;</span><span class="p">:</span><span class="n">N_params_3</span><span class="p">,</span>
+                <span class="s1">&#39;f4_params&#39;</span><span class="p">:</span><span class="n">N_params_4</span><span class="p">,</span>
+                <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">]],</span>
                              <span class="p">}</span>
 
 <span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_type4_nomo_1.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_1_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)],</span>
-              <span class="s">&#39;title_str&#39;</span><span class="p">:</span><span class="s">r&#39;$u_1/u_2=u_3/u_4$&#39;</span><span class="p">,</span>
-              <span class="s">&#39;title_y&#39;</span><span class="p">:</span><span class="mf">8.0</span><span class="p">,</span>
+              <span class="s1">&#39;filename&#39;</span><span class="p">:</span><span class="s1">&#39;ex_type4_nomo_1.pdf&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_1_params</span><span class="p">],</span>
+              <span class="s1">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s1">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)],</span>
+              <span class="s1">&#39;title_str&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_1/u_2=u_3/u_4$&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;title_y&#39;</span><span class="p">:</span><span class="mf">8.0</span><span class="p">,</span>
               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
@@ -1448,35 +1447,35 @@ Typically equation above is written as pair of equations:</p>
 <span class="sd">    Simple nomogram of type 5.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
 
 
 
 <span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-   <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_5&#39;</span><span class="p">,</span>
-   <span class="s">&#39;u_func&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-   <span class="s">&#39;v_func&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">v</span><span class="p">:</span><span class="n">x</span><span class="o">+</span><span class="n">v</span><span class="p">,</span>
-   <span class="s">&#39;u_values&#39;</span><span class="p">:[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">5.0</span><span class="p">,</span><span class="mf">6.0</span><span class="p">,</span><span class="mf">7.0</span><span class="p">,</span><span class="mf">8.0</span><span class="p">,</span><span class="mf">9.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">],</span>
-   <span class="s">&#39;v_values&#39;</span><span class="p">:[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">5.0</span><span class="p">,</span><span class="mf">6.0</span><span class="p">,</span><span class="mf">7.0</span><span class="p">,</span><span class="mf">8.0</span><span class="p">,</span><span class="mf">9.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">],</span>
-   <span class="s">&#39;wd_tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-   <span class="s">&#39;wd_tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-   <span class="s">&#39;wd_tick_side&#39;</span><span class="p">:</span><span class="s">&#39;right&#39;</span><span class="p">,</span>
-   <span class="s">&#39;wd_title&#39;</span><span class="p">:</span><span class="s">&#39;wd = u-v&#39;</span><span class="p">,</span>
-   <span class="s">&#39;u_title&#39;</span><span class="p">:</span><span class="s">&#39;u&#39;</span><span class="p">,</span>
-   <span class="s">&#39;v_title&#39;</span><span class="p">:</span><span class="s">&#39;v&#39;</span><span class="p">,</span>
-   <span class="s">&#39;wd_title_opposite_tick&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-   <span class="s">&#39;wd_title_distance_center&#39;</span><span class="p">:</span><span class="mf">2.5</span><span class="p">,</span>
-   <span class="s">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mf">6.5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="s">&#39;x&#39;</span><span class="p">]],</span>
+   <span class="s1">&#39;block_type&#39;</span><span class="p">:</span><span class="s1">&#39;type_5&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;u_func&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+   <span class="s1">&#39;v_func&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">v</span><span class="p">:</span><span class="n">x</span><span class="o">+</span><span class="n">v</span><span class="p">,</span>
+   <span class="s1">&#39;u_values&#39;</span><span class="p">:[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">5.0</span><span class="p">,</span><span class="mf">6.0</span><span class="p">,</span><span class="mf">7.0</span><span class="p">,</span><span class="mf">8.0</span><span class="p">,</span><span class="mf">9.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">],</span>
+   <span class="s1">&#39;v_values&#39;</span><span class="p">:[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">5.0</span><span class="p">,</span><span class="mf">6.0</span><span class="p">,</span><span class="mf">7.0</span><span class="p">,</span><span class="mf">8.0</span><span class="p">,</span><span class="mf">9.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">],</span>
+   <span class="s1">&#39;wd_tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+   <span class="s1">&#39;wd_tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+   <span class="s1">&#39;wd_tick_side&#39;</span><span class="p">:</span><span class="s1">&#39;right&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;wd_title&#39;</span><span class="p">:</span><span class="s1">&#39;wd = u-v&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;u_title&#39;</span><span class="p">:</span><span class="s1">&#39;u&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;v_title&#39;</span><span class="p">:</span><span class="s1">&#39;v&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;wd_title_opposite_tick&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
+   <span class="s1">&#39;wd_title_distance_center&#39;</span><span class="p">:</span><span class="mf">2.5</span><span class="p">,</span>
+   <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mf">6.5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">]],</span>
  <span class="p">}</span>
 
 
 <span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_type5_nomo_1.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
+              <span class="s1">&#39;filename&#39;</span><span class="p">:</span><span class="s1">&#39;ex_type5_nomo_1.pdf&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
+              <span class="s1">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s1">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)]</span>
               <span class="p">}</span>
 
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
@@ -1887,44 +1886,44 @@ Typically equation above is written as pair of equations:</p>
 <span class="sd">    Simple nomogram of type 6.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">N_params_1</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">&#39;u&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">&#39;u&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
         <span class="p">}</span>
 
 <span class="n">N_params_2</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">&#39;u&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">&#39;u&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
         <span class="p">}</span>
 
 <span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_6&#39;</span><span class="p">,</span>
-              <span class="s">&#39;f1_params&#39;</span><span class="p">:</span><span class="n">N_params_1</span><span class="p">,</span>
-              <span class="s">&#39;f2_params&#39;</span><span class="p">:</span><span class="n">N_params_2</span><span class="p">,</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mf">2.2</span><span class="p">,</span><span class="s">&#39;x&#39;</span><span class="p">]],</span>
-              <span class="c">#&#39;curve_const&#39;:0.01</span>
+              <span class="s1">&#39;block_type&#39;</span><span class="p">:</span><span class="s1">&#39;type_6&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span><span class="n">N_params_1</span><span class="p">,</span>
+              <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span><span class="n">N_params_2</span><span class="p">,</span>
+              <span class="s1">&#39;width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
+              <span class="s1">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mf">2.2</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">]],</span>
+              <span class="c1">#&#39;curve_const&#39;:0.01</span>
                      <span class="p">}</span>
 
 <span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_type6_nomo_1.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
+              <span class="s1">&#39;filename&#39;</span><span class="p">:</span><span class="s1">&#39;ex_type6_nomo_1.pdf&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
+              <span class="s1">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
+              <span class="s1">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s1">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)]</span>
               <span class="p">}</span>
 
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
@@ -2227,33 +2226,33 @@ existing scales.</p>
 <span class="sd">    Simple nomogram of type 8.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">N_params_1</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">&#39;u&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">&#39;u&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
         <span class="p">}</span>
 
 <span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_8&#39;</span><span class="p">,</span>
-              <span class="s">&#39;f_params&#39;</span><span class="p">:</span><span class="n">N_params_1</span><span class="p">,</span>
-              <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">5</span><span class="p">]]</span>
+              <span class="s1">&#39;block_type&#39;</span><span class="p">:</span><span class="s1">&#39;type_8&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;f_params&#39;</span><span class="p">:</span><span class="n">N_params_1</span><span class="p">,</span>
+              <span class="s1">&#39;width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
+              <span class="s1">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">5</span><span class="p">]]</span>
                      <span class="p">}</span>
 
 <span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_type8_nomo_1.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[]</span>
+              <span class="s1">&#39;filename&#39;</span><span class="p">:</span><span class="s1">&#39;ex_type8_nomo_1.pdf&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span>
+              <span class="s1">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
+              <span class="s1">&#39;transformations&#39;</span><span class="p">:[]</span>
               <span class="p">}</span>
 
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
@@ -2480,66 +2479,66 @@ u_2+2      &amp; 2v_2+5 &amp; 1 \\
 <span class="sd">    Simple nomogram of type 9: determinant</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">N_params_1</span><span class="o">=</span><span class="p">{</span>
-            <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span>
-            <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-            <span class="s">&#39;f&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-            <span class="s">&#39;g&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-            <span class="s">&#39;h&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-            <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_1$&#39;</span><span class="p">,</span>
-            <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;linear&#39;</span><span class="p">,</span>
-            <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-            <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-            <span class="s">&#39;grid&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">}</span>
+            <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span>
+            <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+            <span class="s1">&#39;f&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;g&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+            <span class="s1">&#39;h&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+            <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_1$&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+            <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+            <span class="s1">&#39;grid&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">}</span>
 
 <span class="n">N_params_2</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span> <span class="c"># for alignment</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>  <span class="c"># for alignment</span>
-        <span class="s">&#39;f_grid&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">:</span><span class="n">u</span><span class="o">+</span><span class="mf">2.0</span><span class="p">,</span>
-        <span class="s">&#39;g_grid&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">v</span><span class="o">+</span><span class="mf">5.0</span><span class="p">,</span>
-        <span class="s">&#39;h_grid&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_start&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_stop&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;v_start&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;v_stop&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-        <span class="s">&#39;u_values&#39;</span><span class="p">:[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">1.0</span><span class="p">],</span>
-        <span class="s">&#39;v_values&#39;</span><span class="p">:[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">1.0</span><span class="p">],</span>
-        <span class="s">&#39;grid&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
-        <span class="s">&#39;text_prefix_u&#39;</span><span class="p">:</span><span class="s">r&#39;$u_2$=&#39;</span><span class="p">,</span>
-        <span class="s">&#39;text_prefix_v&#39;</span><span class="p">:</span><span class="s">r&#39;$v_2$=&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span> <span class="c1"># for alignment</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># for alignment</span>
+        <span class="s1">&#39;f_grid&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">:</span><span class="n">u</span><span class="o">+</span><span class="mf">2.0</span><span class="p">,</span>
+        <span class="s1">&#39;g_grid&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">v</span><span class="o">+</span><span class="mf">5.0</span><span class="p">,</span>
+        <span class="s1">&#39;h_grid&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_start&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_stop&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="s1">&#39;v_start&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="s1">&#39;v_stop&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_values&#39;</span><span class="p">:[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">1.0</span><span class="p">],</span>
+        <span class="s1">&#39;v_values&#39;</span><span class="p">:[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">1.0</span><span class="p">],</span>
+        <span class="s1">&#39;grid&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
+        <span class="s1">&#39;text_prefix_u&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_2$=&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;text_prefix_v&#39;</span><span class="p">:</span><span class="s1">r&#39;$v_2$=&#39;</span><span class="p">,</span>
         <span class="p">}</span>
 
 <span class="n">N_params_3</span><span class="o">=</span><span class="p">{</span>
-            <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span>
-            <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-            <span class="s">&#39;f&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="mf">4.0</span><span class="p">,</span>
-            <span class="s">&#39;g&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-            <span class="s">&#39;h&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-            <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_3$&#39;</span><span class="p">,</span>
-            <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;linear&#39;</span><span class="p">,</span>
-            <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-            <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-            <span class="s">&#39;grid&#39;</span><span class="p">:</span><span class="bp">False</span>
+            <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span>
+            <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+            <span class="s1">&#39;f&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="mf">4.0</span><span class="p">,</span>
+            <span class="s1">&#39;g&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+            <span class="s1">&#39;h&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+            <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_3$&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+            <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+            <span class="s1">&#39;grid&#39;</span><span class="p">:</span><span class="bp">False</span>
             <span class="p">}</span>
 
 <span class="n">block_params</span><span class="o">=</span><span class="p">{</span>
-             <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_9&#39;</span><span class="p">,</span>
-             <span class="s">&#39;f1_params&#39;</span><span class="p">:</span><span class="n">N_params_1</span><span class="p">,</span>
-             <span class="s">&#39;f2_params&#39;</span><span class="p">:</span><span class="n">N_params_2</span><span class="p">,</span>
-             <span class="s">&#39;f3_params&#39;</span><span class="p">:</span><span class="n">N_params_3</span><span class="p">,</span>
-             <span class="s">&#39;transform_ini&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
-             <span class="s">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">7</span><span class="p">,[</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],</span><span class="s">&#39;x&#39;</span><span class="p">]]</span>
+             <span class="s1">&#39;block_type&#39;</span><span class="p">:</span><span class="s1">&#39;type_9&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span><span class="n">N_params_1</span><span class="p">,</span>
+             <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span><span class="n">N_params_2</span><span class="p">,</span>
+             <span class="s1">&#39;f3_params&#39;</span><span class="p">:</span><span class="n">N_params_3</span><span class="p">,</span>
+             <span class="s1">&#39;transform_ini&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
+             <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">7</span><span class="p">,[</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],</span><span class="s1">&#39;x&#39;</span><span class="p">]]</span>
              <span class="p">}</span>
 
 <span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_type9_nomo_1.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)]</span>
+              <span class="s1">&#39;filename&#39;</span><span class="p">:</span><span class="s1">&#39;ex_type9_nomo_1.pdf&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_params</span><span class="p">],</span>
+              <span class="s1">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s1">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)]</span>
               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
@@ -2807,57 +2806,57 @@ u_2+2      &amp; 2v_2+5 &amp; 1 \\
 <span class="sd">    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">N_params_1</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
                 <span class="p">}</span>
 
 <span class="n">N_params_2</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$v$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;tick_side&#39;</span><span class="p">:</span><span class="s">&#39;left&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$v$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
                 <span class="p">}</span>
 
 <span class="n">N_params_3</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">4.0</span><span class="p">,</span>
-        <span class="s">&#39;function_3&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;function_4&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$w$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;linear smart&#39;</span><span class="p">,</span>
-        <span class="s">&#39;title_draw_center&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">4.0</span><span class="p">,</span>
+        <span class="s1">&#39;function_3&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;function_4&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$w$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span><span class="s1">&#39;linear smart&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;title_draw_center&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
                 <span class="p">}</span>
 
 <span class="n">block_1_params</span><span class="o">=</span><span class="p">{</span>
-             <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_10&#39;</span><span class="p">,</span>
-             <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-             <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-             <span class="s">&#39;f1_params&#39;</span><span class="p">:</span><span class="n">N_params_1</span><span class="p">,</span>
-             <span class="s">&#39;f2_params&#39;</span><span class="p">:</span><span class="n">N_params_2</span><span class="p">,</span>
-             <span class="s">&#39;f3_params&#39;</span><span class="p">:</span><span class="n">N_params_3</span><span class="p">,</span>
-             <span class="s">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="s">&#39;x&#39;</span><span class="p">]]</span>
+             <span class="s1">&#39;block_type&#39;</span><span class="p">:</span><span class="s1">&#39;type_10&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+             <span class="s1">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+             <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span><span class="n">N_params_1</span><span class="p">,</span>
+             <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span><span class="n">N_params_2</span><span class="p">,</span>
+             <span class="s1">&#39;f3_params&#39;</span><span class="p">:</span><span class="n">N_params_3</span><span class="p">,</span>
+             <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">]]</span>
              <span class="p">}</span>
 
 <span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_type10_nomo_1.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_1_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)],</span>
-              <span class="s">&#39;title_str&#39;</span><span class="p">:</span><span class="s">r&#39;$u+vw+w=0$&#39;</span>
+              <span class="s1">&#39;filename&#39;</span><span class="p">:</span><span class="s1">&#39;ex_type10_nomo_1.pdf&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_1_params</span><span class="p">],</span>
+              <span class="s1">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s1">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)],</span>
+              <span class="s1">&#39;title_str&#39;</span><span class="p">:</span><span class="s1">r&#39;$u+vw+w=0$&#39;</span>
               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
@@ -2998,7 +2997,7 @@ u_2+2      &amp; 2v_2+5 &amp; 1 \\
     </p>
     <p>
         &copy; Copyright 2015, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
     </p>
   </div>
 </footer>

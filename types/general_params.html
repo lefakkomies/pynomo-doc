@@ -9,8 +9,8 @@
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.1.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -28,7 +28,7 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="pyNomo Documentation 0.3.0 documentation" href="../index.html" />
 <meta charset='utf-8'>
@@ -55,7 +55,6 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -129,7 +128,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <table border="1" class="longtable docutils" id="id1">
 <caption><span class="caption-text">General params</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
@@ -212,23 +211,23 @@
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">'extra_texts'</span></code></td>
 <td><code class="docutils literal"><span class="pre">[]</span></code></td>
 <td><p class="first"><strong>List of Dicts defining texts.</strong> Defines extra texts. Could be for example:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="p">[{</span><span class="s">&#39;x&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-  <span class="s">&#39;y&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-  <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">&#39;testing&#39;</span><span class="p">,</span>
-  <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
-  <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">red</span><span class="p">,</span><span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">Huge</span><span class="p">]</span>
+<div class="last highlight-python"><div class="highlight"><pre><span class="p">[{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+  <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+  <span class="s1">&#39;text&#39;</span><span class="p">:</span><span class="s1">&#39;testing&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
+  <span class="s1">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">red</span><span class="p">,</span><span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">Huge</span><span class="p">]</span>
  <span class="p">},</span>
- <span class="p">{</span><span class="s">&#39;x&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-  <span class="s">&#39;y&#39;</span><span class="p">:</span><span class="mf">2.0</span><span class="p">,</span>
-  <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">&#39;testing&#39;</span><span class="p">,</span>
-  <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
-  <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">green</span><span class="p">]</span>
+ <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+  <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="mf">2.0</span><span class="p">,</span>
+  <span class="s1">&#39;text&#39;</span><span class="p">:</span><span class="s1">&#39;testing&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
+  <span class="s1">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">green</span><span class="p">]</span>
  <span class="p">},</span>
- <span class="p">{</span><span class="s">&#39;x&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-  <span class="s">&#39;y&#39;</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span>
-  <span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">r&quot;line \par break&quot;</span><span class="p">,</span>
-  <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
-  <span class="s">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">blue</span><span class="p">,</span><span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">]</span>
+ <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+  <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span>
+  <span class="s1">&#39;text&#39;</span><span class="p">:</span><span class="s2">r&quot;line \par break&quot;</span><span class="p">,</span>
+  <span class="s1">&#39;width&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
+  <span class="s1">&#39;pyx_extra_defs&#39;</span><span class="p">:[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">blue</span><span class="p">,</span><span class="n">text</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">tiny</span><span class="p">]</span>
  <span class="p">}]</span>
 </pre></div>
 </div>
@@ -237,14 +236,14 @@
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">'isopleth_params'</span></code></td>
 <td><code class="docutils literal"><span class="pre">[{}]</span></code></td>
 <td><p class="first"><strong>List of Dicts.</strong> Defines appearance of isopleths. Could be for example:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="p">[{</span><span class="s">&#39;color&#39;</span><span class="p">:</span><span class="s">&#39;MidnightBlue&#39;</span><span class="p">,</span>
-  <span class="s">&#39;linewidth&#39;</span><span class="p">:</span><span class="s">&#39;THICK&#39;</span><span class="p">,</span>
-  <span class="s">&#39;linestyle&#39;</span><span class="p">:</span><span class="s">&#39;dashdotted&#39;</span><span class="p">,</span>
-  <span class="s">&#39;transparency&#39;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">},</span>
-  <span class="p">{</span><span class="s">&#39;color&#39;</span><span class="p">:</span><span class="s">&#39;Orange&#39;</span><span class="p">,</span>
-   <span class="s">&#39;linewidth&#39;</span><span class="p">:</span><span class="s">&#39;THIN&#39;</span><span class="p">,</span>
-   <span class="s">&#39;linestyle&#39;</span><span class="p">:</span><span class="s">&#39;dashdotted&#39;</span><span class="p">,</span>
-   <span class="s">&#39;transparency&#39;</span><span class="p">:</span><span class="mf">0.9</span><span class="p">}]</span>
+<div class="last highlight-python"><div class="highlight"><pre><span class="p">[{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;MidnightBlue&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;linewidth&#39;</span><span class="p">:</span><span class="s1">&#39;THICK&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;linestyle&#39;</span><span class="p">:</span><span class="s1">&#39;dashdotted&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;transparency&#39;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">},</span>
+  <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;Orange&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;linewidth&#39;</span><span class="p">:</span><span class="s1">&#39;THIN&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;linestyle&#39;</span><span class="p">:</span><span class="s1">&#39;dashdotted&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;transparency&#39;</span><span class="p">:</span><span class="mf">0.9</span><span class="p">}]</span>
 </pre></div>
 </div>
 </td>
@@ -265,7 +264,7 @@
     </p>
     <p>
         &copy; Copyright 2015, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
     </p>
   </div>
 </footer>

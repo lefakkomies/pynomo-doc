@@ -9,8 +9,8 @@
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.1.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -28,7 +28,7 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="pyNomo Documentation 0.3.0 documentation" href="../index.html" />
 <meta charset='utf-8'>
@@ -55,7 +55,6 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -130,37 +129,37 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="python-2-7-x-osx-installation">
 <h1>Python 2.7.x OSX Installation<a class="headerlink" href="#python-2-7-x-osx-installation" title="Permalink to this headline">¶</a></h1>
 <p>In OSX <a class="reference external" href="https://www.macports.org">Macports</a> is an effective tool to manage open-source software. In the following a
 MacPorts environment is set for Python and pyNomo. <cite>sudo</cite> runs the commands as super-user and requires it&#8217;s password to be given.</p>
 <p>First install python 2.7</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo port install python27
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo port install python27
 </pre></div>
 </div>
 <p>One can list available python versions on the system with command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo port <span class="k">select</span> --list python
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo port <span class="k">select</span> --list python
 </pre></div>
 </div>
 <p>Select MacPorts python 2.7</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo port <span class="k">select</span> --set python python27
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo port <span class="k">select</span> --set python python27
 </pre></div>
 </div>
 <p>Install python package index tool (pip)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo port install py27-pip
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo port install py27-pip
 </pre></div>
 </div>
 <p>and set it active</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>port <span class="k">select</span> --set pip pip27
+<div class="highlight-bash"><div class="highlight"><pre>$ port <span class="k">select</span> --set pip pip27
 </pre></div>
 </div>
 <p>Now python environment should be correct to be run from <code class="docutils literal"><span class="pre">/opt/local/Library/...</span></code>. Now install other required packages.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo port install py27-numpy
-<span class="nv">$ </span>sudo port install py27-scipy
-<span class="nv">$ </span>sudo port install py27-pyx
-<span class="nv">$ </span>sudo pip install pynomo
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo port install py27-numpy
+$ sudo port install py27-scipy
+$ sudo port install py27-pyx
+$ sudo pip install pynomo
 </pre></div>
 </div>
 </div>
@@ -178,7 +177,7 @@ MacPorts environment is set for Python and pyNomo. <cite>sudo</cite> runs the co
     </p>
     <p>
         &copy; Copyright 2015, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
     </p>
   </div>
 </footer>

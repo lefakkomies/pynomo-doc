@@ -9,8 +9,8 @@
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.1.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -28,7 +28,7 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="pyNomo Documentation 0.3.0 documentation" href="../index.html" />
     <link rel="next" title="Big picture of nomograph construction" href="../main_page.html" />
@@ -57,7 +57,6 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -114,11 +113,11 @@
               
                 
   <li>
-    <a href="../tutorials/tutorials.html" title="Previous Chapter: Tutorial"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Tutorial</span>
+    <a href="../tutorials/tutorials.html" title="Previous Chapter: Tutorial"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Tutorial</span>
     </a>
   </li>
   <li>
-    <a href="../main_page.html" title="Next Chapter: Big picture of nomograph construction"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Big picture o... &raquo;</span>
+    <a href="../main_page.html" title="Next Chapter: Big picture of nomograph construction"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Big picture o... &raquo;</span>
     </a>
   </li>
               
@@ -150,7 +149,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
@@ -164,30 +163,30 @@ Good free IDE alternatives are for example <a class="reference external" href="h
 <p>In OSX <a class="reference external" href="https://www.macports.org">Macports</a> is an effective tool to manage open-source software. In the following a
 MacPorts environment is set for Python and pyNomo. <cite>sudo</cite> runs the commands as super-user and requires it&#8217;s password to be given.</p>
 <p>First install python 2.7</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo port install python27
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo port install python27
 </pre></div>
 </div>
 <p>One can list available python versions on the system with command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo port <span class="k">select</span> --list python
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo port <span class="k">select</span> --list python
 </pre></div>
 </div>
 <p>Select MacPorts python 2.7</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo port <span class="k">select</span> --set python python27
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo port <span class="k">select</span> --set python python27
 </pre></div>
 </div>
 <p>Install python package index tool (pip)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo port install py27-pip
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo port install py27-pip
 </pre></div>
 </div>
 <p>and set it active</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>port <span class="k">select</span> --set pip pip27
+<div class="highlight-bash"><div class="highlight"><pre>$ port <span class="k">select</span> --set pip pip27
 </pre></div>
 </div>
 <p>Now python environment should be correct to be run from <code class="docutils literal"><span class="pre">/opt/local/Library/...</span></code>. Now install other required packages.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo port install py27-numpy
-<span class="nv">$ </span>sudo port install py27-scipy
-<span class="nv">$ </span>sudo port install py27-pyx
-<span class="nv">$ </span>sudo pip install pynomo
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo port install py27-numpy
+$ sudo port install py27-scipy
+$ sudo port install py27-pyx
+$ sudo pip install pynomo
 </pre></div>
 </div>
 </div>
@@ -196,41 +195,41 @@ MacPorts environment is set for Python and pyNomo. <cite>sudo</cite> runs the co
 <p>In OSX <a class="reference external" href="https://www.macports.org">Macports</a> is an effective tool to manage open-source software. In the following a
 MacPorts environment is set for Python and pyNomo. <cite>sudo</cite> runs the commands as super-user and requires it&#8217;s password to be given.</p>
 <p>First install python 3.5</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo port install python35
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo port install python35
 </pre></div>
 </div>
 <p>One can list available python versions on the system with command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo port <span class="k">select</span> --list python
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo port <span class="k">select</span> --list python
 </pre></div>
 </div>
 <p>Select MacPorts python 2.7</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo port <span class="k">select</span> --set python3 python35
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo port <span class="k">select</span> --set python3 python35
 </pre></div>
 </div>
 <p>Install python package index tool (pip)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo port install py35-pip
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo port install py35-pip
 </pre></div>
 </div>
 <p>and set it active (this sets it system-wide, if you are using also python2, consider twice)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>port <span class="k">select</span> --set pip pip35
+<div class="highlight-bash"><div class="highlight"><pre>$ port <span class="k">select</span> --set pip pip35
 </pre></div>
 </div>
 <p>Now python environment should be correct to be run from <code class="docutils literal"><span class="pre">/opt/local/Library/...</span></code>. Now install other required packages.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo port install py35-numpy
-<span class="nv">$ </span>sudo port install py35-scipy
-<span class="nv">$ </span>sudo port install py35-scipy
-<span class="nv">$ </span>sudo port install texlive
-<span class="nv">$ </span>sudo port install texlive-fonts-recommended
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo port install py35-numpy
+$ sudo port install py35-scipy
+$ sudo port install py35-scipy
+$ sudo port install texlive
+$ sudo port install texlive-fonts-recommended
 </pre></div>
 </div>
 <p>If you set pip active in whole system, run:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo pip install pynomo
-<span class="nv">$ </span>sudo pip install --allow-external pyx pyx
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo pip install pynomo
+$ sudo pip install --allow-external pyx pyx
 </pre></div>
 </div>
 <p>If not, check where pip is located and run for example (check your pip path)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo /opt/local/bin/pip install pynomo
-<span class="nv">$ </span>sudo /opt/local/bin/pip install --allow-external pyx pyx
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo /opt/local/bin/pip install pynomo
+$ sudo /opt/local/bin/pip install --allow-external pyx pyx
 </pre></div>
 </div>
 </div>
@@ -239,12 +238,12 @@ MacPorts environment is set for Python and pyNomo. <cite>sudo</cite> runs the co
 <p>In <a class="reference external" href="https://www.debian.org">Debian</a>
 Linux distribution and in its <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_Linux_distributions">derivatives</a> (for example <a class="reference external" href="http://ubuntu.com/">Ubuntu</a>  and <a class="reference external" href="https://www.raspbian.org">Raspbian</a>) pynomo can be installed using <cite>apt-get</cite> with the following commands.
 <cite>sudo</cite> runs the commands as super-user and requires it&#8217;s password to be given.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get -y install python
-<span class="nv">$ </span>sudo apt-get -y install python-pyx
-<span class="nv">$ </span>sudo apt-get -y install python-pip
-<span class="nv">$ </span>sudo apt-get -y install python-numpy
-<span class="nv">$ </span>sudo apt-get -y install python-scipy
-<span class="nv">$ </span>sudo pip install pynomo
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo apt-get -y install python
+$ sudo apt-get -y install python-pyx
+$ sudo apt-get -y install python-pip
+$ sudo apt-get -y install python-numpy
+$ sudo apt-get -y install python-scipy
+$ sudo pip install pynomo
 </pre></div>
 </div>
 </div>
@@ -253,15 +252,15 @@ Linux distribution and in its <a class="reference external" href="https://en.wik
 <p>In <a class="reference external" href="https://www.debian.org">Debian</a>
 Linux distribution and in its <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_Linux_distributions">derivatives</a> (for example <a class="reference external" href="http://ubuntu.com/">Ubuntu</a>  and <a class="reference external" href="https://www.raspbian.org">Raspbian</a>) pynomo can be installed using <cite>apt-get</cite> with the following commands.
 <cite>sudo</cite> runs the commands as super-user and requires it&#8217;s password to be given.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get -y install python3
-<span class="nv">$ </span>sudo apt-get -y install python3-pip
-<span class="nv">$ </span>sudo apt-get -y install python3-numpy
-<span class="nv">$ </span>sudo apt-get -y install python3-scipy
-<span class="nv">$ </span>sudo apt-get -y install texlive-latex-base
-<span class="nv">$ </span>sudo apt-get -y install texlive-fonts-recommended
-<span class="nv">$ </span>sudo pip install pynomo
-<span class="nv">$ </span>pip3 install --allow-external pyx pyx
-<span class="nv">$ </span>pip3 install pynomo
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo apt-get -y install python3
+$ sudo apt-get -y install python3-pip
+$ sudo apt-get -y install python3-numpy
+$ sudo apt-get -y install python3-scipy
+$ sudo apt-get -y install texlive-latex-base
+$ sudo apt-get -y install texlive-fonts-recommended
+$ sudo pip install pynomo
+$ pip3 install --allow-external pyx pyx
+$ pip3 install pynomo
 </pre></div>
 </div>
 </div>
@@ -344,11 +343,11 @@ CMD [&quot;python&quot;, &quot;my_pynomo_file.py&quot;]
 </pre></div>
 </div>
 <p>Docker container (environment) <cite>my_pynomo_docker</cite> is built in the directory <cite>/my_directory_path</cite> that has the file <cite>Dockerfile</cite> with command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>docker build -t my_pynomo_docker .
+<div class="highlight-bash"><div class="highlight"><pre>$ docker build -t my_pynomo_docker .
 </pre></div>
 </div>
 <p>Once environment is built and <cite>my_pynomo_file.py is in directory `/my_directory_path/pdf_py_dir/</cite> one can run</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>docker run -i -v /my_directory_path/pdf_py_dir:/app my_pynomo_docker
+<div class="highlight-bash"><div class="highlight"><pre>$ docker run -i -v /my_directory_path/pdf_py_dir:/app my_pynomo_docker
 </pre></div>
 </div>
 <p>that runs command <code class="docutils literal"><span class="pre">python</span> <span class="pre">my_pynomo_file.py</span></code> inside <cite>/app directory</cite> of container that is mapped to directory <cite>/my_directory_path/pdf_py_dir</cite> of the host system.
@@ -380,16 +379,16 @@ CMD [&quot;bash&quot;]
 </pre></div>
 </div>
 <p>Docker container (environment) <cite>my_pynomo_docker</cite> is built in the directory <cite>/my_directory_path</cite> that has the file <cite>Dockerfile</cite> with command</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>docker build -t my_pynomo_docker .
+<div class="highlight-bash"><div class="highlight"><pre>$ docker build -t my_pynomo_docker .
 </pre></div>
 </div>
 <p>Once environment is built and <cite>my_pynomo_file.py is in directory `/my_directory_path/pdf_py_dir/</cite> one can run</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>docker run -it -v /my_directory_path/pdf_py_dir:/app my_pynomo_docker
+<div class="highlight-bash"><div class="highlight"><pre>$ docker run -it -v /my_directory_path/pdf_py_dir:/app my_pynomo_docker
 </pre></div>
 </div>
 <p>that opens terminal in <cite>/app directory</cite> of container that is mapped to directory <cite>/my_directory_path/pdf_py_dir</cite> of the host system.
 There one can run own scripts like:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python3 my_script.py
+<div class="highlight-bash"><div class="highlight"><pre>$ python3 my_script.py
 </pre></div>
 </div>
 <p>That way a folder is used to share the script file and the generated pdf file between host system and the container (virtualized
@@ -410,7 +409,7 @@ Linux environment).</p>
     </p>
     <p>
         &copy; Copyright 2015, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
     </p>
   </div>
 </footer>
