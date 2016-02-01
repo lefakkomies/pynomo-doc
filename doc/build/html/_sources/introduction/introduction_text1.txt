@@ -7,7 +7,7 @@ These graphical calculators were invented in 1880 by Philbert Maurice d'Ocagne a
 
 For example, here's a nomogram from 1920 that relates the variables :math:`l`, :math:`s`, :math:`r` and :math:`\alpha` for a slider-crank mechanism:
 
-.. image:: meyer.*
+.. image:: meyer_nomogram.*
 	:scale: 70 %
 	:align: center
 
