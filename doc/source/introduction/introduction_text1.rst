@@ -8,10 +8,9 @@ These graphical calculators were invented in 1880 by Philbert Maurice d'Ocagne a
 For example, here's a nomogram from 1920 that relates the variables :math:`l`, :math:`s`, :math:`r` and :math:`\alpha` for a slider-crank mechanism:
 
 .. image:: meyer.*
-	:scale: 65 %
+	:scale: 70 %
 	:align: center
 
-|
 The equation that this solves is quite complicated:
 
 :math:`s = r(1 - \cos \alpha) + l(1 - (1 - \lambda^2 \sin^2 \alpha)^{1/2})`
@@ -63,11 +62,10 @@ Parts of Nomograms
 
 There are few parts to a nomogram, but it is important to know them as they will be referenced throughout the documentation. We will introduce the terms with most common type of nomogram consisting of three parallel straight scales. This form is used to solve an equation in which functions of three variables sum to zero. The simplest such formula is :math:`u_1 + u_2 + u_3 = 0` for the three variables :math:`u_1`, :math:`u_2` and :math:`u_3`. An example of this type of nomogram is shown below, annotated with terms used to describe the parts of a nomogram. In general the scales can be functions of :math:`u_1`, :math:`u_2` and :math:`u_3`, but here the scales are simply the variables. The nomogram solves the equation for any variable given values of the other two variables, with the sample isopleth here representing the solution for values 7, 2 and -9.
 
-.. image:: SampleNomogram.*
-	:scale: 40 %
+.. image:: sample_nomogram.*
+	:scale: 50 %
 	:align: center
 
-|
 Nomograms should be self-contained, that is, anyone can understand what the nomogram solves and how to use it with only passing knowledge of what they are. This means that there should be a sample isopleth to guide the user. If the application is not obvious, it should be listed in the title, and perhaps a figure relating the variables to the application may be called for. The equation being solved should also be listed on the nomogram; we can assure you there are few more tedious tasks than reverse-engineering a decades-old nomogram back to its defining equation.
 
 What Can PyNomo Do For Me?

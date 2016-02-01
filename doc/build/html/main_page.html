@@ -9,8 +9,8 @@
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-3.1.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -28,7 +28,7 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="pyNomo Documentation 0.3.0 documentation" href="index.html" />
     <link rel="next" title="Axes" href="axes/axes.html" />
@@ -57,7 +57,6 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -110,11 +109,11 @@
               
                 
   <li>
-    <a href="installation/installation.html" title="Previous Chapter: Installation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Installation</span>
+    <a href="installation/installation.html" title="Previous Chapter: Installation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Installation</span>
     </a>
   </li>
   <li>
-    <a href="axes/axes.html" title="Next Chapter: Axes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Axes &raquo;</span>
+    <a href="axes/axes.html" title="Next Chapter: Axes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Axes &raquo;</span>
     </a>
   </li>
               
@@ -146,7 +145,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="big-picture-of-nomograph-construction">
 <h1>Big picture of nomograph construction<a class="headerlink" href="#big-picture-of-nomograph-construction" title="Permalink to this headline">¶</a></h1>
@@ -158,25 +157,25 @@ build blocks. If there are more than one block,  they are aligned with each othe
 construct the nomograph.</p>
 <p>A simple example of pseudocode of typical PyNomo structure is the
 following:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c"># this loads the needed pynomo class</span>
-<span class="c"># define block 1</span>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># this loads the needed pynomo class</span>
+<span class="c1"># define block 1</span>
 <span class="n">axis_params_1_for_block_1</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
 <span class="n">axis_params_2_for_block_1</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
 <span class="n">axis_params_3_for_block_1</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
 <span class="n">block_1</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
 
-<span class="c"># define block 2</span>
+<span class="c1"># define block 2</span>
 <span class="n">axis_params_1_for_block_2</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
 <span class="n">axis_params_2_for_block_2</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
 <span class="n">axis_params_3_for_block_2</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
 <span class="n">block_2</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
 
-<span class="c"># define nomograph</span>
-<span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#39;filename&#39;</span><span class="p">:</span> <span class="s">&#39;filename_of_nomograph.pdf&#39;</span><span class="p">,</span>  <span class="c"># filename of output</span>
-                <span class="s">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_1</span><span class="p">,</span><span class="n">block_2</span><span class="p">],</span>        <span class="c"># the blocks make the nomograph</span>
-                <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)],</span>     <span class="c"># these make (projective) transformations for the canves</span>
+<span class="c1"># define nomograph</span>
+<span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="s1">&#39;filename_of_nomograph.pdf&#39;</span><span class="p">,</span>  <span class="c1"># filename of output</span>
+                <span class="s1">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_1</span><span class="p">,</span><span class="n">block_2</span><span class="p">],</span>        <span class="c1"># the blocks make the nomograph</span>
+                <span class="s1">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)],</span>     <span class="c1"># these make (projective) transformations for the canves</span>
                 <span class="p">}</span>
-<span class="c"># create nomograph</span>
+<span class="c1"># create nomograph</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -272,7 +271,7 @@ discusses block aligment in detail.</p>
     </p>
     <p>
         &copy; Copyright 2015, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
     </p>
   </div>
 </footer>

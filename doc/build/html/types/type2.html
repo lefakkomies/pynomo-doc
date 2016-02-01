@@ -9,8 +9,8 @@
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.1.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -28,7 +28,7 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="pyNomo Documentation 0.3.0 documentation" href="../index.html" />
 <meta charset='utf-8'>
@@ -55,7 +55,6 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -143,7 +142,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="type-2">
 <span id="type2-ref"></span><h1>Type 2<a class="headerlink" href="#type-2" title="Permalink to this headline">¶</a></h1>
@@ -225,55 +224,55 @@ simple example.</p>
 <span class="sd">    Simple nomogram of type 2: F1=F2*F3</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;..&quot;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">N_params_1</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_1$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_1$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
                 <span class="p">}</span>
 
 <span class="n">N_params_2</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">6.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_2$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s">&#39;scale_type&#39;</span><span class="p">:</span><span class="s">&#39;linear smart&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">6.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_2$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span><span class="s1">&#39;linear smart&#39;</span><span class="p">,</span>
                 <span class="p">}</span>
 
 <span class="n">N_params_3</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
-        <span class="s">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-        <span class="s">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s">&#39;title&#39;</span><span class="p">:</span><span class="s">r&#39;$u_3$&#39;</span><span class="p">,</span>
-        <span class="s">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-        <span class="s">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+        <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_3$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
                 <span class="p">}</span>
 
 
 <span class="n">block_1_params</span><span class="o">=</span><span class="p">{</span>
-             <span class="s">&#39;block_type&#39;</span><span class="p">:</span><span class="s">&#39;type_2&#39;</span><span class="p">,</span>
-             <span class="s">&#39;width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-             <span class="s">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-             <span class="s">&#39;f1_params&#39;</span><span class="p">:</span><span class="n">N_params_1</span><span class="p">,</span>
-             <span class="s">&#39;f2_params&#39;</span><span class="p">:</span><span class="n">N_params_2</span><span class="p">,</span>
-             <span class="s">&#39;f3_params&#39;</span><span class="p">:</span><span class="n">N_params_3</span><span class="p">,</span>
-             <span class="s">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">9</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="s">&#39;x&#39;</span><span class="p">]],</span>
+             <span class="s1">&#39;block_type&#39;</span><span class="p">:</span><span class="s1">&#39;type_2&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+             <span class="s1">&#39;height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+             <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span><span class="n">N_params_1</span><span class="p">,</span>
+             <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span><span class="n">N_params_2</span><span class="p">,</span>
+             <span class="s1">&#39;f3_params&#39;</span><span class="p">:</span><span class="n">N_params_3</span><span class="p">,</span>
+             <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">9</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">]],</span>
              <span class="p">}</span>
 
 <span class="n">main_params</span><span class="o">=</span><span class="p">{</span>
-              <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="s">&#39;ex_type2_nomo_1.pdf&#39;</span><span class="p">,</span>
-              <span class="s">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
-              <span class="s">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_1_params</span><span class="p">],</span>
-              <span class="s">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s">&#39;scale paper&#39;</span><span class="p">,)],</span>
-              <span class="s">&#39;title_str&#39;</span><span class="p">:</span><span class="s">r&#39;$u_1=u_2\times u_3$&#39;</span>
+              <span class="s1">&#39;filename&#39;</span><span class="p">:</span><span class="s1">&#39;ex_type2_nomo_1.pdf&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
+              <span class="s1">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_1_params</span><span class="p">],</span>
+              <span class="s1">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s1">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)],</span>
+              <span class="s1">&#39;title_str&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_1=u_2\times u_3$&#39;</span>
               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
@@ -393,7 +392,7 @@ simple example.</p>
     </p>
     <p>
         &copy; Copyright 2015, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
     </p>
   </div>
 </footer>
