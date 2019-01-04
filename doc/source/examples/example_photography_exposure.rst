@@ -137,12 +137,13 @@ In order to construct the nomograph, we split the equation into four blocks and 
     formed into determinant:
 
     .. math::
-        {
+        {{
         \begin{vmatrix}
                 0  & \cos(\phi) & 1 \\
                \frac{\cos(LAT)\cos(D(\gamma(day)))}{1+(\cos(LAT)\cos(D(\gamma(day))))}  & \frac{\sin(LAT)\sin(D(\gamma(day)))}{1+(\cos(LAT)\cos(D(\gamma(day))))} & 1 \\
                1  & -\cos(ha(h)) & 1 \\
-        \end{vmatrix} = 0 }
+        \end{vmatrix} = 0
+        }}
 
     ", "Type 9"
     "
