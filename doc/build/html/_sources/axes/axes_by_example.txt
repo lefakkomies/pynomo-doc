@@ -6,7 +6,7 @@ rendered as a linear scale illustrated below. The range of values axis represent
 and ``u_max``. ``title`` sets title string for the axis. Key part of the nomograph is the functional form of the axis.
 In the example below it is defined with keyword ``function`` and is given as a function. Different types of blocks assume different keywords
 of axis functions. For example types 1, 2 and 3 take keyword ``function`` but type 9 takes either ``f``, ``g``, ``h`` or
-``f_grid``, ``g_grid``, ``h_grid`` keywords. So one have to define axis parameters compatible with the used block type.
+``f_grid``, ``g_grid``, ``h_grid`` keywords. So one must define axis parameters compatible with the used block type.
 In the examples below Type 8 is used as block to taking axis definition because it is the simplest one.
 
 
@@ -125,7 +125,7 @@ Manual arrows can be used to point values in the scale using arrows.
 
 Manual function  (``'function_x'`` and ``'function_y'``)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-If one wants to explicitely draw scale in xy-scace, parameters ``'function_x'`` and ``'function_y'`` can be used
+If one wants to explicitely draw a scale in xy-space, parameters ``'function_x'`` and ``'function_y'`` can be used
 in conjuction with block type 8. In the following example circular scale is drawn.
 
 .. literalinclude:: ./codes/ex_axes_8.py

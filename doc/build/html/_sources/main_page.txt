@@ -34,7 +34,7 @@ following:
     # create nomograph
     Nomographer(main_params)
 
-It is to be noted that nomograph is defined as python dictionaries that
+It is to be noted that a nomograph is defined as python dictionaries that
 constitute one main dictionary that is passed to Nomographer class.
 
 Axes
