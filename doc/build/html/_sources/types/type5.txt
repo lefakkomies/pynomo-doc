@@ -14,7 +14,7 @@ This type of block is used commonly in nomographs that have an equation in form
 .. math::
     f_a(a_1,a_2,a_3,...) = f_b(u,v)
 
-and :math:`f_b(u,v) cannot be represented as line-nomograph.
+and :math::f_b(u,v) cannot be represented as line-nomograph.
 Typically equation above is written as pair of equations:
 
 .. math::
@@ -89,7 +89,7 @@ Block parameters
 ^^^^^^^^^^^^^^^^
 
 .. tabularcolumns:: |p{4cm}|p{4cm}|p{7cm}|
-.. csv-table:: Specific block parameters for type 4
+.. csv-table:: Specific block parameters for type 5
     :header: "parameter", "default value", "explanation"
     :widths: 10, 10, 60
 

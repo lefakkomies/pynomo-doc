@@ -55,7 +55,7 @@ Block parameters
 ^^^^^^^^^^^^^^^^
 
 .. tabularcolumns:: |p{4cm}|p{4cm}|p{7cm}|
-.. csv-table:: Specific block parameters for type 9
+.. csv-table:: Specific block parameters for type 1
     :header: "parameter", "default value", "explanation"
     :widths: 10, 10, 60
 

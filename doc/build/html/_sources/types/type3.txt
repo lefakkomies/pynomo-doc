@@ -23,7 +23,7 @@ Generated nomograph
 ^^^^^^^^^^^^^^^^^^^
 .. image:: images/ex_type3_nomo_1.*
 
-Source code of simple example of type 2
+Source code of simple example of type 3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. literalinclude:: ex_codes/ex_type3_nomo_1.py
     :encoding: latin-1
