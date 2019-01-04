@@ -1,43 +1,33 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Example Photography exposure &mdash; pyNomo Documentation 0.3.0 documentation</title>
-    
+    <title>Example Photography exposure &#8212; pyNomo Documentation 0.3.0 documentation</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '0.3.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.1.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="pyNomo Documentation 0.3.0 documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body role="document">
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,6 +45,7 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -124,7 +115,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="../_sources/examples/photo_part.txt"
+  <a href="../_sources/examples/photo_part.rst.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -146,7 +137,42 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 content">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Example Photography exposure</a><ul>
+<li><a class="reference internal" href="#theory-and-background">Theory and background</a><ul>
+<li><a class="reference internal" href="#shadow-lenght">Shadow lenght</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#construction-of-the-nomograph">Construction of the nomograph</a><ul>
+<li><a class="reference internal" href="#block-1-type-9">Block 1 (Type 9)</a></li>
+<li><a class="reference internal" href="#block-2-type-5">Block 2 (Type 5)</a></li>
+<li><a class="reference internal" href="#block-3-type-5">Block 3 (Type 5)</a></li>
+<li><a class="reference internal" href="#block-4-type-3">Block 4 (Type 3)</a></li>
+<li><a class="reference internal" href="#block-5-type-8">Block 5 (Type 8)</a></li>
+<li><a class="reference internal" href="#block-6-type-1">Block 6 (Type 1)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#generated-nomograph">Generated nomograph</a></li>
+<li><a class="reference internal" href="#source-code">Source code</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="sourcelink">
+  <a href="../_sources/examples/photo_part.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9">
       
   <div class="section" id="example-photography-exposure">
 <h1>Example Photography exposure<a class="headerlink" href="#example-photography-exposure" title="Permalink to this headline">¶</a></h1>
@@ -162,37 +188,37 @@ here. Book uses shadow length, but we break shadow length into time,
 date and latitude via solar zenith angle.</p>
 <p>The basic equation in Setälä (pp.492-494) can be extracted and
 written as</p>
-<div class="math" id="equation-setala1">
-<span class="eqno">(1)</span>\[FS-L-A-W+C+T=0 \,\]</div>
-<p>where parameters of <a href="#equation-setala1">(1)</a> are listed below:</p>
-<table border="1" class="docutils">
+<div class="math notranslate nohighlight">
+\[FS-L-A-W+C+T=0 \,\]</div>
+<p>where parameters of <a class="reference internal" href="example_photography_exposure.html#equation-setala1">(1)</a> are listed below:</p>
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="13%" />
 <col width="25%" />
 <col width="63%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><span class="math">\(FS\,\)</span></td>
+<tr class="row-odd"><td><span class="math notranslate nohighlight">\(FS\,\)</span></td>
 <td>Film speed</td>
-<td>DIN value that equals <span class="math">\(10 \log (S) +1 \,\)</span>,where S is ISO FILM speed</td>
+<td>DIN value that equals <span class="math notranslate nohighlight">\(10 \log (S) +1 \,\)</span>,where S is ISO FILM speed</td>
 </tr>
-<tr class="row-even"><td><span class="math">\(T\,\)</span></td>
+<tr class="row-even"><td><span class="math notranslate nohighlight">\(T\,\)</span></td>
 <td>shutter time</td>
-<td><span class="math">\(10 \log \left( \frac{t}{1/10}\right)\)</span></td>
+<td><span class="math notranslate nohighlight">\(10 \log \left( \frac{t}{1/10}\right)\)</span></td>
 </tr>
-<tr class="row-odd"><td><span class="math">\(A\,\)</span></td>
+<tr class="row-odd"><td><span class="math notranslate nohighlight">\(A\,\)</span></td>
 <td>aperture</td>
-<td><span class="math">\(10 \log \left(\frac{N^2}{3.2^2}\right)\)</span></td>
+<td><span class="math notranslate nohighlight">\(10 \log \left(\frac{N^2}{3.2^2}\right)\)</span></td>
 </tr>
-<tr class="row-even"><td><span class="math">\(L\,\)</span></td>
+<tr class="row-even"><td><span class="math notranslate nohighlight">\(L\,\)</span></td>
 <td>shadow length (in steps)</td>
-<td>two times (shadow length)/(person length) <span class="math">\(= 2 \arctan ( \phi) \,\)</span>, where <span class="math">\(\phi \,\)</span> is solar zenith angle.</td>
+<td>two times (shadow length)/(person length) <span class="math notranslate nohighlight">\(= 2 \arctan ( \phi) \,\)</span>, where <span class="math notranslate nohighlight">\(\phi \,\)</span> is solar zenith angle.</td>
 </tr>
-<tr class="row-odd"><td><span class="math">\(W\,\)</span></td>
+<tr class="row-odd"><td><span class="math notranslate nohighlight">\(W\,\)</span></td>
 <td>weather</td>
 <td>Clear sky, Cumulus clouds: 0, Clear sky: 1, Sun through clouds: 3, Sky light gray: 6, Sky dark gray: 9, Thunder-clouds cover sky: 12</td>
 </tr>
-<tr class="row-even"><td><span class="math">\(C\,\)</span></td>
+<tr class="row-even"><td><span class="math notranslate nohighlight">\(C\,\)</span></td>
 <td>Composition</td>
 <td>Person under trees: -6, Inside forest : -4, Person in shadow of wall : -1, Person at open place; alley under trees : 2, Buildings; street : 5, Landscape and front matter : 7, Open landscape : 9, Snow landscape and front matter; beach : 11,Snow field; open sea : 13, Clouds : 15</td>
 </tr>
@@ -205,39 +231,39 @@ Today we think stops in base-2 logarithmic.</p>
 <p>Calculation of shadow length as a function of day of year, time of day
 and latitude is according to  <a class="footnote-reference" href="#id4" id="id2">[2]</a>. Following equations are used. For
 fractional year (without time information) we take</p>
-<p><span class="math">\(\gamma = (day-1+0.5)2\pi/365. \,\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gamma = (day-1+0.5)2\pi/365. \,\)</span></p>
 <p>For time offset (eqtime) we use equation (in minutes)</p>
-<p><span class="math">\(TO = 229.18(0.000075+0.001868\cos(\gamma)-0.032077\sin(´\gamma)-0.014615\cos(2\gamma)-0.040849\sin(2\gamma)) \,\)</span></p>
+<p><span class="math notranslate nohighlight">\(TO = 229.18(0.000075+0.001868\cos(\gamma)-0.032077\sin(´\gamma)-0.014615\cos(2\gamma)-0.040849\sin(2\gamma)) \,\)</span></p>
 <p>to calculate that error is below 17 minutes for time axis. We assume
 that sun is at heightest point at noon and this is the error and
 approximation. We calculate stops in logarithmic scale and in this case
 we do not need very accurate equations for time. For declination we use
 equation</p>
-<div class="math">
-\[\begin{eqnarray*}
+<div class="math notranslate nohighlight">
+\begin{eqnarray*}
   D=0.006918-0.399912\cos(\gamma)+0.070257\sin(\gamma)-0.006758\cos(2\gamma) \\
   +0.000907\sin(2\gamma)-0.002697\cos(3\gamma)+0.00148\sin(3\gamma)
-\end{eqnarray*}\]</div><p>and for hour angle</p>
-<p><span class="math">\(ha=(60h+\overline{TO})/4-180. \,\)</span></p>
-<p>Solar zenith angle (<span class="math">\(\phi \,\)</span>), latitude (LAT),
+\end{eqnarray*}</div><p>and for hour angle</p>
+<p><span class="math notranslate nohighlight">\(ha=(60h+\overline{TO})/4-180. \,\)</span></p>
+<p>Solar zenith angle (<span class="math notranslate nohighlight">\(\phi \,\)</span>), latitude (LAT),
 declination (D) and hour angle (ha) are connected with equation:</p>
-<p><span class="math">\(\cos (\phi ) = \sin(LAT)sin(D)+\cos(LAT)\cos(D)\cos(ha). \,\)</span></p>
+<p><span class="math notranslate nohighlight">\(\cos (\phi ) = \sin(LAT)sin(D)+\cos(LAT)\cos(D)\cos(ha). \,\)</span></p>
 <p>This is in our desired form as a function of hour (h), day (day),
-latitude (LAT), solar zenith angle (<span class="math">\(\phi \,\)</span>):</p>
-<p><span class="math">\(\cos (\phi ) = \sin(LAT)sin(D(\gamma(day)))+\cos(LAT)\cos(D(\gamma(day)))\cos(ha(h)) \,\)</span>.</p>
+latitude (LAT), solar zenith angle (<span class="math notranslate nohighlight">\(\phi \,\)</span>):</p>
+<p><span class="math notranslate nohighlight">\(\cos (\phi ) = \sin(LAT)sin(D(\gamma(day)))+\cos(LAT)\cos(D(\gamma(day)))\cos(ha(h)) \,\)</span>.</p>
 <p>In practice illuminance of flat surface on earth depends on solar zenith
-angle as <span class="math">\(\cos(\phi)\,\)</span>. Setälä uses shadow length that is
+angle as <span class="math notranslate nohighlight">\(\cos(\phi)\,\)</span>. Setälä uses shadow length that is
 easily measurable, but scales incorrectly, as value is proportional to
-<span class="math">\(\tan(\phi)\,\)</span>. Also Setälä sums linear value with
+<span class="math notranslate nohighlight">\(\tan(\phi)\,\)</span>. Also Setälä sums linear value with
 logarithmic ones as a practical approximation. To correct these
 assumptions, here we assume that values for shadow length 1 and 10 for Setälä
 are reasonable, and an equation that scales logarithmically is found:</p>
-<p><span class="math">\(L = 0.33766 - 13.656 \log10 (\cos(\phi)) \,\)</span></p>
-<p>that gives <span class="math">\(L=1\,\)</span> for <span class="math">\(\phi = 26.565 =\arctan(1/2)\,\)</span> and <span class="math">\(L=10\,\)</span> for <span class="math">\(\phi = 78.69 =\arctan(10/2).\,\)</span></p>
+<p><span class="math notranslate nohighlight">\(L = 0.33766 - 13.656 \log10 (\cos(\phi)) \,\)</span></p>
+<p>that gives <span class="math notranslate nohighlight">\(L=1\,\)</span> for <span class="math notranslate nohighlight">\(\phi = 26.565 =\arctan(1/2)\,\)</span> and <span class="math notranslate nohighlight">\(L=10\,\)</span> for <span class="math notranslate nohighlight">\(\phi = 78.69 =\arctan(10/2).\,\)</span></p>
 <table class="docutils footnote" frame="void" id="id3" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Vilho Setälä: &#8220;Valokuvaus&#8221;, Otava 1940.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Vilho Setälä: “Valokuvaus”, Otava 1940.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id4" rules="none">
@@ -251,17 +277,17 @@ are reasonable, and an equation that scales logarithmically is found:</p>
 <div class="section" id="construction-of-the-nomograph">
 <h2>Construction of the nomograph<a class="headerlink" href="#construction-of-the-nomograph" title="Permalink to this headline">¶</a></h2>
 <p>The presented equation is the following:</p>
-<div class="math">
-\[\begin{eqnarray*}
+<div class="math notranslate nohighlight">
+\begin{eqnarray*}
     FS - \{0.33766 - 13.656 \log_{10}[ \sin(LAT)\sin(D(\gamma(day)))+\cos(LAT)\cos(D(\gamma(day)))\cos(ha(h))]\}\\
     - A - W + C + T = 0.
-\end{eqnarray*}\]</div><p>In order to construct the nomograph, we split the equation into four blocks and an additional block to present values as EV100.</p>
+\end{eqnarray*}</div><p>In order to construct the nomograph, we split the equation into four blocks and an additional block to present values as EV100.</p>
 <div class="section" id="block-1-type-9">
 <h3>Block 1 (Type 9)<a class="headerlink" href="#block-1-type-9" title="Permalink to this headline">¶</a></h3>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[x_1 \equiv \cos(\phi)=\sin(LAT)sin(D(\gamma(day)))+\cos(LAT)\cos(D(\gamma(day)))\cos(ha(h))\,\]</div>
 <p>formed into determinant:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{vmatrix}
  0  &amp; \cos(\phi) &amp; 1\\
 \frac{\cos(LAT)\cos(D(\gamma(day)))}{1+(\cos(LAT)\cos(D(\gamma(day))))}  &amp; \frac{\sin(LAT)\sin(D(\gamma(day)))}{1+(\cos(LAT)\cos(D(\gamma(day))))} &amp;1\\
@@ -271,51 +297,51 @@ are reasonable, and an equation that scales logarithmically is found:</p>
 </div>
 <div class="section" id="block-2-type-5">
 <h3>Block 2 (Type 5)<a class="headerlink" href="#block-2-type-5" title="Permalink to this headline">¶</a></h3>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[C_1 \equiv L+W = 0.006918-13.656 \log_{10}(x_1)+W \,\]</div>
 <p>split into two equations for contour construction:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[y_1 = C_1 \,\]</div>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[y_1 = 0.006918-13.656  \log_{10}(x_1)+W \,\]</div>
 </div>
 <div class="section" id="block-3-type-5">
 <h3>Block 3 (Type 5)<a class="headerlink" href="#block-3-type-5" title="Permalink to this headline">¶</a></h3>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[C_2 \equiv L+W+C = C_1+C \,\]</div>
 <p>split into two equations for contour construction:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[y_2 = C_2 \,\]</div>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[y_2 = C_1+C \,\]</div>
 </div>
 <div class="section" id="block-4-type-3">
 <h3>Block 4 (Type 3)<a class="headerlink" href="#block-4-type-3" title="Permalink to this headline">¶</a></h3>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[C_2 = FS-A+T \,\]</div>
 <p>equals</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[C_2 -(10 \log_{10}(S)+1.0)+10 \log_{10}\left(\frac{N^2}{3.2^2} \right)-10 \log_{10}\left( \frac{1/t_i}{1/10}\right)=0, \,\]</div>
 <p>where</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[t_i\equiv 1/t \,\]</div>
 <p>is inverse shutter time.</p>
 </div>
 <div class="section" id="block-5-type-8">
 <h3>Block 5 (Type 8)<a class="headerlink" href="#block-5-type-8" title="Permalink to this headline">¶</a></h3>
 <p>Additional EV100 scale by using relation</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[C_2 =(-EV_{100}+13.654)/0.3322 \,\]</div>
 </div>
 <div class="section" id="block-6-type-1">
 <h3>Block 6 (Type 1)<a class="headerlink" href="#block-6-type-1" title="Permalink to this headline">¶</a></h3>
 <p>Maximum focal length calculator according to equation</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[t_i / f = FL\]</div>
 <p>written as</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[-10 \log_{10}\left( \frac{1/t_i}{1/10}\right)-10 \log_{10}\left( \frac{f}{10} \right)  -10 \log_{10}\left( FL \right)=0\]</div>
-<p>in order to align correctly with previous equation.  The values for the factor <span class="math">\(f\,\)</span>  are: DSLR (3/2), 35mm (1),
+<p>in order to align correctly with previous equation.  The values for the factor <span class="math notranslate nohighlight">\(f\,\)</span>  are: DSLR (3/2), 35mm (1),
 DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
 </div>
 </div>
@@ -325,7 +351,7 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
 </div>
 <div class="section" id="source-code">
 <h2>Source code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
   2
   3
   4
@@ -741,14 +767,14 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
 414
 415
 416
-417</pre></div></td><td class="code"><div class="highlight"><pre><span class="sd">&quot;&quot;&quot;</span>
+417</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    ex_photo_exposure.py</span>
 
 <span class="sd">    Photgraph exposure.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="k">import</span> <span class="o">*</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">functions for solartime taken from solareqns.pdf from</span>
 <span class="sd">http://www.srrb.noaa.gov/highlights/sunrise/solareqns.PDF</span>
@@ -821,7 +847,7 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
               <span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="n">f1</span><span class="p">,</span>
               <span class="s1">&#39;g&#39;</span><span class="p">:</span> <span class="n">g1</span><span class="p">,</span>
               <span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
-              <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">r&#39;Solar zenith angle $\phi$&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Solar zenith angle $\phi$&#39;</span><span class="p">,</span>
               <span class="s1">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
               <span class="s1">&#39;title_y_shift&#39;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
               <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;linear smart&#39;</span><span class="p">,</span>
@@ -829,7 +855,7 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
               <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
               <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span>
               <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;phi&#39;</span><span class="p">,</span>
-              <span class="s1">&#39;grid&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+              <span class="s1">&#39;grid&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
               <span class="p">}</span>
 <span class="n">time_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
                <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">23.0</span><span class="p">,</span>
@@ -838,7 +864,7 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
                <span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="n">f3</span><span class="p">,</span>
                <span class="s1">&#39;g&#39;</span><span class="p">:</span> <span class="n">g3</span><span class="p">,</span>
                <span class="s1">&#39;h&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
-               <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">r&#39;Hour (h)&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Hour (h)&#39;</span><span class="p">,</span>
                <span class="s1">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
                <span class="s1">&#39;title_y_shift&#39;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
                <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span>
@@ -846,7 +872,7 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
                <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
                <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span>
                <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span>
-               <span class="s1">&#39;grid&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+               <span class="s1">&#39;grid&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
                <span class="p">}</span>
 <span class="n">lat_day_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span>  <span class="c1"># to identify the axis</span>
                   <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span>  <span class="c1"># for aligning block wrt others</span>
@@ -854,7 +880,7 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
                   <span class="s1">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
                   <span class="s1">&#39;title_y_shift&#39;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
                   <span class="s1">&#39;title_distance_center&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
-                  <span class="s1">&#39;title_opposite_tick&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                  <span class="s1">&#39;title_opposite_tick&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                   <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>  <span class="c1"># for alignment</span>
                   <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">80.0</span><span class="p">,</span>  <span class="c1"># for alignment</span>
                   <span class="s1">&#39;f_grid&#39;</span><span class="p">:</span> <span class="n">f2</span><span class="p">,</span>
@@ -868,20 +894,20 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
                   <span class="s1">&#39;u_texts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;40&#39;</span><span class="p">,</span> <span class="s1">&#39;50&#39;</span><span class="p">,</span> <span class="s1">&#39;Latitude = 60&#39;</span><span class="p">,</span> <span class="s1">&#39;70&#39;</span><span class="p">,</span> <span class="s1">&#39;80&#39;</span><span class="p">],</span>
                   <span class="s1">&#39;v_values&#39;</span><span class="p">:</span> <span class="n">times1</span><span class="p">,</span>
                   <span class="s1">&#39;v_texts&#39;</span><span class="p">:</span> <span class="n">time_titles</span><span class="p">,</span>
-                  <span class="s1">&#39;grid&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
-                  <span class="s1">&#39;text_prefix_u&#39;</span><span class="p">:</span> <span class="s1">r&#39;&#39;</span><span class="p">,</span>
-                  <span class="s1">&#39;text_prefix_v&#39;</span><span class="p">:</span> <span class="s1">r&#39;&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;grid&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                  <span class="s1">&#39;text_prefix_u&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;text_prefix_v&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
                   <span class="s1">&#39;text_distance&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
-                  <span class="s1">&#39;v_texts_u_start&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
-                  <span class="s1">&#39;v_texts_u_stop&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
-                  <span class="s1">&#39;u_texts_v_start&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
-                  <span class="s1">&#39;u_texts_v_stop&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                  <span class="s1">&#39;v_texts_u_start&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                  <span class="s1">&#39;v_texts_u_stop&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                  <span class="s1">&#39;u_texts_v_start&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                  <span class="s1">&#39;u_texts_v_stop&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                   <span class="p">}</span>
 <span class="n">block_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;block_type&#39;</span><span class="p">:</span> <span class="s1">&#39;type_9&#39;</span><span class="p">,</span>
                 <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span> <span class="n">phi_params</span><span class="p">,</span>
                 <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span> <span class="n">lat_day_params</span><span class="p">,</span>
                 <span class="s1">&#39;f3_params&#39;</span><span class="p">:</span> <span class="n">time_params</span><span class="p">,</span>
-                <span class="s1">&#39;transform_ini&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                <span class="s1">&#39;transform_ini&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                 <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="n">times1</span><span class="p">[</span><span class="mi">4</span><span class="p">]],</span> <span class="mf">14.0</span><span class="p">]]</span>
                 <span class="p">}</span>
 
@@ -909,7 +935,7 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
                         <span class="s1">&#39;v_manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Clear sky, Cumulus clouds&#39;</span><span class="p">,</span>
                                                      <span class="p">{</span><span class="s1">&#39;x_corr&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
                                                       <span class="s1">&#39;y_corr&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
-                                                      <span class="s1">&#39;draw_line&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">}],</span>
+                                                      <span class="s1">&#39;draw_line&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}],</span>
                                                <span class="mf">1.0</span><span class="p">:</span> <span class="s1">&#39;Clear sky&#39;</span><span class="p">,</span>
                                                <span class="mf">3.0</span><span class="p">:</span> <span class="s1">&#39;Sun through clouds&#39;</span><span class="p">,</span>
                                                <span class="mf">6.0</span><span class="p">:</span> <span class="s1">&#39;Sky light gray&#39;</span><span class="p">,</span>
@@ -920,24 +946,24 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
                         <span class="s1">&#39;wd_tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
                         <span class="s1">&#39;wd_tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span>
                         <span class="s1">&#39;wd_title&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-                        <span class="s1">&#39;manual_x_scale&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                        <span class="s1">&#39;manual_x_scale&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                         <span class="s1">&#39;x_min&#39;</span><span class="p">:</span> <span class="mf">0.06</span><span class="p">,</span>
                         <span class="s1">&#39;x_max&#39;</span><span class="p">:</span> <span class="mf">0.99</span><span class="p">,</span>
                         <span class="s1">&#39;u_title&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
                         <span class="s1">&#39;v_title&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-                        <span class="s1">&#39;wd_title_opposite_tick&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                        <span class="s1">&#39;wd_title_opposite_tick&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                         <span class="s1">&#39;wd_title_distance_center&#39;</span><span class="p">:</span> <span class="mf">2.5</span><span class="p">,</span>
                         <span class="s1">&#39;wd_align_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">L</span><span class="p">:</span> <span class="n">acos</span><span class="p">(</span><span class="n">limit_xx</span><span class="p">(</span><span class="mf">10.0</span><span class="o">**</span><span class="p">((</span><span class="n">L</span> <span class="o">-</span> <span class="n">const_A</span><span class="p">)</span> <span class="o">/</span> <span class="n">const_B</span><span class="p">)))</span> <span class="o">*</span> <span class="mf">180.0</span> <span class="o">/</span> <span class="n">pi</span><span class="p">,</span>  <span class="c1"># phi as L</span>
                         <span class="s1">&#39;wd_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">L</span><span class="p">:</span> <span class="mf">10.0</span><span class="o">**</span><span class="p">((</span><span class="n">L</span> <span class="o">-</span> <span class="n">const_A</span><span class="p">)</span> <span class="o">/</span> <span class="n">const_B</span><span class="p">),</span>  <span class="c1"># x as L</span>
                         <span class="s1">&#39;wd_func_inv&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">const_A</span><span class="o">+</span><span class="n">const_B</span> <span class="o">*</span> <span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>  <span class="c1"># L as x</span>
                         <span class="s1">&#39;wd_tag&#39;</span><span class="p">:</span> <span class="s1">&#39;phi&#39;</span><span class="p">,</span>
-                        <span class="s1">&#39;mirror_y&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
-                        <span class="s1">&#39;mirror_x&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                        <span class="s1">&#39;mirror_y&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                        <span class="s1">&#39;mirror_x&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
                         <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
                         <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
-                        <span class="s1">&#39;u_scale_opposite&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                        <span class="s1">&#39;u_scale_opposite&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                         <span class="s1">&#39;u_tag&#39;</span><span class="p">:</span> <span class="s1">&#39;AA&#39;</span><span class="p">,</span>
-                        <span class="s1">&#39;horizontal_guides&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                        <span class="s1">&#39;horizontal_guides&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                         <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">]],</span>
                         <span class="p">}</span>
 <span class="n">block_params_scene</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;block_type&#39;</span><span class="p">:</span> <span class="s1">&#39;type_5&#39;</span><span class="p">,</span>
@@ -966,17 +992,17 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
                       <span class="s1">&#39;wd_title&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
                       <span class="s1">&#39;u_title&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
                       <span class="s1">&#39;v_title&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-                      <span class="s1">&#39;wd_title_opposite_tick&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                      <span class="s1">&#39;wd_title_opposite_tick&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                       <span class="s1">&#39;wd_title_distance_center&#39;</span><span class="p">:</span> <span class="mf">2.5</span><span class="p">,</span>
-                      <span class="s1">&#39;mirror_x&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
-                      <span class="s1">&#39;horizontal_guides&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                      <span class="s1">&#39;mirror_x&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                      <span class="s1">&#39;horizontal_guides&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                       <span class="s1">&#39;u_align_y_offset&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.9</span><span class="p">,</span>
                       <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">]],</span>
                       <span class="p">}</span>
 <span class="n">camera_params_1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">10.0</span><span class="p">,</span>
                    <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">15.0</span><span class="p">,</span>
                    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
-                   <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">r&#39;&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
                    <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
                    <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
                    <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;EV&#39;</span><span class="p">,</span>
@@ -984,7 +1010,7 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
 <span class="n">camera_params_2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
                    <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">25600.0</span><span class="p">,</span>
                    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">S</span><span class="p">:</span> <span class="o">-</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="n">log10</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">),</span>
-                   <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">r&#39;Film speed&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Film speed&#39;</span><span class="p">,</span>
                    <span class="s1">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">10.0</span><span class="p">:</span> <span class="s1">&#39;ISO 10&#39;</span><span class="p">,</span>
                                         <span class="mf">20.0</span><span class="p">:</span> <span class="s1">&#39;ISO 20&#39;</span><span class="p">,</span>
                                         <span class="mf">50.0</span><span class="p">:</span> <span class="s1">&#39;ISO 50&#39;</span><span class="p">,</span>
@@ -1031,8 +1057,8 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
                                         <span class="mf">10000.0</span><span class="p">:</span> <span class="s1">&#39;1/10000&#39;</span><span class="p">,</span>
                              <span class="p">},</span>
                    <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;manual line&#39;</span><span class="p">,</span>
-                   <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">r&#39;t (s)&#39;</span><span class="p">,</span>
-                   <span class="s1">&#39;text_format&#39;</span><span class="p">:</span> <span class="s2">r&quot;1/</span><span class="si">%3.0f</span><span class="s2"> s&quot;</span><span class="p">,</span>
+                   <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;t (s)&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;text_format&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;1/</span><span class="si">%3.0f</span><span class="s2"> s&quot;</span><span class="p">,</span>
                    <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;shutter&#39;</span><span class="p">,</span>
                    <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
                    <span class="p">}</span>
@@ -1060,14 +1086,14 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
                                         <span class="mf">22.0</span> <span class="p">:</span><span class="s1">&#39;$f$/22&#39;</span><span class="p">,</span>
                                         <span class="p">},</span>
                    <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;manual line&#39;</span><span class="p">,</span>
-                   <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">r&#39;Aperture&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Aperture&#39;</span><span class="p">,</span>
                    <span class="p">}</span>
 <span class="n">block_params_camera</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;block_type&#39;</span><span class="p">:</span> <span class="s1">&#39;type_3&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
                        <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
                        <span class="s1">&#39;f_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">camera_params_1</span><span class="p">,</span> <span class="n">camera_params_2</span><span class="p">,</span> <span class="n">camera_params_3</span><span class="p">,</span>
                                     <span class="n">camera_params_4</span><span class="p">],</span>
-                       <span class="s1">&#39;mirror_x&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                       <span class="s1">&#39;mirror_x&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                        <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]],</span>
                        <span class="p">}</span>
 
@@ -1079,7 +1105,7 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
            <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span>
            <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">19.0</span><span class="p">,</span>
            <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">old_EV</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
-           <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">r&#39;EV$_{100}$&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;EV$_</span><span class="si">{100}</span><span class="s1">$&#39;</span><span class="p">,</span>
            <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
            <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
            <span class="s1">&#39;align_func&#39;</span><span class="p">:</span> <span class="n">old_EV</span><span class="p">,</span>
@@ -1097,14 +1123,14 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
            <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span>
            <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
            <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-           <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">r&#39;t (s)&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;text_format&#39;</span><span class="p">:</span> <span class="s2">r&quot;1/</span><span class="si">%3.0f</span><span class="s2"> s&quot;</span><span class="p">,</span>
+           <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;t (s)&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;text_format&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;1/</span><span class="si">%3.0f</span><span class="s2"> s&quot;</span><span class="p">,</span>
            <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;shutter&#39;</span><span class="p">,</span>
            <span class="p">}</span>
 <span class="n">FL_factor_params_2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span>
                       <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">3.0</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span>
                       <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">factor</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span> <span class="o">*</span> <span class="n">log10</span><span class="p">(</span><span class="n">factor</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">0</span><span class="p">,</span>
-                      <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">r&#39;Sensor, IS&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Sensor, IS&#39;</span><span class="p">,</span>
                       <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;manual point&#39;</span><span class="p">,</span>
                       <span class="s1">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">):</span> <span class="s1">&#39;DSLR&#39;</span><span class="p">,</span>
                                            <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span><span class="p">):</span> <span class="s1">&#39;35mm&#39;</span><span class="p">,</span>
@@ -1117,7 +1143,7 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
 <span class="n">FL_fl_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>
                 <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">1000.0</span><span class="p">,</span>
                 <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">FL</span><span class="p">:</span><span class="o">-</span><span class="mi">10</span> <span class="o">*</span> <span class="n">log10</span><span class="p">(</span><span class="n">FL</span><span class="p">)</span> <span class="o">+</span> <span class="mi">30</span><span class="p">,</span>
-                <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">r&#39;Max focal length&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Max focal length&#39;</span><span class="p">,</span>
                 <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
                 <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
                 <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
@@ -1141,7 +1167,7 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
                    <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span> <span class="n">FL_t_para</span><span class="p">,</span>
                    <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span> <span class="n">FL_factor_params_2</span><span class="p">,</span>
                    <span class="s1">&#39;f3_params&#39;</span><span class="p">:</span> <span class="n">FL_fl_params</span><span class="p">,</span>
-                   <span class="s1">&#39;mirror_x&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                   <span class="s1">&#39;mirror_x&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                    <span class="s1">&#39;proportion&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
                    <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">8.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">),</span> <span class="s1">&#39;x&#39;</span><span class="p">]],</span>
                    <span class="p">}</span>
@@ -1155,7 +1181,7 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
                <span class="s1">&#39;title_x&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
                <span class="s1">&#39;title_y&#39;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>
                <span class="s1">&#39;title_box_width&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-               <span class="s1">&#39;title_str&#39;</span><span class="p">:</span> <span class="s1">r&#39;\LARGE Photography exposure (Setala 1940) \par \copyright Leif Roschier  2009 &#39;</span>
+               <span class="s1">&#39;title_str&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\LARGE Photography exposure (Setala 1940) \par \copyright Leif Roschier  2009 &#39;</span>
               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
@@ -1176,7 +1202,7 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
     </p>
     <p>
         &copy; Copyright 2015, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.<br/>
     </p>
   </div>
 </footer>

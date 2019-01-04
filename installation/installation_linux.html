@@ -1,43 +1,33 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Python 2.7.x Linux installation &mdash; pyNomo Documentation 0.3.0 documentation</title>
-    
+    <title>Python 2.7.x Linux installation &#8212; pyNomo Documentation 0.3.0 documentation</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '0.3.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.1.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="pyNomo Documentation 0.3.0 documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body role="document">
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,6 +45,7 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -107,7 +98,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="../_sources/installation/installation_linux.txt"
+  <a href="../_sources/installation/installation_linux.rst.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -129,14 +120,32 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 content">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Python 2.7.x Linux installation</a></li>
+</ul>
+
+<div id="sourcelink">
+  <a href="../_sources/installation/installation_linux.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9">
       
   <div class="section" id="python-2-7-x-linux-installation">
 <h1>Python 2.7.x Linux installation<a class="headerlink" href="#python-2-7-x-linux-installation" title="Permalink to this headline">¶</a></h1>
 <p>In <a class="reference external" href="https://www.debian.org">Debian</a>
 Linux distribution and in its <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_Linux_distributions">derivatives</a> (for example <a class="reference external" href="http://ubuntu.com/">Ubuntu</a>  and <a class="reference external" href="https://www.raspbian.org">Raspbian</a>) pynomo can be installed using <cite>apt-get</cite> with the following commands.
-<cite>sudo</cite> runs the commands as super-user and requires it&#8217;s password to be given.</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ sudo apt-get -y install python
+<cite>sudo</cite> runs the commands as super-user and requires it’s password to be given.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get -y install python
 $ sudo apt-get -y install python-pyx
 $ sudo apt-get -y install python-pip
 $ sudo apt-get -y install python-numpy
@@ -159,7 +168,7 @@ $ sudo pip install pynomo
     </p>
     <p>
         &copy; Copyright 2015, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.<br/>
     </p>
   </div>
 </footer>

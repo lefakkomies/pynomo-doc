@@ -1,43 +1,33 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Type 1 &mdash; pyNomo Documentation 0.3.0 documentation</title>
-    
+    <title>Type 1 &#8212; pyNomo Documentation 0.3.0 documentation</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '0.3.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.1.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="pyNomo Documentation 0.3.0 documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body role="document">
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,6 +45,7 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -120,7 +111,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="../_sources/types/type1.txt"
+  <a href="../_sources/types/type1.rst.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -142,12 +133,43 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 content">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Type 1</a><ul>
+<li><a class="reference internal" href="#simple-example">Simple example</a><ul>
+<li><a class="reference internal" href="#generated-nomograph">Generated nomograph</a></li>
+<li><a class="reference internal" href="#source-code-of-simple-example-of-type-1">Source code of simple example of type 1</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#parameters-for-type-1">Parameters for type 1</a><ul>
+<li><a class="reference internal" href="#axis-parameters">Axis parameters</a></li>
+<li><a class="reference internal" href="#block-parameters">Block parameters</a></li>
+<li><a class="reference internal" href="#general-parameters">General parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="sourcelink">
+  <a href="../_sources/types/type1.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9">
       
   <div class="section" id="type-1">
 <span id="type1-ref"></span><h1>Type 1<a class="headerlink" href="#type-1" title="Permalink to this headline">¶</a></h1>
 <p>Type 1 is three parallel lines that have functional relationship:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[F_1(u_1)+F_2(u_2)+F_3(u_3)=0\]</div>
 <p>Note, that this kind of function can be transformed to many forms by using type 8 that
 is a equation given in determinant form. Use of this nomograph is given by the following
@@ -155,7 +177,7 @@ simple example.</p>
 <div class="section" id="simple-example">
 <h2>Simple example<a class="headerlink" href="#simple-example" title="Permalink to this headline">¶</a></h2>
 <p>This simple example plots nomograph for equation:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[u_1 + u_2 + u_3 = 0.\]</div>
 <div class="section" id="generated-nomograph">
 <h3>Generated nomograph<a class="headerlink" href="#generated-nomograph" title="Permalink to this headline">¶</a></h3>
@@ -163,7 +185,7 @@ simple example.</p>
 </div>
 <div class="section" id="source-code-of-simple-example-of-type-1">
 <h3>Source code of simple example of type 1<a class="headerlink" href="#source-code-of-simple-example-of-type-1" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -220,7 +242,7 @@ simple example.</p>
 55
 56
 57
-58</pre></div></td><td class="code"><div class="highlight"><pre><span class="sd">&quot;&quot;&quot;</span>
+58</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    ex_type1_nomo_1.py</span>
 
 <span class="sd">    Simple nomogram of type 1: F1+F2+F3=0</span>
@@ -228,13 +250,13 @@ simple example.</p>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
 <span class="c1">#sys.path[:0] = [&quot;..&quot;]</span>
-<span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="k">import</span> <span class="o">*</span>
 
 <span class="n">N_params_1</span><span class="o">=</span><span class="p">{</span>
         <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
         <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
         <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_1$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="sa">r</span><span class="s1">&#39;$u_1$&#39;</span><span class="p">,</span>
         <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
         <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
                 <span class="p">}</span>
@@ -243,7 +265,7 @@ simple example.</p>
         <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
         <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
         <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_2$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="sa">r</span><span class="s1">&#39;$u_2$&#39;</span><span class="p">,</span>
         <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
         <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
                 <span class="p">}</span>
@@ -252,7 +274,7 @@ simple example.</p>
         <span class="s1">&#39;u_min&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
         <span class="s1">&#39;u_max&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">10.0</span><span class="p">,</span>
         <span class="s1">&#39;function&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span><span class="n">u</span><span class="p">,</span>
-        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_3$&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="sa">r</span><span class="s1">&#39;$u_3$&#39;</span><span class="p">,</span>
         <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
         <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
                 <span class="p">}</span>
@@ -274,8 +296,8 @@ simple example.</p>
               <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span>
               <span class="s1">&#39;block_params&#39;</span><span class="p">:[</span><span class="n">block_1_params</span><span class="p">],</span>
               <span class="s1">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s1">&#39;rotate&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)],</span>
-              <span class="s1">&#39;title_str&#39;</span><span class="p">:</span><span class="s1">r&#39;$u_1+u_2+u_3=0$&#39;</span><span class="p">,</span>
-              <span class="s1">&#39;debug&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
+              <span class="s1">&#39;title_str&#39;</span><span class="p">:</span><span class="sa">r</span><span class="s1">&#39;$u_1+u_2+u_3=0$&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;debug&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span>
               <span class="p">}</span>
 <span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
@@ -286,7 +308,7 @@ simple example.</p>
 <h2>Parameters for type 1<a class="headerlink" href="#parameters-for-type-1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="axis-parameters">
 <h3>Axis parameters<a class="headerlink" href="#axis-parameters" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="docutils" id="id1">
+<table border="1" class="colwidths-given docutils" id="id1">
 <caption><span class="caption-text">Specific axis parameters for type 1</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="13%" />
@@ -300,25 +322,25 @@ simple example.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'function'</span></code></td>
-<td>&#8211;</td>
-<td><strong>func(u).</strong> Function in equation For example <code class="docutils literal"><span class="pre">lambda</span> <span class="pre">u:</span> <span class="pre">u</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'function'</span></code></td>
+<td>–</td>
+<td><strong>func(u).</strong> Function in equation For example <code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">u:</span> <span class="pre">u</span></code></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'u_min'</span></code></td>
-<td>&#8211;</td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'u_min'</span></code></td>
+<td>–</td>
 <td><strong>Float.</strong> Minimum value of function variable.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'u_max'</span></code></td>
-<td>&#8211;</td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'u_max'</span></code></td>
+<td>–</td>
 <td><strong>Float.</strong> Maximum value of function variable.</td>
 </tr>
 </tbody>
 </table>
-<p>See <a class="reference internal" href="../axes/axes.html#common-axis-params"><span>Common axis params</span></a> for other parameters.</p>
+<p>See <a class="reference internal" href="../axes/axes.html#common-axis-params"><span class="std std-ref">Common axis params</span></a> for other parameters.</p>
 </div>
 <div class="section" id="block-parameters">
 <h3>Block parameters<a class="headerlink" href="#block-parameters" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="docutils" id="id2">
+<table border="1" class="colwidths-given docutils" id="id2">
 <caption><span class="caption-text">Specific block parameters for type 9</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="13%" />
@@ -332,52 +354,52 @@ simple example.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'block_type'</span></code></td>
-<td><code class="docutils literal"><span class="pre">'type_1'</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'block_type'</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">'type_1'</span></code></td>
 <td><strong>String.</strong> This is type 1 block</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'width'</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'width'</span></code></td>
 <td>10.0</td>
 <td><strong>Float.</strong> Block width (to be scaled)</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'height'</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'height'</span></code></td>
 <td>10.0</td>
 <td><strong>Float.</strong> Block height (to be scaled)</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'f1_params'</span></code></td>
-<td>&#8211;</td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'f1_params'</span></code></td>
+<td>–</td>
 <td><strong>Axis params Dict.</strong> Axis params for function f1</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'f2_params'</span></code></td>
-<td>&#8211;</td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'f2_params'</span></code></td>
+<td>–</td>
 <td><strong>Axis params Dict.</strong> Axis params for function f2</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'f3_params'</span></code></td>
-<td>&#8211;</td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'f3_params'</span></code></td>
+<td>–</td>
 <td><strong>Axis params Dict.</strong> Axis params for function f3</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'mirror_x'</span></code></td>
-<td><code class="docutils literal"><span class="pre">False</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'mirror_x'</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">False</span></code></td>
 <td><strong>Boolean.</strong> If x-axis is mirrored</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'mirror_y'</span></code></td>
-<td><code class="docutils literal"><span class="pre">False</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'mirror_y'</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">False</span></code></td>
 <td><strong>Boolean.</strong> If y-axis is mirrored</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">'proportion'</span></code></td>
-<td><code class="docutils literal"><span class="pre">1.0</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'proportion'</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">1.0</span></code></td>
 <td><strong>Float.</strong> Factor for spacings between lines</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'isopleth_values'</span></code></td>
-<td><code class="docutils literal"><span class="pre">[[]]</span></code></td>
-<td>** List of list of isopleth values.** Unknown values are given with strings, e.g. &#8216;x&#8217;. An example:<code class="docutils literal"><span class="pre">[[0.8,</span> <span class="pre">0.1,</span> <span class="pre">'x'],</span> <span class="pre">['x',</span> <span class="pre">0.2,</span> <span class="pre">1.0]]</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'isopleth_values'</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">[[]]</span></code></td>
+<td>** List of list of isopleth values.** Unknown values are given with strings, e.g. ‘x’. An example:<code class="docutils literal notranslate"><span class="pre">[[0.8,</span> <span class="pre">0.1,</span> <span class="pre">'x'],</span> <span class="pre">['x',</span> <span class="pre">0.2,</span> <span class="pre">1.0]]</span></code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="general-parameters">
 <h3>General parameters<a class="headerlink" href="#general-parameters" title="Permalink to this headline">¶</a></h3>
-<p>See <a class="reference internal" href="../main_params.html#main-params"><span>Main params</span></a> for top level main parameters.</p>
+<p>See <a class="reference internal" href="../main_params.html#main-params"><span class="std std-ref">Main params</span></a> for top level main parameters.</p>
 </div>
 </div>
 </div>
@@ -395,7 +417,7 @@ simple example.</p>
     </p>
     <p>
         &copy; Copyright 2015, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.<br/>
     </p>
   </div>
 </footer>

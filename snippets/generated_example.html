@@ -1,43 +1,33 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Examples &mdash; pyNomo Documentation 0.3.0 documentation</title>
-    
+    <title>Examples &#8212; pyNomo Documentation 0.3.0 documentation</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '0.3.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.1.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="pyNomo Documentation 0.3.0 documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body role="document">
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,6 +45,7 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -119,7 +110,7 @@
 <li><a class="reference internal" href="#customization">Customization</a><ul>
 <li><a class="reference internal" href="#theme-options">Theme Options</a></li>
 <li><a class="reference internal" href="#bootstrap-versions">Bootstrap Versions</a></li>
-<li><a class="reference internal" href="#extending-layout-html">Extending &#8220;layout.html&#8221;</a></li>
+<li><a class="reference internal" href="#extending-layout-html">Extending “layout.html”</a></li>
 <li><a class="reference internal" href="#adding-custom-css">Adding Custom CSS</a></li>
 </ul>
 </li>
@@ -146,7 +137,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="../_sources/snippets/generated_example.txt"
+  <a href="../_sources/snippets/generated_example.rst.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -168,7 +159,64 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 content">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Examples</a><ul>
+<li><a class="reference internal" href="#headings">Headings</a><ul>
+<li><a class="reference internal" href="#sub-heading">Sub-Heading</a><ul>
+<li><a class="reference internal" href="#sub-sub-heading">Sub-Sub-Heading</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#code">Code</a></li>
+<li><a class="reference internal" href="#admonitions">Admonitions</a><ul>
+<li><a class="reference internal" href="#note">Note</a></li>
+<li><a class="reference internal" href="#todo">Todo</a></li>
+<li><a class="reference internal" href="#warning">Warning</a></li>
+<li><a class="reference internal" href="#danger">Danger</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#footnotes">Footnotes</a></li>
+<li><a class="reference internal" href="#tables">Tables</a><ul>
+<li><a class="reference internal" href="#grid">Grid</a></li>
+<li><a class="reference internal" href="#simple">Simple</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#code-documentation">Code Documentation</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#customization">Customization</a><ul>
+<li><a class="reference internal" href="#theme-options">Theme Options</a></li>
+<li><a class="reference internal" href="#bootstrap-versions">Bootstrap Versions</a></li>
+<li><a class="reference internal" href="#extending-layout-html">Extending “layout.html”</a></li>
+<li><a class="reference internal" href="#adding-custom-css">Adding Custom CSS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#theme-notes">Theme Notes</a><ul>
+<li><a class="reference internal" href="#sphinx">Sphinx</a></li>
+<li><a class="reference internal" href="#bootstrap">Bootstrap</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contributing">Contributing</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="sourcelink">
+  <a href="../_sources/snippets/generated_example.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9">
       
   <div class="section" id="examples">
 <h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
@@ -177,24 +225,24 @@ view the <a class="reference external" href="./_sources/examples.txt">source</a>
 reStructuredText used to create these examples.</p>
 <div class="section" id="headings">
 <h2>Headings<a class="headerlink" href="#headings" title="Permalink to this headline">¶</a></h2>
-<p>This is a first level heading (<code class="docutils literal"><span class="pre">h1</span></code>).</p>
+<p>This is a first level heading (<code class="docutils literal notranslate"><span class="pre">h1</span></code>).</p>
 <div class="section" id="sub-heading">
 <h3>Sub-Heading<a class="headerlink" href="#sub-heading" title="Permalink to this headline">¶</a></h3>
-<p>This is a second level heading (<code class="docutils literal"><span class="pre">h2</span></code>).</p>
+<p>This is a second level heading (<code class="docutils literal notranslate"><span class="pre">h2</span></code>).</p>
 <div class="section" id="sub-sub-heading">
 <h4>Sub-Sub-Heading<a class="headerlink" href="#sub-sub-heading" title="Permalink to this headline">¶</a></h4>
-<p>This is a third level heading (<code class="docutils literal"><span class="pre">h3</span></code>).</p>
+<p>This is a third level heading (<code class="docutils literal notranslate"><span class="pre">h3</span></code>).</p>
 </div>
 </div>
 </div>
 <div class="section" id="code">
 <h2>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
-<p>The Sphinx Bootstrap Theme uses Bootstrap styling for <code class="docutils literal"><span class="pre">inline</span> <span class="pre">code</span> <span class="pre">text</span></code> and</p>
-<div class="highlight-python"><div class="highlight"><pre>multiline
-code text
+<p>The Sphinx Bootstrap Theme uses Bootstrap styling for <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">code</span> <span class="pre">text</span></code> and</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">multiline</span>
+<span class="n">code</span> <span class="n">text</span>
 </pre></div>
 </div>
-<p>Here&#8217;s an included example with line numbers.</p>
+<p>Here’s an included example with line numbers.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -203,17 +251,17 @@ code text
 </tr>
 </tbody>
 </table>
-<div class="highlight-html"><div class="highlight"><pre><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>Hello World<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Greet.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="s2">&quot;Hello World&quot;</span>
 </pre></div>
 </div>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="cm">/**</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm"> * Greet.</span>
 <span class="cm"> */</span>
 <span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span><span class="o">:</span> <span class="p">{</span>
@@ -224,7 +272,7 @@ code text
 </div>
 <div class="section" id="admonitions">
 <h2>Admonitions<a class="headerlink" href="#admonitions" title="Permalink to this headline">¶</a></h2>
-<p>The Sphinx Bootstrap Theme uses the Bootstrap <code class="docutils literal"><span class="pre">alert</span></code> classes for Sphinx
+<p>The Sphinx Bootstrap Theme uses the Bootstrap <code class="docutils literal notranslate"><span class="pre">alert</span></code> classes for Sphinx
 admonitions.</p>
 <div class="section" id="note">
 <h3>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h3>
@@ -276,13 +324,13 @@ admonitions.</p>
 <h2>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h2>
 <p>Here are some examples of Sphinx
 <a class="reference external" href="http://sphinx-doc.org/rest.html#rst-tables">tables</a>. The Sphinx Bootstrap
-Theme removes all Sphinx <code class="docutils literal"><span class="pre">docutils</span></code> classes and replaces them with the
-default Bootstrap <code class="docutils literal"><span class="pre">table</span></code> class.  You can add additional table classes
-using the Sphinx <code class="docutils literal"><span class="pre">cssclass::</span></code> directive, as demonstrated in the following
+Theme removes all Sphinx <code class="docutils literal notranslate"><span class="pre">docutils</span></code> classes and replaces them with the
+default Bootstrap <code class="docutils literal notranslate"><span class="pre">table</span></code> class.  You can add additional table classes
+using the Sphinx <code class="docutils literal notranslate"><span class="pre">cssclass::</span></code> directive, as demonstrated in the following
 tables.</p>
 <div class="section" id="grid">
 <h3>Grid<a class="headerlink" href="#grid" title="Permalink to this headline">¶</a></h3>
-<p>A &#8220;<strong>bordered</strong>&#8221; grid table:</p>
+<p>A “<strong>bordered</strong>” grid table:</p>
 <table border="1" class="table-bordered docutils">
 <colgroup>
 <col width="43%" />
@@ -303,26 +351,26 @@ tables.</p>
 <td>cell3</td>
 <td>cell4</td>
 </tr>
-<tr class="row-odd"><td>row2 ...</td>
-<td>...</td>
-<td>...</td>
-<td>&nbsp;</td>
+<tr class="row-odd"><td>row2 …</td>
+<td>…</td>
+<td>…</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td>...</td>
-<td>...</td>
-<td>...</td>
-<td>&nbsp;</td>
+<tr class="row-even"><td>…</td>
+<td>…</td>
+<td>…</td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
 <p>which uses the directive:</p>
-<div class="highlight-python"><div class="highlight"><pre>.. cssclass:: table-bordered
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">cssclass</span><span class="p">::</span> <span class="n">table</span><span class="o">-</span><span class="n">bordered</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="simple">
 <h3>Simple<a class="headerlink" href="#simple" title="Permalink to this headline">¶</a></h3>
-<p>A simple &#8220;<strong>striped</strong>&#8221; table:</p>
+<p>A simple “<strong>striped</strong>” table:</p>
 <table border="1" class="table-striped docutils">
 <colgroup>
 <col width="29%" />
@@ -340,21 +388,21 @@ tables.</p>
 <td>cell2</td>
 <td>cell3</td>
 </tr>
-<tr class="row-odd"><td>...</td>
-<td>...</td>
-<td>...</td>
+<tr class="row-odd"><td>…</td>
+<td>…</td>
+<td>…</td>
 </tr>
-<tr class="row-even"><td>...</td>
-<td>...</td>
-<td>...</td>
+<tr class="row-even"><td>…</td>
+<td>…</td>
+<td>…</td>
 </tr>
 </tbody>
 </table>
 <p>which uses the directive:</p>
-<div class="highlight-python"><div class="highlight"><pre>.. cssclass:: table-striped
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">cssclass</span><span class="p">::</span> <span class="n">table</span><span class="o">-</span><span class="n">striped</span>
 </pre></div>
 </div>
-<p>And a &#8220;<strong>hoverable</strong>&#8221; table:</p>
+<p>And a “<strong>hoverable</strong>” table:</p>
 <table border="1" class="table-hover docutils">
 <colgroup>
 <col width="29%" />
@@ -372,18 +420,18 @@ tables.</p>
 <td>cell2</td>
 <td>cell3</td>
 </tr>
-<tr class="row-odd"><td>...</td>
-<td>...</td>
-<td>...</td>
+<tr class="row-odd"><td>…</td>
+<td>…</td>
+<td>…</td>
 </tr>
-<tr class="row-even"><td>...</td>
-<td>...</td>
-<td>...</td>
+<tr class="row-even"><td>…</td>
+<td>…</td>
+<td>…</td>
 </tr>
 </tbody>
 </table>
 <p>which uses the directive:</p>
-<div class="highlight-python"><div class="highlight"><pre>.. cssclass:: table-hover
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">cssclass</span><span class="p">::</span> <span class="n">table</span><span class="o">-</span><span class="n">hover</span>
 </pre></div>
 </div>
 </div>
@@ -399,7 +447,7 @@ tables.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>etype</strong> &#8211; <dl class="docutils">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>etype</strong> – <dl class="docutils">
 <dt>exception type</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -434,7 +482,7 @@ tables.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>name</strong> (<em>string</em>) &#8211; The name of the animal
+<li><strong>name</strong> (<em>string</em>) – The name of the animal
 :param number age: an optional age for the animal</li>
 </ul>
 </td>
@@ -447,9 +495,9 @@ tables.</p>
 <div class="section" id="indices-and-tables">
 <h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference internal" href="../genindex.html"><span>Index</span></a></li>
-<li><a class="reference internal" href="../py-modindex.html"><span>Module Index</span></a></li>
-<li><a class="reference internal" href="../search.html"><span>Search Page</span></a></li>
+<li><a class="reference internal" href="../genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="../py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="../search.html"><span class="std std-ref">Search Page</span></a></li>
 </ul>
 <p>The theme demo website also includes an <a class="reference external" href="http://ryan-roemer.github.com/sphinx-bootstrap-theme/examples.html">examples page</a> for some useful
 illustrations of getting Sphinx to play nicely with Bootstrap (also take a
@@ -460,12 +508,12 @@ look at the <a class="reference external" href="http://ryan-roemer.github.com/sp
 <p>Installation from <a href="#id4"><span class="problematic" id="id5">PyPI_</span></a> is fairly straightforward:</p>
 <ol class="arabic">
 <li><p class="first">Install the package:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ pip install sphinx_bootstrap_theme
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install sphinx_bootstrap_theme
 </pre></div>
 </div>
 </li>
-<li><p class="first">Edit the &#8220;conf.py&#8221; configuration file to point to the bootstrap theme:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c1"># At the top.</span>
+<li><p class="first">Edit the “conf.py” configuration file to point to the bootstrap theme:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># At the top.</span>
 <span class="kn">import</span> <span class="nn">sphinx_bootstrap_theme</span>
 
 <span class="c1"># ...</span>
@@ -484,8 +532,8 @@ look at the <a class="reference external" href="http://ryan-roemer.github.com/sp
 <div class="section" id="theme-options">
 <h3>Theme Options<a class="headerlink" href="#theme-options" title="Permalink to this headline">¶</a></h3>
 <p>The theme provides many built-in options that can be configured by editing
-your &#8220;conf.py&#8221; file:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c1"># (Optional) Logo. Should be small enough to fit the navbar (ideally 24x24).</span>
+your “conf.py” file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># (Optional) Logo. Should be small enough to fit the navbar (ideally 24x24).</span>
 <span class="c1"># Path should be relative to the ``_static`` files directory.</span>
 <span class="n">html_logo</span> <span class="o">=</span> <span class="s2">&quot;my_logo.png&quot;</span>
 
@@ -507,14 +555,14 @@ your &#8220;conf.py&#8221; file:</p>
     <span class="c1"># an arbitrary url.</span>
     <span class="s1">&#39;navbar_links&#39;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">(</span><span class="s2">&quot;Examples&quot;</span><span class="p">,</span> <span class="s2">&quot;examples&quot;</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">&quot;Link&quot;</span><span class="p">,</span> <span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Link&quot;</span><span class="p">,</span> <span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
     <span class="p">],</span>
 
     <span class="c1"># Render the next and previous page links in navbar. (Default: true)</span>
-    <span class="s1">&#39;navbar_sidebarrel&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="s1">&#39;navbar_sidebarrel&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
 
     <span class="c1"># Render the current pages TOC in the navbar. (Default: true)</span>
-    <span class="s1">&#39;navbar_pagenav&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="s1">&#39;navbar_pagenav&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
 
     <span class="c1"># Global TOC depth for &quot;site&quot; navbar tab. (Default: 1)</span>
     <span class="c1"># Switching to -1 shows all levels.</span>
@@ -553,52 +601,52 @@ your &#8220;conf.py&#8221; file:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Note for the navigation bar title that if you don&#8217;t specify a theme option of
-<code class="docutils literal"><span class="pre">navbar_title</span></code> that the &#8220;conf.py&#8221; <code class="docutils literal"><span class="pre">project</span></code> string will be used. We don&#8217;t
-use the <code class="docutils literal"><span class="pre">html_title</span></code> or <code class="docutils literal"><span class="pre">html_short_title</span></code> values because by default those
+<p>Note for the navigation bar title that if you don’t specify a theme option of
+<code class="docutils literal notranslate"><span class="pre">navbar_title</span></code> that the “conf.py” <code class="docutils literal notranslate"><span class="pre">project</span></code> string will be used. We don’t
+use the <code class="docutils literal notranslate"><span class="pre">html_title</span></code> or <code class="docutils literal notranslate"><span class="pre">html_short_title</span></code> values because by default those
 both contain version strings, which the navigation bar treats differently.</p>
 </div>
 <div class="section" id="bootstrap-versions">
 <h3>Bootstrap Versions<a class="headerlink" href="#bootstrap-versions" title="Permalink to this headline">¶</a></h3>
-<p>The theme supports Bootstrap v2.3.2 and v3.0.0 via the <code class="docutils literal"><span class="pre">bootstrap_version</span></code>
-theme option (of <code class="docutils literal"><span class="pre">&quot;2&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;3&quot;</span></code>). Some notes regarding version differences:</p>
+<p>The theme supports Bootstrap v2.3.2 and v3.0.0 via the <code class="docutils literal notranslate"><span class="pre">bootstrap_version</span></code>
+theme option (of <code class="docutils literal notranslate"><span class="pre">&quot;2&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;3&quot;</span></code>). Some notes regarding version differences:</p>
 <ul class="simple">
 <li>Bootstrap 3 has dropped support for <a class="reference external" href="http://stackoverflow.com/questions/18023493">sub-menus</a>, so while supported by this
 theme, they will not show up in site or page menus.</li>
-<li>Internally, &#8220;navbar.html&#8221; is the Sphinx template used for Bootstrap v3 and
-&#8220;navbar-2.html&#8221; is the template used for v2.</li>
+<li>Internally, “navbar.html” is the Sphinx template used for Bootstrap v3 and
+“navbar-2.html” is the template used for v2.</li>
 </ul>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[n_{\mathrm{offset}} = \sum_{k=0}^{N-1} s_k n_k\]</div>
 </div>
 <div class="section" id="extending-layout-html">
-<h3>Extending &#8220;layout.html&#8221;<a class="headerlink" href="#extending-layout-html" title="Permalink to this headline">¶</a></h3>
-<p>As a more &#8220;hands on&#8221; approach to customization, you can override any template
+<h3>Extending “layout.html”<a class="headerlink" href="#extending-layout-html" title="Permalink to this headline">¶</a></h3>
+<p>As a more “hands on” approach to customization, you can override any template
 in this Sphinx theme or any others. A good candidate for changes is
-&#8220;layout.html&#8221;, which provides most of the look and feel. First, take a look
-at the &#8220;layout.html&#8221; file that the theme provides, and figure out
+“layout.html”, which provides most of the look and feel. First, take a look
+at the “layout.html” file that the theme provides, and figure out
 what you need to override. As a side note, we have some theme-specific
-enhancements, such as the <code class="docutils literal"><span class="pre">navbarextra</span></code> template block for additional
+enhancements, such as the <code class="docutils literal notranslate"><span class="pre">navbarextra</span></code> template block for additional
 content in the navbar.</p>
-<p>Then, create your own &#8220;_templates&#8221; directory and &#8220;layout.html&#8221; file (assuming
-you build from a &#8220;source&#8221; directory):</p>
-<div class="highlight-python"><div class="highlight"><pre>$ mkdir source/_templates
+<p>Then, create your own “_templates” directory and “layout.html” file (assuming
+you build from a “source” directory):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir source/_templates
 $ touch source/_templates/layout.html
 </pre></div>
 </div>
-<p>Then, configure your &#8220;conf.py&#8221;:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">templates_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_templates&#39;</span><span class="p">]</span>
+<p>Then, configure your “conf.py”:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">templates_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_templates&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Finally, edit your override file &#8220;source/_templates/layout.html&#8221;:</p>
-<div class="highlight-python"><div class="highlight"><pre>{# Import the theme&#39;s layout. #}
-{% extends &quot;!layout.html&quot; %}
+<p>Finally, edit your override file “source/_templates/layout.html”:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="c1"># Import the theme&#39;s layout. #}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">&quot;!layout.html&quot;</span> <span class="o">%</span><span class="p">}</span>
 
-{# Add some extra stuff before and use existing with &#39;super()&#39; call. #}
-{% block footer %}
-  &lt;h2&gt;My footer of awesomeness.&lt;/h2&gt;
-  {{ super() }}
-{% endblock %}
+<span class="p">{</span><span class="c1"># Add some extra stuff before and use existing with &#39;super()&#39; call. #}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">footer</span> <span class="o">%</span><span class="p">}</span>
+  <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="n">My</span> <span class="n">footer</span> <span class="n">of</span> <span class="n">awesomeness</span><span class="o">.&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+  <span class="p">{{</span> <span class="nb">super</span><span class="p">()</span> <span class="p">}}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="o">%</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -606,28 +654,28 @@ $ touch source/_templates/layout.html
 <h3>Adding Custom CSS<a class="headerlink" href="#adding-custom-css" title="Permalink to this headline">¶</a></h3>
 <p>Alternately, you could add your own custom static media directory with a CSS
 file to override a style, which in the demo would be something like:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ mkdir source/_static
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir source/_static
 $ touch source/_static/my-styles.css
 </pre></div>
 </div>
-<p>Then, in &#8220;conf.py&#8221;, edit this line:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">html_static_path</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;_static&quot;</span><span class="p">]</span>
+<p>Then, in “conf.py”, edit this line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html_static_path</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;_static&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>You will also need the override template &#8220;source/_templates/layout.html&#8221; file
+<p>You will also need the override template “source/_templates/layout.html” file
 configured as above, but with the following code:</p>
-<div class="highlight-python"><div class="highlight"><pre>{# Import the theme&#39;s layout. #}
-{% extends &quot;!layout.html&quot; %}
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="c1"># Import the theme&#39;s layout. #}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">&quot;!layout.html&quot;</span> <span class="o">%</span><span class="p">}</span>
 
-{# Custom CSS overrides #}
-{% set bootswatch_css_custom = [&#39;_static/my-styles.css&#39;] %}
+<span class="p">{</span><span class="c1"># Custom CSS overrides #}</span>
+<span class="p">{</span><span class="o">%</span> <span class="nb">set</span> <span class="n">bootswatch_css_custom</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_static/my-styles.css&#39;</span><span class="p">]</span> <span class="o">%</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Then, in the new file &#8220;source/_static/my-styles.css&#8221;, add any appropriate
+<p>Then, in the new file “source/_static/my-styles.css”, add any appropriate
 styling, e.g. a bold background color:</p>
-<div class="highlight-python"><div class="highlight"><pre>footer {
-  background-color: red;
-}
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">footer</span> <span class="p">{</span>
+  <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="n">red</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -639,34 +687,34 @@ styling, e.g. a bold background color:</p>
 <p>The theme places the global TOC, local TOC, navigation (prev, next) and
 source links all in the top Bootstrap navigation bar, along with the Sphinx
 search bar on the left side.</p>
-<p>The global (site-wide) table of contents is the &#8220;Site&#8221; navigation dropdown,
-which is a configurable level rendering of the <code class="docutils literal"><span class="pre">toctree</span></code> for the entire site.
-The local (page-level) table of contents is the &#8220;Page&#8221; navigation dropdown,
-which is a multi-level rendering of the current page&#8217;s <code class="docutils literal"><span class="pre">toc</span></code>.</p>
+<p>The global (site-wide) table of contents is the “Site” navigation dropdown,
+which is a configurable level rendering of the <code class="docutils literal notranslate"><span class="pre">toctree</span></code> for the entire site.
+The local (page-level) table of contents is the “Page” navigation dropdown,
+which is a multi-level rendering of the current page’s <code class="docutils literal notranslate"><span class="pre">toc</span></code>.</p>
 </div>
 <div class="section" id="bootstrap">
 <h3>Bootstrap<a class="headerlink" href="#bootstrap" title="Permalink to this headline">¶</a></h3>
 <p>The theme offers Twitter Bootstrap v2.x and v3.x, both of which rely on
 jQuery v.1.9.x. As the jQuery that Bootstrap wants can radically depart from
 the jQuery Sphinx internal libraries use, the library from this theme is
-integrated via <code class="docutils literal"><span class="pre">noConflict()</span></code> as <code class="docutils literal"><span class="pre">$jqTheme</span></code>.</p>
+integrated via <code class="docutils literal notranslate"><span class="pre">noConflict()</span></code> as <code class="docutils literal notranslate"><span class="pre">$jqTheme</span></code>.</p>
 <p>You can override any static JS/CSS files by dropping different versions in your
-Sphinx &#8220;_static&#8221; directory.</p>
+Sphinx “_static” directory.</p>
 </div>
 </div>
 <div class="section" id="contributing">
 <h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
 <p>Contributions to this project are most welcome. Please make sure that the demo
 site builds cleanly, and looks like what you want. First build the demo:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ fab clean &amp;&amp; fab demo
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ fab clean &amp;&amp; fab demo
 </pre></div>
 </div>
 <p>Then, view the site in the development server:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ fab demo_server
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ fab demo_server
 </pre></div>
 </div>
 <p>Also, if you are adding a new type of styling or Sphinx or Bootstrap construct,
-please add a usage example to the &#8220;Examples&#8221; page.</p>
+please add a usage example to the “Examples” page.</p>
 </div>
 </div>
 
@@ -683,7 +731,7 @@ please add a usage example to the &#8220;Examples&#8221; page.</p>
     </p>
     <p>
         &copy; Copyright 2015, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.<br/>
     </p>
   </div>
 </footer>
