@@ -66,7 +66,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'pyNomo Documentation'
-copyright = u'2015, Ron Doerfler, Joe Marasco, Leif Roschier'
+copyright = u'2019, Daniel Boulet, Ron Doerfler, Joe Marasco, Leif Roschier'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -227,7 +227,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
   ('index', 'pynomo_doc.tex', u'PyNomo Documentation',
-   u'Ron Doerfler, Joe Marasco, Leif Roschier', 'manual'),
+   u'Daniel Boulet, Ron Doerfler, Joe Marasco, Leif Roschier', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
