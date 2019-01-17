@@ -129,3 +129,5 @@ sympy-plots-for-*.tex/
 *.sav
 
 doc/build/
+
+doc/source/tutorials/source_code/tutorial2\.eps

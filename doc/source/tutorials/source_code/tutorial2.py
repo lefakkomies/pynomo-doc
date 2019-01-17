@@ -22,13 +22,15 @@ import sys
 sys.path.insert(0, "..")
 from pynomo.nomographer import *
 
+text.set(mode="latex")  # allows use of latex commands in PyX such as \frac{a}{b} and \par
+
 dist_SI = {
     # distance in kilometers (u1)
     'tag': 'distance',
     'u_min': 100.0,
     'u_max': 1000.0,
     'function': lambda u: u,
-    'title': r'kms',
+    'title': r'$km$',
     'tick_levels': 3,
     'tick_text_levels': 2,
     'title_x_shift': 1.0,
@@ -41,7 +43,7 @@ dist_US = {
     'u_max': 1000.0/1.609344,
     'function': lambda u: u,    # plot the u values linearly ...
     'align_func': lambda u: u*1.609344,   # but adjust the length to match kilometers
-    'title': r'miles',
+    'title': r'$mi.$',
     'tick_levels': 3,
     'tick_text_levels': 2,
     'tick_side': 'left',
@@ -53,7 +55,7 @@ eff_SI = {
     'u_min': 5.0,
     'u_max': 20.0,
     'function': lambda u: 100.0/u,
-    'title': r'litres / 100 kms',
+    'title': r'$\frac{L}{100 \, km}$',
     'tick_levels': 3,
     'tick_text_levels': 2,
     'scale_type': 'linear smart',
@@ -66,7 +68,7 @@ eff_US = {
     'u_min': 235.189/20.0,      # magic value to coordinate length of SI and US scale
     'u_max': 235.189/5.0,
     'function': lambda u: u,
-    'title': r'miles / US gal',
+    'title': r'$\frac{mi.}{US \, gal.}$',
     'tick_levels': 4,
     'tick_text_levels': 3,
     'scale_type': 'linear smart',
@@ -81,7 +83,7 @@ fuel_SI = {
     'u_min': 10.0,
     'u_max': 100.0,
     'function': lambda u: u,
-    'title': r'litres',
+    'title': r'$L$',
     'tick_levels': 3,
     'tick_text_levels': 2,
     'title_x_shift': 1.0,
@@ -94,7 +96,7 @@ fuel_US = {
     'u_max': 100.0/3.785,
     'function': lambda u: u,    # plot the gallons
     'align_func': lambda u: u*3.785,   # but must be scaled up to litres
-    'title': r'US gal',
+    'title': r'$US \, gal.$',
     'tick_levels': 3,
     'tick_text_levels': 2,
     'tick_side': 'left',
@@ -118,7 +120,7 @@ block_US = {
 }
 
 main_params = {
-    'filename': 'tutorial2.eps',
+    'filename': 'tutorial2.pdf',
     'paper_height':15.0,
     'paper_width':15.0,
     'block_params': [block_SI, block_US],

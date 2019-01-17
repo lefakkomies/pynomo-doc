@@ -72,7 +72,7 @@ Generated nomogram
 A variation on vehicle economy calculator
 **************************
 
-The previously generated nomograph is complete but doesn’t express the vehicle’s economy the way we would like.  A vehicle’s fuel economy is more often expressed in litres consumed per 100 kilometres driven, the reciprocal of the original function.  How do we do this?
+The previously generated nomogram is complete but doesn’t express the vehicle’s economy the way we would like.  A vehicle’s fuel economy is more often expressed in litres consumed per 100 kilometres driven, 100 times the reciprocal of the original function.  How do we do this?
 
 Recall that
 
