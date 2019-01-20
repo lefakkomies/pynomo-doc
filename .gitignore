@@ -127,3 +127,7 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
+
+doc/build/
+
+doc/source/tutorials/source_code/tutorial2\.eps
