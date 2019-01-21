@@ -19,19 +19,21 @@ Nomogram construction involves several steps.  The first is always to identify t
 
 The relationship between these variables is:
 
-:math:`d = {e\times c}`
+:math:`d = {e\times c}.`
 
 This equation satisfies the form for a Type 2 nomogram (see section 6.2) as follows:
 
-:math:`F_1(u_1) = {F_2(u_2)F_3(u_3)}`
+:math:`F_1(u_1) = {F_2(u_2)F_3(u_3)},`
 
-Where:
+where
 
-:math:`u_1 = d`
+:math:`F_1(u_1) = u_1 = d`,
 
-:math:`u_2 = e`
+:math:`F_2(u_2) = u_2 = e`
 
-:math:`u_3 = c`
+and
+
+:math:`F_3(u_3) = u_3 = c`.
 
 
 All scales are linear and we choose a reasonable range of values (:code:`u_min` and :code:`u_max`) for each axis.  
@@ -51,9 +53,11 @@ These scales are linked into a single block as follows:
     :lines: 42-47
 
 
-.. note:: Parameters :code:`f1_params`, :code:`f2_params` and :code:`f3_params` represent functions for :math:`u_1`, :math:`u_2` and :math:`u_3` respectively.
+.. note::
+    Parameters :code:`f1_params`, :code:`f2_params` and :code:`f3_params` represent parameters
+    including functions for variables :math:`u_1`, :math:`u_2` and :math:`u_3` respectively.
 
-Finally, we  define the nomogram’s main parameters and generate the chart:
+Finally, we define main parameters of the nomogram and generate the chart:
 
 .. literalinclude:: source_code/tutorial1a.py
     :linenos:
@@ -78,19 +82,20 @@ Recall that
 
 :math:`d = {e\times c}`
 
-Therefore ...
+and thus
 
-:math:`{\frac{d}{c}} = e`
+:math:`{\frac{d}{c}} = e`.
 
-We express the reciprocal of the economy by rearranging the formula as follows:
+We express the reciprocal of the economy by rearranging the formula as
 
-:math:`\frac{c}{d} = \frac{1}{e}`
+:math:`\frac{c}{d} = \frac{1}{e}`.
 
-Since our goal is to describe fuel economy in terms of litres per *100 km* we multiply :math:`\frac{1}{e}` by 100.0 to achieve the correct result:
+Since our goal is to describe fuel economy in terms of litres per *100 km*
+we multiply :math:`\frac{1}{e}` by 100 to achieve the correct units:
 
-:math:`\frac{c}{d} = \frac{100.0}{e}`
+:math:`\frac{c}{d} = \frac{100.0}{e}`.
 
-And :math:`u_2 = e` so our function for :math:`u_2` becomes
+:math:`u_2 = e` so our function for :math:`u_2` becomes
 
 :math:`\frac{100.0}{u_2}`
 

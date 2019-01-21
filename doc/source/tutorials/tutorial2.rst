@@ -18,9 +18,9 @@ Nomogram construction
 
 Recapping from the first part of Tutorial 1, we know that
 
-:math:`d = {e\times c}`
+:math:`d = {e\times c}`,
 
-Where :math:`e` (economy) was expressed in terms of distance travelled per unit volume of fuel.  This is precisely what we want but we need to adjust the scales for American units of measure.  This is accomplished by:
+where :math:`e` (economy) was expressed in terms of distance travelled per unit volume of fuel.  This is precisely what we want but we need to adjust the scales for American units of measure.  This is accomplished by:
 
 #. *Converting* the minimum (:code:`u_min`) and maximum (:code:`u_max`) values in the axis to match those in the SI unit axis.
 #. *Aligning* the distance and fuel consumed axis so that they match the height of the SI unit axis.
@@ -62,7 +62,7 @@ Tags are also added to the SI units axis:
 
 Notice no alignment function or tag is specified for the :code:`eff_US` axis.  None are required because this axis is a function of the :code:`dist_US` and :code:`fuel_US` axis which are already scaled appropriately therefore its alignment is automatic.  
 
-A new block is created to link the three new scales with an isopleth:
+A new block is created to link the three new scales with an isopleth (solution line):
 
 .. literalinclude:: source_code/tutorial2.py
     :linenos:
