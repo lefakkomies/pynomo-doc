@@ -16,8 +16,8 @@ pyNomo documentation
    :maxdepth: 2
 
    introduction/introduction.rst
-   tutorials/tutorials.rst
    installation/installation.rst
+   tutorials/tutorials.rst
    main_page.rst
    axes/axes.rst
    types/types.rst
