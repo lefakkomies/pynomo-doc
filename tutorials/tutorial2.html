@@ -165,28 +165,27 @@
 <div class="section" id="nomogram-construction">
 <h2>Nomogram construction<a class="headerlink" href="#nomogram-construction" title="Permalink to this headline">¶</a></h2>
 <p>Recapping from the first part of Tutorial 1, we know that</p>
-<blockquote>
-<div><span class="math notranslate nohighlight">\(d = {e\times c}\)</span></div></blockquote>
-<p>Where <span class="math notranslate nohighlight">\(e\)</span> (economy) was expressed in terms of distance travelled per unit volume of fuel.  This is precisely what we want but we need to adjust the scales for American units of measure.  This is accomplished by:</p>
+<p><span class="math notranslate nohighlight">\(d = {e\times c}\)</span>,</p>
+<p>where <span class="math notranslate nohighlight">\(e\)</span> (economy) was expressed in terms of distance travelled per unit volume of fuel.  This is precisely what we want but we need to adjust the scales for American units of measure.  This is accomplished by:</p>
 <ol class="arabic simple">
 <li><em>Converting</em> the minimum (<code class="code docutils literal notranslate"><span class="pre">u_min</span></code>) and maximum (<code class="code docutils literal notranslate"><span class="pre">u_max</span></code>) values in the axis to match those in the SI unit axis.</li>
 <li><em>Aligning</em> the distance and fuel consumed axis so that they match the height of the SI unit axis.</li>
 <li><em>Tagging</em> the distance and fuel scales so that they align horizontally with their metric system counterparts.</li>
 </ol>
 <p>Thus our three new scales are defined as follows:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">dist_US</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">dist_US</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># distance in miles (u1)</span>
     <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;distance&#39;</span><span class="p">,</span>
     <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="o">/</span><span class="mf">1.609344</span><span class="p">,</span>    <span class="c1"># convert kilometers to miles</span>
@@ -201,19 +200,19 @@
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">eff_US</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">eff_US</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># fuel efficiency in miles per US gallon) u2</span>
     <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">235.189</span><span class="o">/</span><span class="mf">20.0</span><span class="p">,</span>      <span class="c1"># magic value to coordinate length of SI and US scale</span>
     <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">235.189</span><span class="o">/</span><span class="mf">5.0</span><span class="p">,</span>
@@ -228,19 +227,19 @@
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">fuel_US</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">fuel_US</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># fuel consumption in US gallons</span>
     <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;consumption&#39;</span><span class="p">,</span>
     <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="o">/</span><span class="mf">3.785</span><span class="p">,</span>    <span class="c1"># convert liters to USG</span>
@@ -255,34 +254,34 @@
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Tags are also added to the SI units at lines 29 and 82.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>27
-28
-29
-30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">dist_SI</span> <span class="o">=</span> <span class="p">{</span>
+<p>Tags are also added to the SI units axis:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">dist_SI</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># distance in kilometers (u1)</span>
     <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;distance&#39;</span><span class="p">,</span>
     <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>
 </pre></div>
 </td></tr></table></div>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>80
-81
-82
-83</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">fuel_SI</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>66
+67
+68
+69</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">fuel_SI</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># fuel consumption in litres (u3)</span>
     <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;consumption&#39;</span><span class="p">,</span>
     <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
 </pre></div>
 </td></tr></table></div>
 <p>Notice no alignment function or tag is specified for the <code class="code docutils literal notranslate"><span class="pre">eff_US</span></code> axis.  None are required because this axis is a function of the <code class="code docutils literal notranslate"><span class="pre">dist_US</span></code> and <code class="code docutils literal notranslate"><span class="pre">fuel_US</span></code> axis which are already scaled appropriately therefore its alignment is automatic.</p>
-<p>A new block is created to link the three new scales with an isopleth defined at line 119.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>114
-115
-116
-117
-118
-119
-120</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">block_US</span> <span class="o">=</span> <span class="p">{</span>
+<p>A new block is created to link the three new scales with an isopleth (solution line):</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>100
+101
+102
+103
+104
+105
+106</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">block_US</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;block_type&#39;</span><span class="p">:</span> <span class="s1">&#39;type_2&#39;</span><span class="p">,</span>
     <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span> <span class="n">dist_US</span><span class="p">,</span>
     <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span> <span class="n">eff_US</span><span class="p">,</span>
@@ -291,14 +290,14 @@
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Since all blocks must define the same number of isopleths, we add one at line 111:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>106
-107
-108
-109
-110
-111
-112</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">block_SI</span> <span class="o">=</span> <span class="p">{</span>
+<p>Since all blocks must contain the same number of isopleths, we add one to the <code class="code docutils literal notranslate"><span class="pre">block_SI</span></code> axis:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>92
+93
+94
+95
+96
+97
+98</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">block_SI</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;block_type&#39;</span><span class="p">:</span> <span class="s1">&#39;type_2&#39;</span><span class="p">,</span>
     <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span> <span class="n">dist_SI</span><span class="p">,</span>
     <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span> <span class="n">eff_SI</span><span class="p">,</span>
@@ -307,16 +306,15 @@
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Finally, the new block is added to the <code class="code docutils literal notranslate"><span class="pre">block_params</span></code> key at line 126:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>122
-123
-124
-125
-126
-127
-128
-129
-130</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span>
+<p>Finally, <code class="code docutils literal notranslate"><span class="pre">block_US</span></code> is added to the <code class="code docutils literal notranslate"><span class="pre">block_params</span></code> key:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>108
+109
+110
+111
+112
+113
+114
+115</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="s1">&#39;tutorial2.pdf&#39;</span><span class="p">,</span>
     <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
     <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
@@ -324,7 +322,6 @@
     <span class="s1">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;rotate&#39;</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)],</span>
     <span class="s1">&#39;title_str&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\LARGE Fuel economy calculator (Metric and US)&#39;</span><span class="p">,</span>
 <span class="p">}</span>
-<span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <p>This nomogram holds useful features.  The individual scales for distance, fuel consumption and fuel economy can be used on their own to convert from one system of measurement to another.  Another feature is the ability to use variables from different system of units (e.g. kilometres and US gallons) and calculate fuel economy in either miles per gallon or litres per 100 km.</p>

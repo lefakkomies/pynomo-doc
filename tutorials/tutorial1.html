@@ -169,19 +169,30 @@
 <li>fuel economy  (<span class="math notranslate nohighlight">\(e\)</span>) measured in kilometres driven per litre consumed.</li>
 </ul>
 <p>The relationship between these variables is:</p>
-<blockquote>
-<div><span class="math notranslate nohighlight">\(d = {e\times c}\)</span></div></blockquote>
+<p><span class="math notranslate nohighlight">\(d = {e\times c}.\)</span></p>
 <p>This equation satisfies the form for a Type 2 nomogram (see section 6.2) as follows:</p>
-<blockquote>
-<div><span class="math notranslate nohighlight">\(F_1(u_1) = {F_2(u_2)F_3(u_3)}\)</span></div></blockquote>
-<p>Where:</p>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(u_1 = d\)</span></p>
-<p><span class="math notranslate nohighlight">\(u_2 = e\)</span></p>
-<p><span class="math notranslate nohighlight">\(u_3 = c\)</span></p>
-</div></blockquote>
+<p><span class="math notranslate nohighlight">\(F_1(u_1) = {F_2(u_2)F_3(u_3)},\)</span></p>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(F_1(u_1) = u_1 = d\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(F_2(u_2) = u_2 = e\)</span></p>
+<p>and</p>
+<p><span class="math notranslate nohighlight">\(F_3(u_3) = u_3 = c\)</span>.</p>
 <p>All scales are linear and we choose a reasonable range of values (<code class="code docutils literal notranslate"><span class="pre">u_min</span></code> and <code class="code docutils literal notranslate"><span class="pre">u_max</span></code>) for each axis.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>25
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
 26
 27
 28
@@ -196,21 +207,7 @@
 37
 38
 39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">dist_SI</span> <span class="o">=</span> <span class="p">{</span>
+40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">dist_SI</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># distance in kilometers (u1)</span>
     <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>
     <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">1000.0</span><span class="p">,</span>
@@ -243,12 +240,12 @@
 </pre></div>
 </td></tr></table></div>
 <p>These scales are linked into a single block as follows:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>56
-57
-58
-59
-60
-61</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">block_SI</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>42
+43
+44
+45
+46
+47</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">block_SI</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;block_type&#39;</span><span class="p">:</span> <span class="s1">&#39;type_2&#39;</span><span class="p">,</span>
     <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span> <span class="n">dist_SI</span><span class="p">,</span>
     <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span> <span class="n">eff_SI</span><span class="p">,</span>
@@ -258,18 +255,19 @@
 </td></tr></table></div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Parameters <code class="code docutils literal notranslate"><span class="pre">f1_params</span></code>, <code class="code docutils literal notranslate"><span class="pre">f2_params</span></code> and <code class="code docutils literal notranslate"><span class="pre">f3_params</span></code> represent functions for <span class="math notranslate nohighlight">\(u_1\)</span>, <span class="math notranslate nohighlight">\(u_2\)</span> and <span class="math notranslate nohighlight">\(u_3\)</span> respectively.</p>
+<p class="last">Parameters <code class="code docutils literal notranslate"><span class="pre">f1_params</span></code>, <code class="code docutils literal notranslate"><span class="pre">f2_params</span></code> and <code class="code docutils literal notranslate"><span class="pre">f3_params</span></code> represent parameters
+including functions for variables <span class="math notranslate nohighlight">\(u_1\)</span>, <span class="math notranslate nohighlight">\(u_2\)</span> and <span class="math notranslate nohighlight">\(u_3\)</span> respectively.</p>
 </div>
-<p>Finally, we  define the nomogram’s main parameters and generate the chart:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>63
-64
-65
-66
-67
-68
-69
-70
-71</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span>
+<p>Finally, we define main parameters of the nomogram and generate the chart:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>49
+50
+51
+52
+53
+54
+55
+56
+57</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="s1">&#39;tutorial1a.eps&#39;</span><span class="p">,</span>
     <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
     <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
@@ -289,31 +287,27 @@
 <h2>A variation on vehicle economy calculator<a class="headerlink" href="#a-variation-on-vehicle-economy-calculator" title="Permalink to this headline">¶</a></h2>
 <p>The previously generated nomogram is complete but doesn’t express the vehicle’s economy the way we would like.  A vehicle’s fuel economy is more often expressed in litres consumed per 100 kilometres driven, 100 times the reciprocal of the original function.  How do we do this?</p>
 <p>Recall that</p>
-<blockquote>
-<div><span class="math notranslate nohighlight">\(d = {e\times c}\)</span></div></blockquote>
-<p>Therefore …</p>
-<blockquote>
-<div><span class="math notranslate nohighlight">\({\frac{d}{c}} = e\)</span></div></blockquote>
-<p>We express the reciprocal of the economy by rearranging the formula as follows:</p>
-<blockquote>
-<div><span class="math notranslate nohighlight">\(\frac{c}{d} = \frac{1}{e}\)</span></div></blockquote>
-<p>Since our goal is to describes fuel economy in terms of litres per <em>100 km</em> multiply <span class="math notranslate nohighlight">\(\frac{1}{e}\)</span> by 100.0 to achieve the correct result:</p>
-<blockquote>
-<div><span class="math notranslate nohighlight">\(\frac{c}{d} = \frac{100.0}{e}\)</span></div></blockquote>
-<p>And <span class="math notranslate nohighlight">\(u_2 = e\)</span> so our function for <span class="math notranslate nohighlight">\(u_2\)</span> becomes</p>
-<blockquote>
-<div><span class="math notranslate nohighlight">\(\frac{100.0}{u_2}\)</span></div></blockquote>
-<p>We amend line 39 accordingly and the axis definition becomes:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>35
-36
-37
-38
-39
-40
-41
-42
-43
-44</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">eff_SI</span> <span class="o">=</span> <span class="p">{</span>
+<p><span class="math notranslate nohighlight">\(d = {e\times c}\)</span></p>
+<p>and thus</p>
+<p><span class="math notranslate nohighlight">\({\frac{d}{c}} = e\)</span>.</p>
+<p>We express the reciprocal of the economy by rearranging the formula as</p>
+<p><span class="math notranslate nohighlight">\(\frac{c}{d} = \frac{1}{e}\)</span>.</p>
+<p>Since our goal is to describe fuel economy in terms of litres per <em>100 km</em>
+we multiply <span class="math notranslate nohighlight">\(\frac{1}{e}\)</span> by 100 to achieve the correct units:</p>
+<p><span class="math notranslate nohighlight">\(\frac{c}{d} = \frac{100.0}{e}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(u_2 = e\)</span> so our function for <span class="math notranslate nohighlight">\(u_2\)</span> becomes</p>
+<p><span class="math notranslate nohighlight">\(\frac{100.0}{u_2}\)</span></p>
+<p>and we amend the axis definition:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">eff_SI</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># fuel efficiency in litres / 100 kilometres) (u2)</span>
     <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
     <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>
