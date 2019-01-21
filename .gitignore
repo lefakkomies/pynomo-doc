@@ -128,6 +128,8 @@ sympy-plots-for-*.tex/
 *.bak
 *.sav
 
-doc/build/
+# eps files in source
+*.eps
 
-doc/source/tutorials/source_code/tutorial2\.eps
+# all files in build
+doc/build/
