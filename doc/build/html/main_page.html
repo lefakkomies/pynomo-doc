@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Big picture of nomograph construction &#8212; pyNomo Documentation 0.3.0 documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Axes" href="axes/axes.html" />
+    <link rel="prev" title="Tutorials" href="tutorials/tutorials.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          pyNomo Documentation</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.3.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Big picture of nomograph construction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="axes/axes.html">Axes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types/types.html">Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alignment/alignment.html">Block alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transformations/transformations.html">Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main_params.html">Top level parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature/literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/appendices.html">Appendix</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Big picture of nomograph construction</a><ul>
+<li><a class="reference internal" href="#axes">Axes</a></li>
+<li><a class="reference internal" href="#blocks">Blocks</a></li>
+<li><a class="reference internal" href="#combination-of-blocks">Combination of blocks</a></li>
+<li><a class="reference internal" href="#transformations">Transformations</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="tutorials/tutorials.html" title="Previous Chapter: Tutorials"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Tutorials</span>
+    </a>
+  </li>
+  <li>
+    <a href="axes/axes.html" title="Next Chapter: Axes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Axes &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/main_page.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="big-picture-of-nomograph-construction">
+<h1>Big picture of nomograph construction<a class="headerlink" href="#big-picture-of-nomograph-construction" title="Permalink to this headline">¶</a></h1>
+<p>Nomographs of PyNomo are
+constructed by writing a python script that defines the nomograph parameters and
+initializes class <code class="docutils literal notranslate"><span class="pre">Nomographer(parameters)</span></code> to build the nomograph.</p>
+<p>Nomograph is constructed by defining axes that are used to
+build blocks. If there are more than one block,  they are aligned with each other in order to
+construct the nomograph.</p>
+<p>A simple example of pseudocode of typical PyNomo structure is the
+following:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="k">import</span> <span class="o">*</span>  <span class="c1"># this loads the needed pynomo class</span>
+<span class="c1"># define block 1</span>
+<span class="n">axis_params_1_for_block_1</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="n">axis_params_2_for_block_1</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="n">axis_params_3_for_block_1</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="n">block_1</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+
+<span class="c1"># define block 2</span>
+<span class="n">axis_params_1_for_block_2</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="n">axis_params_2_for_block_2</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="n">axis_params_3_for_block_2</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="n">block_2</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+
+<span class="c1"># define nomograph</span>
+<span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="s1">&#39;filename_of_nomograph.pdf&#39;</span><span class="p">,</span>  <span class="c1"># filename of output</span>
+                <span class="s1">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_1</span><span class="p">,</span><span class="n">block_2</span><span class="p">],</span>        <span class="c1"># the blocks make the nomograph</span>
+                <span class="s1">&#39;transformations&#39;</span><span class="p">:[(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)],</span>     <span class="c1"># these make (projective) transformations for the canves</span>
+                <span class="p">}</span>
+<span class="c1"># create nomograph</span>
+<span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is to be noted that nomograph is defined as python dictionaries that
+constitute one main dictionary that is passed to Nomographer class.</p>
+<div class="section" id="axes">
+<h2>Axes<a class="headerlink" href="#axes" title="Permalink to this headline">¶</a></h2>
+<p>A nomograph consist in simple terms of axes (or scales) that are positioned in a way to fulfil the equation to be graphed.
+Axes (or grids or graphs) are the leafs that build the tree of a nomograph.
+Defining axes and their appearance is major work in nomograph
+construction. Different possibilities are illustrated in Axes chapter.</p>
+</div>
+<div class="section" id="blocks">
+<h2>Blocks<a class="headerlink" href="#blocks" title="Permalink to this headline">¶</a></h2>
+<p>Blocks relate axes to each other. Each block fulfils some equation where axes are the variables.
+The following blocks below with corresponding equations are the core of PyNomo.
+These are used as easy
+building blocks for nomograph construction. If these do not suffice one
+can build as complex nomograph as one wishes by using determinants in type 9.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="54%" />
+<col width="27%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="types/types.html#type1-ref"><span class="std std-ref">Type 1</span></a></td>
+<td><span class="math notranslate nohighlight">\(F_1(u_1)+F_2(u_2)+F_3(u_3)=0 \,\)</span></td>
+<td><a class="reference internal" href="_images/ex_type1_nomo_1.png"><img alt="type1image" src="_images/ex_type1_nomo_1.png" style="height: 100px;" /></a></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="types/types.html#type2-ref"><span class="std std-ref">Type 2</span></a></td>
+<td><span class="math notranslate nohighlight">\(F_1(u_1)=F_2(u_2) F_3(u_3) \,\)</span></td>
+<td><a class="reference internal" href="_images/ex_type2_nomo_1.png"><img alt="type2image" src="_images/ex_type2_nomo_1.png" style="height: 100px;" /></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="types/types.html#type3-ref"><span class="std std-ref">Type 3</span></a></td>
+<td><span class="math notranslate nohighlight">\(F_1(u_1)+F_2(u_2)+\cdots+F_N(u_N)=0\)</span></td>
+<td><a class="reference internal" href="_images/ex_type3_nomo_1.png"><img alt="type3image" src="_images/ex_type3_nomo_1.png" style="height: 100px;" /></a></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="types/types.html#type4-ref"><span class="std std-ref">Type 4</span></a></td>
+<td><span class="math notranslate nohighlight">\(\frac{F_1(u_1)}{F_2(u_2)}=\frac{F_3(u_3)}{F_4(u_4)}\)</span></td>
+<td><a class="reference internal" href="_images/ex_type4_nomo_1.png"><img alt="type4image" src="_images/ex_type4_nomo_1.png" style="height: 100px;" /></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="types/types.html#type5-ref"><span class="std std-ref">Type 5</span></a></td>
+<td><span class="math notranslate nohighlight">\(F_1(v) = F_2(x,u). \,\)</span></td>
+<td><a class="reference internal" href="_images/ex_type5_nomo_1.png"><img alt="type5image" src="_images/ex_type5_nomo_1.png" style="height: 100px;" /></a></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="types/types.html#type6-ref"><span class="std std-ref">Type 6</span></a></td>
+<td><span class="math notranslate nohighlight">\(u=u \,\)</span></td>
+<td><a class="reference internal" href="_images/ex_type6_nomo_1.png"><img alt="type6image" src="_images/ex_type6_nomo_1.png" style="height: 100px;" /></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="types/types.html#type7-ref"><span class="std std-ref">Type 7</span></a></td>
+<td><span class="math notranslate nohighlight">\(\frac{1}{F_1(u_1)}+\frac{1}{F_2(u_2)}=\frac{1}{F_3(u_3)} \,\)</span></td>
+<td><a class="reference internal" href="_images/ex_type7_nomo_1.png"><img alt="type7image" src="_images/ex_type7_nomo_1.png" style="height: 100px;" /></a></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="types/types.html#type8-ref"><span class="std std-ref">Type 8</span></a></td>
+<td><span class="math notranslate nohighlight">\(y = {F(u)} \,\)</span></td>
+<td><a class="reference internal" href="_images/ex_type8_nomo_1.png"><img alt="type8image" src="_images/ex_type8_nomo_1.png" style="height: 100px;" /></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="types/types.html#type9-ref"><span class="std std-ref">Type 9</span></a></td>
+<td><span class="math notranslate nohighlight">\(\begin{vmatrix}F_1(u_1[,v_1])&amp; G_1(u_1[,v_1]) &amp; H_1(u_1[,v_1])\\
+F_2(u_2[,v_2])&amp; G_2(u_2[,v_2]) &amp; H_2(u_2[,v_2]) \\
+F_3(u_3[,v_3])&amp; G_3(u_3[,v_3]) &amp; H_3(u_3[,v_3]) \end{vmatrix} = 0\)</span></td>
+<td><a class="reference internal" href="_images/ex_type9_nomo_1.png"><img alt="type9image" src="_images/ex_type9_nomo_1.png" style="height: 100px;" /></a></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="types/types.html#type10-ref"><span class="std std-ref">Type 10</span></a></td>
+<td><span class="math notranslate nohighlight">\(F_1(u)+F_2(v)F_3(w)+F_4(w)=0 \,\)</span></td>
+<td><a class="reference internal" href="_images/ex_type10_nomo_1.png"><img alt="type10image" src="_images/ex_type10_nomo_1.png" style="height: 100px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="combination-of-blocks">
+<h2>Combination of blocks<a class="headerlink" href="#combination-of-blocks" title="Permalink to this headline">¶</a></h2>
+<p>If a nomograph consists of many equations that are aligned, a compound nomograph is constructed. Chapter compound nomograph
+discusses block aligment in detail.</p>
+</div>
+<div class="section" id="transformations">
+<h2>Transformations<a class="headerlink" href="#transformations" title="Permalink to this headline">¶</a></h2>
+<p>Scales shall be transformed in order to use given space (paper) optimally. Chapter Transformations discusses transformations.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019, Daniel Boulet, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
