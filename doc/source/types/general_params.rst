@@ -21,7 +21,7 @@
 
     .. literalinclude:: snippets/pre_func_ex.py "
     "``'post_func'``", "``None``", "**func(context).** PyX function(canvas) to draw over nomograph. Definiton same as for 'pre_func'."
-    "``'debug'``", "``False``", "**Boolean.** If True, prints dicts of definions."
+    "``'debug'``", "``False``", "**Boolean.** If True, prints dicts of definitions."
     "``'extra_texts'``", "``[]``", "**List of Dicts defining texts.** Defines extra texts. Could be for example:
 
     .. literalinclude:: snippets/extra_texts_ex.py "
