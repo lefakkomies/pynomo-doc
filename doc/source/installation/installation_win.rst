@@ -13,8 +13,8 @@ Python 2.7.x Windows installation
 pyx (python graphics package) installation is more tricky. Either
 
 
-* Download `pyx 0.12.1 (python graphics package) <http://pyx.sourceforge.net>`_ from `http://sourceforge.net/projects/pyx/files/pyx/0.12.1/PyX-0.12.1.tar.gz/download <http://sourceforge.net/projects/pyx/files/pyx/0.12.1/PyX-0.12.1.tar.gz/download>`_
-* Uncompress the file `PyX-0.12.1.tar.gz` using for example `7-zip <http://www.7-zip.org>`_.
+* Download `pyx 0.15.0 (python graphics package) <https://pyx-project.org>`_ from `https://pypi.python.org/packages/source/P/PyX/PyX-0.15.tar.gz <https://pypi.python.org/packages/source/P/PyX/PyX-0.15.tar.gz>`_
+* Uncompress the file `PyX-0.15.tar.gz` using for example `7-zip <http://www.7-zip.org>`_.
 * Open command prompt (cmd) and go to the uncompressed folder that contains file `setup.py`.
 * run command ``python setup.py install``
 

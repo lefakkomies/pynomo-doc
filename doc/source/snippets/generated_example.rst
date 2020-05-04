@@ -88,7 +88,7 @@ I have footnoted a first item [#f1]_ and second item [#f2]_.
 Tables
 ======
 Here are some examples of Sphinx
-`tables <http://sphinx-doc.org/rest.html#rst-tables>`_. The Sphinx Bootstrap
+`tables <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#tables>`_. The Sphinx Bootstrap
 Theme removes all Sphinx ``docutils`` classes and replaces them with the
 default Bootstrap ``table`` class.  You can add additional table classes
 using the Sphinx ``cssclass::`` directive, as demonstrated in the following
@@ -187,9 +187,9 @@ look at the `examples source`_ for the underlying reStructuredText).
 .. _Bootswatch: http://bootswatch.com
 .. _United: http://bootswatch.com/united
 .. _Flatly: http://bootswatch.com/flatly
-.. _Sphinx Bootstrap Theme: http://ryan-roemer.github.com/sphinx-bootstrap-theme
-.. _examples page: http://ryan-roemer.github.com/sphinx-bootstrap-theme/examples.html
-.. _examples source: http://ryan-roemer.github.com/sphinx-bootstrap-theme/_sources/examples.txt
+.. _Sphinx Bootstrap Theme: http://ryan-roemer.github.io/sphinx-bootstrap-theme/README.html
+.. _examples page: http://ryan-roemer.github.io/sphinx-bootstrap-theme/examples.html
+.. _examples source: http://ryan-roemer.github.io/sphinx-bootstrap-theme/_sources/examples.rst.txt
 .. _Django Cloud Browser: http://ryan-roemer.github.com/django-cloud-browser
 
 

@@ -97,4 +97,4 @@ Source code
    http://en.wikipedia.org/w/index.php?title=Amortization_calculator&oldid=220083943
 
 .. [3]
-   http://en.wikipedia.org/wiki/Annual_percentage_rate#Does_not_represent_the_total_cost_of_borrowing
+   https://en.wikipedia.org/wiki/Annual_percentage_rate
