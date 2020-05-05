@@ -8,8 +8,8 @@ Linux distribution and in its `derivatives <https://en.wikipedia.org/wiki/List_o
 .. code-block:: bash
 
     $ sudo apt-get -y install python
-    $ sudo apt-get -y install python-pyx
-    $ sudo apt-get -y install python-pip
     $ sudo apt-get -y install python-numpy
     $ sudo apt-get -y install python-scipy
-    $ sudo pip install pynomo
+    $ sudo apt-get -y install python-pyx
+    $ sudo apt-get -y install python-pip
+    $ pip install pynomo
