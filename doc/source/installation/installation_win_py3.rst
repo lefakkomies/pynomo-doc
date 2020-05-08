@@ -5,7 +5,7 @@ Python 3.5 Windows installation
 
 #. Download and install `MIKTeX <http://miktex.org>`_ LaTeX -distribution from `http://miktex.org/download <http://miktex.org/download>`_.
 
-#. Download and install `numpy <http://www.numpy.org>`_ from `sourceforge.net/projects/numpy <http://sourceforge.net/projects/numpy/files/latest/download?source=files>`_.
+#. Download and install `numpy <http://www.numpy.org>`_ from ``.net/projects/numpy <http://sourceforge.net/projects/numpy/files/latest/download?source=files>`_.
 
 #. Download and install `scipy <http://www.scipy.org>`_ from `sourceforge.net/projects/scipy <http://sourceforge.net/projects/scipy/files/latest/download?source=files>`_.
 

@@ -14,8 +14,12 @@ This type of block is used commonly in nomographs that have an equation in form
 .. math::
     f_a(a_1,a_2,a_3,...) = f_b(u,v)
 
-and :math:: f_b(u,v) cannot be represented as line-nomograph.
-Typically equation above is written as pair of equations:
+and
+
+.. math::
+    f_b(u,v)
+
+cannot be represented as line-nomograph. Typically equation above is written as pair of equations:
 
 .. math::
     f_a(a_1,a_2,a_3,...) = x
@@ -168,6 +172,10 @@ Block parameters
     "``'wd_text_horizontal_align_center'``", "``False``", "**Boolean.** Aligns tick text horizontally to center. Good when text rotated 90 degrees."
     "``'wd_axis_color'``", "``color.rgb.black``", "**Color.** Color of axis."
     "``'wd_text_color'``", "``color.rgb.black``", "**Color.** Color of tick texts."
+    "``'horizontal_guides'``", "``False``","**Boolean.** When ``'True'`` generates horizontal guide lines."
+    "``'horizontal_guide_nr'``", "``?``","**Float.** When ``'horizontal_guides'`` is ``'True'`` generates ``'n'`` evenly space horizontal guide lines."
+    "``'vertical_guides'``", "``True``","**Boolean.** When ``'True'`` generates vertical guide lines."
+    "``'vertical_guide_nr'``", "``?``","**Float.** When ``'vertical_guides'`` is ``'True'`` generates ``'n'`` evenly space vertical guide lines."
     "``'isopleth_values'``", "``[[]]``", "** List of list of isopleth values.** Unknown values are given with strings, e.g. 'x'. An example:``[[0.8,'x',0.7],[0.7,0.8,'x']]`` "
 
 
