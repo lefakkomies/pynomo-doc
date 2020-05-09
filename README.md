@@ -7,4 +7,3 @@ Results [web pages](http://lefakkomies.github.io/pynomo-doc/index.html) and a
 ***Under development***
 
 Alternative place of documentation http://pynomo.org 
-s
