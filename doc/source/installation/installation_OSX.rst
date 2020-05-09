@@ -31,7 +31,7 @@ and set it active
 
 .. code-block:: bash
 
-    $ port select --set pip pip27
+    $ sudo port select --set pip pip27
 
 Now python environment should be correct to be run from ``/opt/local/Library/...``. Now install other required packages.
 
@@ -40,6 +40,7 @@ Now python environment should be correct to be run from ``/opt/local/Library/...
     $ sudo port install py27-numpy
     $ sudo port install py27-scipy
     $ sudo port install py27-pyx
+    $ sudo port install py27-six
     $ sudo pip install pynomo
 
 

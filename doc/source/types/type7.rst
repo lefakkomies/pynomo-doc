@@ -55,7 +55,7 @@ Block parameters
     :header: "parameter", "default value", "explanation"
     :widths: 10, 10, 60
 
-    "``'block_type'``", "``'type_4'``", "**String.** This is type 7 block"
+    "``'block_type'``", "``'type_7'``", "**String.** This is type 7 block"
     "``'width'``", "10.0", "**Float.** Block width (to be scaled)"
     "``'height'``", "10.0", "**Float.** Block height (to be scaled)"
     "``'f1_params'``", "--", "**Axis params Dict.** Axis params for function f1"

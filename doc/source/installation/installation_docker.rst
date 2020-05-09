@@ -4,26 +4,29 @@ Python 2.7.x Docker installation
 `Docker <https://www.docker.com/>`_ is a platform to create a sandboxed virtualized environments. In the following example `Dockerfile` a virtualized
 `Ubuntu <http://ubuntu.com/>`_ is created that has pyNomo installed with all requirements::
 
-    FROM ubuntu
+    # python 2.7 Dockerfile for pynomo
+    FROM debian:stable
 
     # Install required packages:
     # python, pyx, pip, numpy, scipy, pynomo and their requirements
     RUN apt-get update
     RUN apt-get -y upgrade
+    RUN DEBIAN_FRONTEND=noninteractive apt-get -y install apt-utils
     RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python
-    RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python-pyx
     RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python-pip
     RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python-numpy
     RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python-scipy
-    RUN DEBIAN_FRONTEND=noninteractive pip install pynomo
+    RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python-pyx=0.12.1-11
+
+    RUN DEBIAN_FRONTEND=noninteractive pip install pynomo six
 
     # Add /app directory and make it working dir
     RUN mkdir -p /app
     ADD . /app
     WORKDIR /app
 
-    # Set the default command to execute -> "python my_pynomo_file.py"
-    CMD ["python", "my_pynomo_file.py"]
+    CMD ["bash"]
+
 
 Docker container (environment) `my_pynomo_docker` is built in the directory `/my_directory_path` that has the file `Dockerfile` with command
 

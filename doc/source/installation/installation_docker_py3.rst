@@ -5,17 +5,15 @@ Python 3 Docker installation
 `Ubuntu <http://ubuntu.com/>`_ is created that has pyNomo installed with all requirements::
 
 
-    FROM ubuntu
+    FROM python:3.7-slim-buster
 
     # Install required packages
     RUN apt-get update && apt-get -y install -y \
         python3 \
         python3-pip \
-        python3-numpy \
-        python3-scipy \
         texlive-latex-base \
         texlive-fonts-recommended
-    RUN DEBIAN_FRONTEND=noninteractive pip3 install --allow-external pyx pyx
+    RUN DEBIAN_FRONTEND=noninteractive pip3 install pyx pynomo numpy scipy six
 
     # Add our python app code to the image
     RUN mkdir -p /app
@@ -24,6 +22,9 @@ Python 3 Docker installation
 
     CMD ["bash"]
 
+    # run command on command line for mapping directory ./source in current directory to folder /app in container
+    #
+    # docker run -it --mount type=bind,source="$(pwd)"/source,target=/app my_pynomo_docker
 
 Docker container (environment) `my_pynomo_docker` is built in the directory `/my_directory_path` that has the file `Dockerfile` with command
 

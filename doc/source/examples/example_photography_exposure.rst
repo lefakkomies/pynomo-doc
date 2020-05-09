@@ -106,7 +106,7 @@ that gives :math:`L=1\,` for :math:`\phi = 26.565 =\arctan(1/2)\,` and :math:`L=
    Vilho Setälä: "Valokuvaus", Otava 1940.
 
 .. [2]
-   http://www.srrb.noaa.govhighlights/sunrise/solareqns.PDF
+   https://www.esrl.noaa.gov/gmd/grad/solcalc/solareqns.PDF
 
 Construction of the nomograph
 -----------------------------
