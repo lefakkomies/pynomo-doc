@@ -8,12 +8,9 @@ Linux distribution and in its `derivatives <https://en.wikipedia.org/wiki/List_o
 .. code-block:: bash
 
     $ sudo apt-get -y install python3
-    $ sudo apt-get -y install python3-pip
     $ sudo apt-get -y install python3-numpy
     $ sudo apt-get -y install python3-scipy
-    $ sudo apt-get -y install texlive-latex-base
-    $ sudo apt-get -y install texlive-fonts-recommended
-    $ sudo pip install pynomo
-    $ pip3 install --allow-external pyx pyx
+    $ sudo apt-get -y install python3-pyx
+    $ sudo apt-get -y install python3-pip
     $ pip3 install pynomo
 

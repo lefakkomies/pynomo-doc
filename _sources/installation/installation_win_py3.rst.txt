@@ -5,7 +5,7 @@ Python 3.5 Windows installation
 
 #. Download and install `MIKTeX <http://miktex.org>`_ LaTeX -distribution from `http://miktex.org/download <http://miktex.org/download>`_.
 
-#. Download and install `numpy <http://www.numpy.org>`_ from `sourceforge.net/projects/numpy <http://sourceforge.net/projects/numpy/files/latest/download?source=files>`_.
+#. Download and install `numpy <http://www.numpy.org>`_ from ``.net/projects/numpy <http://sourceforge.net/projects/numpy/files/latest/download?source=files>`_.
 
 #. Download and install `scipy <http://www.scipy.org>`_ from `sourceforge.net/projects/scipy <http://sourceforge.net/projects/scipy/files/latest/download?source=files>`_.
 
@@ -13,8 +13,8 @@ Python 3.5 Windows installation
 pyx (python graphics package) installation is more tricky. Either
 
 
-* Download `pyx 0.14 (python graphics package) <http://pyx.sourceforge.net>`_ from `https://downloads.sourceforge.net/project/pyx/pyx/0.14/PyX-0.14.tar.gz <https://downloads.sourceforge.net/project/pyx/pyx/0.14/PyX-0.14.tar.gz>`_
-* Uncompress the file `PyX-0.14.tar.gz` using for example `7-zip <http://www.7-zip.org>`_.
+* Download `pyx 0.15 (python graphics package) <https://pyx-project.org>`_ from `https://pypi.python.org/packages/source/P/PyX/PyX-0.15.tar.gz <https://pypi.python.org/packages/source/P/PyX/PyX-0.15.tar.gz>`_
+* Uncompress the file `PyX-0.15.tar.gz` using for example `7-zip <http://www.7-zip.org>`_.
 * Open command prompt (cmd) and go to the uncompressed folder that contains file `setup.py`.
 * run command ``python setup.py install``
 

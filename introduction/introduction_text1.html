@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>What is a Nomogram and Why Would It Interest Me? &#8212; pyNomo Documentation 0.3.1.0 documentation</title>
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.1.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head><body>
 
@@ -45,7 +41,6 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -123,35 +118,14 @@
 
 <div class="container">
   <div class="row">
-      <div class="col-md-3">
-        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
-<li><a class="reference internal" href="#">What is a Nomogram and Why Would It Interest Me?</a></li>
-<li><a class="reference internal" href="#uses-of-nomograms">Uses of Nomograms</a></li>
-<li><a class="reference internal" href="#parts-of-nomograms">Parts of Nomograms</a></li>
-<li><a class="reference internal" href="#what-can-pynomo-do-for-me">What Can PyNomo Do For Me?</a></li>
-</ul>
-
-<div id="sourcelink">
-  <a href="../_sources/introduction/introduction_text1.rst.txt"
-     rel="nofollow">Source</a>
-</div>
-<form action="../search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-        </div>
-      </div>
-    <div class="col-md-9">
+    <div class="body col-md-12 content" role="main">
       
   <div class="section" id="what-is-a-nomogram-and-why-would-it-interest-me">
 <h1>What is a Nomogram and Why Would It Interest Me?<a class="headerlink" href="#what-is-a-nomogram-and-why-would-it-interest-me" title="Permalink to this headline">¶</a></h1>
 <p>A <em>nomogram</em> or <em>nomograph</em> is a diagram that provides an easy, graphical way of calculating the result of a mathematical formula. Sometimes also called an <em>alignment chart</em>, a nomogram consists of a set of numbered scales, usually one for each variable in the formula, arranged so that a straightedge can be placed across known values to find the unknown value that solves the formula. Since an equation in two variables is usually represented by a graph, most nomograms represent formulas that involve three or more variables.</p>
 <p>These graphical calculators were invented in 1880 by Philbert Maurice d’Ocagne and used extensively for many years to provide engineers with fast graphical calculations of complicated formulas to a practical precision. Electronic calculators and computers have made nomograms much less common today, but when a fast, handy calculator of a particular formula is needed they can be very useful. The cost to produce one is a sheet of paper, and they are fun to design, easy to use, and can be beautiful designs that engage people.</p>
 <p>For example, here’s a nomogram from 1920 that relates the variables <span class="math notranslate nohighlight">\(l\)</span>, <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\alpha\)</span> for a slider-crank mechanism:</p>
-<a class="reference internal image-reference" href="../_images/meyer_nomogram.png"><img alt="../_images/meyer_nomogram.png" class="align-center" src="../_images/meyer_nomogram.png" style="width: 569.1px; height: 396.9px;" /></a>
+<a class="reference internal image-reference" href="../_images/meyer_nomogram.png"><img alt="../_images/meyer_nomogram.png" class="align-center" src="../_images/meyer_nomogram.png" style="width: 569.0999999999999px; height: 396.9px;" /></a>
 <p>The equation that this solves is quite complicated:</p>
 <p><span class="math notranslate nohighlight">\(s = r(1 - \cos \alpha) + l(1 - (1 - \lambda^2 \sin^2 \alpha)^{1/2})\)</span>
 where <span class="math notranslate nohighlight">\(\lambda = r/l\)</span></p>
@@ -164,18 +138,18 @@ where <span class="math notranslate nohighlight">\(\lambda = r/l\)</span></p>
 <h1>Uses of Nomograms<a class="headerlink" href="#uses-of-nomograms" title="Permalink to this headline">¶</a></h1>
 <p>Nomograms have been used in an extensive array of applications. A sample includes</p>
 <ul class="simple">
-<li>The original application by d’Ocagne, the automation of complicated “cut and fill” calculations for earth removal during the construction of the French national railway system. This was an important proof of concept, because the calculations are non-trivial and the results translated into significant savings of time, effort, and money.</li>
-<li>The design of channels, pipes and weirs for regulating the flow of water.</li>
-<li>The work of Lawrence Henderson, in which nomograms were used to correlate many different aspects of blood physiology. It was the first major use of nomograms in the United States and also the first medical nomograms anywhere. Nomograms continue to be used extensively in medical fields.</li>
-<li>Ballistics calculations prior to fire control systems, where calculating time was critical.</li>
-<li>Machine shop calculations, to convert blueprint dimensions and perform calculations based on material dimensions and - properties. These nomograms often included markings for standard dimensions and for available manufactured parts.</li>
-<li>Statistics, for complicated calculations of properties of distributions and for operations research including the design of acceptance tests for quality control.</li>
-<li>Operations Research, to obtain results in a variety of optimization problems.</li>
-<li>Chemistry and chemical engineering, to encapsulate both general physical relationships and empirical data for specific compounds.</li>
-<li>Aeronautics, in which nomograms were used for decades in the cockpits of aircraft of all descriptions. As a navigation and flight control aid, nomograms were fast, compact and easy-to-use calculators.</li>
-<li>Astronomical calculations, as in the post-launch orbital calculations of Sputnik 1 by P.E. Elyasberg.[1]</li>
-<li>Engineering work of all kinds: Electrical design of filters and transmission lines, mechanical calculations of stress and loading, optical calculations, and so forth.</li>
-<li>Military, where complex calculations need to be made in the field quickly and with reliability not dependent on electrical devices.</li>
+<li><p>The original application by d’Ocagne, the automation of complicated “cut and fill” calculations for earth removal during the construction of the French national railway system. This was an important proof of concept, because the calculations are non-trivial and the results translated into significant savings of time, effort, and money.</p></li>
+<li><p>The design of channels, pipes and weirs for regulating the flow of water.</p></li>
+<li><p>The work of Lawrence Henderson, in which nomograms were used to correlate many different aspects of blood physiology. It was the first major use of nomograms in the United States and also the first medical nomograms anywhere. Nomograms continue to be used extensively in medical fields.</p></li>
+<li><p>Ballistics calculations prior to fire control systems, where calculating time was critical.</p></li>
+<li><p>Machine shop calculations, to convert blueprint dimensions and perform calculations based on material dimensions and - properties. These nomograms often included markings for standard dimensions and for available manufactured parts.</p></li>
+<li><p>Statistics, for complicated calculations of properties of distributions and for operations research including the design of acceptance tests for quality control.</p></li>
+<li><p>Operations Research, to obtain results in a variety of optimization problems.</p></li>
+<li><p>Chemistry and chemical engineering, to encapsulate both general physical relationships and empirical data for specific compounds.</p></li>
+<li><p>Aeronautics, in which nomograms were used for decades in the cockpits of aircraft of all descriptions. As a navigation and flight control aid, nomograms were fast, compact and easy-to-use calculators.</p></li>
+<li><p>Astronomical calculations, as in the post-launch orbital calculations of Sputnik 1 by P.E. Elyasberg.[1]</p></li>
+<li><p>Engineering work of all kinds: Electrical design of filters and transmission lines, mechanical calculations of stress and loading, optical calculations, and so forth.</p></li>
+<li><p>Military, where complex calculations need to be made in the field quickly and with reliability not dependent on electrical devices.</p></li>
 </ul>
 <p>Nomograms serve a dual purpose: they allow nitty-gritty fast computation—answers in the form of unambiguous numbers—and at the same time provide tremendous insight through the relationship of the various scales, their labeling, limits, and gradations. The better nomograms are self-documenting. They provide a visual model of a system and manifest a wonderful ability to imply interrelationships and cross-variable sensitivities. As the mathematician and computer scientist Richard Hamming remarked, “The purpose of computing is insight, not numbers.”</p>
 </div>
@@ -206,7 +180,7 @@ where <span class="math notranslate nohighlight">\(\lambda = r/l\)</span></p>
     </p>
     <p>
         &copy; Copyright 2019, Daniel Boulet, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
     </p>
   </div>
 </footer>

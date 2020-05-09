@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Example Photography exposure &#8212; pyNomo Documentation 0.3.1.0 documentation</title>
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.1.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head><body>
 
@@ -45,7 +41,6 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -137,42 +132,7 @@
 
 <div class="container">
   <div class="row">
-      <div class="col-md-3">
-        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
-<li><a class="reference internal" href="#">Example Photography exposure</a><ul>
-<li><a class="reference internal" href="#theory-and-background">Theory and background</a><ul>
-<li><a class="reference internal" href="#shadow-lenght">Shadow lenght</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#construction-of-the-nomograph">Construction of the nomograph</a><ul>
-<li><a class="reference internal" href="#block-1-type-9">Block 1 (Type 9)</a></li>
-<li><a class="reference internal" href="#block-2-type-5">Block 2 (Type 5)</a></li>
-<li><a class="reference internal" href="#block-3-type-5">Block 3 (Type 5)</a></li>
-<li><a class="reference internal" href="#block-4-type-3">Block 4 (Type 3)</a></li>
-<li><a class="reference internal" href="#block-5-type-8">Block 5 (Type 8)</a></li>
-<li><a class="reference internal" href="#block-6-type-1">Block 6 (Type 1)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#generated-nomograph">Generated nomograph</a></li>
-<li><a class="reference internal" href="#source-code">Source code</a></li>
-</ul>
-</li>
-</ul>
-
-<div id="sourcelink">
-  <a href="../_sources/examples/photo_part.rst.txt"
-     rel="nofollow">Source</a>
-</div>
-<form action="../search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-        </div>
-      </div>
-    <div class="col-md-9">
+    <div class="body col-md-12 content" role="main">
       
   <div class="section" id="example-photography-exposure">
 <h1>Example Photography exposure<a class="headerlink" href="#example-photography-exposure" title="Permalink to this headline">¶</a></h1>
@@ -182,45 +142,45 @@
 latitude, time of day, day of year, weather, composition. It relates
 these to camera settings: film speed (e.g. ISO 100), aperture and
 shutter speed. The mathematical approach and model is taken from book
-written by V. Setälä. <a class="footnote-reference" href="#id3" id="id1">[1]</a> This book illustrates the approach as
+written by V. Setälä. <a class="footnote-reference brackets" href="#id3" id="id1">1</a> This book illustrates the approach as
 nomographs but they are different compared with the one generatated
 here. Book uses shadow length, but we break shadow length into time,
 date and latitude via solar zenith angle.</p>
 <p>The basic equation in Setälä (pp.492-494) can be extracted and
 written as</p>
-<div class="math notranslate nohighlight">
-\[FS-L-A-W+C+T=0 \,\]</div>
-<p>where parameters of <a class="reference internal" href="example_photography_exposure.html#equation-setala1">(1)</a> are listed below:</p>
-<table border="1" class="colwidths-given docutils">
+<div class="math notranslate nohighlight" id="equation-setala1">
+<span class="eqno">(1)<a class="headerlink" href="#equation-setala1" title="Permalink to this equation">¶</a></span>\[FS-L-A-W+C+T=0 \,\]</div>
+<p>where parameters of <a class="reference internal" href="#equation-setala1">(1)</a> are listed below:</p>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col width="13%" />
-<col width="25%" />
-<col width="63%" />
+<col style="width: 13%" />
+<col style="width: 25%" />
+<col style="width: 63%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(FS\,\)</span></td>
-<td>Film speed</td>
-<td>DIN value that equals <span class="math notranslate nohighlight">\(10 \log (S) +1 \,\)</span>,where S is ISO FILM speed</td>
+<tbody>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(FS\,\)</span></p></td>
+<td><p>Film speed</p></td>
+<td><p>DIN value that equals <span class="math notranslate nohighlight">\(10 \log (S) +1 \,\)</span>,where S is ISO FILM speed</p></td>
 </tr>
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(T\,\)</span></td>
-<td>shutter time</td>
-<td><span class="math notranslate nohighlight">\(10 \log \left( \frac{t}{1/10}\right)\)</span></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(T\,\)</span></p></td>
+<td><p>shutter time</p></td>
+<td><p><span class="math notranslate nohighlight">\(10 \log \left( \frac{t}{1/10}\right)\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(A\,\)</span></td>
-<td>aperture</td>
-<td><span class="math notranslate nohighlight">\(10 \log \left(\frac{N^2}{3.2^2}\right)\)</span></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(A\,\)</span></p></td>
+<td><p>aperture</p></td>
+<td><p><span class="math notranslate nohighlight">\(10 \log \left(\frac{N^2}{3.2^2}\right)\)</span></p></td>
 </tr>
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(L\,\)</span></td>
-<td>shadow length (in steps)</td>
-<td>two times (shadow length)/(person length) <span class="math notranslate nohighlight">\(= 2 \arctan ( \phi) \,\)</span>, where <span class="math notranslate nohighlight">\(\phi \,\)</span> is solar zenith angle.</td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(L\,\)</span></p></td>
+<td><p>shadow length (in steps)</p></td>
+<td><p>two times (shadow length)/(person length) <span class="math notranslate nohighlight">\(= 2 \arctan ( \phi) \,\)</span>, where <span class="math notranslate nohighlight">\(\phi \,\)</span> is solar zenith angle.</p></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(W\,\)</span></td>
-<td>weather</td>
-<td>Clear sky, Cumulus clouds: 0, Clear sky: 1, Sun through clouds: 3, Sky light gray: 6, Sky dark gray: 9, Thunder-clouds cover sky: 12</td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(W\,\)</span></p></td>
+<td><p>weather</p></td>
+<td><p>Clear sky, Cumulus clouds: 0, Clear sky: 1, Sun through clouds: 3, Sky light gray: 6, Sky dark gray: 9, Thunder-clouds cover sky: 12</p></td>
 </tr>
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(C\,\)</span></td>
-<td>Composition</td>
-<td>Person under trees: -6, Inside forest : -4, Person in shadow of wall : -1, Person at open place; alley under trees : 2, Buildings; street : 5, Landscape and front matter : 7, Open landscape : 9, Snow landscape and front matter; beach : 11,Snow field; open sea : 13, Clouds : 15</td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(C\,\)</span></p></td>
+<td><p>Composition</p></td>
+<td><p>Person under trees: -6, Inside forest : -4, Person in shadow of wall : -1, Person at open place; alley under trees : 2, Buildings; street : 5, Landscape and front matter : 7, Open landscape : 9, Snow landscape and front matter; beach : 11,Snow field; open sea : 13, Clouds : 15</p></td>
 </tr>
 </tbody>
 </table>
@@ -229,7 +189,7 @@ Today we think stops in base-2 logarithmic.</p>
 <div class="section" id="shadow-lenght">
 <h3>Shadow lenght<a class="headerlink" href="#shadow-lenght" title="Permalink to this headline">¶</a></h3>
 <p>Calculation of shadow length as a function of day of year, time of day
-and latitude is according to  <a class="footnote-reference" href="#id4" id="id2">[2]</a>. Following equations are used. For
+and latitude is according to  <a class="footnote-reference brackets" href="#id4" id="id2">2</a>. Following equations are used. For
 fractional year (without time information) we take</p>
 <p><span class="math notranslate nohighlight">\(\gamma = (day-1+0.5)2\pi/365. \,\)</span></p>
 <p>For time offset (eqtime) we use equation (in minutes)</p>
@@ -260,18 +220,14 @@ assumptions, here we assume that values for shadow length 1 and 10 for Setälä
 are reasonable, and an equation that scales logarithmically is found:</p>
 <p><span class="math notranslate nohighlight">\(L = 0.33766 - 13.656 \log10 (\cos(\phi)) \,\)</span></p>
 <p>that gives <span class="math notranslate nohighlight">\(L=1\,\)</span> for <span class="math notranslate nohighlight">\(\phi = 26.565 =\arctan(1/2)\,\)</span> and <span class="math notranslate nohighlight">\(L=10\,\)</span> for <span class="math notranslate nohighlight">\(\phi = 78.69 =\arctan(10/2).\,\)</span></p>
-<table class="docutils footnote" frame="void" id="id3" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Vilho Setälä: “Valokuvaus”, Otava 1940.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id4" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><a class="reference external" href="http://www.srrb.noaa.govhighlights/sunrise/solareqns.PDF">http://www.srrb.noaa.govhighlights/sunrise/solareqns.PDF</a></td></tr>
-</tbody>
-</table>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Vilho Setälä: “Valokuvaus”, Otava 1940.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="https://www.esrl.noaa.gov/gmd/grad/solcalc/solareqns.PDF">https://www.esrl.noaa.gov/gmd/grad/solcalc/solareqns.PDF</a></p>
+</dd>
+</dl>
 </div>
 </div>
 <div class="section" id="construction-of-the-nomograph">
@@ -774,7 +730,7 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">functions for solartime taken from solareqns.pdf from</span>
 <span class="sd">http://www.srrb.noaa.gov/highlights/sunrise/solareqns.PDF</span>
@@ -1202,7 +1158,7 @@ DSLR image stabilization (3/8) and 35mm image stabilization (1/8).</p>
     </p>
     <p>
         &copy; Copyright 2019, Daniel Boulet, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
     </p>
   </div>
 </footer>

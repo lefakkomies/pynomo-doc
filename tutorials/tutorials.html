@@ -1,25 +1,17 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Tutorials &#8212; pyNomo Documentation 0.3.1.0 documentation</title>
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.1.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Big picture of nomograph construction" href="../main_page.html" />
@@ -28,6 +20,10 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head><body>
 
@@ -47,7 +43,6 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -117,11 +112,11 @@
               
                 
   <li>
-    <a href="../installation/installation.html" title="Previous Chapter: Installation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Installation</span>
+    <a href="../installation/installation.html" title="Previous Chapter: Installation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Installation</span>
     </a>
   </li>
   <li>
-    <a href="../main_page.html" title="Next Chapter: Big picture of nomograph construction"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Big picture o... &raquo;</span>
+    <a href="../main_page.html" title="Next Chapter: Big picture of nomograph construction"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Big picture o... &raquo;</span>
     </a>
   </li>
               
@@ -153,56 +148,7 @@
 
 <div class="container">
   <div class="row">
-      <div class="col-md-3">
-        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
-<li><a class="reference internal" href="#">Tutorials</a><ul>
-<li><a class="reference internal" href="#introduction">Introduction</a></li>
-<li><a class="reference internal" href="#tutorial-1-vehicle-economy-calculator">Tutorial 1: Vehicle economy calculator</a><ul>
-<li><a class="reference internal" href="#objective">Objective</a></li>
-<li><a class="reference internal" href="#nomogram-construction">Nomogram construction</a></li>
-<li><a class="reference internal" href="#generated-nomogram">Generated nomogram</a></li>
-<li><a class="reference internal" href="#a-variation-on-vehicle-economy-calculator">A variation on vehicle economy calculator</a></li>
-<li><a class="reference internal" href="#id1">Generated nomogram</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#tutorial-2-vehicle-economy-calculator-metric-and-us">Tutorial 2: Vehicle economy calculator (Metric and US)</a><ul>
-<li><a class="reference internal" href="#id2">Objective</a></li>
-<li><a class="reference internal" href="#id3">Nomogram construction</a></li>
-<li><a class="reference internal" href="#id4">Generated nomogram</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#tutorial-program-listings">Tutorial Program Listings</a><ul>
-<li><a class="reference internal" href="#tutorial-1-program-listing">Tutorial 1 program listing</a></li>
-<li><a class="reference internal" href="#tutorial-1-program-listing-variation">Tutorial 1 program listing (variation)</a></li>
-<li><a class="reference internal" href="#tutorial-2-program-listing">Tutorial 2 program listing</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  <li>
-    <a href="../installation/installation.html" title="Previous Chapter: Installation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Installation</span>
-    </a>
-  </li>
-  <li>
-    <a href="../main_page.html" title="Next Chapter: Big picture of nomograph construction"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Big picture o... &raquo;</span>
-    </a>
-  </li>
-<div id="sourcelink">
-  <a href="../_sources/tutorials/tutorials.rst.txt"
-     rel="nofollow">Source</a>
-</div>
-<form action="../search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-        </div>
-      </div>
-    <div class="col-md-9">
+    <div class="body col-md-12 content" role="main">
       
   <div class="section" id="tutorials">
 <h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
@@ -221,9 +167,9 @@
 <h3>Nomogram construction<a class="headerlink" href="#nomogram-construction" title="Permalink to this headline">¶</a></h3>
 <p>Nomogram construction involves several steps.  The first is always to identify the variables and their relationship. In this tutorial we need to consider three variables:</p>
 <ul class="simple">
-<li>distance (<span class="math notranslate nohighlight">\(d\)</span>) measured in kilometres,</li>
-<li>fuel consumed (<span class="math notranslate nohighlight">\(c\)</span>) measured in litres, and</li>
-<li>fuel economy  (<span class="math notranslate nohighlight">\(e\)</span>) measured in kilometres driven per litre consumed.</li>
+<li><p>distance (<span class="math notranslate nohighlight">\(d\)</span>) measured in kilometres,</p></li>
+<li><p>fuel consumed (<span class="math notranslate nohighlight">\(c\)</span>) measured in litres, and</p></li>
+<li><p>fuel economy  (<span class="math notranslate nohighlight">\(e\)</span>) measured in kilometres driven per litre consumed.</p></li>
 </ul>
 <p>The relationship between these variables is:</p>
 <p><span class="math notranslate nohighlight">\(d = {e\times c}.\)</span></p>
@@ -311,8 +257,8 @@
 </pre></div>
 </td></tr></table></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Parameters <code class="code docutils literal notranslate"><span class="pre">f1_params</span></code>, <code class="code docutils literal notranslate"><span class="pre">f2_params</span></code> and <code class="code docutils literal notranslate"><span class="pre">f3_params</span></code> represent parameters
+<p class="admonition-title">Note</p>
+<p>Parameters <code class="code docutils literal notranslate"><span class="pre">f1_params</span></code>, <code class="code docutils literal notranslate"><span class="pre">f2_params</span></code> and <code class="code docutils literal notranslate"><span class="pre">f3_params</span></code> represent parameters
 including functions for variables <span class="math notranslate nohighlight">\(u_1\)</span>, <span class="math notranslate nohighlight">\(u_2\)</span> and <span class="math notranslate nohighlight">\(u_3\)</span> respectively.</p>
 </div>
 <p>Finally, we define main parameters of the nomogram and generate the chart:</p>
@@ -388,10 +334,10 @@ we multiply <span class="math notranslate nohighlight">\(\frac{1}{e}\)</span> by
 <h3>Objective<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Create a new nomogram similar to the one shown in Tutorial 1 but add scales for American units of measure (miles and US gallons).  This tutorial will cover:</p>
 <ul class="simple">
-<li>Aligning and adjusting compatible scales.</li>
-<li>Modifying axis parameters (titles and tick location) to improve readability.</li>
-<li>Creating isopleths.</li>
-<li>Combining blocks into a single nomogram.</li>
+<li><p>Aligning and adjusting compatible scales.</p></li>
+<li><p>Modifying axis parameters (titles and tick location) to improve readability.</p></li>
+<li><p>Creating isopleths.</p></li>
+<li><p>Combining blocks into a single nomogram.</p></li>
 </ul>
 </div>
 <div class="section" id="id3">
@@ -400,9 +346,9 @@ we multiply <span class="math notranslate nohighlight">\(\frac{1}{e}\)</span> by
 <p><span class="math notranslate nohighlight">\(d = {e\times c}\)</span>,</p>
 <p>where <span class="math notranslate nohighlight">\(e\)</span> (economy) was expressed in terms of distance travelled per unit volume of fuel.  This is precisely what we want but we need to adjust the scales for American units of measure.  This is accomplished by:</p>
 <ol class="arabic simple">
-<li><em>Converting</em> the minimum (<code class="code docutils literal notranslate"><span class="pre">u_min</span></code>) and maximum (<code class="code docutils literal notranslate"><span class="pre">u_max</span></code>) values in the axis to match those in the SI unit axis.</li>
-<li><em>Aligning</em> the distance and fuel consumed axis so that they match the height of the SI unit axis.</li>
-<li><em>Tagging</em> the distance and fuel scales so that they align horizontally with their metric system counterparts.</li>
+<li><p><em>Converting</em> the minimum (<code class="code docutils literal notranslate"><span class="pre">u_min</span></code>) and maximum (<code class="code docutils literal notranslate"><span class="pre">u_max</span></code>) values in the axis to match those in the SI unit axis.</p></li>
+<li><p><em>Aligning</em> the distance and fuel consumed axis so that they match the height of the SI unit axis.</p></li>
+<li><p><em>Tagging</em> the distance and fuel scales so that they align horizontally with their metric system counterparts.</p></li>
 </ol>
 <p>Thus our three new scales are defined as follows:</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>25
@@ -454,7 +400,7 @@ we multiply <span class="math notranslate nohighlight">\(\frac{1}{e}\)</span> by
     <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
     <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;linear smart&#39;</span><span class="p">,</span>
     <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;title_draw_center&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="s1">&#39;title_draw_center&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
     <span class="s1">&#39;title_distance_center&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
@@ -631,7 +577,7 @@ we multiply <span class="math notranslate nohighlight">\(\frac{1}{e}\)</span> by
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">dist_SI</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># distance in kilometers (u1)</span>
@@ -750,7 +696,7 @@ we multiply <span class="math notranslate nohighlight">\(\frac{1}{e}\)</span> by
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">dist_SI</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># distance in kilometers (u1)</span>
@@ -928,7 +874,7 @@ we multiply <span class="math notranslate nohighlight">\(\frac{1}{e}\)</span> by
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">text</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;latex&quot;</span><span class="p">)</span>  <span class="c1"># allows use of latex commands in PyX such as \frac{a}{b} and \par</span>
 
@@ -1055,7 +1001,7 @@ we multiply <span class="math notranslate nohighlight">\(\frac{1}{e}\)</span> by
     </p>
     <p>
         &copy; Copyright 2019, Daniel Boulet, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
     </p>
   </div>
 </footer>
