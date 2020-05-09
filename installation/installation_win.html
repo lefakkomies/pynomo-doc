@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Python 2.7.x Windows installation &#8212; pyNomo Documentation 0.3.1.0 documentation</title>
+    <title>Python 3.x Windows installation &#8212; pyNomo Documentation 0.3.2.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -36,7 +36,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           pyNomo Documentation</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.3.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.3.2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -77,7 +77,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Python 2.7.x Windows installation</a></li>
+<li><a class="reference internal" href="#">Python 3.x Windows installation</a></li>
 </ul>
 </ul>
 </li>
@@ -117,31 +117,21 @@
   <div class="row">
     <div class="body col-md-12 content" role="main">
       
-  <div class="section" id="python-2-7-x-windows-installation">
-<h1>Python 2.7.x Windows installation<a class="headerlink" href="#python-2-7-x-windows-installation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="python-3-x-windows-installation">
+<h1>Python 3.x Windows installation<a class="headerlink" href="#python-3-x-windows-installation" title="Permalink to this headline">¶</a></h1>
+<p>At the time of writing (9th May 2020) default python version is 3.7.6. Try using python 3.7.x or later.</p>
 <ol class="arabic simple">
-<li><p>Download and install <a class="reference external" href="https://www.python.org">python 2.7.x</a> from <a class="reference external" href="https://www.python.org/downloads/">www.python.org/downloads/</a> .</p></li>
-<li><p>Download and install <a class="reference external" href="http://miktex.org">MIKTeX</a> LaTeX -distribution from <a class="reference external" href="http://miktex.org/download">http://miktex.org/download</a>.</p></li>
-<li><p>Download and install <a class="reference external" href="http://www.numpy.org">numpy</a> from <a class="reference external" href="http://sourceforge.net/projects/numpy/files/latest/download?source=files">sourceforge.net/projects/numpy</a>.</p></li>
-<li><p>Download and install <a class="reference external" href="http://www.scipy.org">scipy</a> from <a class="reference external" href="http://sourceforge.net/projects/scipy/files/latest/download?source=files">sourceforge.net/projects/scipy</a>.</p></li>
+<li><p>Download and install <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a>. This will include python 3.x, and among other python numerical packages scipy and numpy.</p></li>
+<li><p>Download and install <a class="reference external" href="https://www.tug.org/texlive/acquire-netinstall.html">TexLive</a></p></li>
 </ol>
-<p>pyx (python graphics package) installation is more tricky. Either</p>
-<ul class="simple">
-<li><p>Download <a class="reference external" href="https://pyx-project.org">pyx 0.15.0 (python graphics package)</a> from <a class="reference external" href="https://pypi.python.org/packages/source/P/PyX/PyX-0.15.tar.gz">https://pypi.python.org/packages/source/P/PyX/PyX-0.15.tar.gz</a></p></li>
-<li><p>Uncompress the file <cite>PyX-0.15.tar.gz</cite> using for example <a class="reference external" href="http://www.7-zip.org">7-zip</a>.</p></li>
-<li><p>Open command prompt (cmd) and go to the uncompressed folder that contains file <cite>setup.py</cite>.</p></li>
-<li><p>run command <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code></p></li>
-</ul>
-<p>or cross your fingers and just run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">allow</span><span class="o">-</span><span class="n">external</span> <span class="n">pyx</span> <span class="n">pyx</span>
-</pre></div>
-</div>
-<p>on command prompt with administrative rights.</p>
-<p>Finally pyNomo is installed either by downloading installer from  <a class="reference external" href="http://sourceforge.net/projects/pynomo/files/pynomo/">http://sourceforge.net/projects/pynomo/</a> and by running it. Other choice to try is to run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pynomo</span>
-</pre></div>
-</div>
-<p>on command line. Tedious, huh! If you find simpler Windows recipe, please email it to the maintainer of the project.</p>
+<p>install <a href="#id1"><span class="problematic" id="id2">`</span></a>pyx (python graphics package) by running command</p>
+<p><cite>pip install pyx</cite></p>
+<p>on Anaconda Powershell prompt. Install <a href="#id3"><span class="problematic" id="id4">`</span></a>pynomo similarly with command</p>
+<p><cite>pip install pynomo</cite></p>
+<p>Download examples from Github pynomo &lt;<a class="reference external" href="https://github.com/lefakkomies/pynomo">https://github.com/lefakkomies/pynomo</a>&gt;`_, go to <a href="#id5"><span class="problematic" id="id6">`</span></a>examples directory with Anaconda Powershell.
+Run command</p>
+<p><cite>python GENERATE_ALL.py</cite></p>
+<p>and all the examples pdf documents should be generated.</p>
 </div>
 
 
@@ -156,7 +146,7 @@
       
     </p>
     <p>
-        &copy; Copyright 2019, Daniel Boulet, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
+        &copy; Copyright 2020, Daniel Boulet, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
     </p>
   </div>

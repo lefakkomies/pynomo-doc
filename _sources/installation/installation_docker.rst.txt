@@ -38,8 +38,15 @@ Once environment is built and `my_pynomo_file.py is in directory `/my_directory_
 
 .. code-block:: bash
 
-    $ docker run -i -v /my_directory_path/pdf_py_dir:/app my_pynomo_docker
+    $ docker run -it --mount type=bind,source="$(pwd)"/source,target=/app my_pynomo_docker
 
-that runs command ``python my_pynomo_file.py`` inside `/app directory` of container that is mapped to directory `/my_directory_path/pdf_py_dir` of the host system.
+that opens terminal in `/app directory` of container that is mapped to directory `"$(pwd)"/source` of the host system.
+Note the command `$(pwd)` used `pwd` command to print out current working directory.
+Inside the container one can run own scripts like:
+
+.. code-block:: bash
+
+    $ python3 my_script.py
+
 That way a folder is used to share the script file and the generated pdf file between host system and the container (virtualized
 Linux environment).

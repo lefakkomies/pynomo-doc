@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Python 2.7.x Docker installation &#8212; pyNomo Documentation 0.3.1.0 documentation</title>
+    <title>Python 2.7.x Docker installation &#8212; pyNomo Documentation 0.3.2.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -36,7 +36,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           pyNomo Documentation</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.3.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.3.2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -150,11 +150,16 @@
 </pre></div>
 </div>
 <p>Once environment is built and <cite>my_pynomo_file.py is in directory `/my_directory_path/pdf_py_dir/</cite> one can run</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker run -i -v /my_directory_path/pdf_py_dir:/app my_pynomo_docker
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker run -it --mount <span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>/source,target<span class="o">=</span>/app my_pynomo_docker
 </pre></div>
 </div>
-<p>that runs command <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">my_pynomo_file.py</span></code> inside <cite>/app directory</cite> of container that is mapped to directory <cite>/my_directory_path/pdf_py_dir</cite> of the host system.
-That way a folder is used to share the script file and the generated pdf file between host system and the container (virtualized
+<p>that opens terminal in <cite>/app directory</cite> of container that is mapped to directory <cite>“$(pwd)”/source</cite> of the host system.
+Note the command <cite>$(pwd)</cite> used <cite>pwd</cite> command to print out current working directory.
+Inside the container one can run own scripts like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 my_script.py
+</pre></div>
+</div>
+<p>That way a folder is used to share the script file and the generated pdf file between host system and the container (virtualized
 Linux environment).</p>
 </div>
 
@@ -170,7 +175,7 @@ Linux environment).</p>
       
     </p>
     <p>
-        &copy; Copyright 2019, Daniel Boulet, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
+        &copy; Copyright 2020, Daniel Boulet, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
     </p>
   </div>

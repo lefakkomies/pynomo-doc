@@ -1,32 +1,24 @@
-Python 2.7.x Windows installation
+Python 3.x Windows installation
 =================================
 
-#. Download and install `python 2.7.x <https://www.python.org>`_ from `www.python.org/downloads/ <https://www.python.org/downloads/>`_ .
+At the time of writing (9th May 2020) default python version is 3.7.6. Try using python 3.7.x or later.
 
-#. Download and install `MIKTeX <http://miktex.org>`_ LaTeX -distribution from `http://miktex.org/download <http://miktex.org/download>`_.
+#. Download and install `Anaconda <https://www.anaconda.com/products/individual>`_. This will include python 3.x, and among other python numerical packages scipy and numpy.
 
-#. Download and install `numpy <http://www.numpy.org>`_ from `sourceforge.net/projects/numpy <http://sourceforge.net/projects/numpy/files/latest/download?source=files>`_.
-
-#. Download and install `scipy <http://www.scipy.org>`_ from `sourceforge.net/projects/scipy <http://sourceforge.net/projects/scipy/files/latest/download?source=files>`_.
+#. Download and install `TexLive <https://www.tug.org/texlive/acquire-netinstall.html>`_
 
 
-pyx (python graphics package) installation is more tricky. Either
+install `pyx (python graphics package) by running command
 
+`pip install pyx`
 
-* Download `pyx 0.15.0 (python graphics package) <https://pyx-project.org>`_ from `https://pypi.python.org/packages/source/P/PyX/PyX-0.15.tar.gz <https://pypi.python.org/packages/source/P/PyX/PyX-0.15.tar.gz>`_
-* Uncompress the file `PyX-0.15.tar.gz` using for example `7-zip <http://www.7-zip.org>`_.
-* Open command prompt (cmd) and go to the uncompressed folder that contains file `setup.py`.
-* run command ``python setup.py install``
+on Anaconda Powershell prompt. Install `pynomo similarly with command
 
-or cross your fingers and just run::
+`pip install pynomo`
 
-    > pip install --allow-external pyx pyx
+Download examples from Github pynomo <https://github.com/lefakkomies/pynomo>`_, go to `examples directory with Anaconda Powershell.
+Run command
 
-on command prompt with administrative rights.
+`python GENERATE_ALL.py`
 
-
-Finally pyNomo is installed either by downloading installer from  `http://sourceforge.net/projects/pynomo/ <http://sourceforge.net/projects/pynomo/files/pynomo/>`_ and by running it. Other choice to try is to run::
-
-    > pip install pynomo
-
-on command line. Tedious, huh! If you find simpler Windows recipe, please email it to the maintainer of the project.
+and all the examples pdf documents should be generated.
