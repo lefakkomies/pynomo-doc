@@ -50,7 +50,7 @@ where parameters of :eq:`setala1` are listed below:
 It is to be noted that Setälä has stops ten times base-10 logarithmic.
 Today we think stops in base-2 logarithmic.
 
-Shadow lenght
+Shadow length
 ^^^^^^^^^^^^^
 
 Calculation of shadow length as a function of day of year, time of day
