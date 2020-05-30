@@ -80,7 +80,7 @@ Block parameters
     "``'type'``", "``'parallel'``", "**String.** Can be either ``'parallel'``or ``'orthogonal'``."
     "``'x_empty'``", "0.2", "**Float.** If orthogonal, how much fractional space before start of x-axis."
     "``'y_empty'``", "0.2", "**Float.** If orthogonal, how much fractional space before start of y-axis."
-    "``'curve_const'``", "0.0", "**Float.** Sets the lenght of angle of Bezier curve. low value = straigh line, high value = curved line."
+    "``'curve_const'``", "0.0", "**Float.** Sets the length of angle of Bezier curve. low value = straigh line, high value = curved line."
     "``'width'``", "10.0", "**Float.** Block width (to be scaled)"
     "``'height'``", "10.0", "**Float.** Block height (to be scaled)"
     "``'f1_params'``", "--", "**Axis params Dict.** Axis params for function f1"

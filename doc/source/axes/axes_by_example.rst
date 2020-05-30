@@ -125,8 +125,8 @@ Manual arrows can be used to point values in the scale using arrows.
 
 Manual function  (``'function_x'`` and ``'function_y'``)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-If one wants to explicitely draw scale in xy-scace, parameters ``'function_x'`` and ``'function_y'`` can be used
-in conjuction with block type 8. In the following example circular scale is drawn.
+If one wants to explicitly draw scale in xy-scale, parameters ``'function_x'`` and ``'function_y'`` can be used
+in conjunction with block type 8. In the following example circular scale is drawn.
 
 .. literalinclude:: ./codes/ex_axes_8.py
     :encoding: latin-1
