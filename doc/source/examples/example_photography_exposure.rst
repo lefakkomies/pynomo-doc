@@ -83,12 +83,12 @@ and for hour angle
 Solar zenith angle (:math:`\phi \,`), latitude (LAT),
 declination (D) and hour angle (ha) are connected with equation:
 
-:math:`\cos (\phi ) = \sin(LAT)sin(D)+\cos(LAT)\cos(D)\cos(ha). \,`
+:math:`\cos (\phi ) = \sin(LAT)\sin(D)+\cos(LAT)\cos(D)\cos(ha). \,`
 
 This is in our desired form as a function of hour (h), day (day),
 latitude (LAT), solar zenith angle (:math:`\phi \,`):
 
-:math:`\cos (\phi ) = \sin(LAT)sin(D(\gamma(day)))+\cos(LAT)\cos(D(\gamma(day)))\cos(ha(h)) \,`.
+:math:`\cos (\phi ) = \sin(LAT)\sin(D(\gamma(day)))+\cos(LAT)\cos(D(\gamma(day)))\cos(ha(h)) \,`.
 
 In practice illuminance of flat surface on earth depends on solar zenith
 angle as :math:`\cos(\phi)\,`. Setälä uses shadow length that is
@@ -132,7 +132,7 @@ In order to construct the nomograph, we split the equation into four blocks and 
 
     "
     .. math::
-        x_1 \equiv \cos(\phi)=\sin(LAT)sin(D(\gamma(day)))+\cos(LAT)\cos(D(\gamma(day)))\cos(ha(h))\,
+        x_1 \equiv \cos(\phi)=\sin(LAT)\sin(D(\gamma(day)))+\cos(LAT)\cos(D(\gamma(day)))\cos(ha(h))\,
 
     formed into determinant:
 
