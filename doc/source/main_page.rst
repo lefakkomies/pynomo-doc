@@ -55,34 +55,34 @@ building blocks for nomograph construction. If these do not suffice one
 can build as complex nomograph as one wishes by using determinants in type 9.
 
 .. |type1image| image:: types/images/ex_type1_nomo_1.*
-    :height: 100px
+    :height: 75px
 
 .. |type2image| image:: types/images/ex_type2_nomo_1.*
-    :height: 100px
+    :height: 75px
 
 .. |type3image| image:: types/images/ex_type3_nomo_1.*
-    :height: 100px
+    :height: 75px
 
 .. |type4image| image:: types/images/ex_type4_nomo_1.*
-    :height: 100px
+    :height: 75px
 
 .. |type5image| image:: types/images/ex_type5_nomo_1.*
-    :height: 100px
+    :height: 75px
 
 .. |type6image| image:: types/images/ex_type6_nomo_1.*
-    :height: 100px
+    :height: 75px
 
 .. |type7image| image:: types/images/ex_type7_nomo_1.*
-    :height: 100px
+    :height: 75px
 
 .. |type8image| image:: types/images/ex_type8_nomo_1.*
-    :height: 100px
+    :height: 75px
 
 .. |type9image| image:: types/images/ex_type9_nomo_1.*
-    :height: 100px
+    :height: 75px
 
 .. |type10image| image:: types/images/ex_type10_nomo_1.*
-    :height: 100px
+    :height: 75px
 
 .. only:: latex
     .. tabularcolumns:: |p{2cm}|p{7cm}|p{5cm}|
