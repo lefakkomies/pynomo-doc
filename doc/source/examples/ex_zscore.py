@@ -112,7 +112,6 @@ rightz = {
     "function": lambda u: cdf(u),
     "align_func": lambda u: cdf(u),
     "title": "Upper tail $X_2$",
-    # 'title_x_shift': 2.0,
     "tick_levels": 5,
     "tick_text_levels": 4,
     "scale_type": "linear smart",
@@ -152,37 +151,29 @@ block_diff = {
     "f2_params": delta,
     "f3_params": rightpdf,
     "proportion": 1.5,
-    # 'width':15.0,
-    # 'height':15.0,
     "isopleth_values": [[cdf(-1.25), "x", cdf(0.25)]],
 }
 
 
 main_params = {
-    "filename": "example_zscore.pdf",
+    "filename": "ex_zscore.pdf",
     "paper_height": 11.0 * 2.54,
     "paper_width": 8.5 * 2.54,
     "block_params": [block_diff, leftblock2, rightblock2],
     "cdfations": [("rotate", 0.01), ("scale paper",), ("polygon",)],
-    "title_x": 6.50,
-    "title_y": 27.0,
-    "title_box_width": 7.0,
-    "title_str": r"\Huge $Z$-scores Nomograph \par \medskip \large ($\mu = 0$, $\sigma = 1$)",
+    "title_x": 11.0,
+    "title_y": 3.0,
+    "title_box_width": 15.0,
+    "title_str": r"\Huge Z Score Nomograph \par \medskip \large ($\mu = 0$, $\sigma = 1$) \par \medskip  \small \copyright Daniel Boulet  2021",
     # 'make_grid':True,
     "extra_texts": [
         {
-            "x": 4.5,
-            "y": 4.5,
+            "x": 2.5,
+            "y": 16.0,
             "text": r"\noindent Area under normal curve between lower tail $X_1$ and upper tail $X_2$ is read on center axis. \
                 For example, area under normal distribution curve from $%g \sigma$ to $%g \sigma$ is $%4.4f$."
             % (-1.25, 0.25, cdf(0.25) - cdf(-1.25)),
-            "width": 10.0,
-        },
-        {
-            "x": 15.0,
-            "y": 1.0,
-            "text": r"\copyright Daniel Boulet  2019",
-            "width": 10.0,
+            "width": 8.0,
         },
     ],
 }

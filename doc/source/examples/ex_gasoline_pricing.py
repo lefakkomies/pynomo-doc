@@ -1,5 +1,5 @@
 """
-    gasolinepricesUSD_CAD.py
+    ex_gasoline_pricing.py
 
     Gasoline price converter
 
@@ -57,7 +57,7 @@ N_params_3 = {
     "u_min": 3.0,
     "u_max": 5.0,
     "function": lambda u: u / 3.78541,
-    "title": r"$\frac{USD}{USG}$",
+    "title": r"$\frac{USD}{US Gal}$",
     "tick_levels": 4,
     "tick_text_levels": 2,
     "scale_type": "linear smart",
@@ -75,18 +75,18 @@ block_1_params = {
 }
 
 main_params = {
-    "filename": "gasolinepricesUSD_CAD.pdf",
+    "filename": "ex_gasoline_pricing.pdf",
     "paper_height": 11.0 * 2.54 / 2.0,
     "paper_width": 8.5 * 2.54 / 2.0,
     "block_params": [block_1_params],
     "transformations": [("rotate", 0.01), ("scale paper",)],
     "title_str": r"\huge \textbf{Gas Price Converter}",
-    "title_y": 15.0,
+    "title_y": 13.50,
     "title_box_width": 15.0,
     "extra_texts": [
         {
             "x": 1.0,
-            "y": 13.0,
+            "y": 12.5,
             "text": r"\noindent Is gasoline cheaper \
                 south of the 49\textsuperscript{th}? Use this gas price \
                 converter to be sure. In the example \

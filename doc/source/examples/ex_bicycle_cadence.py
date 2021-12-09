@@ -1,5 +1,5 @@
 """
-    bicycle.py
+    ex_bicycle_cadence.py
 
     Bicycle gearing cadence and speed calculator
 
@@ -47,7 +47,6 @@ gearing = {
     'wd_tick_text_levels': 1,
     'wd_tick_side': 'right',
     'wd_title_opposite_tick': True,
-
     'isopleth_values': [[14.0, 38.0, 'x']],
 
 }
@@ -55,22 +54,23 @@ gearing = {
 
 wheelrpm = {
     'tag': 'wheelrpm',
-    'u_min': 30.0,
+    'u_min': 90.0,
     'u_max': 360.0,
     'scale_type': 'manual point',
     'function': lambda u: u,
 }
 
 crankrpm = {
-    'u_min': 30.0,
-    'u_max': 90.0,
+    'u_min': 60.0,
+    'u_max': 120.0,
     'function': lambda u: u,
     'title': r'\large \slshape Cadence (RPM)',
     'tick_levels': 3,
     'tick_text_levels': 2,
     'scale_type': 'linear smart',
+	'tick_side':'left',
     'title_draw_center': True,
-    'title_distance_center': -0.5,
+    # 'title_distance_center': -0.5,
 }
 
 ratio = {
@@ -94,8 +94,8 @@ rotation = {
 
 
 speed = {
-    'u_min': 5.0,
-    'u_max': 50.0,
+    'u_min': 15.0,
+    'u_max': 45.0,
     'function': lambda u: u,
     'title': r'\large \slshape Speed (km/hour)',
     'tick_levels': 5,
@@ -120,7 +120,7 @@ diameter = {
 
 wheelrpm2 = {
     'tag': 'wheelrpm',
-    'u_min': 30.0,
+    'u_min': 90.0,
     'u_max': 360.0,
     'function': lambda u: u,
     'scale_type': 'linear smart',
@@ -148,7 +148,7 @@ main_params = {
     'transformations': [('rotate', 0.01), ('scale paper',)],
     'title_str': r'\Large \textbf{Bicycle Cadence Calculator}',
     'title_x': 3.5,
-    'title_y': 10.0,
+    'title_y': 3.5,
 
     'extra_texts': [
         {
@@ -164,11 +164,12 @@ main_params = {
         {
             'text': r'\copyright Daniel Boulet (2019-2021)',
             'x': -0.5,
-            'y': 9.5,
+            'y': 3.0,
         },
 
 
-    ]
+    ],
+	# 'make_grid':True,
 
 }
 

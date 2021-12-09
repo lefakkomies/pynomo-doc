@@ -1,5 +1,5 @@
 """
-    voltdiv_E24_resistors.py
+    ex_voltage_divider.py
 
     Nomogram to calculate resistor values for simple voltage divider.  This
     nomogram uses grid rather than matrix.
@@ -39,8 +39,6 @@ resistors = [
 ]
 
 # Type 5 contour
-
-
 def f1(x, u):
     return u*(1-x)/x
 
@@ -103,7 +101,6 @@ N_params_2 = {
     'tick_levels': 4,
     'tick_text_levels': 3,
     'title_draw_center': True,
-    # 'text_format':r"$%3.0f$ ",
     'scale_type': 'linear smart',
 }
 N_params_1 = {
@@ -121,8 +118,6 @@ N_params_1 = {
 
 block_2_params = {
     'block_type': 'type_2',
-    #  'width':10.0,
-    #  'height':40.0,
     'f1_params': N_params_1,
     'f2_params': N_params_2,
     'f3_params': N_params_3,
@@ -133,7 +128,7 @@ block_2_params = {
 }
 
 main_params = {
-    'filename': 'voltdiv_E24_resistors.eps',
+    'filename': 'ex_voltage_divider.pdf',
     'paper_height': 8.5*2.54,
     'paper_width': 11.0*2.54,
     'block_params': [block_1_params, block_2_params],
