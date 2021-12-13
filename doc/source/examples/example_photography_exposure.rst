@@ -102,12 +102,6 @@ are reasonable, and an equation that scales logarithmically is found:
 
 that gives :math:`L=1\,` for :math:`\phi = 26.565 =\arctan(1/2)\,` and :math:`L=10\,` for :math:`\phi = 78.69 =\arctan(10/2).\,`
 
-.. [1]
-   Vilho Setälä: "Valokuvaus", Otava 1940.
-
-.. [2]
-   https://www.esrl.noaa.gov/gmd/grad/solcalc/solareqns.PDF
-
 Construction of the nomograph
 -----------------------------
 
@@ -224,4 +218,9 @@ Source code
     :lines: 1-4, 20-
 
 
+.. [1]
+   Vilho Setälä: "Valokuvaus", Otava 1940.
+
+.. [2]
+   https://www.esrl.noaa.gov/gmd/grad/solcalc/solareqns.PDF
 

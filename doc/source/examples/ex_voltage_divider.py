@@ -1,5 +1,5 @@
 """
-    ex_voltage_divider.py
+    voltdiv_E24_resistors.py
 
     Nomogram to calculate resistor values for simple voltage divider.  This
     nomogram uses grid rather than matrix.
@@ -27,6 +27,8 @@ sys.path.insert(0, "..")
 from pyx import *
 pyx.text.set(text.LatexEngine)
 
+import numpy as np
+
 resistors = [
 	1.0,	1.1,	1.2,
 	1.3,	1.5,	1.6,
@@ -40,7 +42,7 @@ resistors = [
 
 # Type 5 contour
 def f1(x, u):
-    return u*(1-x)/x
+    return np.log10(u * (1 - x) / x)
 
 
 block_1_params = {
@@ -48,7 +50,7 @@ block_1_params = {
     'height': 25.0,
     'block_type': 'type_5',
 
-    'u_func': lambda u: u,
+    'u_func': lambda u: np.log10(u),
     'u_values': resistors,
     'u_axis_color': pyx.color.cmyk.Red,
     'u_title': r'\Large{$R_a$}',
@@ -62,11 +64,16 @@ block_1_params = {
 
     'wd_tag': 'A',
     'wd_tick_side': 'right',
+	'wd_title':r'\Large $\frac{V_{out}}{V_{in}}$',
+    'wd_tick_levels': 5,
+    'wd_tick_text_levels': 2,
+    'wd_title_opposite_tick': True,
     'wd_axis_color': pyx.color.cmyk.Gray,
     'isopleth_values': [
         [6.2, 'x', 'x'],
     ],
-    'vertical_guide_nr': 10
+    'vertical_guide_nr': 10,
+	'manual_x_scale': True,		# trick to "decompress" Ra scale
 
 }
 
@@ -138,7 +145,7 @@ main_params = {
         \large $V_{out}=V_{in} \cdot \frac{R_b}{R_a+R_b}$ \
         \par \bigskip   \normalsize \copyright    Daniel Boulet  2018-2021',
     'title_x': 2.0,
-    'title_y': 6.0,
+    'title_y': 4.0,
     'isopleth_params': [
         {
             'color': 'blue',
