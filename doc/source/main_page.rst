@@ -85,7 +85,12 @@ can build as complex nomograph as one wishes by using determinants in type 9.
     :height: 75px
 
 .. only:: latex
+
     .. tabularcolumns:: |p{2cm}|p{7cm}|p{5cm}|
+
+    .. table:: My Table
+       :widths: auto
+       :class: longtable
     ========================== ======================================================================= =========================
      :ref:`type1_ref`          :math:`F_1(u_1)+F_2(u_2)+F_3(u_3)=0 \,`                                 Three parallel lines
      :ref:`type2_ref`          :math:`F_1(u_1)=F_2(u_2) F_3(u_3) \,`                                   "N" or "Z"
