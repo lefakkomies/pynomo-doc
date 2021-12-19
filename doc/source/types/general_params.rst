@@ -19,16 +19,12 @@
     "``'make_grid'``", "``False``", "**Boolean.** If True, draws grid to help position texts, etc."
     "``'pre_func'``", "``None``", "**func(context).** PyX function(canvas) to draw under nomograph. Function definition could be:
 
-    .. literalinclude:: snippets/pre_func_ex.py "
+    .. literalinclude:: /types/snippets/pre_func_ex.py "
     "``'post_func'``", "``None``", "**func(context).** PyX function(canvas) to draw over nomograph. Definiton same as for 'pre_func'."
     "``'debug'``", "``False``", "**Boolean.** If True, prints dicts of definitions."
     "``'extra_texts'``", "``[]``", "**List of Dicts defining texts.** Defines extra texts. Could be for example:
 
-    .. literalinclude:: snippets/extra_texts_ex.py "
+    .. literalinclude:: /types/snippets/extra_texts_ex.py "
     "``'isopleth_params'``", "``[{}]``", "**List of Dicts.** Defines appearance of isopleths. Could be for example:
 
-    .. literalinclude:: snippets/isopleth_params_ex.py "
-
-
-
-
+    .. literalinclude:: /types/snippets/isopleth_params_ex.py "
