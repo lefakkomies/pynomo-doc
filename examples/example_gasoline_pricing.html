@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Gasoline Price comparison &#8212; pyNomo Documentation 0.3.2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          pyNomo Documentation</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.3.2</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main_page.html">Big picture of nomograph construction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../axes/axes.html">Axes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../types/types.html">Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../alignment/alignment.html">Block alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transformations/transformations.html">Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main_params.html">Top level parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature/literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendices.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/bibliography.html">Bibliography</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Gasoline Price comparison</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#generated-nomograph">Generated nomograph</a></li>
+<li><a class="reference internal" href="#source-code">Source code</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/examples/example_gasoline_pricing.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <section id="gasoline-price-comparison">
+<h1>Gasoline Price comparison<a class="headerlink" href="#gasoline-price-comparison" title="Permalink to this headline">¶</a></h1>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>Comparing the unit price of a commodity with different units of measure
+and currencies is greatly simplified with a nomograph.  In this example.
+cross border travellers between the United States and Canada can easily
+compare the cost of gasoline on both sides of the border.  Moreover, by
+drawing an isopleth thorough the currency rate at par (1.0000) they can
+directly convert dollars per litre to dollars per USG.  This nomograph
+implements the following formula:</p>
+<p><span class="math notranslate nohighlight">\(\frac{CAD}{L} =  \frac{CAD}{USD} \times \frac{USD}{US Gal} \div \frac{L}{US Gal}\)</span></p>
+<p>This equation follows the form of a <strong>Type 2</strong> nomograph where:</p>
+<p><span class="math notranslate nohighlight">\(F_1(u_1) = \frac{CAD}{L}\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(F_2(u_2) = \frac{CAD}{USD}\)</span></p>
+<p>and</p>
+<p><span class="math notranslate nohighlight">\(F_3(u_3) = \frac{USD}{US Gal} \div 3.78541 \frac{L}{US Gal}\)</span></p>
+</section>
+<section id="generated-nomograph">
+<h2>Generated nomograph<a class="headerlink" href="#generated-nomograph" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/ex_gasoline_pricing.png" src="../_images/ex_gasoline_pricing.png" />
+</section>
+<section id="source-code">
+<h2>Source code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 2</span><span class="sd">    ex_gasoline_pricing.py</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="sd">    Gasoline price converter</span>
+<span class="linenos"> 5</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 8</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos"> 9</span><span class="kn">from</span> <span class="nn">pyx</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="c1"># allows use of latex commands in PyX such as \frac{a}{b} and \par</span>
+<span class="linenos">14</span><span class="n">pyx</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">LatexEngine</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="n">N_params_1</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">17</span>    <span class="s2">&quot;u_min&quot;</span><span class="p">:</span> <span class="mf">1.1</span><span class="p">,</span>
+<span class="linenos">18</span>    <span class="s2">&quot;u_max&quot;</span><span class="p">:</span> <span class="mf">1.6</span><span class="p">,</span>
+<span class="linenos">19</span>    <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+<span class="linenos">20</span>    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;$\frac</span><span class="si">{CAD}{L}</span><span class="s2">$&quot;</span><span class="p">,</span>
+<span class="linenos">21</span>    <span class="s2">&quot;tick_levels&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<span class="linenos">22</span>    <span class="s2">&quot;tick_text_levels&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="linenos">23</span>    <span class="s2">&quot;text_format&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;$\$</span><span class="si">%3.3f</span><span class="s2">$&quot;</span><span class="p">,</span>
+<span class="linenos">24</span>    <span class="s2">&quot;scale_type&quot;</span><span class="p">:</span> <span class="s2">&quot;linear smart&quot;</span><span class="p">,</span>
+<span class="linenos">25</span>    <span class="s2">&quot;tick_side&quot;</span><span class="p">:</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+<span class="linenos">26</span><span class="p">}</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="n">N_params_2</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">29</span>    <span class="s2">&quot;u_min&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+<span class="linenos">30</span>    <span class="s2">&quot;u_max&quot;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span>
+<span class="linenos">31</span>    <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+<span class="linenos">32</span>    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;$\frac</span><span class="si">{CAD}{USD}</span><span class="s2">$&quot;</span><span class="p">,</span>
+<span class="linenos">33</span>    <span class="s2">&quot;tick_levels&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<span class="linenos">34</span>    <span class="s2">&quot;tick_text_levels&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="linenos">35</span>    <span class="s2">&quot;text_format&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;$</span><span class="si">%3.4f</span><span class="s2">$&quot;</span><span class="p">,</span>
+<span class="linenos">36</span>    <span class="s2">&quot;scale_type&quot;</span><span class="p">:</span> <span class="s2">&quot;linear smart&quot;</span><span class="p">,</span>
+<span class="linenos">37</span>    <span class="s2">&quot;title_x_shift&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="linenos">38</span>    <span class="s2">&quot;title_rotate_text&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos">39</span><span class="p">}</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span><span class="n">N_params_3</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">42</span>    <span class="s2">&quot;u_min&quot;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>
+<span class="linenos">43</span>    <span class="s2">&quot;u_max&quot;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+<span class="linenos">44</span>    <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span> <span class="o">/</span> <span class="mf">3.78541</span><span class="p">,</span>
+<span class="linenos">45</span>    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;$\frac</span><span class="si">{USD}</span><span class="s2">{US Gal}$&quot;</span><span class="p">,</span>
+<span class="linenos">46</span>    <span class="s2">&quot;tick_levels&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<span class="linenos">47</span>    <span class="s2">&quot;tick_text_levels&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="linenos">48</span>    <span class="s2">&quot;scale_type&quot;</span><span class="p">:</span> <span class="s2">&quot;linear smart&quot;</span><span class="p">,</span>
+<span class="linenos">49</span>    <span class="s2">&quot;text_format&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;$\$</span><span class="si">%3.3f</span><span class="s2">$&quot;</span><span class="p">,</span>
+<span class="linenos">50</span>    <span class="s2">&quot;scale_type&quot;</span><span class="p">:</span> <span class="s2">&quot;linear smart&quot;</span><span class="p">,</span>
+<span class="linenos">51</span><span class="p">}</span>
+<span class="linenos">52</span>
+<span class="linenos">53</span>
+<span class="linenos">54</span><span class="n">block_1_params</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">55</span>    <span class="s2">&quot;block_type&quot;</span><span class="p">:</span> <span class="s2">&quot;type_2&quot;</span><span class="p">,</span>
+<span class="linenos">56</span>    <span class="s2">&quot;f1_params&quot;</span><span class="p">:</span> <span class="n">N_params_1</span><span class="p">,</span>
+<span class="linenos">57</span>    <span class="s2">&quot;f2_params&quot;</span><span class="p">:</span> <span class="n">N_params_2</span><span class="p">,</span>
+<span class="linenos">58</span>    <span class="s2">&quot;f3_params&quot;</span><span class="p">:</span> <span class="n">N_params_3</span><span class="p">,</span>
+<span class="linenos">59</span>    <span class="s2">&quot;isopleth_values&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">]],</span>
+<span class="linenos">60</span><span class="p">}</span>
+<span class="linenos">61</span>
+<span class="linenos">62</span><span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">63</span>    <span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;ex_gasoline_pricing.pdf&quot;</span><span class="p">,</span>
+<span class="linenos">64</span>    <span class="s2">&quot;paper_height&quot;</span><span class="p">:</span> <span class="mf">11.0</span> <span class="o">*</span> <span class="mf">2.54</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span>
+<span class="linenos">65</span>    <span class="s2">&quot;paper_width&quot;</span><span class="p">:</span> <span class="mf">8.5</span> <span class="o">*</span> <span class="mf">2.54</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span>
+<span class="linenos">66</span>    <span class="s2">&quot;block_params&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_1_params</span><span class="p">],</span>
+<span class="linenos">67</span>    <span class="s2">&quot;transformations&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;rotate&quot;</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;scale paper&quot;</span><span class="p">,)],</span>
+<span class="linenos">68</span>    <span class="s2">&quot;title_str&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;\huge \textbf{Gas Price Converter}&quot;</span><span class="p">,</span>
+<span class="linenos">69</span>    <span class="s2">&quot;title_y&quot;</span><span class="p">:</span> <span class="mf">13.50</span><span class="p">,</span>
+<span class="linenos">70</span>    <span class="s2">&quot;title_box_width&quot;</span><span class="p">:</span> <span class="mf">15.0</span><span class="p">,</span>
+<span class="linenos">71</span>    <span class="s2">&quot;extra_texts&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos">72</span>        <span class="p">{</span>
+<span class="linenos">73</span>            <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+<span class="linenos">74</span>            <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mf">12.5</span><span class="p">,</span>
+<span class="linenos">75</span>            <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;\noindent Is gasoline cheaper </span><span class="se">\</span>
+<span class="linenos">76</span><span class="s2">                south of the 49\textsuperscript</span><span class="si">{th}</span><span class="s2">? Use this gas price </span><span class="se">\</span>
+<span class="linenos">77</span><span class="s2">                converter to be sure. In the example </span><span class="se">\</span>
+<span class="linenos">78</span><span class="s2">                shown, \$1.300 $\frac</span><span class="si">{CAD}{L}</span><span class="s2">$ is the same price as \$3.52 $\frac</span><span class="si">{USD}</span><span class="s2">{US Gal}$ if the exchange rate is 1.40  $\frac</span><span class="si">{CAD}{USD}</span><span class="s2">$.&quot;</span><span class="p">,</span>
+<span class="linenos">79</span>            <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mf">8.0</span><span class="p">,</span>
+<span class="linenos">80</span>        <span class="p">},</span>
+<span class="linenos">81</span>        <span class="p">{</span>
+<span class="linenos">82</span>            <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;\copyright Daniel Boulet (2019-2021)&quot;</span><span class="p">,</span>
+<span class="linenos">83</span>            <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>
+<span class="linenos">84</span>            <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0</span><span class="p">,</span>
+<span class="linenos">85</span>        <span class="p">},</span>
+<span class="linenos">86</span>    <span class="p">],</span>
+<span class="linenos">87</span>    <span class="c1"># &#39;make_grid&#39;: True</span>
+<span class="linenos">88</span><span class="p">}</span>
+<span class="linenos">89</span><span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Daniel Boulet, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

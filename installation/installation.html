@@ -3,15 +3,15 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Installation &#8212; pyNomo Documentation 0.3.2.0 documentation</title>
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Tutorials" href="../tutorials/tutorials.html" />
@@ -20,9 +20,9 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
 <script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head><body>
@@ -66,6 +66,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../literature/literature.html">Literature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/appendices.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/bibliography.html">Bibliography</a></li>
 </ul>
 </ul>
 </li>
@@ -136,7 +137,7 @@
   <div class="row">
     <div class="body col-md-12 content" role="main">
       
-  <div class="section" id="installation">
+  <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>pyNomo is a  <a class="reference external" href="https://www.python.org">python</a> library and thus requires working python installation on the computer.
 pyNomo stands on the shoulders  of (read: requires) the python packages: <a class="reference external" href="http://www.numpy.org">numpy</a>, <a class="reference external" href="http://www.scipy.org">scipy</a> and
@@ -144,8 +145,12 @@ pyNomo stands on the shoulders  of (read: requires) the python packages: <a clas
 Though python2 compatibility will drop out in coming releases.</p>
 <p>For editing pyNomo scripts any text browser works but integrated development environment (IDE) for python can speed up developments.
 Good free IDE alternatives are for example <a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm community edition</a> and <a class="reference external" href="https://github.com/spyder-ide/spyder">spyder</a>.</p>
-<div class="section" id="python-2-7-x-osx-installation">
+<section id="python-2-7-x-osx-installation">
 <h2>Python 2.7.x OSX Installation<a class="headerlink" href="#python-2-7-x-osx-installation" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note, python 2 is not anymore supported and these instructions are more for historical reference.</p>
+</div>
 <p>In OSX <a class="reference external" href="https://www.macports.org">Macports</a> is an effective tool to manage open-source software. In the following a
 MacPorts environment is set for Python and pyNomo. <cite>sudo</cite> runs the commands as super-user and requires it’s password to be given.</p>
 <p>First install python 2.7</p>
@@ -176,8 +181,8 @@ $ sudo port install py27-six
 $ sudo pip install pynomo
 </pre></div>
 </div>
-</div>
-<div class="section" id="python-3-8-osx-installation">
+</section>
+<section id="python-3-8-osx-installation">
 <h2>Python 3.8 OSX Installation<a class="headerlink" href="#python-3-8-osx-installation" title="Permalink to this headline">¶</a></h2>
 <p>In OSX <a class="reference external" href="https://www.macports.org">Macports</a> is an effective tool to manage open-source software. In the following a
 MacPorts environment is set for Python and pyNomo. <cite>sudo</cite> runs the commands as super-user and requires it’s password to be given.</p>
@@ -220,9 +225,13 @@ $ sudo /opt/local/bin/pip install pyx
 $ sudo /opt/local/bin/pip install pynomo
 </pre></div>
 </div>
-</div>
-<div class="section" id="python-2-7-x-linux-installation">
+</section>
+<section id="python-2-7-x-linux-installation">
 <h2>Python 2.7.x Linux installation<a class="headerlink" href="#python-2-7-x-linux-installation" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note, python 2 is not anymore supported and these instructions are more for historical reference.</p>
+</div>
 <p>In <a class="reference external" href="https://www.debian.org">Debian</a>
 Linux distribution and in its <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_Linux_distributions">derivatives</a> (for example <a class="reference external" href="http://ubuntu.com/">Ubuntu</a>  and <a class="reference external" href="https://www.raspbian.org">Raspbian</a>) pynomo can be installed using <cite>apt-get</cite> with the following commands.
 <cite>sudo</cite> runs the commands as super-user and requires it’s password to be given.</p>
@@ -234,8 +243,8 @@ $ sudo apt-get -y install python-pip
 $ pip install pynomo
 </pre></div>
 </div>
-</div>
-<div class="section" id="python-3-linux-installation">
+</section>
+<section id="python-3-linux-installation">
 <h2>Python 3 Linux installation<a class="headerlink" href="#python-3-linux-installation" title="Permalink to this headline">¶</a></h2>
 <p>In <a class="reference external" href="https://www.debian.org">Debian</a>
 Linux distribution and in its <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_Linux_distributions">derivatives</a> (for example <a class="reference external" href="http://ubuntu.com/">Ubuntu</a>  and <a class="reference external" href="https://www.raspbian.org">Raspbian</a>) pynomo can be installed using <cite>apt-get</cite> with the following commands.
@@ -248,8 +257,8 @@ $ sudo apt-get -y install python3-pip
 $ pip3 install pynomo
 </pre></div>
 </div>
-</div>
-<div class="section" id="python-3-x-windows-installation">
+</section>
+<section id="python-3-x-windows-installation">
 <h2>Python 3.x Windows installation<a class="headerlink" href="#python-3-x-windows-installation" title="Permalink to this headline">¶</a></h2>
 <p>At the time of writing (9th May 2020) default python version is 3.7.6. Try using python 3.7.x or later.</p>
 <ol class="arabic simple">
@@ -260,13 +269,17 @@ $ pip3 install pynomo
 <p><cite>pip install pyx</cite></p>
 <p>on Anaconda Powershell prompt. Install <a href="#id8"><span class="problematic" id="id9">`</span></a>pynomo similarly with command</p>
 <p><cite>pip install pynomo</cite></p>
-<p>Download examples from Github pynomo &lt;<a class="reference external" href="https://github.com/lefakkomies/pynomo">https://github.com/lefakkomies/pynomo</a>&gt;`_, go to <a href="#id10"><span class="problematic" id="id11">`</span></a>examples directory with Anaconda Powershell.
+<p>Download examples from Github <a class="reference external" href="https://github.com/lefakkomies/pynomo">pynomo</a>, go to <a href="#id10"><span class="problematic" id="id11">`</span></a>examples directory with Anaconda Powershell.
 Run command</p>
 <p><cite>python GENERATE_ALL.py</cite></p>
 <p>and all the examples pdf documents should be generated.</p>
-</div>
-<div class="section" id="python-2-7-x-docker-installation">
+</section>
+<section id="python-2-7-x-docker-installation">
 <h2>Python 2.7.x Docker installation<a class="headerlink" href="#python-2-7-x-docker-installation" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note, python 2 is not anymore supported and these instructions are more for historical reference.</p>
+</div>
 <p><a class="reference external" href="https://www.docker.com/">Docker</a> is a platform to create a sandboxed virtualized environments. In the following example <cite>Dockerfile</cite> a virtualized
 <a class="reference external" href="http://ubuntu.com/">Ubuntu</a> is created that has pyNomo installed with all requirements:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># python 2.7 Dockerfile for pynomo</span>
@@ -281,7 +294,7 @@ Run command</p>
 <span class="n">RUN</span> <span class="n">DEBIAN_FRONTEND</span><span class="o">=</span><span class="n">noninteractive</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span>
 <span class="n">RUN</span> <span class="n">DEBIAN_FRONTEND</span><span class="o">=</span><span class="n">noninteractive</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">numpy</span>
 <span class="n">RUN</span> <span class="n">DEBIAN_FRONTEND</span><span class="o">=</span><span class="n">noninteractive</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">scipy</span>
-<span class="n">RUN</span> <span class="n">DEBIAN_FRONTEND</span><span class="o">=</span><span class="n">noninteractive</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pyx</span><span class="o">=</span><span class="mf">0.12</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="mi">11</span>
+<span class="n">RUN</span> <span class="n">DEBIAN_FRONTEND</span><span class="o">=</span><span class="n">noninteractive</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pyx</span><span class="o">=</span><span class="mf">0.12.1</span><span class="o">-</span><span class="mi">11</span>
 
 <span class="n">RUN</span> <span class="n">DEBIAN_FRONTEND</span><span class="o">=</span><span class="n">noninteractive</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pynomo</span> <span class="n">six</span>
 
@@ -309,8 +322,8 @@ Inside the container one can run own scripts like:</p>
 </div>
 <p>That way a folder is used to share the script file and the generated pdf file between host system and the container (virtualized
 Linux environment).</p>
-</div>
-<div class="section" id="python-3-docker-installation">
+</section>
+<section id="python-3-docker-installation">
 <h2>Python 3 Docker installation<a class="headerlink" href="#python-3-docker-installation" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://www.docker.com/">Docker</a> is a platform to create a sandboxed virtualized environments. In the following example <cite>Dockerfile</cite> a virtualized
 <a class="reference external" href="http://ubuntu.com/">Ubuntu</a> is created that has pyNomo installed with all requirements:</p>
@@ -352,8 +365,8 @@ Inside the container one can run own scripts like:</p>
 </div>
 <p>That way a folder is used to share the script file and the generated pdf file between host system and the container (virtualized
 Linux environment).</p>
-</div>
-</div>
+</section>
+</section>
 
 
     </div>
@@ -368,7 +381,7 @@ Linux environment).</p>
     </p>
     <p>
         &copy; Copyright 2020, Daniel Boulet, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.2.<br/>
     </p>
   </div>
 </footer>

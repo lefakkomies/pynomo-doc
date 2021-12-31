@@ -3,24 +3,25 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Tutorial 2: Vehicle economy calculator (Metric and US) &#8212; pyNomo Documentation 0.3.2.0 documentation</title>
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
 <script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
 <script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head><body>
@@ -64,6 +65,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../literature/literature.html">Literature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/appendices.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/bibliography.html">Bibliography</a></li>
 </ul>
 </ul>
 </li>
@@ -122,9 +124,9 @@
   <div class="row">
     <div class="body col-md-12 content" role="main">
       
-  <div class="section" id="tutorial-2-vehicle-economy-calculator-metric-and-us">
+  <section id="tutorial-2-vehicle-economy-calculator-metric-and-us">
 <h1>Tutorial 2: Vehicle economy calculator (Metric and US)<a class="headerlink" href="#tutorial-2-vehicle-economy-calculator-metric-and-us" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="objective">
+<section id="objective">
 <h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
 <p>Create a new nomogram similar to the one shown in Tutorial 1 but add scales for American units of measure (miles and US gallons).  This tutorial will cover:</p>
 <ul class="simple">
@@ -133,8 +135,8 @@
 <li><p>Creating isopleths.</p></li>
 <li><p>Combining blocks into a single nomogram.</p></li>
 </ul>
-</div>
-<div class="section" id="nomogram-construction">
+</section>
+<section id="nomogram-construction">
 <h2>Nomogram construction<a class="headerlink" href="#nomogram-construction" title="Permalink to this headline">¶</a></h2>
 <p>Recapping from the first part of Tutorial 1, we know that</p>
 <p><span class="math notranslate nohighlight">\(d = {e\times c}\)</span>,</p>
@@ -145,164 +147,103 @@
 <li><p><em>Tagging</em> the distance and fuel scales so that they align horizontally with their metric system counterparts.</p></li>
 </ol>
 <p>Thus our three new scales are defined as follows:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">dist_US</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># distance in miles (u1)</span>
-    <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;distance&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="o">/</span><span class="mf">1.609344</span><span class="p">,</span>    <span class="c1"># convert kilometers to miles</span>
-    <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">1000.0</span><span class="o">/</span><span class="mf">1.609344</span><span class="p">,</span>
-    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>    <span class="c1"># plot the u values linearly ...</span>
-    <span class="s1">&#39;align_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="o">*</span><span class="mf">1.609344</span><span class="p">,</span>   <span class="c1"># but adjust the length to match kilometers</span>
-    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$mi.$&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>
-<span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">25</span><span class="n">dist_US</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">26</span>    <span class="c1"># distance in miles (u1)</span>
+<span class="linenos">27</span>    <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;distance&#39;</span><span class="p">,</span>
+<span class="linenos">28</span>    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="o">/</span><span class="mf">1.609344</span><span class="p">,</span>    <span class="c1"># convert kilometers to miles</span>
+<span class="linenos">29</span>    <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">1000.0</span><span class="o">/</span><span class="mf">1.609344</span><span class="p">,</span>
+<span class="linenos">30</span>    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>    <span class="c1"># plot the u values linearly ...</span>
+<span class="linenos">31</span>    <span class="s1">&#39;align_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="o">*</span><span class="mf">1.609344</span><span class="p">,</span>   <span class="c1"># but adjust the length to match kilometers</span>
+<span class="linenos">32</span>    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$mi.$&#39;</span><span class="p">,</span>
+<span class="linenos">33</span>    <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="linenos">34</span>    <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="linenos">35</span>    <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
+<span class="linenos">36</span>    <span class="s1">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>
+<span class="linenos">37</span><span class="p">}</span>
 </pre></div>
-</td></tr></table></div>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">eff_US</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># fuel efficiency in miles per US gallon) u2</span>
-    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">235.189</span><span class="o">/</span><span class="mf">20.0</span><span class="p">,</span>      <span class="c1"># magic value to coordinate length of SI and US scale</span>
-    <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">235.189</span><span class="o">/</span><span class="mf">5.0</span><span class="p">,</span>
-    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
-    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$\frac{mi.}{US \, gal.}$&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-    <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;linear smart&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;title_draw_center&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="s1">&#39;title_distance_center&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span>
-<span class="p">}</span>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">52</span><span class="n">eff_US</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">53</span>    <span class="c1"># fuel efficiency in miles per US gallon) u2</span>
+<span class="linenos">54</span>    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">235.189</span><span class="o">/</span><span class="mf">20.0</span><span class="p">,</span>      <span class="c1"># magic value to coordinate length of SI and US scale</span>
+<span class="linenos">55</span>    <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">235.189</span><span class="o">/</span><span class="mf">5.0</span><span class="p">,</span>
+<span class="linenos">56</span>    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+<span class="linenos">57</span>    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$\frac{mi.}{US \, gal.}$&#39;</span><span class="p">,</span>
+<span class="linenos">58</span>    <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<span class="linenos">59</span>    <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="linenos">60</span>    <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;linear smart&#39;</span><span class="p">,</span>
+<span class="linenos">61</span>    <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
+<span class="linenos">62</span>    <span class="s1">&#39;title_draw_center&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos">63</span>    <span class="s1">&#39;title_distance_center&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span>
+<span class="linenos">64</span><span class="p">}</span>
 </pre></div>
-</td></tr></table></div>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">fuel_US</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># fuel consumption in US gallons</span>
-    <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;consumption&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="o">/</span><span class="mf">3.785</span><span class="p">,</span>    <span class="c1"># convert liters to USG</span>
-    <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="o">/</span><span class="mf">3.785</span><span class="p">,</span>
-    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>    <span class="c1"># plot the gallons</span>
-    <span class="s1">&#39;align_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="o">*</span><span class="mf">3.785</span><span class="p">,</span>   <span class="c1"># but must be scaled up to litres</span>
-    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$US \, gal.$&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>
-<span class="p">}</span>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">78</span><span class="n">fuel_US</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">79</span>    <span class="c1"># fuel consumption in US gallons</span>
+<span class="linenos">80</span>    <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;consumption&#39;</span><span class="p">,</span>
+<span class="linenos">81</span>    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="o">/</span><span class="mf">3.785</span><span class="p">,</span>    <span class="c1"># convert liters to USG</span>
+<span class="linenos">82</span>    <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="o">/</span><span class="mf">3.785</span><span class="p">,</span>
+<span class="linenos">83</span>    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>    <span class="c1"># plot the gallons</span>
+<span class="linenos">84</span>    <span class="s1">&#39;align_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="o">*</span><span class="mf">3.785</span><span class="p">,</span>   <span class="c1"># but must be scaled up to litres</span>
+<span class="linenos">85</span>    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$US \, gal.$&#39;</span><span class="p">,</span>
+<span class="linenos">86</span>    <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="linenos">87</span>    <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="linenos">88</span>    <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
+<span class="linenos">89</span>    <span class="s1">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>
+<span class="linenos">90</span><span class="p">}</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Tags are also added to the SI units axis:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>13
-14
-15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">dist_SI</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># distance in kilometers (u1)</span>
-    <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;distance&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">13</span><span class="n">dist_SI</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">14</span>    <span class="c1"># distance in kilometers (u1)</span>
+<span class="linenos">15</span>    <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;distance&#39;</span><span class="p">,</span>
+<span class="linenos">16</span>    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>
 </pre></div>
-</td></tr></table></div>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>66
-67
-68
-69</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">fuel_SI</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># fuel consumption in litres (u3)</span>
-    <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;consumption&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">66</span><span class="n">fuel_SI</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">67</span>    <span class="c1"># fuel consumption in litres (u3)</span>
+<span class="linenos">68</span>    <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;consumption&#39;</span><span class="p">,</span>
+<span class="linenos">69</span>    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Notice no alignment function or tag is specified for the <code class="code docutils literal notranslate"><span class="pre">eff_US</span></code> axis.  None are required because this axis is a function of the <code class="code docutils literal notranslate"><span class="pre">dist_US</span></code> and <code class="code docutils literal notranslate"><span class="pre">fuel_US</span></code> axis which are already scaled appropriately therefore its alignment is automatic.</p>
 <p>A new block is created to link the three new scales with an isopleth (solution line):</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>100
-101
-102
-103
-104
-105
-106</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">block_US</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;block_type&#39;</span><span class="p">:</span> <span class="s1">&#39;type_2&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span> <span class="n">dist_US</span><span class="p">,</span>
-    <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span> <span class="n">eff_US</span><span class="p">,</span>
-    <span class="s1">&#39;f3_params&#39;</span><span class="p">:</span> <span class="n">fuel_US</span><span class="p">,</span>
-    <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">550</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">]],</span>
-<span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">100</span><span class="n">block_US</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">101</span>    <span class="s1">&#39;block_type&#39;</span><span class="p">:</span> <span class="s1">&#39;type_2&#39;</span><span class="p">,</span>
+<span class="linenos">102</span>    <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span> <span class="n">dist_US</span><span class="p">,</span>
+<span class="linenos">103</span>    <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span> <span class="n">eff_US</span><span class="p">,</span>
+<span class="linenos">104</span>    <span class="s1">&#39;f3_params&#39;</span><span class="p">:</span> <span class="n">fuel_US</span><span class="p">,</span>
+<span class="linenos">105</span>    <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">550</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">]],</span>
+<span class="linenos">106</span><span class="p">}</span>
 </pre></div>
-</td></tr></table></div>
-<p>Since all blocks must contain the same number of isopleths, we add one to the <code class="code docutils literal notranslate"><span class="pre">block_SI</span></code> axis:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>92
-93
-94
-95
-96
-97
-98</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">block_SI</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;block_type&#39;</span><span class="p">:</span> <span class="s1">&#39;type_2&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span> <span class="n">dist_SI</span><span class="p">,</span>
-    <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span> <span class="n">eff_SI</span><span class="p">,</span>
-    <span class="s1">&#39;f3_params&#39;</span><span class="p">:</span> <span class="n">fuel_SI</span><span class="p">,</span>
-    <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">600</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">90</span><span class="p">]],</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table></div>
-<p>Finally, <code class="code docutils literal notranslate"><span class="pre">block_US</span></code> is added to the <code class="code docutils literal notranslate"><span class="pre">block_params</span></code> key:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>108
-109
-110
-111
-112
-113
-114
-115</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="s1">&#39;tutorial2.pdf&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
-    <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
-    <span class="s1">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_SI</span><span class="p">,</span> <span class="n">block_US</span><span class="p">],</span>
-    <span class="s1">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;rotate&#39;</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)],</span>
-    <span class="s1">&#39;title_str&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\LARGE Fuel economy calculator (Metric and US)&#39;</span><span class="p">,</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table></div>
-<p>This nomogram holds useful features.  The individual scales for distance, fuel consumption and fuel economy can be used on their own to convert from one system of measurement to another.  Another feature is the ability to use variables from different system of units (e.g. kilometres and US gallons) and calculate fuel economy in either miles per gallon or litres per 100 km.</p>
 </div>
-<div class="section" id="generated-nomogram">
+<p>Since all blocks must contain the same number of isopleths, we add one to the <code class="code docutils literal notranslate"><span class="pre">block_SI</span></code> axis:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">92</span><span class="n">block_SI</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">93</span>    <span class="s1">&#39;block_type&#39;</span><span class="p">:</span> <span class="s1">&#39;type_2&#39;</span><span class="p">,</span>
+<span class="linenos">94</span>    <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span> <span class="n">dist_SI</span><span class="p">,</span>
+<span class="linenos">95</span>    <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span> <span class="n">eff_SI</span><span class="p">,</span>
+<span class="linenos">96</span>    <span class="s1">&#39;f3_params&#39;</span><span class="p">:</span> <span class="n">fuel_SI</span><span class="p">,</span>
+<span class="linenos">97</span>    <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">600</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">90</span><span class="p">]],</span>
+<span class="linenos">98</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Finally, <code class="code docutils literal notranslate"><span class="pre">block_US</span></code> is added to the <code class="code docutils literal notranslate"><span class="pre">block_params</span></code> key:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">108</span><span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">109</span>    <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="s1">&#39;tutorial2.pdf&#39;</span><span class="p">,</span>
+<span class="linenos">110</span>    <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
+<span class="linenos">111</span>    <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
+<span class="linenos">112</span>    <span class="s1">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_SI</span><span class="p">,</span> <span class="n">block_US</span><span class="p">],</span>
+<span class="linenos">113</span>    <span class="s1">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;rotate&#39;</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)],</span>
+<span class="linenos">114</span>    <span class="s1">&#39;title_str&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\LARGE Fuel economy calculator (Metric and US)&#39;</span><span class="p">,</span>
+<span class="linenos">115</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>This nomogram holds useful features.  The individual scales for distance, fuel consumption and fuel economy can be used on their own to convert from one system of measurement to another.  Another feature is the ability to use variables from different system of units (e.g. kilometres and US gallons) and calculate fuel economy in either miles per gallon or litres per 100 km.</p>
+</section>
+<section id="generated-nomogram">
 <h2>Generated nomogram<a class="headerlink" href="#generated-nomogram" title="Permalink to this headline">¶</a></h2>
 <img alt="../_images/tutorial2.png" src="../_images/tutorial2.png" />
-</div>
-</div>
+</section>
+</section>
 
 
     </div>
@@ -317,7 +258,7 @@
     </p>
     <p>
         &copy; Copyright 2020, Daniel Boulet, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.2.<br/>
     </p>
   </div>
 </footer>

@@ -27,8 +27,7 @@ pyNomo documentation
    examples/examples.rst
    literature/literature.rst
    appendix/appendices.rst
-
-
+   appendix/bibliography.rst
 
 
 License

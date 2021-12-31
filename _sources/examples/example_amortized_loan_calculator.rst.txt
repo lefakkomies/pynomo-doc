@@ -6,15 +6,15 @@ Theory and background
 ---------------------
 
 This approach of constructing an amortized loan calculator is similar to
-one in Ref.  [1]_
+one in Ref.  :cite:`dOcagne_1899`
 
-Equation for amortized loan  [2]_ is:
+Equation for amortized loan  :cite:`wiki:Amortization_calculator` is:
 
 :math:`\frac{a}{A} = \frac{\frac{p}{100\times 12}}{1-\frac{1}{(1+\frac{p}{100\times 12})^{12n}}},`
 
 where :math:`A` is the amount of loan, :math:`a` is monthly payment
 amount, :math:`p` interest rate per year (monthly interest rate is taken
-as :math:`p/12`) [3]_ and :math:`n` is number of years for payment.
+as :math:`p/12`) :cite:`wiki:annual_percentage_rate` and :math:`n` is number of years for payment.
 
 This equation of four variables is probably impossible to present with
 line and grid nomographs. For this reason a "Type 5" contour nomogram is
@@ -90,11 +90,3 @@ Source code
     :lines: 1-4, 20-
 
 
-.. [1]
-   d'Ocagne: Traite nomographie, 1899
-
-.. [2]
-   http://en.wikipedia.org/w/index.php?title=Amortization_calculator&oldid=220083943
-
-.. [3]
-   https://en.wikipedia.org/wiki/Annual_percentage_rate
