@@ -133,3 +133,5 @@ sympy-plots-for-*.tex/
 
 # all files in build
 doc/build/
+
+*.tmp
