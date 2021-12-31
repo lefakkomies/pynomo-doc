@@ -218,9 +218,3 @@ Source code
     :lines: 1-4, 20-
 
 
-.. [1]
-   Vilho Setälä: "Valokuvaus", Otava 1940.
-
-.. [2]
-   https://www.esrl.noaa.gov/gmd/grad/solcalc/solareqns.PDF
-

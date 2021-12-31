@@ -28,6 +28,7 @@ class CustomLatexFormatter(LatexFormatter):
 
 PygmentsBridge.latex_formatter = CustomLatexFormatter
 
+"""
 # from: https://github.com/mcmtroffaes/sphinxcontrib-bibtex/issues/156
 import docutils
 import sphinx.builders.latex
@@ -40,6 +41,7 @@ class DummyTransform(docutils.transforms.Transform):
         pass
 
 sphinx.builders.latex.BibliographyTransform = DummyTransform
+"""
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
