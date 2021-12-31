@@ -5,15 +5,15 @@ Theory and background
 ---------------------
 
 In electronics, resistive voltage dividers are used for a variety of purposes.
-The formula for a resistive voltage divider is:
+The formula for a resistive voltage divider is :cite:`wiki:Voltage_divider`:
 
-:math:`\frac{V_{out}}{V_{in}} = \frac{R_b}{(R_a + R_b)}` [1]_
+:math:`\frac{V_{out}}{V_{in}} = \frac{R_b}{(R_a + R_b)}``
 
 .. image:: ex_voltage_divider_schematic.png
    :width: 200
 
 When designing voltage dividers, constraints may demand engineers choose
-resistors from a set of “preferred values” [2]_. These values are
+resistors from a set of “preferred values” :cite:`wiki:E_series_of_preferred_numbers`. These values are
 discrete and engineers must select the best combination of resistors
 based on tolerance and the available preferred values.  Similar voltage
 ratios can be obtained with different combinations of resistor values.
@@ -49,10 +49,3 @@ Source code
     :encoding: latin-1
     :linenos:
     :lines: 1-4, 20-
-
-
-.. [1]
-   https://en.wikipedia.org/wiki/Voltage_divider
-
-.. [2]
-   https://eepower.com/resistor-guide/resistor-standards-and-codes/resistor-values

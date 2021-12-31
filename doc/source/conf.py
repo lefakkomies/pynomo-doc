@@ -28,6 +28,19 @@ class CustomLatexFormatter(LatexFormatter):
 
 PygmentsBridge.latex_formatter = CustomLatexFormatter
 
+# from: https://github.com/mcmtroffaes/sphinxcontrib-bibtex/issues/156
+import docutils
+import sphinx.builders.latex
+
+class DummyTransform(docutils.transforms.Transform):
+
+    default_priority = 0
+
+    def apply(self):
+        pass
+
+sphinx.builders.latex.BibliographyTransform = DummyTransform
+
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -47,8 +60,11 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     #'sphinx.ext.pngmath'
-    'sphinx.ext.mathjax'
+    'sphinx.ext.mathjax',
+    'sphinxcontrib.bibtex'
 ]
+
+bibtex_bibfiles = ['refs.bib']
 
 todo_include_todos = True
 

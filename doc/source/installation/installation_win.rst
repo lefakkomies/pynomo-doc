@@ -16,7 +16,7 @@ on Anaconda Powershell prompt. Install `pynomo similarly with command
 
 `pip install pynomo`
 
-Download examples from Github pynomo <https://github.com/lefakkomies/pynomo>`_, go to `examples directory with Anaconda Powershell.
+Download examples from Github `pynomo <https://github.com/lefakkomies/pynomo>`_, go to `examples directory with Anaconda Powershell.
 Run command
 
 `python GENERATE_ALL.py`

@@ -8,7 +8,7 @@ This example illustrates how exposure in photography depends on factors:
 latitude, time of day, day of year, weather, composition. It relates
 these to camera settings: film speed (e.g. ISO 100), aperture and
 shutter speed. The mathematical approach and model is taken from book
-written by V. Setälä. [1]_ This book illustrates the approach as
+written by V. Setälä :cite:`Setala_1940`. This book illustrates the approach as
 nomographs but they are different compared with the one generatated
 here. Book uses shadow length, but we break shadow length into time,
 date and latitude via solar zenith angle.
@@ -54,7 +54,7 @@ Shadow lenght
 ^^^^^^^^^^^^^
 
 Calculation of shadow length as a function of day of year, time of day
-and latitude is according to  [2]_. Following equations are used. For
+and latitude is according to :cite:`solareqns`. Following equations are used. For
 fractional year (without time information) we take
 
 :math:`\gamma = (day-1+0.5)2\pi /365.`

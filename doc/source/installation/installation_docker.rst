@@ -1,6 +1,9 @@
 Python 2.7.x Docker installation
 ================================
 
+.. note::
+    Note, python 2 is not anymore supported and these instructions are more for historical reference.
+
 `Docker <https://www.docker.com/>`_ is a platform to create a sandboxed virtualized environments. In the following example `Dockerfile` a virtualized
 `Ubuntu <http://ubuntu.com/>`_ is created that has pyNomo installed with all requirements::
 

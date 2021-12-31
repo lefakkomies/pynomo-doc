@@ -48,7 +48,7 @@ Nomograms have been used in an extensive array of applications. A sample include
 
 - Aeronautics, in which nomograms were used for decades in the cockpits of aircraft of all descriptions. As a navigation and flight control aid, nomograms were fast, compact and easy-to-use calculators.
 
-- Astronomical calculations, as in the post-launch orbital calculations of Sputnik 1 by P.E. Elyasberg.[1]
+- Astronomical calculations, as in the post-launch orbital calculations of Sputnik 1 by P.E. Elyasberg.
 
 - Engineering work of all kinds: Electrical design of filters and transmission lines, mechanical calculations of stress and loading, optical calculations, and so forth.
 
