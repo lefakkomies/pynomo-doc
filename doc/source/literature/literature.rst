@@ -1,6 +1,6 @@
 Literature
 ++++++++++
 
-.. include:: literature1.rst
+.. include:: books.rst
 .. include:: webresources.rst
 .. include:: scientific_articles.rst
