@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Frequency response &#8212; pyNomo Documentation 0.3.2.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          pyNomo Documentation</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.3.2</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main_page.html">Big picture of nomograph construction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../axes/axes.html">Axes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../types/types.html">Blocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../alignment/alignment.html">Block alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transformations/transformations.html">Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main_params.html">Top level parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature/literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendices.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/bibliography.html">Bibliography</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Frequency response</a><ul>
+<li><a class="reference internal" href="#theory-and-background">Theory and background</a></li>
+<li><a class="reference internal" href="#generated-nomograph">Generated nomograph</a></li>
+<li><a class="reference internal" href="#source-code">Source code</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/examples/example_force_transmissibility.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <section id="frequency-response">
+<h1>Frequency response<a class="headerlink" href="#frequency-response" title="Permalink to this headline">¶</a></h1>
+<p><em>Contribution: Add Lamorille</em></p>
+<section id="theory-and-background">
+<h2>Theory and background<a class="headerlink" href="#theory-and-background" title="Permalink to this headline">¶</a></h2>
+<p>For a single degree of freedom system (driven harmonic oscillator), the force frequency response (transmissibility)
+<span class="math notranslate nohighlight">\(T\)</span> is defined as the ratio
+between the magnitude of the transmitted force and the magnitude of the applied force.
+The frequency factor (dimensionless frequency) <span class="math notranslate nohighlight">\(r\)</span> is the ratio between the driving frequency and the natural frequency of the system.
+The damping ratio <span class="math notranslate nohighlight">\(\zeta\)</span> is a measure describing how rapidly the oscillations decay from one bounce to the next, it is specific to the system.
+Vibration isolation is possible only when the frequency factor is greater than <span class="math notranslate nohighlight">\(\sqrt{2}\)</span>.
+Relation is according equation:</p>
+<p><span class="math notranslate nohighlight">\(T = \sqrt{\frac{1 + (2\zeta r)^2}{(1-r^2)     + (2\zeta r)^2}}.\)</span></p>
+</section>
+<section id="generated-nomograph">
+<h2>Generated nomograph<a class="headerlink" href="#generated-nomograph" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/ex_transmissibility.png" src="../_images/ex_transmissibility.png" />
+</section>
+<section id="source-code">
+<h2>Source code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># T=sqrt[(1+(2zr)**2)/((1-r**2)**2+(2zr)**2]</span>
+<span class="linenos">  2</span><span class="c1"># Copyright Add LaMorille 2023</span>
+<span class="linenos">  3</span><span class="c1"># merging of two type 5 blocks, as pynomo does not draw the whole function in one</span>
+<span class="linenos">  4</span>
+<span class="linenos">  5</span>
+<span class="linenos">  6</span><span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">  7</span><span class="kn">from</span> <span class="nn">pyx</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">  8</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos">  9</span>
+<span class="linenos"> 10</span><span class="n">u_min</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># T</span>
+<span class="linenos"> 11</span><span class="n">u_max</span> <span class="o">=</span> <span class="mf">6.0</span>
+<span class="linenos"> 12</span>
+<span class="linenos"> 13</span><span class="n">wd_min_left</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># r</span>
+<span class="linenos"> 14</span><span class="n">wd_max_left</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="linenos"> 15</span>
+<span class="linenos"> 16</span><span class="n">wd_min_right</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># r</span>
+<span class="linenos"> 17</span><span class="n">wd_max_right</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="linenos"> 18</span>
+<span class="linenos"> 19</span>
+<span class="linenos"> 20</span><span class="k">def</span> <span class="nf">fT</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>  <span class="c1"># u(x,v)</span>
+<span class="linenos"> 21</span>    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>  <span class="c1"># log x scale</span>
+<span class="linenos"> 22</span>    <span class="k">return</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="n">z</span><span class="p">))</span> <span class="o">**</span> <span class="mf">0.5</span>
+<span class="linenos"> 23</span>
+<span class="linenos"> 24</span>
+<span class="linenos"> 25</span><span class="n">block_params_left</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos"> 26</span>    <span class="s1">&#39;block_type&#39;</span><span class="p">:</span> <span class="s1">&#39;type_5&#39;</span><span class="p">,</span>
+<span class="linenos"> 27</span>    <span class="s1">&#39;u_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>  <span class="c1"># log y scale</span>
+<span class="linenos"> 28</span>    <span class="s1">&#39;v_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">fT</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">)),</span>  <span class="c1"># log y scale</span>
+<span class="linenos"> 29</span>    <span class="s1">&#39;u_values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">u_min</span><span class="p">,</span> <span class="n">u_max</span><span class="p">],</span>
+<span class="linenos"> 30</span>    <span class="s1">&#39;scale_type_u&#39;</span><span class="p">:</span> <span class="s1">&#39;log smart&#39;</span><span class="p">,</span>
+<span class="linenos"> 31</span>    <span class="s1">&#39;u_tick_levels&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<span class="linenos"> 32</span>    <span class="s1">&#39;u_tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="linenos"> 33</span>    <span class="s1">&#39;u_title&#39;</span><span class="p">:</span> <span class="s1">&#39;$T$&#39;</span><span class="p">,</span>
+<span class="linenos"> 34</span>    <span class="s1">&#39;u_title_draw_center&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 35</span>    <span class="s1">&#39;u_tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
+<span class="linenos"> 36</span>    <span class="s1">&#39;v_values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+<span class="linenos"> 37</span>    <span class="s1">&#39;v_manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;&#39;</span><span class="p">},</span>
+<span class="linenos"> 38</span>    <span class="s1">&#39;v_title&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="linenos"> 39</span>    <span class="s1">&#39;manual_x_scale&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 40</span>    <span class="s1">&#39;scale_type_wd&#39;</span><span class="p">:</span> <span class="s1">&#39;log smart&#39;</span><span class="p">,</span>
+<span class="linenos"> 41</span>    <span class="s1">&#39;x_min&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">wd_min_left</span><span class="p">),</span>  <span class="c1"># log x scale</span>
+<span class="linenos"> 42</span>    <span class="s1">&#39;x_max&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">wd_max_left</span><span class="p">),</span>  <span class="c1"># log x scale</span>
+<span class="linenos"> 43</span>    <span class="s1">&#39;wd_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>  <span class="c1"># log x scale</span>
+<span class="linenos"> 44</span>    <span class="s1">&#39;wd_func_inv&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>  <span class="c1"># log x scale</span>
+<span class="linenos"> 45</span>    <span class="s1">&#39;wd_tick_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos"> 46</span>    <span class="s1">&#39;wd_tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos"> 47</span>    <span class="s1">&#39;wd_title&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="linenos"> 48</span>    <span class="s1">&#39;wd_tag&#39;</span><span class="p">:</span> <span class="s1">&#39;axis_left&#39;</span><span class="p">,</span>
+<span class="linenos"> 49</span>    <span class="s1">&#39;vertical_guides&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 50</span><span class="p">}</span>
+<span class="linenos"> 51</span>
+<span class="linenos"> 52</span><span class="n">block_params_right</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos"> 53</span>    <span class="s1">&#39;block_type&#39;</span><span class="p">:</span> <span class="s1">&#39;type_5&#39;</span><span class="p">,</span>
+<span class="linenos"> 54</span>    <span class="s1">&#39;u_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
+<span class="linenos"> 55</span>    <span class="s1">&#39;v_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">fT</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">)),</span>
+<span class="linenos"> 56</span>    <span class="s1">&#39;u_values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">u_min</span><span class="p">,</span> <span class="n">u_max</span><span class="p">],</span>
+<span class="linenos"> 57</span>    <span class="s1">&#39;scale_type_u&#39;</span><span class="p">:</span> <span class="s1">&#39;log smart&#39;</span><span class="p">,</span>
+<span class="linenos"> 58</span>    <span class="s1">&#39;u_tick_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos"> 59</span>    <span class="s1">&#39;u_tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos"> 60</span>    <span class="s1">&#39;u_title&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="linenos"> 61</span>    <span class="s1">&#39;v_values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+<span class="linenos"> 62</span>    <span class="s1">&#39;v_manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;$\zeta=0.0$&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;x_corr&#39;</span><span class="p">:</span> <span class="mf">2.25</span><span class="p">,</span> <span class="s1">&#39;y_corr&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;draw_line&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}],</span>
+<span class="linenos"> 63</span>                           <span class="mf">0.2</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;$\zeta=0.2$&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;x_corr&#39;</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s1">&#39;y_corr&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">9.5</span><span class="p">,</span> <span class="s1">&#39;draw_line&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}],</span>
+<span class="linenos"> 64</span>                           <span class="mf">0.5</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;$\zeta=0.5$&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;x_corr&#39;</span><span class="p">:</span> <span class="mf">5.75</span><span class="p">,</span> <span class="s1">&#39;y_corr&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;draw_line&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}],</span>
+<span class="linenos"> 65</span>                           <span class="mf">1.0</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;$\zeta=1.0$&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;x_corr&#39;</span><span class="p">:</span> <span class="mf">6.9</span><span class="p">,</span> <span class="s1">&#39;y_corr&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.75</span><span class="p">,</span> <span class="s1">&#39;draw_line&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}],</span> <span class="p">},</span>
+<span class="linenos"> 66</span>    <span class="s1">&#39;v_title&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="linenos"> 67</span>    <span class="s1">&#39;manual_x_scale&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 68</span>    <span class="s1">&#39;scale_type_wd&#39;</span><span class="p">:</span> <span class="s1">&#39;log smart&#39;</span><span class="p">,</span>
+<span class="linenos"> 69</span>    <span class="s1">&#39;x_min&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">wd_min_right</span><span class="p">),</span>
+<span class="linenos"> 70</span>    <span class="s1">&#39;x_max&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">wd_max_right</span><span class="p">),</span>
+<span class="linenos"> 71</span>    <span class="s1">&#39;wd_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
+<span class="linenos"> 72</span>    <span class="s1">&#39;wd_func_inv&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
+<span class="linenos"> 73</span>    <span class="s1">&#39;wd_tick_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos"> 74</span>    <span class="s1">&#39;wd_tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos"> 75</span>    <span class="s1">&#39;wd_title&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="linenos"> 76</span>    <span class="s1">&#39;wd_tag&#39;</span><span class="p">:</span> <span class="s1">&#39;axis_right&#39;</span><span class="p">,</span>
+<span class="linenos"> 77</span>    <span class="s1">&#39;vertical_guides&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 78</span><span class="p">}</span>
+<span class="linenos"> 79</span>
+<span class="linenos"> 80</span><span class="n">axis_params</span> <span class="o">=</span> <span class="p">{</span>  <span class="c1"># for proper axis management</span>
+<span class="linenos"> 81</span>    <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;axis_left&#39;</span><span class="p">,</span>
+<span class="linenos"> 82</span>    <span class="s1">&#39;dtag&#39;</span><span class="p">:</span> <span class="s1">&#39;axis_right&#39;</span><span class="p">,</span>
+<span class="linenos"> 83</span>    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="n">wd_min_left</span><span class="p">,</span>
+<span class="linenos"> 84</span>    <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="n">wd_max_right</span><span class="p">,</span>
+<span class="linenos"> 85</span>    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
+<span class="linenos"> 86</span>    <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;log smart&#39;</span><span class="p">,</span>
+<span class="linenos"> 87</span>    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;r&#39;</span><span class="p">,</span>
+<span class="linenos"> 88</span>    <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="linenos"> 89</span>    <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="linenos"> 90</span>    <span class="s1">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="linenos"> 91</span>    <span class="s1">&#39;title_y_shift&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.2</span><span class="p">,</span>
+<span class="linenos"> 92</span>    <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
+<span class="linenos"> 93</span>    <span class="s1">&#39;extra_params&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;manual line&#39;</span><span class="p">,</span>
+<span class="linenos"> 94</span>                      <span class="s1">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mf">1.414</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$\sqrt 2$&#39;</span><span class="p">},</span> <span class="p">},</span> <span class="p">],</span>
+<span class="linenos"> 95</span><span class="p">}</span>
+<span class="linenos"> 96</span>
+<span class="linenos"> 97</span><span class="n">block_axis_params</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos"> 98</span>    <span class="s1">&#39;block_type&#39;</span><span class="p">:</span> <span class="s1">&#39;type_8&#39;</span><span class="p">,</span>
+<span class="linenos"> 99</span>    <span class="s1">&#39;f_params&#39;</span><span class="p">:</span> <span class="n">axis_params</span><span class="p">,</span>
+<span class="linenos">100</span><span class="p">}</span>
+<span class="linenos">101</span>
+<span class="linenos">102</span>
+<span class="linenos">103</span><span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>  <span class="c1"># hiding outlines</span>
+<span class="linenos">104</span>    <span class="n">c</span><span class="o">.</span><span class="n">stroke</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="mf">8.515</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">8.515</span><span class="p">,</span> <span class="mf">14.99</span><span class="p">)</span> <span class="o">+</span> <span class="n">path</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="mf">6.565</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">6.565</span><span class="p">,</span> <span class="mf">14.99</span><span class="p">),</span>
+<span class="linenos">105</span>             <span class="p">[</span><span class="n">style</span><span class="o">.</span><span class="n">linewidth</span><span class="o">.</span><span class="n">thick</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">White</span><span class="p">])</span>
+<span class="linenos">106</span>
+<span class="linenos">107</span>
+<span class="linenos">108</span><span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">109</span>    <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="s2">&quot;ex_transmissibility.pdf&quot;</span><span class="p">,</span>
+<span class="linenos">110</span>    <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+<span class="linenos">111</span>    <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+<span class="linenos">112</span>    <span class="s1">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_params_left</span><span class="p">,</span> <span class="n">block_params_right</span><span class="p">,</span> <span class="n">block_axis_params</span><span class="p">],</span>
+<span class="linenos">113</span>    <span class="s1">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)],</span>
+<span class="linenos">114</span>    <span class="s1">&#39;make_grid&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="linenos">115</span>    <span class="s1">&#39;draw_lines&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos">116</span>    <span class="s1">&#39;line_params&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;coords&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">8.435</span><span class="p">,</span> <span class="mf">9.49</span><span class="p">,</span> <span class="mf">8.435</span><span class="p">],</span> <span class="p">[</span><span class="mf">9.495</span><span class="p">,</span> <span class="mf">8.435</span><span class="p">,</span> <span class="mf">9.495</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>  <span class="c1"># manual isopleth</span>
+<span class="linenos">117</span>                     <span class="s1">&#39;line_style&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Black</span><span class="p">,</span> <span class="n">style</span><span class="o">.</span><span class="n">linewidth</span><span class="o">.</span><span class="n">thick</span><span class="p">,</span> <span class="n">style</span><span class="o">.</span><span class="n">linestyle</span><span class="o">.</span><span class="n">dashed</span><span class="p">],</span>
+<span class="linenos">118</span>                     <span class="s1">&#39;circle_size&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="p">}],</span>
+<span class="linenos">119</span>    <span class="s1">&#39;title_x&#39;</span><span class="p">:</span> <span class="mf">12.75</span><span class="p">,</span>
+<span class="linenos">120</span>    <span class="s1">&#39;title_y&#39;</span><span class="p">:</span> <span class="mf">14.0</span><span class="p">,</span>
+<span class="linenos">121</span>    <span class="s1">&#39;title_box_width&#39;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span>
+<span class="linenos">122</span>    <span class="s1">&#39;title_str&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\large Pynomo Type 5 \par </span><span class="se">\</span>
+<span class="linenos">123</span><span class="s1">                   \par $T=\sqrt{{1+(2 \zeta r)^2}\over{(1-r^2)^2+(2 \zeta r)^2}}$ \par </span><span class="se">\</span>
+<span class="linenos">124</span><span class="s1">                   \par \normalsize $T=$ transmissibility \par $\zeta=$ damping ratio \par $r=$ frequency ratio&#39;</span><span class="p">,</span>
+<span class="linenos">125</span>    <span class="s1">&#39;post_func&#39;</span><span class="p">:</span> <span class="n">post</span><span class="p">,</span>
+<span class="linenos">126</span><span class="p">}</span>
+<span class="linenos">127</span>
+<span class="linenos">128</span><span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2023, Daniel Boulet, Ron Doerfler, Joe Marasco, Leif Roschier.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
