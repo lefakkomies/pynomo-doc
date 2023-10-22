@@ -7,5 +7,6 @@ The following examples illustrate practical applications of nomographs.  Each ex
 .. include:: example_voltage_divider.rst
 .. include:: example_bicycle_cadence.rst
 .. include:: example_zscore.rst
+.. include:: example_force_transmissibility.rst
 .. include:: example_amortized_loan_calculator.rst
 .. include:: example_photography_exposure.rst
